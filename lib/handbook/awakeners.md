@@ -25,7 +25,7 @@ icon: lucide/book-user
 
     **[Chaos:](#chaos)** ["24"](#24) [Alva](#alva) [Doll](#doll) [GDoll](#gdoll) [Hameln](#hameln) [Kathigu-Ra](#kathigu-ra) [Karen](#karen) [Lily](#lily) [Lotan](#lotan) [Mouchette](#mouchette) [Nautila](#nautila) [Nymphaea](#nymphaea) [Ogier](#ogier) [Pandia](#pandia) [Ramona](#ramona) [GRamona](#gramona) [Ryker](#ryker) [Tawil](#tawil)
 
-    **[Aequor:](#aequor)** [Aurita](#aurita) [Caecus](#caecus) [Celeste](#celeste) [Corposant](#corposant) [Faros](#faros) [Goliath](#goliath) [Miryam](#miryam) [Murphy](#murphy) [Sanga](#sanga) [Tulu](#tulu) <br /> **[Divine Realm: Aequor:](#divine-realm-aequor)** [GMurphy](#gmurphy) [Vortice](#vortice)
+    **[Aequor:](#aequor)** [Aurita](#aurita) [Caecus](#caecus) [Celeste](#celeste) [Corposant](#corposant) [Faros](#faros) [Goliath](#goliath) [Miryam](#miryam) [Murphy](#murphy) [Sanga](#sanga) [Tulu](#tulu) <br /> **[Benthos: Aequor:](#benthos-aequor)** [GMurphy](#gmurphy) [Pontos](#pontos) [Vortice](#vortice)
 
     **[Caro:](#caro)** [Agrippa](#agrippa) [Aigis](#aigis) [Doresain](#doresain) [Faint](#faint) [Helot](#helot) [GHelot](#ghelot) [Leigh](#leigh) [Pickman](#pickman) [Salvador](#salvador) [Sorel](#sorel) [Thais](#thais) [Uvhash](#uvhash) [Xu](#xu) <br /> **[Propagation: Caro:](#propagation-caro)** [Saya](#saya)
 
@@ -209,7 +209,7 @@ Chaos "24" deals enough single-target damage that she's a viable endgame DPS aga
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -406,7 +406,7 @@ At E3, she can be a DPS that sets up burst combos with Combat Stance and Precisi
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -526,7 +526,7 @@ She also generates a bit of healing and aliemus, and her high base Keyflare Rege
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -661,7 +661,7 @@ At OE, she can carry boss fights by herself.
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -787,7 +787,7 @@ Works best with teammates that want to combo off and play a lot of cards.
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -917,7 +917,7 @@ Kath needs E3 and her posse to work. She likes teammates who provide STR and cri
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -1049,7 +1049,7 @@ OE makes her a top-tier arithmetica support.</p>
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -1179,7 +1179,7 @@ Lily works best as the main shielder and healer in poison teams, but she can fit
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -1316,7 +1316,7 @@ Her Over-Exalt deals bonus damage equal to 15% of the enemy's max HP. This boost
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -1376,9 +1376,11 @@ Her Over-Exalt deals bonus damage equal to 15% of the enemy's max HP. This boost
     <span class="heading">E2, E3, OE</span>
 </div>
 <div markdown>
-One of the highest-damage carries in the game. Even the toughest endgame bosses tremble in fear when they hear "Shining ✰ Tornaaaaado!" In normal story mode she melts everything with her exalt and Mortal Blast combos.
+A strike-centric DPS whose E1 gives huge damage buffs from triggering death resistance.
 
-Needs E3 for her full damage potential. She works best on a team loaded up with death resistance, as her E1 gives stacking buffs each time you trigger death resistance in the fight.
+By intentionally dying, then using her exalt, chaining 8 strikes, and finishing with Shining Crush, Mouchette can pull off some of the highest-damage combo turns in the game.
+
+She works best in short stages, as her playstyle means you probably won't survive to turn 10.
 </div>
 </div>
 </div>
@@ -1449,7 +1451,7 @@ Needs E3 for her full damage potential. She works best on a team loaded up with 
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -1580,7 +1582,7 @@ Nautila's exalt can support counter teams by converting counter into AOE damage.
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -1746,7 +1748,7 @@ Works best in a team full of poison characters. Nymphaea's rouse makes her a dec
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -1882,7 +1884,7 @@ Ogier scales well with investment and becomes crazy good at +12 and level 90 wit
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -2063,7 +2065,7 @@ She was caught in the crossfire when [Astral Reign](/handbook/storylines#astral-
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -2179,7 +2181,7 @@ She works best with teammates that have high-cost cards or specific cards they n
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -2358,7 +2360,7 @@ Her DPS build revolves around using dual posse every turn to scale Predetermined
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -2490,7 +2492,7 @@ Ryker is also excellent at drawing cards and searching for cards, making him a g
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -2676,7 +2678,7 @@ Needs E2 and lots of arithmetica to work well. Also very complex and time-consum
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -2746,10 +2748,10 @@ Her actual damage is low, so she needs a team that stacks lots of STR and Tentac
 <div class="heading text-center">Example Build</div>
 <div class="hagrid grid-1/1/1/1" markdown>
   <figure class="center" markdown="span">
-    [![April Tribute](/images/covenants/april-tribute--icon.png "April Tribute"){loading=lazy}](/handbook/team#april-tribute)
+    [![Crimson Pulse](/images/covenants/crimson-pulse--icon.png "Crimson Pulse"){loading=lazy}](/handbook/team#crimson-pulse)
   </figure>
   <figure class="center" markdown="span">
-    [![April Tribute](/images/covenants/april-tribute.png "April Tribute"){loading=lazy}](/handbook/team#april-tribute)
+    [![Crimson Pulse](/images/covenants/crimson-pulse.png "Crimson Pulse"){loading=lazy}](/handbook/team#crimson-pulse)
   </figure>
   <figure class="center" markdown="span">
     [![Scarlet Embrace](/images/covenants/scarlet-embrace--icon.png "Scarlet Embrace"){loading=lazy}](/handbook/team#scarlet-embrace)
@@ -2771,13 +2773,13 @@ Her actual damage is low, so she needs a team that stacks lots of STR and Tentac
   <div class="desktop center" markdown>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
-      [![April Tribute](/images/covenants/april-tribute--icon.png "April Tribute"){loading=lazy}](/handbook/team#april-tribute)
+      [![Crimson Pulse](/images/covenants/crimson-pulse--icon.png "Crimson Pulse"){loading=lazy}](/handbook/team#crimson-pulse)
     </figure>
     <figure class="center">
-      [![April Tribute](/images/covenants/april-tribute.png "April Tribute"){loading=lazy}](/handbook/team#april-tribute)
+      [![Crimson Pulse](/images/covenants/crimson-pulse.png "Crimson Pulse"){loading=lazy}](/handbook/team#crimson-pulse)
     </figure>
   </div>
-  <div class="caption text-center" markdown="span">[April Tribute](/handbook/team#april-tribute)</div>
+  <div class="caption text-center" markdown="span">[Crimson Pulse](/handbook/team#crimson-pulse)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Scarlet Embrace](/images/covenants/scarlet-embrace--icon.png "Scarlet Embrace"){loading=lazy}](/handbook/team#scarlet-embrace)
@@ -2808,7 +2810,7 @@ Her actual damage is low, so she needs a team that stacks lots of STR and Tentac
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -2821,13 +2823,13 @@ Her actual damage is low, so she needs a team that stacks lots of STR and Tentac
   [![Corposant](/images/awakeners/aequor/corposant--mini.png "Corposant"){loading=lazy}](#corposant) <figcaption>[Corposant](#corposant)</figcaption>
   </figure>
   <figure markdown="span">
+  [![Pontos](/images/awakeners/aequor/pontos--mini.png "Pontos"){loading=lazy}](#pontos) <figcaption>[Pontos](#pontos)</figcaption>
+  </figure>
+  <figure markdown="span">
   [![Tulu](/images/awakeners/aequor/tulu--mini.png "Tulu"){loading=lazy}](#tulu) <figcaption>[Tulu](#tulu)</figcaption>
   </figure>
   <figure markdown="span">
   [![Faros](/images/awakeners/aequor/faros--mini.png "Faros"){loading=lazy}](#faros) <figcaption>[Faros](#faros)</figcaption>
-  </figure>
-  <figure markdown="span">
-  [![Murphy](/images/awakeners/aequor/murphy--mini.png "Murphy"){loading=lazy}](#murphy) <figcaption>[Murphy](#murphy)</figcaption>
   </figure>
 </div>
 </section>
@@ -3002,7 +3004,7 @@ In fights where you can stall and build counter, Caecus works as a main DPS. His
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -3132,7 +3134,7 @@ Celeste also generates a bit of arithmetica and Tentacle DMG, and her defensive 
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -3315,7 +3317,7 @@ Corposant is notably strong in story mode and Hectic Skybound Rail, as she easil
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -3325,16 +3327,16 @@ Corposant is notably strong in story mode and Hectic Skybound Rail, as she easil
   </figure>
   <div class="grid-mobile-1/1 grid-desktop-1/1/1/1" markdown>
   <figure markdown="span">
-  [![Tulu](/images/awakeners/aequor/tulu--mini.png "Tulu"){loading=lazy}](#tulu) <figcaption>[Tulu](#tulu)</figcaption>
+  [![Saya](/images/awakeners/caro/saya--mini.png "Saya"){loading=lazy}](#saya) <figcaption>[Saya](#saya)</figcaption>
+  </figure>
+  <figure markdown="span">
+  [![Pontos](/images/awakeners/aequor/pontos--mini.png "Pontos"){loading=lazy}](#pontos) <figcaption>[Pontos](#pontos)</figcaption>
   </figure>
   <figure markdown="span">
   [![Aurita](/images/awakeners/aequor/aurita--mini.png "Aurita"){loading=lazy}](#aurita) <figcaption>[Aurita](#aurita)</figcaption>
   </figure>
   <figure markdown="span">
   [![Casiah](/images/awakeners/ultra/casiah--mini.png "Casiah"){loading=lazy}](#casiah) <figcaption>[Casiah](#casiah)</figcaption>
-  </figure>
-  <figure markdown="span">
-  [![Vortice](/images/awakeners/aequor/vortice--mini.png "Vortice"){loading=lazy}](#vortice) <figcaption>[Vortice](#vortice)</figcaption>
   </figure>
 </div>
 </section>
@@ -3511,7 +3513,7 @@ Faros can also be built as a DPS that spams Deep Currents to apply poison. This 
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -3706,7 +3708,7 @@ Goliath is a solid DPS at low levels. His exalt cards and Decapitation Damage sc
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -3839,7 +3841,7 @@ At endgame, Miryam is usually seen supporting [GMurphy](#gmurphy) Lemurian teams
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -3958,7 +3960,7 @@ Works well with [GMurphy](#gmurphy) even though she isn't a Lemurian, as she can
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -4087,7 +4089,7 @@ Sanga can solo DPS at low levels, but she struggles with enemies that have a lot
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -4218,7 +4220,7 @@ At low levels, Abyss Order and tentacle slaps are enough to make Tulu usable as 
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -4242,7 +4244,7 @@ At low levels, Abyss Order and tentacle slaps are enough to make Tulu usable as 
 </div>
 </section>
 
-## Divine Realm: Aequor
+## Benthos: Aequor
 
 ### GMurphy {.tier .text-center}
 
@@ -4407,7 +4409,7 @@ GMurphy is a viable endgame DPS with OE and high investment. In [Astral Reign](/
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -4427,6 +4429,140 @@ GMurphy is a viable endgame DPS with OE and high investment. In [Astral Reign](/
   </figure>
   <figure markdown="span">
   [![Murphy](/images/awakeners/aequor/murphy--mini.png "Murphy"){loading=lazy}](#murphy) <figcaption>[Murphy](#murphy)</figcaption>
+  </figure>
+</div>
+</section>
+
+### Pontos {.tier .text-center}
+
+<div class="text-center" markdown style="margin-bottom: 24px;">
+  <p class="heading" markdown="span" style="margin: 0;">
+    STR Down Aftershock Value Engine
+  </p>
+  <p class="caption" markdown="span">
+    STR Down &middot;
+    Tentacle DMG &middot;
+    Crit DMG &middot;
+    Aliemus &middot;
+    Arith. &middot;
+    Multihit
+  </p>
+</div>
+
+<div class="flex-desktop" markdown>
+<div markdown="span" style="flex-shrink: 0;">
+  !["Pontos"](/images/awakeners/aequor/pontos.png "Pontos"){width="168" loading=lazy}
+</div>
+<div markdown>
+<div class="grid cards grid-cards-tiers text-center" markdown>
+  - <span class="caption">DPS Rank</span>
+
+    <span class="heading" style="color: var(--md-tier-b-plus);">B+ *(Good Early)*</span>
+
+  - <span class="caption">Support Rank</span>
+
+    <span class="heading" style="color: var(--md-tier-a);">A *(Great)*</span>
+
+  - <span class="caption">Stopping Points</span>
+
+    <span class="heading">E3</span>
+</div>
+<div markdown>
+A flexible support and DPS for Aequor teams, Pontos massively reduces enemy STR while giving various boosts with his Gaunt cards.
+
+His Fixed DMG is good for clearing mobs, but he takes a long time to kill bosses on his own and appreciates another DPS backing him up.
+
+He works best with E3 and high levels, in Aftershock-focused teams with [Corposant](#corposant).
+</div>
+</div>
+</div>
+
+<section class="section mobile" markdown>
+<div class="heading text-center">Example Build</div>
+<div class="hagrid grid-1/1/1/1" markdown>
+  <figure class="center" markdown="span">
+    [![Dream of Medicine](/images/covenants/dream-of-medicine--icon.png "Dream of Medicine"){loading=lazy}](/handbook/team#dream-of-medicine)
+  </figure>
+  <figure class="center" markdown="span">
+    [![Dream of Medicine](/images/covenants/dream-of-medicine.png "Dream of Medicine"){loading=lazy}](/handbook/team#dream-of-medicine)
+  </figure>
+  <figure class="center" markdown="span">
+    [![Crimson Pulse](/images/covenants/crimson-pulse--icon.png "Crimson Pulse"){loading=lazy}](/handbook/team#crimson-pulse)
+  </figure>
+  <figure class="center" markdown="span">
+    [![Crimson Pulse](/images/covenants/crimson-pulse.png "Crimson Pulse"){loading=lazy}](/handbook/team#crimson-pulse)
+  </figure>
+</div>
+<div class="caption text-center" markdown="span">[Dream of Medicine](/handbook/team#dream-of-medicine) &middot; [Crimson Pulse](/handbook/team#crimson-pulse)</div>
+</section>
+
+<section class="section" markdown>
+<div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
+  <div class="heading text-center desktop">Example Build</div>
+  <div class="heading text-center">Early Game Wheels</div>
+  <div class="heading text-center">Astral Reign Wheels</div>
+</div>
+<div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
+  <div class="desktop center" markdown>
+  <div class="hagrid grid-1/1" markdown="span">
+    <figure class="center">
+      [![Dream of Medicine](/images/covenants/dream-of-medicine--icon.png "Dream of Medicine"){loading=lazy}](/handbook/team#dream-of-medicine)
+    </figure>
+    <figure class="center">
+      [![Dream of Medicine](/images/covenants/dream-of-medicine.png "Dream of Medicine"){loading=lazy}](/handbook/team#dream-of-medicine)
+    </figure>
+  </div>
+  <div class="caption text-center" markdown="span">[Dream of Medicine](/handbook/team#dream-of-medicine)</div>
+  <div class="hagrid grid-1/1" markdown="span">
+    <figure class="center">
+      [![Crimson Pulse](/images/covenants/crimson-pulse--icon.png "Crimson Pulse"){loading=lazy}](/handbook/team#crimson-pulse)
+    </figure>
+    <figure class="center">
+      [![Crimson Pulse](/images/covenants/crimson-pulse.png "Crimson Pulse"){loading=lazy}](/handbook/team#crimson-pulse)
+    </figure>
+  </div>
+  <div class="caption text-center" markdown="span">[Crimson Pulse](/handbook/team#crimson-pulse)</div>
+  </div>
+  <div class="hagrid grid-1/1" markdown="span">
+    <figure markdown="span">
+      ![Analysis of Death](/images/wheels/analysis-of-death.png "Analysis of Death"){loading=lazy} <figcaption>Analysis of Death</figcaption>
+    </figure>
+    <figure markdown="span">
+      ![Aged](/images/wheels/aged.png "Aged"){loading=lazy} <figcaption>Aged</figcaption>
+    </figure>
+  </div>
+  <div class="hagrid grid-1/1" markdown="span">
+    <figure markdown="span">
+      ![The Living Cage](/images/wheels/the-living-cage.png "The Living Cage"){loading=lazy} <figcaption>(Any Crit DMG stat)</figcaption>
+    </figure>
+    <figure markdown="span">
+      ![Critical Point](/images/wheels/critical-point.png "Critical Point"){loading=lazy} <figcaption>(Any Crit DMG stat)</figcaption>
+    </figure>
+  </div>
+</div>
+</section>
+
+<section class="section" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
+  <div class="heading text-center">Suggested Posse</div>
+  <div class="heading text-center">Works Well With</div>
+</div>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4" markdown>
+  <figure class="center" markdown="span">
+  ![Encounter in Pure White](/images/posses/encounter-in-pure-white.png "Encounter in Pure White"){width="80" loading=lazy} <figcaption>Encounter in Pure White <br /> (Faded Legacy Ch. 3)</figcaption>
+  </figure>
+  <div class="grid-mobile-1/1 grid-desktop-1/1/1/1" markdown>
+  <figure markdown="span">
+  [![Corposant](/images/awakeners/aequor/corposant--mini.png "Corposant"){loading=lazy}](#corposant) <figcaption>[Corposant](#corposant)</figcaption>
+  </figure>
+  <figure markdown="span">
+  [![Aurita](/images/awakeners/aequor/aurita--mini.png "Aurita"){loading=lazy}](#aurita) <figcaption>[Aurita](#aurita)</figcaption>
+  </figure>
+  <figure markdown="span">
+  [![Casiah](/images/awakeners/ultra/casiah--mini.png "Casiah"){loading=lazy}](#casiah) <figcaption>[Casiah](#casiah)</figcaption>
+  </figure>
+  <figure markdown="span">
+  [![GMurphy](/images/awakeners/aequor/gmurphy--mini.png "GMurphy"){loading=lazy}](#gmurphy) <figcaption>[GMurphy](#gmurphy)</figcaption>
   </figure>
 </div>
 </section>
@@ -4605,7 +4741,7 @@ Needs her posse, Reload! skill levels, and soulforge levels. She likes defensive
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -4804,7 +4940,7 @@ At high investment, Colorless Spiral applies a lot of poison with critical hits,
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -4988,7 +5124,7 @@ Aigis is a great support for any team, but she pairs especially well with glass 
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -5118,7 +5254,7 @@ Doresain is strong at low levels but falls off at endgame, especially against bo
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -5237,7 +5373,7 @@ Faint is often paired with [GDoll](#gdoll) for boss fights, but fits in any team
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -5428,7 +5564,7 @@ Helot can also be built as a DPS that focuses on setting up huge Shattering Stri
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -5558,7 +5694,7 @@ Needs E3 and The Lone Seed for consistency. She works best with [Aigis](#aigis) 
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -5672,7 +5808,7 @@ Leigh makes a lot of embryo when roused, and her OE is a good source of STR too.
   </div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure markdown="span">
-      ![Data is Flesh](/images/wheels/data-is-flesh.png "Data is Flesh"){loading=lazy} <figcaption>Data is Flesh</figcaption>
+      ![Nobleman's Staff](/images/wheels/noblemans-staff.png "Nobleman's Staff"){loading=lazy} <figcaption>Nobleman's Staff</figcaption>
     </figure>
     <figure markdown="span">
       ![Gluttony](/images/wheels/gluttony.png "Gluttony"){loading=lazy} <figcaption>(Any support)</figcaption>
@@ -5690,7 +5826,7 @@ Leigh makes a lot of embryo when roused, and her OE is a good source of STR too.
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -5823,7 +5959,7 @@ Works best with a main DPS that relies on their exalt and doesn't need arithmeti
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -5957,7 +6093,7 @@ Works best with high-CON teammates, as your Crimson Furnace scales with your max
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -6088,7 +6224,7 @@ Usually seen with [Pickman](#pickman), as he builds STR for her and massively bu
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -6274,7 +6410,7 @@ At E2 she is the best support for almost every team. The only reason she isn't i
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -6407,7 +6543,7 @@ OE makes him a decent if fragile endgame DPS.
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -6606,7 +6742,7 @@ Can solo carry at low levels, but works best with a dedicated poison applier on 
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -6666,7 +6802,7 @@ Can solo carry at low levels, but works best with a dedicated poison applier on 
 
   - <span class="caption">Stopping Points</span>
 
-    <span class="heading">E0, E1</span>
+    <span class="heading">E0, E1, E3</span>
 </div>
 <div markdown>
 Viscera Blossoms applies an absurd amount of corrosion, multiplying your damage by 4x and enabling even [bottom-tier DPS](/handbook/tier-list) to clear.
@@ -6744,7 +6880,7 @@ She discards cards and messes with your hand, so she works best with teammates t
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -6879,7 +7015,7 @@ Her Astral Reign image relic makes her exalt inflict permanent STR down, enablin
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -7074,7 +7210,7 @@ Castor can deal solid damage by tossing Plumes to inflict corrosion stacks, but 
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -7247,7 +7383,7 @@ She works best with DPS that rely on STR, but improves basically any team by bei
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -7379,7 +7515,7 @@ Her OE puts three Mirages in hand, enabling silly burst damage with high investm
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -7499,7 +7635,7 @@ Usually seen in stall teams with [Castor](#castor) because each Onyx Plume benef
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -7557,11 +7693,11 @@ Usually seen in stall teams with [Castor](#castor) because each Onyx Plume benef
     <span class="heading">E1, E2</span>
 </div>
 <div markdown>
-A support who passively multiplies your damage, defense, aliemus generation, or STR, scaling with her death resistance.
+Horla gives a teamwide buff of your choice for the whole exploration, scaling in magnitude with her death resistance, merely by playing any of her cards once.
 
-If a character had just one of Horla's moods, they would be a powerful support character. Horla's ability to switch on the fly makes her close to an auto-include in any team.
+Carol Psalm is a good source of aliemus which lets you retain arithmetica across turns, useful for setting up specific DPS like [Daffodil](#daffodil).
 
-E1 is recommended, as it makes her one of the best debuff appliers and easy to slot anywhere.
+At E1, Horla is also one of the most consistent weakness and vulnerable appliers in the game.
 </div>
 </div>
 </div>
@@ -7632,7 +7768,7 @@ E1 is recommended, as it makes her one of the best debuff appliers and easy to s
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -7824,7 +7960,7 @@ Jenkin can work as a main DPS herself, but needs high levels or STR buffs to do 
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -7955,7 +8091,7 @@ Hard to use early on, but gets much better with teammates that give her defense,
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -8087,7 +8223,7 @@ Needs E1 for consistency and E3 for high damage. OE makes him one of the top DPS
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -8284,7 +8420,7 @@ At E2, her defense card becomes quite good, making her a usable shielder for Ult
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -8478,7 +8614,7 @@ Technically usable as a damage dealer, but works best with counter relics or a r
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -8610,7 +8746,7 @@ At E3, her exalt lets a teammate exalt twice in one turn. This is useful for cha
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>
@@ -8743,7 +8879,7 @@ She works best supporting a DPS that has good cards, but hits hard enough to sol
 </section>
 
 <section class="section" markdown>
-<div class="hagrid grid-mobile-1/2 grid-desktop-1/4 desktop" markdown>
+<div class="hagrid grid-mobile-1/2 grid-desktop-2/4 desktop" markdown>
   <div class="heading text-center">Suggested Posse</div>
   <div class="heading text-center">Works Well With</div>
 </div>

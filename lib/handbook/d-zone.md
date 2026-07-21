@@ -173,7 +173,7 @@ Alert 5 is not for everyone, but the rewards are great and the taste of success 
 </div>
 
 <figure markdown="span">
-  ![](/images/handbook/d-zone/alert-5-clear.png){width="600" loading=lazy} <figcaption>If you can stall the boss, a level 80 [Kathigu-Ra](/handbook/awakeners#kathigu-ra) with level 60 supports clears Alert 5. Credit: Me</figcaption>
+  ![](/images/handbook/d-zone/alert-5-clear.png){width="600" loading=lazy} <figcaption>With good wheels and persistence, a level 60 soulforge 10 [GHelot](/handbook/awakeners#ghelot) clears Alert 5. Credit: Me</figcaption>
 </figure>
 
 ## Rules of D-Tide
@@ -292,7 +292,7 @@ If you're new, I recommend borrowing a [Mouchette](/handbook/awakeners#mouchette
 (If it's a bad matchup for [Mouchette](/handbook/awakeners#mouchette), you can also borrow a [Pollux](/handbook/awakeners#pollux), [GHelot](/handbook/awakeners#ghelot), etc.)
 
 <figure markdown="span">
-  ![](/images/handbook/d-zone/mouchette-clear.png){width="600" loading=lazy} <figcaption>A borrowed [Mouchette](/handbook/awakeners#mouchette) clears Alert 5 with bargain bin supports and wheels. Credit: Blecnes</figcaption>
+  ![](/images/handbook/d-zone/mouchette-clear.png){width="600" loading=lazy} <figcaption>If you hit death resistance enough times, a borrowed [Mouchette](/handbook/awakeners#mouchette) solos W3A5. Credit: Angbak</figcaption>
 </figure>
 
 ## Cheri's Flowchart of Diminishing Respect
@@ -346,5 +346,6 @@ In the best-case scenario, you clear the wave.
 
 - [PolkaRain's Dzone Mechanics Overviews](https://www.reddit.com/user/Fantastic_Use_9/submitted/){target="_blank"} - a guide to every D-tide rotation
 - [Angbak's 12 active days 375 D-tide](https://www.reddit.com/r/Morimens/s/JkmUo9xASU){target="_blank"} - crazy showcase of what a new account can do
+- [Angbak's 39 active days 400 D-tide](https://www.reddit.com/r/Morimens/s/tfx8V9rEEx){target="_blank"} - the sequel
 - [Dracozion on Reddit](https://www.reddit.com/user/Dracozion/submitted/){target="_blank"} - 425 clears with in-depth explanations
 - [Dracozion on YouTube](https://www.youtube.com/@phonicdraconic697/streams){target="_blank"} - D-tide Alert 5 streams

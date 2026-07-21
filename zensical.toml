@@ -18,7 +18,7 @@ site_name = "Mythag Library"
 # meaningful description of the site content for use by search engines.
 #
 # Read more: https://zensical.org/docs/setup/basics/#site_description
-site_description = "The community-maintained strategy hub for Morimens, featuring Awakener and Wheel of Destiny tier lists, builds, meta team comps, and guides to Phantasmal Dive and D-Effect Zone."
+site_description = "The community-maintained strategy hub for Morimens guides, featuring Awakener and Wheel of Destiny tier lists, builds, meta team comps, and guides to Phantasmal Dive and D-Effect Zone."
 
 # The site_author attribute. This is used in the HTML head element.
 #

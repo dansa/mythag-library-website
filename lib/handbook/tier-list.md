@@ -171,6 +171,11 @@ icon: lucide/list-ordered
   Murphy (E1)
 </div>
 <div class="item" markdown>
+  [![Pontos](/images/awakeners/aequor/pontos--mini.png)](/handbook/awakeners#pontos)
+
+  Pontos (E3)
+</div>
+<div class="item" markdown>
   [![Pickman](/images/awakeners/caro/pickman--mini.png)](/handbook/awakeners#pickman)
 
   Pickman (E2)
@@ -209,6 +214,11 @@ icon: lucide/list-ordered
   [![GMurphy](/images/awakeners/aequor/gmurphy--mini.png)](/handbook/awakeners#gmurphy)
 
   GMurphy (E2)
+</div>
+<div class="item" markdown>
+  [![Pontos](/images/awakeners/aequor/pontos--mini.png)](/handbook/awakeners#pontos)
+
+  Pontos (E3)
 </div>
 <div class="item" markdown>
   [![Doresain](/images/awakeners/caro/doresain--mini.png)](/handbook/awakeners#doresain)

@@ -22,9 +22,9 @@ icon: lucide/book-open
 
 !!! note "Last updated"
 
-    23 June 2026
+    21 July 2026
 
-    V2.5.1.6 - Invisible Symphony
+    V2.5.2.4 - Til the Snow Melts Rerun
 
 !!! info ""
 
@@ -38,7 +38,7 @@ This guide is aimed at new players who are just starting the game. You can use i
 
 This info is based on my experience as a veteran player and speedrunner, as well as the opinions of top players in the EN community. No advice is perfect, however I have tried to make this guide as unbiased and complete as possible.
 
-Thanks to the following players for their feedback: Al, Alice, Angbak, Arandomflamev2, Aria, Arintal, Aurora, Bagels, Blecnes, Bluelien, Calliphora, Catato, cornonthemacabre, dracozion, dudu, Ellie, Exo, Fibrinogen, fish, Frosthief, John Morimens, Jolly, Juice, juno, Kaly, L, Lens, Lil poison bro, Linasera, Megidola, Melwyn, Mengluo, Mika, monchi, Null, ppep, RainScarlet, Rascal, Redz, Reya, smile, Snorlax, Soma, Spooky, Tea, VxVendetta, Zekiel, Zyocuh.
+Thanks to the following players for their feedback: Al, Alice, Angbak, Anna, Arandomflamev2, Aria, Arintal, Arisu, Aurora, Bagels, Blecnes, Bluelien, Calliphora, Catato, cornonthemacabre, dracozion, dudu, Ellie, Exo, Fibrinogen, fish, Frosthief, John Morimens, Jolly, Juice, juno, Jynn, Kaly, Klips, L, Lens, Lil poison bro, Linasera, Megidola, Melwyn, Mengluo, Mika, monchi, Null, PolkaRain, ppep, Rascal, Redz, Reya, smile, Snorlax, Soma, Spooky, Tea, VxVendetta, Zekiel, Zyocuh.
 
 ## Links and Resources
 
@@ -64,8 +64,9 @@ Thanks to the following players for their feedback: Al, Alice, Angbak, Arandomfl
 - [How to kidnap a whale supporter](https://www.reddit.com/r/Morimens/comments/1r2lmmw/how_to_kidnap_a_whale_supporter/){target="_blank"}
 - [Aurora's Guide to F2P Greed](https://docs.google.com/document/d/15l3tCxItkLVLwLKKV4vPFph1wYWRQbFgGHDZLYbT9Fo/){target="_blank"} - tips for fastest new player progression
 - [Braindump-ed in a vat](https://docs.google.com/presentation/d/1XDs_D-NOo88Q1Jkk6b6s_69_gxMFrx-1HBJoS8wXG10/){target="_blank"} - quick reference character guides
-- [cornonthemacabre's Morimens Character Guide](https://docs.google.com/document/d/1liixnERyCP2wot_yHQKNq9jQNa4MTs93z0VSjNXQP5I/){target="_blank"} - includes tier list
-- [moncher's 400 Dtide +4 Tier List](https://www.reddit.com/r/Morimens/comments/1sedg6e/morimens_tier_list_400_dtide_4_vortice_version/){target="_blank"} - high investment D-Effect Zone tier list
+- [luffyomg's D-tide Tier List](https://drive.google.com/file/d/184eGAZ4JbkDOIQQtQL_30PwS6rfg_JfP/view){target="_blank"} - aimed at low investment Alert 5 clears
+- [cornonthemacabre's Morimens Character Guide](https://docs.google.com/document/d/1liixnERyCP2wot_yHQKNq9jQNa4MTs93z0VSjNXQP5I/){target="_blank"} - includes D-Effect Zone tier list, a bit outdated
+- [moncher's 400 Dtide +4 Tier List](https://www.reddit.com/r/Morimens/comments/1sedg6e/morimens_tier_list_400_dtide_4_vortice_version/){target="_blank"} - for highly invested players, a bit outdated
 
 ---
 

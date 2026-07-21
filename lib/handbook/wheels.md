@@ -87,15 +87,6 @@ icon: lucide/list-ordered
 
 ## A {.tier .text-center style="background-color: var(--md-tier-a);"}
 <div class="grid-96" markdown>
-<div class="item" markdown style="background-color: var(--md-tier-free);">
-  ![Rewinding Time](/images/wheels/rewinding-time.png)
-
-  **Rewinding Time**
-
-  Mythag Shop
-
-  *(keyflare, replaying cards)*
-</div>
 <div class="item" markdown>
   ![Eternal Requiem](/images/wheels/eternal-requiem.png)
 
@@ -189,6 +180,15 @@ icon: lucide/list-ordered
   Mythag Shop
 
   *(for exalt and strike DPS)*
+</div>
+<div class="item" markdown style="background-color: var(--md-tier-free);">
+  ![Rewinding Time](/images/wheels/rewinding-time.png)
+
+  **Rewinding Time**
+
+  Mythag Shop
+
+  *(keyflare, replaying cards)*
 </div>
 <div class="item" markdown style="background-color: var(--md-tier-free);">
   ![Winter's Requiem](/images/wheels/winters-requiem.png)
@@ -324,6 +324,15 @@ icon: lucide/list-ordered
   [Murphy](/handbook/awakeners#murphy)
 
   *(keyflare, teamwide buff)*
+</div>
+<div class="item" markdown>
+  ![The Living Cage](/images/wheels/the-living-cage.png)
+
+  **The Living Cage**
+
+  [Pontos](/handbook/awakeners#pontos)
+
+  *(aliemus, teamwide buff)*
 </div>
 <div class="item" markdown>
   ![Eternal Weave](/images/wheels/eternal-weave.png)

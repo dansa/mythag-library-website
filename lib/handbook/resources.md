@@ -402,13 +402,9 @@ You can get the Luminous Cores and Pure Cores if you want. These are one-time on
 ![](/images/icons/shop/black-offering.png){width="128" loading=lazy}
 
 ![](/images/wheels/rewinding-time--mini.png){width="80" loading=lazy}
-
-**Buy as many copies of Rewinding Time as possible.** This is a strong wheel for many characters and it can only be obtained here. If you have it at +12, you can equip it at the same time as another SSR wheel.
-
 ![](/images/wheels/celestial-beast--mini.png){width="80" loading=lazy}
-![](/images/wheels/deathless-ascent--mini.png){width="80" loading=lazy}
 
-**Buy Celestial Beast or Deathless Ascent with extra Black Offerings.** They're good targets to +12 once you have Rewinding Time at +12.
+**Buy copies of Rewinding Time and Celestial Beast.** These are strong, universally useful wheels which can only be obtained here. If you have a wheel at +12, you can equip it at the same time as another SSR wheel.
 
 ![](/images/covenants/feast-from-afar.png){width="80" loading=lazy}
 
@@ -418,6 +414,10 @@ You can get the Luminous Cores and Pure Cores if you want. These are one-time on
 ![](/images/icons/cores/pure.png){width="80" loading=lazy}
 
 You can get the Luminous Cores and Pure Cores if you want. These are one-time only and don't refresh.
+
+![](/images/wheels/deathless-ascent--mini.png){width="80" loading=lazy}
+
+You can get +12 Deathless Ascent if you have nothing else to buy.
 
 ![](/images/wheels/gateway-of-truth--mini.png){width="80" loading=lazy}
 

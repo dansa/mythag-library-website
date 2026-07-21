@@ -338,7 +338,7 @@ In the best-case scenario, you clear the wave.
 ## Further Reading
 
 - [Official Discord](https://discord.gg/RAegY8wcGx){target="_blank"}
-- [Mythag University Discord](https://discord.gg/DM4TsreHny){target="_blank"}
+- [Mythag Library Discord](https://discord.gg/H2MUYUSEBx){target="_blank"}
 - [r/morimenstactics](https://www.reddit.com/r/morimenstactics/){target="_blank"}
 - [Morimens Boss Compendium](https://docs.google.com/spreadsheets/d/1QYciqHJY3BilDcdvBiIT_dOqXOdqGX-4FBDj5rL6qyA/){target="_blank"}
 

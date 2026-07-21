@@ -13,7 +13,7 @@ icon: lucide/book-open
 </h1>
 
 <p class="text-center" style="margin: 0;">
-  By Cheri, with help from the Morimens EN Discord and Mythag University
+  By Cheri, with help from the Morimens EN Discord and Mythag Library
 </p>
 
 <p class="caption">
@@ -43,7 +43,7 @@ Thanks to the following players for their feedback: Al, Alice, Angbak, Arandomfl
 ## Links and Resources
 
 - [Official Discord](https://discord.gg/RAegY8wcGx){target="_blank"}
-- [Mythag University Discord](https://discord.gg/DM4TsreHny){target="_blank"}
+- [Mythag Library Discord](https://discord.gg/H2MUYUSEBx){target="_blank"}
 - [r/morimenstactics](https://www.reddit.com/r/morimenstactics/){target="_blank"}
 
 ---

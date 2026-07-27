@@ -61,49 +61,49 @@ Here are some of the best wheels in the game:
 
 <div class="grid-mobile-1/1 grid-desktop-1/1/1" markdown>
 <div class="item text-left" markdown>
-  [![Gluttony](/images/wheels/gluttony.png){width="96"}](https://skeydb.com/database/wheels/gluttony)
+  [![Gluttony](/images/wheels/gluttony.png){width="96"}](https://skeydb.com/database/wheels/gluttony){target="_blank"}
 
-  **[Gluttony](https://skeydb.com/database/wheels/gluttony)**
+  **[Gluttony](https://skeydb.com/database/wheels/gluttony){target="_blank"}**
 
   Increases your max HP by 44% multiplicatively. This also affects Aequor stances and Crimson Furnace.
 </div>
 
 <div class="item text-left" markdown>
-  [![Frenzy](/images/wheels/frenzy.png){width="96"}](https://skeydb.com/database/wheels/frenzy)
+  [![Frenzy](/images/wheels/frenzy.png){width="96"}](https://skeydb.com/database/wheels/frenzy){target="_blank"}
 
-  **[Frenzy](https://skeydb.com/database/wheels/frenzy)**
+  **[Frenzy](https://skeydb.com/database/wheels/frenzy){target="_blank"}**
 
   Lets you buy cursed relics for cheap. Many of these are overpowered and can carry runs by themselves.
 </div>
 
 <div class="item text-left" markdown>
-  [![Emerge](/images/wheels/emerge.png){width="96"}](https://skeydb.com/database/wheels/emerge)
+  [![Emerge](/images/wheels/emerge.png){width="96"}](https://skeydb.com/database/wheels/emerge){target="_blank"}
 
-  **[Emerge](https://skeydb.com/database/wheels/emerge)**
+  **[Emerge](https://skeydb.com/database/wheels/emerge){target="_blank"}**
 
   Lets you refresh the shop more often so you can fish for overpowered relics (especially cursed relics).
 </div>
 
 <div class="item text-left" markdown>
-  [![Aged](/images/wheels/aged.png){width="96"}](https://skeydb.com/database/wheels/aged)
+  [![Aged](/images/wheels/aged.png){width="96"}](https://skeydb.com/database/wheels/aged){target="_blank"}
 
-  **[Aged](https://skeydb.com/database/wheels/aged)**
+  **[Aged](https://skeydb.com/database/wheels/aged){target="_blank"}**
 
   Lets you start fights with full keyflare. This is often enough to kill on turn 1.
 </div>
 
 <div class="item text-left" markdown>
-  [![Whisper](/images/wheels/whisper.png){width="96"}](https://skeydb.com/database/wheels/whisper)
+  [![Whisper](/images/wheels/whisper.png){width="96"}](https://skeydb.com/database/wheels/whisper){target="_blank"}
 
-  **[Whisper](https://skeydb.com/database/wheels/whisper)**
+  **[Whisper](https://skeydb.com/database/wheels/whisper){target="_blank"}**
 
   Lets you start fights with +50 aliemus. One of the best aliemus wheels.
 </div>
 
 <div class="item text-left" markdown>
-  [![Hope](/images/wheels/hope.png){width="96"}](https://skeydb.com/database/wheels/hope)
+  [![Hope](/images/wheels/hope.png){width="96"}](https://skeydb.com/database/wheels/hope){target="_blank"}
 
-  **[Hope](https://skeydb.com/database/wheels/hope)**
+  **[Hope](https://skeydb.com/database/wheels/hope){target="_blank"}**
 
   Think you might die? This gives crazy damage buffs after Emergency Gnosis.
 </div>

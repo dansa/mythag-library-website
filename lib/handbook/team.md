@@ -612,7 +612,7 @@ Teams that don't want weakness or vulnerable are rare:
 - [Mouchette](/handbook/awakeners#mouchette) prefers to trigger death resistance rather than mitigate damage, so her teams don't need weakness.
 - Fixed poison and counter aren't affected by vulnerable, so characters like [Faros](/handbook/awakeners#faros) that deal damage mainly through status effects benefit less from it.
 
-**If all else fails, you can run the [Voices In Your Head](https://skeydb.com/database/posses/voices-in-your-head) posse**, and cry yourself to sleep dreaming of all the other posses you could use if only you had weakness and vulnerable on your team.
+**If all else fails, you can run the [Voices In Your Head](https://skeydb.com/database/posses/voices-in-your-head){target="_blank"} posse**, and cry yourself to sleep dreaming of all the other posses you could use if only you had weakness and vulnerable on your team.
 
 ## Realms & Teambuilding
 
@@ -636,7 +636,7 @@ Here is a quick guide to what each realm means for a team.
 
 In Pure Chaos you don't have a gimmick to rely on like any of the other realms. Instead, you get more keyflare and more aliemus. A good Pure Chaos team uses dual posse every turn and abuses the Chaos Realm Mastery effect to exalt every turn.
 
-**Pure Chaos isn't a good option for new players.** It's great if you're a veteran player with 50 unlocked posses, OE characters, and +12 realm mastery wheels. It sucks if your only options from dual posse are [Voices In Your Head](https://skeydb.com/database/posses/voices-in-your-head) and [Tiny Wish](https://skeydb.com/database/posses/tiny-wish).
+**Pure Chaos isn't a good option for new players.** It's great if you're a veteran player with 50 unlocked posses, OE characters, and +12 realm mastery wheels. It sucks if your only options from dual posse are [Voices In Your Head](https://skeydb.com/database/posses/voices-in-your-head){target="_blank"} and [Tiny Wish](https://skeydb.com/database/posses/tiny-wish){target="_blank"}.
 
 ### Teams with Aequor
 
@@ -646,7 +646,7 @@ In Pure Chaos you don't have a gimmick to rely on like any of the other realms. 
 
 Aequor gives you a free shield every turn from Tranquil Sea stance, which adds up over long fights. Tentacles also add damage to every hit in Raging Waves stance, which works well with characters that have multihit attacks.
 
-**Tentacle damage scales with Crit Rate and Crit DMG.** Aequor teams can equip more crit wheels and covenants to multiply the effectiveness of their tentacle hits. They can also make good use of teamwide crit buffs, such as the SR wheel [To My Dearest Friend](https://skeydb.com/database/wheels/to-my-dearest-friend).
+**Tentacle damage scales with Crit Rate and Crit DMG.** Aequor teams can equip more crit wheels and covenants to multiply the effectiveness of their tentacle hits. They can also make good use of teamwide crit buffs, such as the SR wheel [To My Dearest Friend](https://skeydb.com/database/wheels/to-my-dearest-friend){target="_blank"}.
 
 **Passive tentacle damage is good early but weak later on.** When you're fighting level 40+ enemies, you need big damage buffs for your end-of-turn slaps to have any impact. Spamming Tranquil Sea stance for shields is usually better than sitting in Surging Tides stance to get more tentacles.
 
@@ -688,10 +688,10 @@ Ultra is the strongest support realm. Its realm mechanics are simply the most po
 
 Think of the posse as a 5th character on the team. It should round out the team by providing the effect it needs the most. For example:
 
-- If your team needs to exalt to do anything, try [Tiny Wish](https://skeydb.com/database/posses/tiny-wish).
-- If your team needs a lot of arithmetica to work, try [A Mouse's Wisdom](https://skeydb.com/database/posses/a-mouses-wisdom).
-- If your team keeps dying and needs more sustain, try [Warded Injection](https://skeydb.com/database/posses/warded-injection).
-- If your DPS needs STR but your team can't make STR, try [Obsession Eternal](https://skeydb.com/database/posses/obsession-eternal).
+- If your team needs to exalt to do anything, try [Tiny Wish](https://skeydb.com/database/posses/tiny-wish){target="_blank"}.
+- If your team needs a lot of arithmetica to work, try [A Mouse's Wisdom](https://skeydb.com/database/posses/a-mouses-wisdom){target="_blank"}.
+- If your team keeps dying and needs more sustain, try [Warded Injection](https://skeydb.com/database/posses/warded-injection){target="_blank"}.
+- If your DPS needs STR but your team can't make STR, try [Obsession Eternal](https://skeydb.com/database/posses/obsession-eternal){target="_blank"}.
 
 The [Awakener Guides](/handbook/awakeners) section has a suggested posse for every character, but these are just suggestions. There are many viable posses and you can't repeat posses in D-Effect Zone. Experiment and see what works best for your playstyle.
 
@@ -719,11 +719,11 @@ DPS builds are straightforward: give them the build that make them deal the most
 
 In Morimens, investing in Crit Rate has better returns than Crit DMG, until you have a 100% chance to crit, at which point Crit DMG is obviously better.
 
-When building your DPS, keep in mind which of their skills are actually doing damage. For example, the wheel [Twisted Knight Ballad](https://skeydb.com/database/wheels/twisted-knight-ballad) increases the Crit Rate and Crit DMG of command cards, but [Sorel](/handbook/awakeners#sorel) benefits very little from it because all her damage comes from her exalt.
+When building your DPS, keep in mind which of their skills are actually doing damage. For example, the wheel [Twisted Knight Ballad](https://skeydb.com/database/wheels/twisted-knight-ballad){target="_blank"} increases the Crit Rate and Crit DMG of command cards, but [Sorel](/handbook/awakeners#sorel) benefits very little from it because all her damage comes from her exalt.
 
-**Example SSR wheels:** [Blade of the Titan](https://skeydb.com/database/wheels/blade-of-the-titan), [Celestial Beast](https://skeydb.com/database/wheels/celestial-beast)
+**Example SSR wheels:** [Blade of the Titan](https://skeydb.com/database/wheels/blade-of-the-titan){target="_blank"}, [Celestial Beast](https://skeydb.com/database/wheels/celestial-beast){target="_blank"}
 
-**Example SR wheels:** [Analysis of Death](https://skeydb.com/database/wheels/analysis-of-death), [Critical Point](https://skeydb.com/database/wheels/critical-point)
+**Example SR wheels:** [Analysis of Death](https://skeydb.com/database/wheels/analysis-of-death){target="_blank"}, [Critical Point](https://skeydb.com/database/wheels/critical-point){target="_blank"}
 
 **Example covenants:** [Crimson Pulse](#crimson-pulse), [April Tribute](#april-tribute)
 
@@ -743,13 +743,13 @@ When building your DPS, keep in mind which of their skills are actually doing da
 - Those that mainly generate fixed poison or counter, like [Nymphaea](/handbook/awakeners#nymphaea) or [Faros](/handbook/awakeners#faros)
 - Those that rely on unique effects scaling with DMG amp, like [Castor](/handbook/awakeners#castor) and [Arachne](/handbook/awakeners#arachne)
 
-For DPS that simply have high Base DMG, building crit is usually a higher priority than DMG amp, but they can make good use of incidental DMG amp from relics and substats. They also benefit from effects that boost Base DMG, such as the wheel [Hand of Oblivion](https://skeydb.com/database/wheels/hand-of-oblivion).
+For DPS that simply have high Base DMG, building crit is usually a higher priority than DMG amp, but they can make good use of incidental DMG amp from relics and substats. They also benefit from effects that boost Base DMG, such as the wheel [Hand of Oblivion](https://skeydb.com/database/wheels/hand-of-oblivion){target="_blank"}.
 
 **DMG amp is teamwide, so it can be on your supports too.** However, DPS that rely on DMG amp often have a talent that gives them bonus scaling from equipped DMG amp gear, so it isn't a waste to put it on them.
 
-**Example SSR wheels:** [Gift of Decay](https://skeydb.com/database/wheels/gift-of-decay), [Chains Unbound](https://skeydb.com/database/wheels/chains-unbound)
+**Example SSR wheels:** [Gift of Decay](https://skeydb.com/database/wheels/gift-of-decay){target="_blank"}, [Chains Unbound](https://skeydb.com/database/wheels/chains-unbound){target="_blank"}
 
-**Example SR wheels:** [Cursed Binding](https://skeydb.com/database/wheels/cursed-binding), [Sever and Scar](https://skeydb.com/database/wheels/sever-and-scar)
+**Example SR wheels:** [Cursed Binding](https://skeydb.com/database/wheels/cursed-binding){target="_blank"}, [Sever and Scar](https://skeydb.com/database/wheels/sever-and-scar){target="_blank"}
 
 **Example covenants:** [Steppenwolf](#steppenwolf)
 
@@ -757,7 +757,7 @@ For DPS that simply have high Base DMG, building crit is usually a higher priori
 
 Some characters scale with stats other than crit or DMG amp. For example, [Mouchette](/handbook/awakeners#mouchette)'s E1 gives her a lot of crit from death resistance. This means building death resistance on Mouchette is as good as building crit on her.
 
-Specific characters may have other needs as well. Some might want the wheel [Will Unyielding](https://skeydb.com/database/wheels/will-unyielding) to get more strikes and defenses. Others might want the covenant [Dream of Medicine](#dream-of-medicine) to have more copies of a key card.
+Specific characters may have other needs as well. Some might want the wheel [Will Unyielding](https://skeydb.com/database/wheels/will-unyielding){target="_blank"} to get more strikes and defenses. Others might want the covenant [Dream of Medicine](#dream-of-medicine) to have more copies of a key card.
 
 ### Building Supports
 
@@ -776,9 +776,9 @@ Some supports do need a specific stat to function. For example, [Faint](/handboo
 
 **Remember to have a [keyflare bot](#the-almighty-keyflare-bot) holding [Life Drain](#life-drain)!**
 
-**Example SSR wheels:** [Dusk and Dawn](https://skeydb.com/database/wheels/dusk-and-dawn), [Incalculable Factor](https://skeydb.com/database/wheels/incalculable-factor)
+**Example SSR wheels:** [Dusk and Dawn](https://skeydb.com/database/wheels/dusk-and-dawn){target="_blank"}, [Incalculable Factor](https://skeydb.com/database/wheels/incalculable-factor){target="_blank"}
 
-**Example SR wheels:** [Elevated Focus](https://skeydb.com/database/wheels/elevated-focus), [To My Dearest Friend](https://skeydb.com/database/wheels/to-my-dearest-friend)
+**Example SR wheels:** [Elevated Focus](https://skeydb.com/database/wheels/elevated-focus){target="_blank"}, [To My Dearest Friend](https://skeydb.com/database/wheels/to-my-dearest-friend){target="_blank"}
 
 **Other wheels:** [R wheels in Faded Legacy](/handbook/storylines#r-wheels)
 
@@ -980,7 +980,7 @@ Gives you a copy of the wielder's strike card every other turn.
 
 This is only worth it if there's something special about the strike that makes you want it every turn. For example, [Clementine](/handbook/awakeners#clementine)'s cards generate STR when played as the first card each turn.
 
-Works great with the SSR wheel [Amidst the Downpour](https://skeydb.com/database/wheels/amidst-the-downpour).
+Works great with the SSR wheel [Amidst the Downpour](https://skeydb.com/database/wheels/amidst-the-downpour){target="_blank"}.
 
 #### Unstained Chronicle
 
@@ -1180,7 +1180,7 @@ Not a bad effect, but there aren't a lot of Aequor/Ultra teams that can use it e
 
 Boosts the shield from the wielder's defense card. Niche but strong on specific characters like [Kathigu-Ra](/handbook/awakeners#kathigu-ra).
 
-Usually paired with the SR wheel [The Land of Nonexistence](https://skeydb.com/database/wheels/the-land-of-nonexistence) or some other way to get more defense cards. Otherwise, this only buffs 1 card in the deck out of 16.
+Usually paired with the SR wheel [The Land of Nonexistence](https://skeydb.com/database/wheels/the-land-of-nonexistence){target="_blank"} or some other way to get more defense cards. Otherwise, this only buffs 1 card in the deck out of 16.
 
 #### Ring of Chamber 36
 

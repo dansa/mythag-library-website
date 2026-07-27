@@ -228,7 +228,7 @@ Morimens is a deckbuilding game. All the standard characters in this game are us
 
 - Get any standard character enlightens you are missing.
 - Pull on the standard character banner to fish for limited characters and +12 standards.
-- Go to "wheel jail" and try to +12 a wheel. You can equip two SSR wheels at once if one of them is at +12. [Blade of the Titan](https://skeydb.com/database/wheels/blade-of-the-titan) ([Goliath](/handbook/awakeners#goliath)'s SSR wheel) is a good candidate to +12.
+- Go to "wheel jail" and try to +12 a wheel. You can equip two SSR wheels at once if one of them is at +12. [Blade of the Titan](https://skeydb.com/database/wheels/blade-of-the-titan){target="_blank"} ([Goliath](/handbook/awakeners#goliath)'s SSR wheel) is a good candidate to +12.
 - Unlock (Gnostic Potential)[#gnostic-potential] for your standard characters.
 
 ## Spending Menophin (Stamina)
@@ -408,7 +408,7 @@ You can get the Luminous Cores and Pure Cores if you want. These are one-time on
 ![](/images/wheels/rewinding-time--mini.png){width="80" loading=lazy}
 ![](/images/wheels/celestial-beast--mini.png){width="80" loading=lazy}
 
-**Buy copies of [Rewinding Time](https://skeydb.com/database/wheels/rewinding-time) and [Celestial Beast](https://skeydb.com/database/wheels/celestial-beast).** These are strong, universally useful wheels which can only be obtained here. If you have a wheel at +12, you can equip it at the same time as another SSR wheel.
+**Buy copies of [Rewinding Time](https://skeydb.com/database/wheels/rewinding-time){target="_blank"} and [Celestial Beast](https://skeydb.com/database/wheels/celestial-beast){target="_blank"}.** These are strong, universally useful wheels which can only be obtained here. If you have a wheel at +12, you can equip it at the same time as another SSR wheel.
 
 ![](/images/covenants/feast-from-afar.png){width="80" loading=lazy}
 
@@ -421,11 +421,11 @@ You can get the Luminous Cores and Pure Cores if you want. These are one-time on
 
 ![](/images/wheels/deathless-ascent--mini.png){width="80" loading=lazy}
 
-You can get +12 [Deathless Ascent](https://skeydb.com/database/wheels/deathless-ascent) if you have nothing else to buy.
+You can get +12 [Deathless Ascent](https://skeydb.com/database/wheels/deathless-ascent){target="_blank"} if you have nothing else to buy.
 
 ![](/images/wheels/gateway-of-truth--mini.png){width="80" loading=lazy}
 
-You can buy SR wheels if you want. [Gateway of Truth](https://skeydb.com/database/wheels/gateway-of-truth) is very good and worth getting to +12. However, you get them for free if their event reruns in the future.
+You can buy SR wheels if you want. [Gateway of Truth](https://skeydb.com/database/wheels/gateway-of-truth){target="_blank"} is very good and worth getting to +12. However, you get them for free if their event reruns in the future.
 
 ### D-Jewels
 
@@ -447,7 +447,7 @@ You can buy SR wheels if you want. [Gateway of Truth](https://skeydb.com/databas
 ![](/images/wheels/core-meltdown--mini.png){width="80" loading=lazy}
 ![](/images/wheels/winters-requiem--mini.png){width="80" loading=lazy}
 
-[Core Meltdown](https://skeydb.com/database/wheels/core-meltdown) and [Winter's Requiem](https://skeydb.com/database/wheels/winters-requiem) are useful wheels for D-Effect Zone. If you don't have enough keyflare wheels, you can get one copy of each.
+[Core Meltdown](https://skeydb.com/database/wheels/core-meltdown){target="_blank"} and [Winter's Requiem](https://skeydb.com/database/wheels/winters-requiem){target="_blank"} are useful wheels for D-Effect Zone. If you don't have enough keyflare wheels, you can get one copy of each.
 
 ![](/images/icons/cores/luminous.png){width="80" loading=lazy}
 ![](/images/icons/cores/pure.png){width="80" loading=lazy}

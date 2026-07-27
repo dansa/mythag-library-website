@@ -638,6 +638,8 @@ In Pure Chaos you don't have a gimmick to rely on like any of the other realms. 
 
 **Pure Chaos isn't a good option for new players.** It's great if you're a veteran player with 50 unlocked posses, OE characters, and +12 realm mastery wheels. It sucks if your only options from dual posse are [Voices In Your Head](https://skeydb.com/database/posses/voices-in-your-head){target="_blank"} and [Tiny Wish](https://skeydb.com/database/posses/tiny-wish){target="_blank"}.
 
+**Primordia Chaos:** Some characters like [GLotan](/handbook/awakeners#glotan) change how Chaos mechanics work when they're on your team. In Primordia Chaos, the normal Chaos mechanics no longer apply; keyflare generation works differently; rouses have Prepare 1 and trigger your equipped posse; and your posse button lets you combine random unlocked posses.
+
 ### Teams with Aequor
 
 ![](/images/realms/aequor.png){width="64" loading=lazy}
@@ -664,7 +666,7 @@ You get a lot of free healing by using Crimson Furnace. Embryos let you exalt mo
 
 **Remember that you need to build more keyflare.** The [Life Drain](#life-drain) covenant provides embryo instead of keyflare, so your [keyflare bot](#the-almighty-keyflare-bot) will be less effective.
 
-**Propagation Caro:** Some characters like [Saya](/handbook/awakeners#saya) change how Caro mechanics work when they're on your team. In Propagation Caro, your exalts are buffed, and embryos and Realm Mastery further buff your exalts instead of providing shields and STR. Crimson Furnace is stronger but has a 3-turn cooldown.
+**Propagation Caro:** Some characters like [Saya](/handbook/awakeners#saya) change how Caro mechanics work when they're on your team. In Propagation Caro, your exalts are buffed; embryos and Realm Mastery further buff your exalts instead of providing shields and STR; and Crimson Furnace is stronger but has a 3-turn cooldown.
 
 ### Teams with Ultra
 
@@ -676,7 +678,7 @@ Ultra is the strongest support realm. Its realm mechanics are simply the most po
 
 **Pure Ultra depends on how good your characters are.** If you aren't in Aequor or Caro, you don't have free damage, shields, or healing — your cards are all you have. Your characters need to function all by themselves, and you might need a defensive character like [Lily](/handbook/awakeners#lily) or [Castor](/handbook/awakeners#castor) to survive long fights.
 
-**Singularity Ultra:** Some characters like [Arachne](/handbook/awakeners#arachne) change how Ultra mechanics work when they're on your team. In Singularity Ultra, your command cards are buffed, and Ultra Round extends the current turn instead of starting a new turn. Annihilation is changed to put the leftmost card from Ultra Space into your hand and has a 3-turn cooldown.
+**Singularity Ultra:** Some characters like [Arachne](/handbook/awakeners#arachne) change how Ultra mechanics work when they're on your team. In Singularity Ultra, your command cards are buffed; Ultra Round extends the current turn instead of starting a new turn; and Annihilation is changed to put the leftmost card from Ultra Space into your hand with a 3-turn cooldown.
 
 ## Choosing a Posse
 

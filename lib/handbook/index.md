@@ -22,7 +22,7 @@ icon: lucide/book-open
 
 !!! note "Last updated"
 
-    21 July 2026
+    26 July 2026
 
     V2.5.2.4 - Til the Snow Melts Rerun
 

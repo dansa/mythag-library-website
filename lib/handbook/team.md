@@ -23,7 +23,7 @@ icon: lucide/blocks
 
 When you build a team in Morimens, you aren't building it for no reason. Your goal is to use that team to clear a specific stage, in a specific game mode and ruleset.
 
-**The "best" team you can make is different for every stage.** There is no such thing as a team that can do everything. Even if you have a super-powerful carry like [Mouchette](/handbook/awakeners#mouchette) or [Vortice](/handbook/awakeners#vortice), they will still get hard countered by some bosses.
+**The "best" team you can make is different for every stage.** There is no such thing as a team that can do everything. Even if you have a super-strong carry like [Mouchette](/handbook/awakeners#mouchette) or [Vortice](/handbook/awakeners#vortice), they will still get hard countered by some bosses.
 
 Most characters in this game are situationally good — they perform much better in certain situations than others. Part of learning Morimens is understanding which situations are best for each character and which characters are best for each stage.
 
@@ -179,7 +179,7 @@ The supports can also provide:
 
 Sometimes the supports include secondary DPS who also contribute damage. For example, [GMurphy](/handbook/awakeners#gmurphy) has trouble killing multiple enemies at once, so you might bring [Tulu](/handbook/awakeners#tulu), who is both a good support for her and a good damage dealer against mob waves.
 
-The Newbie DPS Tier List and Newbie Support Tier List rank characters based on how well they fit into this type of team.
+The [Newbie DPS Tier List](/handbook/tier-list) and [Newbie Support Tier List](/handbook/tier-list) rank characters based on how well they fit into this type of team.
 
 ### Stall
 
@@ -433,7 +433,7 @@ When building a poison team, consider which characters will apply poison and whi
 
 A poison team is usually also a stall team, but it can be faster depending on the characters you use. A team with [Liz](/handbook/awakeners#liz) and [Xu](/handbook/awakeners#xu) can apply tons of poison and trigger it right away, killing as fast as a hypercarry team.
 
-**Poison teams need to rouse everyone in [Astral Reign](/handbook/storylines/#astral-reign-arc-2).** This is because [Prismatic Lens](/handbook/storylines/#prismatic-lens) makes poison tick faster each turn for each roused character in the team.
+**Poison teams need to rouse everyone in [Astral Reign](/handbook/storylines).** This is because [Prismatic Lens](/handbook/storylines/#prismatic-lens) makes poison tick faster each turn for each roused character in the team.
 
 ### Counter
 
@@ -560,7 +560,7 @@ The effectiveness of counter varies depending on the stage. It's amazing when en
 
 A good counter team has a plan B for when the enemies don't trigger counter. The example team can use [Tawil](/handbook/awakeners#tawil) as a normal DPS and just kill enemies with Tawil's cards. It can also use [Nautila](/handbook/awakeners#nautila)'s exalt to convert counter into guaranteed damage.
 
-**If you rely on permanent counter, you need to rouse everyone in [Astral Reign](/handbook/storylines/#astral-reign-arc-2).** This is because [Prismatic Lens](/handbook/storylines/#prismatic-lens) gives you bonus temporary counter each turn for each roused character in the team.
+**If you rely on permanent counter, you need to rouse everyone in [Astral Reign](/handbook/storylines).** This is because [Prismatic Lens](/handbook/storylines/#prismatic-lens) gives you bonus temporary counter each turn for each roused character in the team.
 
 ## What Every Team Needs
 
@@ -581,7 +581,7 @@ A good counter team has a plan B for when the enemies don't trigger counter. The
 
 - Your team is Caro, so [Life Drain](#life-drain) has a different effect. You still need a keyflare bot, but you can use a different covenant set if you don't want the embryo.
 - You are a speedrunner and planning to finish every battle on turn 1, so [Life Drain](#life-drain)'s end-of-turn effect will never trigger.
-- Your main DPS is [Tawil](/handbook/awakeners#tawil) or [GMurphy](/handbook/awakeners#gmurphy) and they already make tons of keyflare.
+- You are playing a [GMurphy](/handbook/awakeners#gmurphy) team and your main DPS already makes tons of keyflare.
 
 Dedicated keyflare supports like [Ramona](/handbook/awakeners#ramona) and [Aigis](/handbook/awakeners#aigis) scale with Keyflare Regen and don't need any other stats to work, making them the best keyflare bots. However, any character can be a keyflare bot as long as they hold [Life Drain](#life-drain) and Keyflare Regen wheels.
 
@@ -612,7 +612,7 @@ Teams that don't want weakness or vulnerable are rare:
 - [Mouchette](/handbook/awakeners#mouchette) prefers to trigger death resistance rather than mitigate damage, so her teams don't need weakness.
 - Fixed poison and counter aren't affected by vulnerable, so characters like [Faros](/handbook/awakeners#faros) that deal damage mainly through status effects benefit less from it.
 
-**If all else fails, you can run the Voices In Your Head posse**, and cry yourself to sleep dreaming of all the other posses you could use if only you had weakness and vulnerable on your team.
+**If all else fails, you can run the [Voices In Your Head](https://skeydb.com/database/posses/voices-in-your-head) posse**, and cry yourself to sleep dreaming of all the other posses you could use if only you had weakness and vulnerable on your team.
 
 ## Realms & Teambuilding
 
@@ -636,7 +636,7 @@ Here is a quick guide to what each realm means for a team.
 
 In Pure Chaos you don't have a gimmick to rely on like any of the other realms. Instead, you get more keyflare and more aliemus. A good Pure Chaos team uses dual posse every turn and abuses the Chaos Realm Mastery effect to exalt every turn.
 
-**Pure Chaos isn't a good option for new players.** It's great if you're a veteran player with 50 unlocked posses, OE characters, and +12 realm mastery wheels. It sucks if your only options from dual posse are Voices In Your Head and Tiny Wish.
+**Pure Chaos isn't a good option for new players.** It's great if you're a veteran player with 50 unlocked posses, OE characters, and +12 realm mastery wheels. It sucks if your only options from dual posse are [Voices In Your Head](https://skeydb.com/database/posses/voices-in-your-head) and [Tiny Wish](https://skeydb.com/database/posses/tiny-wish).
 
 ### Teams with Aequor
 
@@ -646,11 +646,11 @@ In Pure Chaos you don't have a gimmick to rely on like any of the other realms. 
 
 Aequor gives you a free shield every turn from Tranquil Sea stance, which adds up over long fights. Tentacles also add damage to every hit in Raging Waves stance, which works well with characters that have multihit attacks.
 
-**Tentacle damage scales with Crit Rate and Crit DMG.** Aequor teams can equip more crit wheels and covenants to multiply the effectiveness of their tentacle hits. They can also make good use of teamwide crit buffs, such as the SR wheel To My Dearest Friend.
+**Tentacle damage scales with Crit Rate and Crit DMG.** Aequor teams can equip more crit wheels and covenants to multiply the effectiveness of their tentacle hits. They can also make good use of teamwide crit buffs, such as the SR wheel [To My Dearest Friend](https://skeydb.com/database/wheels/to-my-dearest-friend).
 
 **Passive tentacle damage is good early but weak later on.** When you're fighting level 40+ enemies, you need big damage buffs for your end-of-turn slaps to have any impact. Spamming Tranquil Sea stance for shields is usually better than sitting in Surging Tides stance to get more tentacles.
 
-**Divine Aequor:** Some characters like [GMurphy](/handbook/awakeners#gmurphy) change how Aequor mechanics work when they're on your team. In Divine Aequor, the stances are stronger but have a 3-turn cooldown.
+**Benthos Aequor:** Some characters like [GMurphy](/handbook/awakeners#gmurphy) change how Aequor mechanics work when they're on your team. In Benthos Aequor, the stances are stronger but have a 3-turn cooldown.
 
 ### Teams with Caro
 
@@ -660,7 +660,7 @@ Aequor gives you a free shield every turn from Tranquil Sea stance, which adds u
 
 You get a lot of free healing by using Crimson Furnace. Embryos let you exalt more often and crit more often. You even get shields and temporary STR when you Devour and trigger the Caro Realm Mastery effect.
 
-**This is a solid and well-rounded realm.** Adding [Aigis](/handbook/awakeners#aigis) or [Thais](/handbook/awakeners#thais) and mixing in Caro will improve almost any team.
+**A well-rounded realm for both newbies and veterans.** Adding [Aigis](/handbook/awakeners#aigis) and mixing in Caro is the easiest way for new players to make a good team.
 
 **Remember that you need to build more keyflare.** The [Life Drain](#life-drain) covenant provides embryo instead of keyflare, so your [keyflare bot](#the-almighty-keyflare-bot) will be less effective.
 
@@ -672,11 +672,11 @@ You get a lot of free healing by using Crimson Furnace. Embryos let you exalt mo
 
 **Play more cards, take extra turns.**
 
-Ultra is the strongest support realm. Its realm mechanics are simply the most powerful. Many endgame teams have a single Ultra character to get access to Annihilation and Ultra Rounds.
+Ultra is the strongest support realm. Its realm mechanics are simply the most powerful. Ultra supports like [Clementine](/handbook/awakeners#clementine) and [Horla](/handbook/awakeners#horla) are extra valuable because they also give access to Annihilation and Ultra Rounds.
 
 **Pure Ultra depends on how good your characters are.** If you aren't in Aequor or Caro, you don't have free damage, shields, or healing — your cards are all you have. Your characters need to function all by themselves, and you might need a defensive character like [Lily](/handbook/awakeners#lily) or [Castor](/handbook/awakeners#castor) to survive long fights.
 
-**Singularity Ultra:** Some characters like [Arachne](/handbook/awakeners#arachne) change how Ultra mechanics work when they're on your team. In Singularity Ultra, your command cards are buffed, and get further buffs when put into Ultra Space. Annihilation is changed to put the leftmost card from Ultra Space into your hand and has a 3-turn cooldown.
+**Singularity Ultra:** Some characters like [Arachne](/handbook/awakeners#arachne) change how Ultra mechanics work when they're on your team. In Singularity Ultra, your command cards are buffed, and Ultra Round extends the current turn instead of starting a new turn. Annihilation is changed to put the leftmost card from Ultra Space into your hand and has a 3-turn cooldown.
 
 ## Choosing a Posse
 
@@ -688,12 +688,12 @@ Ultra is the strongest support realm. Its realm mechanics are simply the most po
 
 Think of the posse as a 5th character on the team. It should round out the team by providing the effect it needs the most. For example:
 
-- If your team needs to exalt to do anything, try Tiny Wish.
-- If your team needs a lot of arithmetica to work, try A Mouse's Wisdom.
-- If your team keeps dying and needs more sustain, try Warded Injection.
-- If your DPS needs STR but your team can't make STR, try Obsession Eternal.
+- If your team needs to exalt to do anything, try [Tiny Wish](https://skeydb.com/database/posses/tiny-wish).
+- If your team needs a lot of arithmetica to work, try [A Mouse's Wisdom](https://skeydb.com/database/posses/a-mouses-wisdom).
+- If your team keeps dying and needs more sustain, try [Warded Injection](https://skeydb.com/database/posses/warded-injection).
+- If your DPS needs STR but your team can't make STR, try [Obsession Eternal](https://skeydb.com/database/posses/obsession-eternal).
 
-The Awakener Guides section has a suggested posse for every character, but these are just suggestions. There are many viable posses and you can't repeat posses in D-Effect Zone. Experiment and see what works best for your playstyle.
+The [Awakener Guides](/handbook/awakeners) section has a suggested posse for every character, but these are just suggestions. There are many viable posses and you can't repeat posses in D-Effect Zone. Experiment and see what works best for your playstyle.
 
 ## Building Characters
 
@@ -719,11 +719,11 @@ DPS builds are straightforward: give them the build that make them deal the most
 
 In Morimens, investing in Crit Rate has better returns than Crit DMG, until you have a 100% chance to crit, at which point Crit DMG is obviously better.
 
-When building your DPS, keep in mind which of their skills are actually doing damage. For example, the wheel Twisted Knight Ballad increases the Crit Rate and Crit DMG of command cards, but [Sorel](/handbook/awakeners#sorel) benefits very little from it because all her damage comes from her exalt.
+When building your DPS, keep in mind which of their skills are actually doing damage. For example, the wheel [Twisted Knight Ballad](https://skeydb.com/database/wheels/twisted-knight-ballad) increases the Crit Rate and Crit DMG of command cards, but [Sorel](/handbook/awakeners#sorel) benefits very little from it because all her damage comes from her exalt.
 
-**Example SSR wheels:** Blade of the Titan, Celestial Beast
+**Example SSR wheels:** [Blade of the Titan](https://skeydb.com/database/wheels/blade-of-the-titan), [Celestial Beast](https://skeydb.com/database/wheels/celestial-beast)
 
-**Example SR wheels:** Analysis of Death, Critical Point
+**Example SR wheels:** [Analysis of Death](https://skeydb.com/database/wheels/analysis-of-death), [Critical Point](https://skeydb.com/database/wheels/critical-point)
 
 **Example covenants:** [Crimson Pulse](#crimson-pulse), [April Tribute](#april-tribute)
 
@@ -737,19 +737,19 @@ When building your DPS, keep in mind which of their skills are actually doing da
 [![Helot](/images/awakeners/caro/helot--mini.png "Helot"){width="80" loading=lazy}](/handbook/awakeners#helot)
 [![Castor](/images/awakeners/ultra/castor--mini.png "Castor"){width="80" loading=lazy}](/handbook/awakeners#castor)
 
-**DMG amplification is situational.** It only multiplies Base DMG and effects that create a fixed amount of poison, counter. It doesn't apply to STR or other bonuses to your damage. This means it's only useful for a few types of DPS:
+**DMG amplification is situational.** It only multiplies Base DMG and effects that create a fixed amount of poison or counter. It doesn't apply to STR or other bonuses to your damage. This means it's only useful for a few types of DPS:
 
 - Those with high Base DMG multipliers, like [GHelot](/handbook/awakeners#ghelot) or [Kathigu-Ra](/handbook/awakeners#kathigu-ra)
 - Those that mainly generate fixed poison or counter, like [Nymphaea](/handbook/awakeners#nymphaea) or [Faros](/handbook/awakeners#faros)
 - Those that rely on unique effects scaling with DMG amp, like [Castor](/handbook/awakeners#castor) and [Arachne](/handbook/awakeners#arachne)
 
-For DPS that simply have high Base DMG, building crit is usually a higher priority than DMG amp, but they can make good use of incidental DMG amp from relics and substats. They also benefit from effects that boost Base DMG, such as the wheel Hand of Oblivion.
+For DPS that simply have high Base DMG, building crit is usually a higher priority than DMG amp, but they can make good use of incidental DMG amp from relics and substats. They also benefit from effects that boost Base DMG, such as the wheel [Hand of Oblivion](https://skeydb.com/database/wheels/hand-of-oblivion).
 
 **DMG amp is teamwide, so it can be on your supports too.** However, DPS that rely on DMG amp often have a talent that gives them bonus scaling from equipped DMG amp gear, so it isn't a waste to put it on them.
 
-**Example SSR wheels:** Gift of Decay, Chains Unbound
+**Example SSR wheels:** [Gift of Decay](https://skeydb.com/database/wheels/gift-of-decay), [Chains Unbound](https://skeydb.com/database/wheels/chains-unbound)
 
-**Example SR wheels:** Cursed Binding, Sever and Scar
+**Example SR wheels:** [Cursed Binding](https://skeydb.com/database/wheels/cursed-binding), [Sever and Scar](https://skeydb.com/database/wheels/sever-and-scar)
 
 **Example covenants:** [Steppenwolf](#steppenwolf)
 
@@ -757,7 +757,7 @@ For DPS that simply have high Base DMG, building crit is usually a higher priori
 
 Some characters scale with stats other than crit or DMG amp. For example, [Mouchette](/handbook/awakeners#mouchette)'s E1 gives her a lot of crit from death resistance. This means building death resistance on Mouchette is as good as building crit on her.
 
-Specific characters may have other needs as well. Some might want the wheel Will Unyielding to get more strikes and defenses. Others might want the covenant [Dream of Medicine](#dream-of-medicine) to have more copies of a key card.
+Specific characters may have other needs as well. Some might want the wheel [Will Unyielding](https://skeydb.com/database/wheels/will-unyielding) to get more strikes and defenses. Others might want the covenant [Dream of Medicine](#dream-of-medicine) to have more copies of a key card.
 
 ### Building Supports
 
@@ -776,9 +776,9 @@ Some supports do need a specific stat to function. For example, [Faint](/handboo
 
 **Remember to have a [keyflare bot](#the-almighty-keyflare-bot) holding [Life Drain](#life-drain)!**
 
-**Example SSR wheels:** Dusk & Dawn, Incalculable Factor
+**Example SSR wheels:** [Dusk and Dawn](https://skeydb.com/database/wheels/dusk-and-dawn), [Incalculable Factor](https://skeydb.com/database/wheels/incalculable-factor)
 
-**Example SR wheels:** Elevated Focus, To My Dearest Friend
+**Example SR wheels:** [Elevated Focus](https://skeydb.com/database/wheels/elevated-focus), [To My Dearest Friend](https://skeydb.com/database/wheels/to-my-dearest-friend)
 
 **Other wheels:** [R wheels in Faded Legacy](/handbook/storylines#r-wheels)
 
@@ -808,7 +808,7 @@ Personally, I default to <span class="inline-flex-center">Keyflare Regen ![](/im
 
 Some stats to be wary of investing in:
 
-- <span class="inline-flex-center">Realm Mastery ![](/images/icons/stats/realm-mastery.png#only-dark){width="16" loading=lazy} ![](/images/icons/stats/realm-mastery--dark.png#only-light){width="16" loading=lazy}</span> is only strong in specific realms (Pure Chaos and Divine Aequor). It's a middling stat for most realm combinations, and nearly useless in base Ultra.
+- <span class="inline-flex-center">Realm Mastery ![](/images/icons/stats/realm-mastery.png#only-dark){width="16" loading=lazy} ![](/images/icons/stats/realm-mastery--dark.png#only-light){width="16" loading=lazy}</span> is only strong in specific realms (Pure Chaos and Benthos Aequor). It's a middling stat for most realm combinations, and nearly useless in base Ultra.
 - <span class="inline-flex-center">DMG Amplification ![](/images/icons/stats/dmg-amp.png#only-dark){width="12" loading=lazy} ![](/images/icons/stats/dmg-amp--dark.png#only-light){width="12" loading=lazy}</span> is only good for [specific teams](#dmg-amplification-base-dmg).
 - <span class="inline-flex-center">Aliemus Regen ![](/images/icons/stats/aliemus-regen.png#only-dark){width="16" loading=lazy} ![](/images/icons/stats/aliemus-regen--dark.png#only-light){width="16" loading=lazy}</span> has very low returns on investment and is basically never worth building.
 
@@ -825,9 +825,9 @@ Start by making one of each covenant set you're going to use. When you're a vete
 
 <div class="grid cards" markdown>
   <span class="grid-1/1/1">
-    <span>**Source** <br /> Verboten Covenant <br /> (Faded Legacy Ch. 7)</span>
+    <span>**Source** <br /> Verboten Covenant <br /> *(Faded Legacy Ch. 7)*</span>
     <span>**Used by** <br /> Your [keyflare bot](#the-almighty-keyflare-bot)</span>
-    <span style="padding: 0 4px; background-color: var(--md-highlight-yes)">**Team Unique?** <br /> **Yes**</span>
+    <span style="padding: 0 4px; background-color: var(--md-highlight-yes)">**Team Unique?** <br /> Yes</span>
   </span>
 </div>
 
@@ -846,7 +846,7 @@ Build as much Keyflare Regen as possible.
 
 <div class="grid cards" markdown>
   <span class="grid-1/1/1">
-    <span>**Source** <br /> Verboten Covenant <br /> (Faded Legacy Ch. 4)</span>
+    <span>**Source** <br /> Verboten Covenant <br /> *(Faded Legacy Ch. 4)*</span>
     <span>**Used by** <br /> Any support</span>
     <span style="padding: 0 4px; background-color: var(--md-highlight-no)">**Team Unique?** <br /> No</span>
   </span>
@@ -867,9 +867,9 @@ Prioritize Death Resistance and Keyflare Regen.
 
 <div class="grid cards" markdown>
   <span class="grid-1/1/1">
-    <span>**Source** <br /> Verboten Covenant <br /> (Faded Legacy Ch. 8)</span>
+    <span>**Source** <br /> Verboten Covenant <br /> *(Faded Legacy Ch. 8)*</span>
     <span>**Used by** <br /> DPS that can crit</span>
-    <span style="padding: 0 4px; background-color: var(--md-highlight-no)">**Team Unique?** <br /> No</span>
+    <span style="padding: 0 4px; background-color: var(--md-highlight-yes)">**Team Unique?** <br /> Yes</span>
   </span>
 </div>
 
@@ -888,7 +888,7 @@ Prioritize Crit DMG, Crit Rate, and Keyflare Regen.
 
 <div class="grid cards" markdown>
   <span class="grid-1/1/1">
-    <span>**Source** <br /> Store <br /> (Badges)</span>
+    <span>**Source** <br /> Store <br /> *(Badges)*</span>
     <span>**Used by** <br /> DPS that can crit</span>
     <span style="padding: 0 4px; background-color: var(--md-highlight-no)">**Team Unique?** <br /> No</span>
   </span>
@@ -909,9 +909,9 @@ Prioritize Crit DMG, Crit Rate, and Keyflare Regen.
 
 <div class="grid cards" markdown>
   <span class="grid-1/1/1">
-    <span>**Source** <br /> Store <br /> (Badges)</span>
+    <span>**Source** <br /> Store <br /> *(Badges)*</span>
     <span>**Used by** <br /> Characters with key cards to duplicate</span>
-    <span style="padding: 0 4px; background-color: var(--md-highlight-yes)">**Team Unique?** <br /> **Yes**</span>
+    <span style="padding: 0 4px; background-color: var(--md-highlight-yes)">**Team Unique?** <br /> Yes</span>
   </span>
 </div>
 
@@ -932,7 +932,7 @@ Prioritize crit if a crit DPS is holding this, teamwide stats otherwise. Keyflar
 
 <div class="grid cards" markdown>
   <span class="grid-1/1/1">
-    <span>**Source** <br /> Verboten Covenant <br /> (Faded Legacy Ch. 1)</span>
+    <span>**Source** <br /> Verboten Covenant <br /> *(Faded Legacy Ch. 1)*</span>
     <span>**Used by** <br /> Any support</span>
     <span style="padding: 0 4px; background-color: var(--md-highlight-no)">**Team Unique?** <br /> No</span>
   </span>
@@ -940,7 +940,7 @@ Prioritize crit if a crit DPS is holding this, teamwide stats otherwise. Keyflar
 
 A generic support set that gives a bit of arithmetica.
 
-Usually not worth a slot, but if you have a carry like [Tawil](/handbook/awakeners#tawil) or [Kathigu-Ra](/handbook/awakeners#kathigu-ra) who is constantly starved for arithmetica, it might be better than [Burial Ground's Sighs](#burial-grounds-sighs).
+If you aren't in danger of dying, or if you have a carry like [Tawil](/handbook/awakeners#tawil) or [Kathigu-Ra](/handbook/awakeners#kathigu-ra) who needs a lot of arithmetica, you can run this instead of [Burial Ground's Sighs](#burial-grounds-sighs).
 
 #### Twisted Twins: White
 
@@ -951,7 +951,7 @@ Usually not worth a slot, but if you have a carry like [Tawil](/handbook/awakene
 
 <div class="grid cards" markdown>
   <span class="grid-1/1/1">
-    <span>**Source** <br /> Verboten Covenant <br /> (Faded Legacy Ch. 2)</span>
+    <span>**Source** <br /> Verboten Covenant <br /> *(Faded Legacy Ch. 2)*</span>
     <span>**Used by** <br /> Supports with good defense cards</span>
     <span style="padding: 0 4px; background-color: var(--md-highlight-no)">**Team Unique?** <br /> No</span>
   </span>
@@ -959,7 +959,7 @@ Usually not worth a slot, but if you have a carry like [Tawil](/handbook/awakene
 
 Gives you a copy of the wielder's defense card every other turn.
 
-This is only worth it if there's something special about the defense that makes you want it every turn. For example, [Horla](/handbook/awakeners#horla)'s defense inflicts weakness at E1, making this incredibly good on her.
+This is only worth it if there's something special about the defense that makes you want it every turn. For example, [Horla](/handbook/awakeners#horla)'s defense inflicts weakness at E1, making this a great covenant set for her.
 
 #### Twisted Twins: Black
 
@@ -970,7 +970,7 @@ This is only worth it if there's something special about the defense that makes 
 
 <div class="grid cards" markdown>
   <span class="grid-1/1/1">
-    <span>**Source** <br /> Verboten Covenant <br /> (Faded Legacy Ch. 3)</span>
+    <span>**Source** <br /> Verboten Covenant <br /> *(Faded Legacy Ch. 3)*</span>
     <span>**Used by** <br /> Supports with good strike cards</span>
     <span style="padding: 0 4px; background-color: var(--md-highlight-no)">**Team Unique?** <br /> No</span>
   </span>
@@ -980,7 +980,7 @@ Gives you a copy of the wielder's strike card every other turn.
 
 This is only worth it if there's something special about the strike that makes you want it every turn. For example, [Clementine](/handbook/awakeners#clementine)'s cards generate STR when played as the first card each turn.
 
-Works great with the SSR wheel Amidst the Downpour.
+Works great with the SSR wheel [Amidst the Downpour](https://skeydb.com/database/wheels/amidst-the-downpour).
 
 #### Unstained Chronicle
 
@@ -991,9 +991,9 @@ Works great with the SSR wheel Amidst the Downpour.
 
 <div class="grid cards" markdown>
   <span class="grid-1/1/1">
-    <span>**Source** <br /> Verboten Covenant <br /> (Faded Legacy Ch. 5)</span>
+    <span>**Source** <br /> Verboten Covenant <br /> *(Faded Legacy Ch. 5)*</span>
     <span>**Used by** <br /> Supports with high CON</span>
-    <span style="padding: 0 4px; background-color: var(--md-highlight-yes)">**Team Unique?** <br /> **Yes**</span>
+    <span style="padding: 0 4px; background-color: var(--md-highlight-yes)">**Team Unique?** <br /> Yes</span>
   </span>
 </div>
 
@@ -1012,15 +1012,15 @@ Maybe if a character with 500 CON is released, this will be good.
 
 <div class="grid cards" markdown>
   <span class="grid-1/1/1">
-    <span>**Source** <br /> Verboten Covenant <br /> (Faded Legacy Ch. 6)</span>
+    <span>**Source** <br /> Verboten Covenant <br /> *(Faded Legacy Ch. 6)*</span>
     <span>**Used by** <br /> Aequor teams with high Realm Mastery</span>
-    <span style="padding: 0 4px; background-color: var(--md-highlight-yes)">**Team Unique?** <br /> **Yes**</span>
+    <span style="padding: 0 4px; background-color: var(--md-highlight-yes)">**Team Unique?** <br /> Yes</span>
   </span>
 </div>
 
 Gives a tiny amount of STR at the start of the battle; or in Aequor teams, gives a chance to get extra tentacle slaps at end of turn.
 
-Many people, even veteran players, misread the effect and think this set generates extra permanent tentacles. In fact, Tentacle Gathering only lasts one turn.
+Many people misread the effect and think this set generates extra permanent tentacles. In fact, Tentacle Gathering only lasts one turn.
 
 [Vortice](/handbook/awakeners#vortice) is the only character that can use this effectively.
 
@@ -1033,7 +1033,7 @@ Many people, even veteran players, misread the effect and think this set generat
 
 <div class="grid cards" markdown>
   <span class="grid-1/1/1">
-    <span>**Source** <br /> Store <br /> (Rose Scrip)</span>
+    <span>**Source** <br /> Store <br /> *(Rose Scrip)*</span>
     <span>**Used by** <br /> Fixed poison/counter DPS</span>
     <span style="padding: 0 4px; background-color: var(--md-highlight-no)">**Team Unique?** <br /> No</span>
   </span>
@@ -1054,15 +1054,15 @@ If you can crit, you should probably run [April Tribute](#april-tribute) instead
 
 <div class="grid cards" markdown>
   <span class="grid-1/1/1">
-    <span>**Source** <br /> Store <br /> (Rose Scrip)</span>
+    <span>**Source** <br /> Store <br /> *(Rose Scrip)*</span>
     <span>**Used by** <br /> Aliemus supports in Faded Legacy</span>
-    <span style="padding: 0 4px; background-color: var(--md-highlight-yes)">**Team Unique?** <br /> **Yes**</span>
+    <span style="padding: 0 4px; background-color: var(--md-highlight-yes)">**Team Unique?** <br /> Yes</span>
   </span>
 </div>
 
 Increases the wielder's aliemus generation, at the cost of reducing your death resistance.
 
-The steep drawback makes this only worth running on [Thais](/handbook/awakeners#thais) and [GDoll](/handbook/awakeners#gdoll). Even then, it isn't much better than [Burial Ground's Sighs](#burial-grounds-sighs).
+If you're a god gamer who never dies, you can put this on [Thais](/handbook/awakeners#thais) or [GDoll](/handbook/awakeners#gdoll) to push your Phantasmal Dive Madness leaderboard score.
 
 Almost useless in [Astral Reign](/handbook/storylines#astral-reign-arc-2) due to rules changes.
 
@@ -1075,7 +1075,7 @@ Almost useless in [Astral Reign](/handbook/storylines#astral-reign-arc-2) due to
 
 <div class="grid cards" markdown>
   <span class="grid-1/1/1">
-    <span>**Source** <br /> Store <br /> (Sediment)</span>
+    <span>**Source** <br /> Store <br /> *(Sediment)*</span>
     <span>**Used by** <br /> Supports with multihit attacks</span>
     <span style="padding: 0 4px; background-color: var(--md-highlight-no)">**Team Unique?** <br /> No</span>
   </span>
@@ -1096,9 +1096,9 @@ Not a good DPS set because it doesn't actually increase damage.
 
 <div class="grid cards" markdown>
   <span class="grid-1/1/1">
-    <span>**Source** <br /> Store <br /> (Sediment)</span>
+    <span>**Source** <br /> Store <br /> *(Sediment)*</span>
     <span>**Used by** <br /> Tanky DPS that rely on command cards</span>
-    <span style="padding: 0 4px; background-color: var(--md-highlight-yes)">**Team Unique?** <br /> **Yes**</span>
+    <span style="padding: 0 4px; background-color: var(--md-highlight-yes)">**Team Unique?** <br /> Yes</span>
   </span>
 </div>
 
@@ -1115,9 +1115,9 @@ For most DPS, this is a lower-damage option than [April Tribute](#april-tribute)
 
 <div class="grid cards" markdown>
   <span class="grid-1/1/1">
-    <span>**Source** <br /> Store <br /> (Badges)</span>
+    <span>**Source** <br /> Store <br /> *(Badges)*</span>
     <span>**Used by** <br /> Ultra supports in Caro teams</span>
-    <span style="padding: 0 4px; background-color: var(--md-highlight-yes)">**Team Unique?** <br /> **Yes**</span>
+    <span style="padding: 0 4px; background-color: var(--md-highlight-yes)">**Team Unique?** <br /> Yes</span>
   </span>
 </div>
 
@@ -1134,9 +1134,9 @@ Not a bad alternative to [Life Drain](#life-drain) in Caro/Ultra teams. Of cours
 
 <div class="grid cards" markdown>
   <span class="grid-1/1/1">
-    <span>**Source** <br /> Store <br /> (Badges)</span>
+    <span>**Source** <br /> Store <br /> *(Badges)*</span>
     <span>**Used by** <br /> Crit DPS in Aequor/Caro teams</span>
-    <span style="padding: 0 4px; background-color: var(--md-highlight-yes)">**Team Unique?** <br /> **Yes**</span>
+    <span style="padding: 0 4px; background-color: var(--md-highlight-yes)">**Team Unique?** <br /> Yes</span>
   </span>
 </div>
 
@@ -1153,9 +1153,9 @@ Theoretically good in some scenarios, but it takes too much setup for this to be
 
 <div class="grid cards" markdown>
   <span class="grid-1/1/1">
-    <span>**Source** <br /> Store <br /> (Badges)</span>
+    <span>**Source** <br /> Store <br /> *(Badges)*</span>
     <span>**Used by** <br /> DPS in Aequor/Ultra teams</span>
-    <span style="padding: 0 4px; background-color: var(--md-highlight-yes)">**Team Unique?** <br /> **Yes**</span>
+    <span style="padding: 0 4px; background-color: var(--md-highlight-yes)">**Team Unique?** <br /> Yes</span>
   </span>
 </div>
 
@@ -1172,7 +1172,7 @@ Not a bad effect, but there aren't a lot of Aequor/Ultra teams that can use it e
 
 <div class="grid cards" markdown>
   <span class="grid-1/1/1">
-    <span>**Source** <br /> Store <br /> (Lightless)</span>
+    <span>**Source** <br /> Store <br /> *(Lightless)*</span>
     <span>**Used by** <br /> Shielders that use their defense a lot</span>
     <span style="padding: 0 4px; background-color: var(--md-highlight-no)">**Team Unique?** <br /> No</span>
   </span>
@@ -1180,7 +1180,7 @@ Not a bad effect, but there aren't a lot of Aequor/Ultra teams that can use it e
 
 Boosts the shield from the wielder's defense card. Niche but strong on specific characters like [Kathigu-Ra](/handbook/awakeners#kathigu-ra).
 
-Usually paired with the SR wheel The Land of Nonexistence or some other way to get more defense cards. Otherwise, this only buffs 1 card in the deck out of 16.
+Usually paired with the SR wheel [The Land of Nonexistence](https://skeydb.com/database/wheels/the-land-of-nonexistence) or some other way to get more defense cards. Otherwise, this only buffs 1 card in the deck out of 16.
 
 #### Ring of Chamber 36
 
@@ -1191,9 +1191,9 @@ Usually paired with the SR wheel The Land of Nonexistence or some other way to g
 
 <div class="grid cards" markdown>
   <span class="grid-1/1/1">
-    <span>**Source** <br /> Store <br /> (Lightless)</span>
+    <span>**Source** <br /> Store <br /> *(Lightless)*</span>
     <span>**Used by** <br /> DPS that rely on their exalt</span>
-    <span style="padding: 0 4px; background-color: var(--md-highlight-yes)">**Team Unique?** <br /> **Yes**</span>
+    <span style="padding: 0 4px; background-color: var(--md-highlight-yes)">**Team Unique?** <br /> Yes</span>
   </span>
 </div>
 
@@ -1212,7 +1212,7 @@ Usable if you don't mind having to work harder for your keyflare.
 
 <div class="grid cards" markdown>
   <span class="grid-1/1/1">
-    <span>**Source** <br /> Store <br /> (D-Jewels)</span>
+    <span>**Source** <br /> Store <br /> *(D-Jewels)*</span>
     <span>**Used by** <br /> Shielding and healing supports</span>
     <span style="padding: 0 4px; background-color: var(--md-highlight-no)">**Team Unique?** <br /> No</span>
   </span>
@@ -1231,9 +1231,9 @@ This set is expensive because it costs D-Jewels, which are needed for Dreamshard
 
 <div class="grid cards" markdown>
   <span class="grid-1/1/1">
-    <span>**Source** <br /> Store <br /> (D-Jewels)</span>
+    <span>**Source** <br /> Store <br /> *(D-Jewels)*</span>
     <span>**Used by** <br /> Supports that exalt in the first fight</span>
-    <span style="padding: 0 4px; background-color: var(--md-highlight-yes)">**Team Unique?** <br /> **Yes**</span>
+    <span style="padding: 0 4px; background-color: var(--md-highlight-yes)">**Team Unique?** <br /> Yes</span>
   </span>
 </div>
 

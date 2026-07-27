@@ -23,27 +23,27 @@ After completing the prologue, you get a free 5-pull where you can choose any SS
 <div class="item" markdown>
   [![Nymphaea](/images/awakeners/chaos/nymphaea--mini.png)](/handbook/awakeners#nymphaea)
 
-  Nymphaea
+  [Nymphaea](/handbook/awakeners#nymphaea)
 </div>
 <div class="item" markdown>
   [![Alva](/images/awakeners/chaos/alva--mini.png)](/handbook/awakeners#alva)
 
-  Alva
+  [Alva](/handbook/awakeners#alva)
 </div>
 <div class="item" markdown>
   [![Pandia](/images/awakeners/chaos/pandia--mini.png)](/handbook/awakeners#pandia)
 
-  Pandia
+  [Pandia](/handbook/awakeners#pandia)
 </div>
 <div class="item" markdown>
   [![Nautila](/images/awakeners/chaos/nautila--mini.png)](/handbook/awakeners#nautila)
 
-  Nautila
+  [Nautila](/handbook/awakeners#nautila)
 </div>
 <div class="item" markdown>
   [![Karen](/images/awakeners/chaos/karen--mini.png)](/handbook/awakeners#karen)
 
-  Karen
+  [Karen](/handbook/awakeners#karen)
 </div>
 </div>
 
@@ -56,27 +56,27 @@ After completing the prologue, you get a free 5-pull where you can choose any SS
 <div class="item" markdown>
   [![Sanga](/images/awakeners/aequor/sanga--mini.png)](/handbook/awakeners#sanga)
 
-  Sanga
+  [Sanga](/handbook/awakeners#sanga)
 </div>
 <div class="item" markdown>
   [![Celeste](/images/awakeners/aequor/celeste--mini.png)](/handbook/awakeners#celeste)
 
-  Celeste
+  [Celeste](/handbook/awakeners#celeste)
 </div>
 <div class="item" markdown>
   [![Faros](/images/awakeners/aequor/faros--mini.png)](/handbook/awakeners#faros)
 
-  Faros
+  [Faros](/handbook/awakeners#faros)
 </div>
 <div class="item" markdown>
   [![Caecus](/images/awakeners/aequor/caecus--mini.png)](/handbook/awakeners#caecus)
 
-  Caecus
+  [Caecus](/handbook/awakeners#caecus)
 </div>
 <div class="item" markdown>
   [![Goliath](/images/awakeners/aequor/goliath--mini.png)](/handbook/awakeners#goliath)
 
-  Goliath
+  [Goliath](/handbook/awakeners#goliath)
 </div>
 </div>
 
@@ -89,27 +89,27 @@ After completing the prologue, you get a free 5-pull where you can choose any SS
 <div class="item" markdown>
   [![Leigh](/images/awakeners/caro/leigh--mini.png)](/handbook/awakeners#leigh)
 
-  Leigh
+  [Leigh](/handbook/awakeners#leigh)
 </div>
 <div class="item" markdown>
   [![Faint](/images/awakeners/caro/faint--mini.png)](/handbook/awakeners#faint)
 
-  Faint
+  [Faint](/handbook/awakeners#faint)
 </div>
 <div class="item" markdown>
   [![Helot](/images/awakeners/caro/helot--mini.png)](/handbook/awakeners#helot)
 
-  Helot
+  [Helot](/handbook/awakeners#helot)
 </div>
 <div class="item" markdown>
   [![Agrippa](/images/awakeners/caro/agrippa--mini.png)](/handbook/awakeners#agrippa)
 
-  Agrippa
+  [Agrippa](/handbook/awakeners#agrippa)
 </div>
 <div class="item" markdown>
   [![Uvhash](/images/awakeners/caro/uvhash--mini.png)](/handbook/awakeners#uvhash)
 
-  Uvhash
+  [Uvhash](/handbook/awakeners#uvhash)
 </div>
 </div>
 
@@ -122,27 +122,27 @@ After completing the prologue, you get a free 5-pull where you can choose any SS
 <div class="item" markdown>
   [![Casiah](/images/awakeners/ultra/casiah--mini.png)](/handbook/awakeners#casiah)
 
-  Casiah
+  [Casiah](/handbook/awakeners#casiah)
 </div>
 <div class="item" markdown>
   [![Jenkin](/images/awakeners/ultra/jenkin--mini.png)](/handbook/awakeners#jenkin)
 
-  Jenkin
+  [Jenkin](/handbook/awakeners#jenkin)
 </div>
 <div class="item" markdown>
   [![Liz](/images/awakeners/ultra/liz--mini.png)](/handbook/awakeners#liz)
 
-  Liz
+  [Liz](/handbook/awakeners#liz)
 </div>
 <div class="item" markdown>
   [![Tinct](/images/awakeners/ultra/tinct--mini.png)](/handbook/awakeners#tinct)
 
-  Tinct
+  [Tinct](/handbook/awakeners#tinct)
 </div>
 <div class="item" markdown>
   [![Winkle](/images/awakeners/ultra/winkle--mini.png)](/handbook/awakeners#winkle)
 
-  Winkle
+  [Winkle](/handbook/awakeners#winkle)
 </div>
 </div>
 
@@ -185,16 +185,16 @@ In general, limited characters are more flexible and powerful than standard char
 
 **You can skip limited Wheels of Destiny if you need to save pulls.** This is because characters don't need their own wheel to function. You can substitute with standard SSR wheels, or even lower-rarity wheels, and it will be enough to clear all content in the game. Sometimes the substitute is more powerful than the character's own wheel.
 
-This guide includes Awakener Tier Lists and an SSR Wheel Tier List. The higher tier an awakener or wheel is, the more recommended it is for new players to pull for.
+This guide includes [Awakener Tier Lists](/handbook/tier-list) and an [SSR Wheel Tier List](/handbook/wheels). The higher tier an awakener or wheel is, the more recommended it is for new players to pull for.
 
 ![](/images/handbook/resources/moonless-guide.png){width="384" loading=lazy}
 
-The Moonless Guide banner lets you select 4 limited characters from the first year of Morimens. To summarize this guide's Awakener Tier Lists:
+The Moonless Guide banner lets you select 4 limited characters from the first year of Morimens. To summarize this guide's [Awakener Tier Lists](/handbook/tier-list):
 
 - [Thais](/handbook/awakeners#thais) and [Horla](/handbook/awakeners#horla) are very powerful and highly recommended for new players.
 - [Lily](/handbook/awakeners#lily), [Ryker](/handbook/awakeners#ryker), [Tawil](/handbook/awakeners#tawil), [Miryam](/handbook/awakeners#miryam), [Murphy](/handbook/awakeners#murphy), [GHelot](/handbook/awakeners#ghelot), and [Salvador](/handbook/awakeners#salvador) are strong choices.
-- ["24"](/handbook/awakeners#24), [Hameln](/handbook/awakeners#hameln), and [Tulu](/handbook/awakeners#tulu) are okay but not amazing choices.
-- [Sorel](/handbook/awakeners#sorel), [Daffodil](/handbook/awakeners#daffodil), and [Wanda](/handbook/awakeners#wanda) aren't worth it for new players unless you really like them.
+- ["24"](/handbook/awakeners#24), [Hameln](/handbook/awakeners#hameln), [Tulu](/handbook/awakeners#tulu), and [Daffodil](/handbook/awakeners#daffodil) are okay but not amazing choices.
+- [Sorel](/handbook/awakeners#sorel), and [Wanda](/handbook/awakeners#wanda) aren't worth it for new players unless you really like them.
 
 Once you hit a recommended stopping point for any of the selected characters, this banner is no longer worth pulling on because of the risk of getting useless dupes, and you should spend your pulls on the dedicated rate-up banners instead.
 
@@ -206,11 +206,11 @@ Once you hit a recommended stopping point for any of the selected characters, th
 
 **Use your Pure Cores to pull for all the realms in Realms Research and get lots of characters to build teams with.**
 
-You need at least 2 characters from each realm to complete Lightless Realm and event achievements. You also need 5 teams if you don't want to miss seasonal rewards from D-Effect Zone (for a total of 19 characters + 1 borrowed support). You don't need strong teams to clear the lowest difficulty — you just need enough characters.
+You need at least 2 characters from each realm to complete Lightless Realm and event achievements. You also need 5 teams if you don't want to miss seasonal rewards from [D-Effect Zone](/handbook/d-zone) (for a total of 19 characters + 1 borrowed support). You don't need strong teams to clear the lowest difficulty — you just need enough characters.
 
 Morimens is a deckbuilding game. All the standard characters in this game are useful in some way. If you have problems clearing a stage, the solution is often to change your team comp. You can't do this if you have no characters.
 
-**Aim for characters that work well with the limited character(s) you pulled for.** The Awakener Guides section has an overview of what each character does and what teammates they might want.
+**Aim for characters that work well with the limited character(s) you pulled for.** The [Awakener Guides](/handbook/awakeners) section has an overview of what each character does and what teammates they might want.
 
 **Don't focus on enlightens for standard characters as a new player.** If you have problems clearing normal story stages, learning the boss mechanics and having other characters to swap in is much more important than having E2 [Goliath](/handbook/awakeners#goliath) or E3 [Caecus](/handbook/awakeners#caecus).
 
@@ -222,14 +222,14 @@ Morimens is a deckbuilding game. All the standard characters in this game are us
 
 ![](/images/handbook/resources/wheels.png){width="384" loading=lazy}
 
-**If you have enough characters, you can pull for wheels in Wheels of Rotation.** The Awakener Guides section has suggested SSR wheels for each character. The SSR Wheel Tier List tells you which wheels are generally useful in many teams. Start by getting E3 of every wheel you plan to use in your main team.
+**If you have enough characters, you can pull for wheels in Wheels of Rotation.** The [Awakener Guides](/handbook/awakeners) section has suggested SSR wheels for each character. The [SSR Wheel Tier List](/handbook/wheels) tells you which wheels are generally useful for many teams. Start by getting E3 of every wheel you plan to use in your main team or in [D-Effect Zone](/handbook/d-zone).
 
 **If you already did all of the above and don't know what to pull next**, you can:
 
 - Get any standard character enlightens you are missing.
-- Unlock Gnostic Potential for your standard characters.
 - Pull on the standard character banner to fish for limited characters and +12 standards.
-- Go to "wheel jail" and try to +12 a wheel. You can equip two SSR wheels at once if one of them is at +12. Blade of the Titan ([Goliath](/handbook/awakeners#goliath)'s SSR wheel) is a good candidate to +12.
+- Go to "wheel jail" and try to +12 a wheel. You can equip two SSR wheels at once if one of them is at +12. [Blade of the Titan](https://skeydb.com/database/wheels/blade-of-the-titan) ([Goliath](/handbook/awakeners#goliath)'s SSR wheel) is a good candidate to +12.
+- Unlock (Gnostic Potential)[#gnostic-potential] for your standard characters.
 
 ## Spending Menophin (Stamina)
 
@@ -240,6 +240,10 @@ Morimens is a deckbuilding game. All the standard characters in this game are us
 </figure>
 
 **Spend your menophin on limited-time events.** There is usually an ongoing event with stages that cost menophin to challenge. Once you do the achievements and get the SR wheel from the event, the rewards are the same as interludes or better. If you own the associated limited character or their SSR wheel, you get even more bonus rewards.
+
+There are two kinds of events: "shop" events, which let you pick rewards from a shop, and "lottery" events, which give random rewards. Shop events are usually better value for your menophin.
+
+The current *Saya no Uta* collab event (Inverted Rebirth) is very low value for menophin. Try not to spend more menophin on it than you have to.
 
 **After fully unlocking the event, don't be afraid to use Special Potion Supply** *(stamina refills)*. As a new player, getting keeper level XP and level up materials *right now* is probably more worthwhile than whatever you are saving for in the future.
 
@@ -265,7 +269,7 @@ Sometimes you're unlucky and can't get a specific resource you need from events.
 
 **Don't worry about substats as a new player.** Rolling for substats is incredibly expensive and best left for endgame when you have nothing else to spend Rose Scrip on. For now, focus on getting a 6-piece set for each covenant set you plan to use.
 
-The Awakener Guides section suggests covenants for each character. The Building Covenants section suggests main stats and substats to aim for.
+The [Awakener Guides](/handbook/awakeners) section suggests covenants for each character. The [Building Covenants](/handbook/team#building-covenants) section suggests main stats and substats to aim for.
 
 ## Upgrading Characters
 
@@ -303,7 +307,7 @@ The Awakener Guides section suggests covenants for each character. The Building 
 ![](/images/icons/soulforge/dreamspark.png){width="80" loading=lazy}
 ![](/images/icons/soulforge/dreamshard.png){width="80" loading=lazy}
 
-**Very important to level up in Astral Reign.**
+**Very important to level up in [Astral Reign](/handbook/storylines).**
 
 Each soulforge level increases CON, ATK, and DEF by 3% in Astral Reign stages. This is like adding 5 extra character levels per soulforge level.
 
@@ -325,7 +329,7 @@ It's useful on some characters who need to exalt in the first fight (e.g. [Aigis
 
 **Ignore this until you run out of other things to spend Pure Cores on.**
 
-This talent grants a decent stat boost, but it's very expensive to unlock. Leave it until you've already pulled a lot and you already have all the standard characters and wheels you want.
+This talent is automatically unlocked for limited characters. You can manually unlock it for standard characters, but it's absurdly expensive. Leave it until you've already pulled a lot and you have all the standard characters and wheels you want.
 
 ## Mythag Shop Priority List
 
@@ -404,7 +408,7 @@ You can get the Luminous Cores and Pure Cores if you want. These are one-time on
 ![](/images/wheels/rewinding-time--mini.png){width="80" loading=lazy}
 ![](/images/wheels/celestial-beast--mini.png){width="80" loading=lazy}
 
-**Buy copies of Rewinding Time and Celestial Beast.** These are strong, universally useful wheels which can only be obtained here. If you have a wheel at +12, you can equip it at the same time as another SSR wheel.
+**Buy copies of [Rewinding Time](https://skeydb.com/database/wheels/rewinding-time) and [Celestial Beast](https://skeydb.com/database/wheels/celestial-beast).** These are strong, universally useful wheels which can only be obtained here. If you have a wheel at +12, you can equip it at the same time as another SSR wheel.
 
 ![](/images/covenants/feast-from-afar.png){width="80" loading=lazy}
 
@@ -417,11 +421,11 @@ You can get the Luminous Cores and Pure Cores if you want. These are one-time on
 
 ![](/images/wheels/deathless-ascent--mini.png){width="80" loading=lazy}
 
-You can get +12 Deathless Ascent if you have nothing else to buy.
+You can get +12 [Deathless Ascent](https://skeydb.com/database/wheels/deathless-ascent) if you have nothing else to buy.
 
 ![](/images/wheels/gateway-of-truth--mini.png){width="80" loading=lazy}
 
-You can buy SR wheels if you want. Gateway of Truth is very good and worth getting to +12. However, you get them for free if their event reruns in the future.
+You can buy SR wheels if you want. [Gateway of Truth](https://skeydb.com/database/wheels/gateway-of-truth) is very good and worth getting to +12. However, you get them for free if their event reruns in the future.
 
 ### D-Jewels
 
@@ -430,7 +434,7 @@ You can buy SR wheels if you want. Gateway of Truth is very good and worth getti
 ![](/images/icons/soulforge/dreamspark.png){width="80" loading=lazy}
 ![](/images/icons/soulforge/dreamshard.png){width="80" loading=lazy}
 
-**Buy Dreamshards and Dreamsparks every week.** These are important upgrade materials for Astral Reign stages. After you finish the story, you can only get them from events and the shop.
+**Buy Dreamshards and Dreamsparks every week.** These are important upgrade materials for [Astral Reign](/handbook/storylines) stages. After you finish the story, you can only get them from events and the shop.
 
 ![](/images/icons/skills/mimetic-crystal.png){width="80" loading=lazy}
 
@@ -443,7 +447,7 @@ You can buy SR wheels if you want. Gateway of Truth is very good and worth getti
 ![](/images/wheels/core-meltdown--mini.png){width="80" loading=lazy}
 ![](/images/wheels/winters-requiem--mini.png){width="80" loading=lazy}
 
-Core Meltdown and Winter's Requiem are useful wheels for D-Effect Zone. If you don't have enough keyflare wheels, you can get one copy of each.
+[Core Meltdown](https://skeydb.com/database/wheels/core-meltdown) and [Winter's Requiem](https://skeydb.com/database/wheels/winters-requiem) are useful wheels for D-Effect Zone. If you don't have enough keyflare wheels, you can get one copy of each.
 
 ![](/images/icons/cores/luminous.png){width="80" loading=lazy}
 ![](/images/icons/cores/pure.png){width="80" loading=lazy}
@@ -487,7 +491,7 @@ Sepirot and Fated Captures (obtained by spending real money) are random selector
 ![](/images/icons/consumables/chaos-echo.png){width="80" loading=lazy}
 ![](/images/icons/consumables/chaos-experiment.png){width="80" loading=lazy}
 
-If you spend a LOT of money, you can get limited character and wheel selectors. To decide what to get, you can check this guide's Awakener Tier Lists and SSR Wheel Tier List. You can also look at tier lists for heavy investment, like [monchi's +4 tier list](https://www.reddit.com/r/Morimens/comments/1sedg6e/morimens_tier_list_400_dtide_4_vortice_version/).
+If you spend a LOT of money, you can get limited character and wheel selectors. To decide what to get, you can check this guide's [Awakener Tier Lists](/handbook/tier-list) and an [SSR Wheel Tier List](/handbook/wheels). You can also look at tier lists for heavy investment, like [monchi's +4 tier list](https://www.reddit.com/r/Morimens/comments/1sedg6e/morimens_tier_list_400_dtide_4_vortice_version/).
 
 ## Reality Verges
 
@@ -495,9 +499,9 @@ If you spend a LOT of money, you can get limited character and wheel selectors. 
 
 Completing dailies gives you Reality Verges, which are used to unlock side stories and stories from past events.
 
-**Use these to unlock posses.** Each Psyche Deepdive, Dreamscape, and Special Ops gives you a posse. Unlocking more posses boosts the power of all posses and relics in Astral Reign stages.
+**Use these to unlock posses.** Each Psyche Deepdive, Dreamscape, and Special Ops gives you a posse. Unlocking more posses boosts the power of all posses and relics in [Astral Reign](/handbook/storylines) stages.
 
-The Awakener Guides section suggests a posse that works well with each DPS.
+The [Awakener Guides](/handbook/awakeners) section suggests a posse that works well with each DPS.
 
 **Remember that events can rerun.** If an event reruns, you unlock the event story for free.
 

@@ -628,15 +628,15 @@ However, realms do have an impact on how a team will play. If you need to choose
 
 Here is a quick guide to what each realm means for a team.
 
-### Pure Chaos Teams
+### Mono Chaos Teams
 
 ![](/images/realms/chaos.png){width="64" loading=lazy}
 
 **Nonstop posses and exalts.**
 
-In Pure Chaos you don't have a gimmick to rely on like any of the other realms. Instead, you get more keyflare and more aliemus. A good Pure Chaos team uses dual posse every turn and abuses the Chaos Realm Mastery effect to exalt every turn.
+In Mono Chaos you don't have a gimmick to rely on like any of the other realms. Instead, you get more keyflare and more aliemus. A good Mono Chaos team uses dual posse every turn and abuses the Chaos Realm Mastery effect to exalt every turn.
 
-**Pure Chaos isn't a good option for new players.** It's great if you're a veteran player with 50 unlocked posses, OE characters, and +12 realm mastery wheels. It sucks if your only options from dual posse are [Voices In Your Head](https://skeydb.com/database/posses/voices-in-your-head){target="_blank"} and [Tiny Wish](https://skeydb.com/database/posses/tiny-wish){target="_blank"}.
+**Mono Chaos isn't a good option for new players.** It's great if you're a veteran player with 50 unlocked posses, OE characters, and +12 realm mastery wheels. It sucks if your only options from dual posse are [Voices In Your Head](https://skeydb.com/database/posses/voices-in-your-head){target="_blank"} and [Tiny Wish](https://skeydb.com/database/posses/tiny-wish){target="_blank"}.
 
 **Primordia Chaos:** Some characters like [GLotan](/handbook/awakeners#glotan) change how Chaos mechanics work when they're on your team. In Primordia Chaos, the normal Chaos mechanics no longer apply; keyflare generation works differently; rouses have Prepare 1 and trigger your equipped posse; and your posse button lets you combine random unlocked posses.
 
@@ -810,7 +810,7 @@ Personally, I default to <span class="inline-flex-center">Keyflare Regen ![](/im
 
 Some stats to be wary of investing in:
 
-- <span class="inline-flex-center">Realm Mastery ![](/images/icons/stats/realm-mastery.png#only-dark){width="16" loading=lazy} ![](/images/icons/stats/realm-mastery--dark.png#only-light){width="16" loading=lazy}</span> is only strong in specific realms (Pure Chaos and Benthos Aequor). It's a middling stat for most realm combinations, and nearly useless in base Ultra.
+- <span class="inline-flex-center">Realm Mastery ![](/images/icons/stats/realm-mastery.png#only-dark){width="16" loading=lazy} ![](/images/icons/stats/realm-mastery--dark.png#only-light){width="16" loading=lazy}</span> is only strong in specific realms (Mono Chaos and Benthos Aequor). It's a middling stat for most realm combinations, and nearly useless in base Ultra.
 - <span class="inline-flex-center">DMG Amplification ![](/images/icons/stats/dmg-amp.png#only-dark){width="12" loading=lazy} ![](/images/icons/stats/dmg-amp--dark.png#only-light){width="12" loading=lazy}</span> is only good for [specific teams](#dmg-amplification-base-dmg).
 - <span class="inline-flex-center">Aliemus Regen ![](/images/icons/stats/aliemus-regen.png#only-dark){width="16" loading=lazy} ![](/images/icons/stats/aliemus-regen--dark.png#only-light){width="16" loading=lazy}</span> has very low returns on investment and is basically never worth building.
 

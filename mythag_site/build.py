@@ -18,6 +18,8 @@ SOURCE_IMAGES = ROOT / "lib" / "images"
 SITE_ROOT = ROOT / "site"
 CACHE_ROOT = ROOT / ".avif-cache"
 ENCODER_KEY = b"pillow-avif-quality70-speed6-444-v1\0"
+WHEEL_MAX_EDGE = 640
+WHEEL_RESIZE_KEY = b"wheel-max-edge640-lanczos-v1\0"
 IMAGE_TAG = re.compile(r"<img\b[^>]*>", re.IGNORECASE)
 SOURCE_ATTRIBUTE = re.compile(
     r"(?P<prefix>(?<![-\w])src\s*=\s*)(?P<quote>['\"])(?P<url>[^'\"]+)(?P=quote)",
@@ -31,8 +33,18 @@ HEIGHT_ATTRIBUTE = re.compile(
 )
 
 
+def is_wheel(source: Path) -> bool:
+    try:
+        relative = source.resolve().relative_to(SOURCE_IMAGES.resolve())
+    except ValueError:
+        return False
+    return bool(relative.parts) and relative.parts[0].lower() == "wheels"
+
+
 def source_digest(source: Path) -> str:
     digest = hashlib.sha256(ENCODER_KEY)
+    if is_wheel(source):
+        digest.update(WHEEL_RESIZE_KEY)
     with source.open("rb") as handle:
         for chunk in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(chunk)
@@ -50,15 +62,20 @@ def encode_cached(source: Path, cached: Path) -> bool:
     cached.parent.mkdir(parents=True, exist_ok=True)
     temporary = cached.with_suffix(".tmp.avif")
     with Image.open(source) as original:
-        size = original.size
-        original_alpha = original.convert("RGBA").getchannel("A").copy()
-        original.save(
-            temporary,
-            "AVIF",
-            quality=70,
-            speed=6,
-            subsampling="4:4:4",
-        )
+        with original.copy() as delivery:
+            if is_wheel(source):
+                delivery.thumbnail(
+                    (WHEEL_MAX_EDGE, WHEEL_MAX_EDGE), Image.Resampling.LANCZOS
+                )
+            size = delivery.size
+            original_alpha = delivery.convert("RGBA").getchannel("A").copy()
+            delivery.save(
+                temporary,
+                "AVIF",
+                quality=70,
+                speed=6,
+                subsampling="4:4:4",
+            )
 
     with Image.open(temporary) as converted:
         if converted.size != size:

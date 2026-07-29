@@ -11,6 +11,28 @@ from mythag_site import build
 
 
 class ImageUrlTests(unittest.TestCase):
+    def test_caps_only_wheel_delivery_assets_at_640_pixels(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            images = Path(temporary) / "images"
+            wheel = images / "wheels" / "wheel.png"
+            awakener = images / "awakeners" / "awakener.png"
+            wheel.parent.mkdir(parents=True)
+            awakener.parent.mkdir(parents=True)
+            Image.new("RGBA", (430, 872), (255, 0, 0, 128)).save(wheel)
+            Image.new("RGBA", (430, 872), (0, 0, 255, 128)).save(awakener)
+
+            with patch.object(build, "SOURCE_IMAGES", images):
+                wheel_avif = Path(temporary) / "wheel.avif"
+                awakener_avif = Path(temporary) / "awakener.avif"
+                self.assertTrue(build.encode_cached(wheel, wheel_avif))
+                self.assertTrue(build.encode_cached(awakener, awakener_avif))
+                self.assertFalse(build.encode_cached(wheel, wheel_avif))
+
+            with Image.open(wheel_avif) as converted:
+                self.assertEqual(converted.size, (316, 640))
+            with Image.open(awakener_avif) as converted:
+                self.assertEqual(converted.size, (430, 872))
+
     def test_rewrites_root_and_relative_image_urls_only_when_avif_exists(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             site = Path(temporary)

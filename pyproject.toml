@@ -1,10 +1,19 @@
+[build-system]
+requires = ["setuptools>=80"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "mythag-library"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "pillow>=12.3.0",
+]
+
+[project.scripts]
+mythag-build = "mythag_site.build:main"
 
 [dependency-groups]
 dev = [
@@ -12,4 +21,4 @@ dev = [
 ]
 
 [tool.setuptools]
-py-modules = []
+packages = ["mythag_site"]

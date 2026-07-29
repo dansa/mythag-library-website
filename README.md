@@ -11,6 +11,18 @@ If you have feedback or suggestions, feel free to create an [Issue](https://gith
 
 The preview shows your changes in real-time as you edit the files (might need to reload the page occasionally).
 
+For a production build, run `uv run mythag-build`. This builds the site,
+generates one AVIF delivery asset for every PNG in `lib/images`, and updates the
+built HTML to serve AVIF images with intrinsic dimensions. Wheel delivery
+assets are capped at a 640-pixel edge; other images retain their source
+dimensions. Maintainers should continue adding and referencing ordinary PNG
+source assets; no manual conversion or AVIF filenames are needed. Unchanged
+conversions are reused from the ignored `.avif-cache` directory.
+
+The hosting provider must use `uv run mythag-build` as its production build
+command. Running `zensical build` directly skips AVIF generation and HTML
+rewriting.
+
 # How to
 
 1. [Create a GitHub account](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github)

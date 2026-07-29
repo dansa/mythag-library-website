@@ -467,6 +467,35 @@
     grid-template-columns: 1fr 2fr;
     gap: 16px;
   }
+
+  .md-typeset .team-build.center,
+  .team-build > .build-heading,
+  .team-build > .caption.mobile {
+    grid-column: 1 / -1;
+  }
+
+  .md-typeset .team-build.center {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .team-build > .hagrid {
+    display: contents;
+  }
+
+  .team-build > .caption:not(.mobile) {
+    display: none;
+  }
+
+  .team-build--single > .hagrid > figure:first-child {
+    grid-column: 2;
+  }
+}
+
+.team-build > .build-heading,
+.build-column > .build-heading {
+  grid-column: 1 / -1;
 }
 
 /* Item */

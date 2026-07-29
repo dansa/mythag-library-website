@@ -43,6 +43,9 @@ ALLOWED_AWAKENER_FIELDS = {
 }
 ALLOWED_TIERS = {"S", "A", "B", "C", "D"}
 FRONT_MATTER = re.compile(r"\A---[ \t]*\r?\n(?P<yaml>.*?)\r?\n---[ \t]*(?:\r?\n|\Z)", re.DOTALL)
+LAYOUT_MARKUP = re.compile(
+    r"{{|{%|<!--|<![A-Za-z]|</?[A-Za-z][A-Za-z0-9-]*(?:\s[^<>]*|/?)>"
+)
 
 
 @dataclass(frozen=True)
@@ -59,12 +62,49 @@ class ValidationIssue:
 
 
 @dataclass(frozen=True)
+class Rank:
+    tier: str
+    note: str | None
+
+
+@dataclass(frozen=True)
+class Recommendation:
+    name: str
+    note: str | None
+
+
+@dataclass(frozen=True)
+class WheelGroups:
+    early_game: tuple[Recommendation, ...]
+    astral_reign: tuple[Recommendation, ...]
+
+
+@dataclass(frozen=True)
+class Build:
+    name: str
+    covenants: tuple[str, ...]
+    wheels: WheelGroups
+
+
+@dataclass(frozen=True)
+class Awakener:
+    tagline: str
+    roles: tuple[str, ...]
+    dps_ranks: tuple[Rank, ...]
+    support_ranks: tuple[Rank, ...]
+    stopping_points: tuple[str, ...]
+    builds: tuple[Build, ...]
+    suggested_posses: tuple[Recommendation, ...]
+    works_well_with: tuple[str, ...]
+
+
+@dataclass(frozen=True)
 class Guide:
     path: Path
     title: str
     slug: str
     realm: str
-    meta: dict[str, Any]
+    awakener: Awakener
 
 
 class AwakenerValidationError(Exception):
@@ -128,10 +168,11 @@ def _validate_rank_entries(
     issues: list[ValidationIssue],
     path: Path,
     field: str,
-) -> None:
+) -> list[Rank]:
     if not isinstance(value, list) or not value:
         _issue(issues, path, field, "expected a non-empty list")
-        return
+        return []
+    ranks: list[Rank] = []
     for index, item in enumerate(value):
         item_field = f"{field}[{index}]"
         if not isinstance(item, dict):
@@ -148,8 +189,12 @@ def _validate_rank_entries(
                 f"{item_field}.tier",
                 f"expected one of {', '.join(sorted(ALLOWED_TIERS))}",
             )
+        note = None
         if "note" in item:
-            _non_empty_string(item["note"], issues, path, f"{item_field}.note")
+            note = _non_empty_string(item["note"], issues, path, f"{item_field}.note")
+        if tier is not None:
+            ranks.append(Rank(tier, note))
+    return ranks
 
 
 def _validate_named_items(
@@ -159,7 +204,7 @@ def _validate_named_items(
     field: str,
     *,
     required: bool = True,
-) -> list[str]:
+) -> list[Recommendation]:
     if value is None and not required:
         return []
     if not isinstance(value, list) or (required and not value):
@@ -167,7 +212,7 @@ def _validate_named_items(
         _issue(issues, path, field, f"expected {expectation}")
         return []
 
-    names: list[str] = []
+    recommendations: list[Recommendation] = []
     for index, item in enumerate(value):
         item_field = f"{field}[{index}]"
         if not isinstance(item, dict):
@@ -177,26 +222,26 @@ def _validate_named_items(
         for key in sorted(unknown):
             _issue(issues, path, f"{item_field}.{key}", "unknown field")
         name = _non_empty_string(item.get("name"), issues, path, f"{item_field}.name")
-        if name is not None:
-            names.append(name)
+        note = None
         if "note" in item:
-            _non_empty_string(item["note"], issues, path, f"{item_field}.note")
-    return names
+            note = _non_empty_string(item["note"], issues, path, f"{item_field}.note")
+        if name is not None:
+            recommendations.append(Recommendation(name, note))
+    return recommendations
 
 
 def _validate_builds(
     value: Any,
     issues: list[ValidationIssue],
     path: Path,
-) -> tuple[list[str], list[str]]:
+) -> list[Build]:
     if value is None:
-        return [], []
+        return []
     if not isinstance(value, list):
         _issue(issues, path, "awakener.builds", "expected a list")
-        return [], []
+        return []
 
-    covenants: list[str] = []
-    wheels: list[str] = []
+    builds: list[Build] = []
     for index, build in enumerate(value):
         field = f"awakener.builds[{index}]"
         if not isinstance(build, dict):
@@ -205,30 +250,39 @@ def _validate_builds(
         unknown = set(build) - {"name", "covenants", "wheels"}
         for key in sorted(unknown):
             _issue(issues, path, f"{field}.{key}", "unknown field")
-        _non_empty_string(build.get("name"), issues, path, f"{field}.name")
-        covenants.extend(
-            _string_list(
-                build.get("covenants"), issues, path, f"{field}.covenants"
-            )
+        name = _non_empty_string(build.get("name"), issues, path, f"{field}.name")
+        covenants = _string_list(
+            build.get("covenants"), issues, path, f"{field}.covenants"
         )
 
         wheel_groups = build.get("wheels")
         if not isinstance(wheel_groups, dict):
             _issue(issues, path, f"{field}.wheels", "expected a mapping")
-            continue
+            wheel_groups = {}
         unknown_groups = set(wheel_groups) - {"early_game", "astral_reign"}
         for key in sorted(unknown_groups):
             _issue(issues, path, f"{field}.wheels.{key}", "unknown field")
-        for group in ("early_game", "astral_reign"):
-            wheels.extend(
-                _validate_named_items(
-                    wheel_groups.get(group),
-                    issues,
-                    path,
-                    f"{field}.wheels.{group}",
+        early_game = _validate_named_items(
+            wheel_groups.get("early_game"),
+            issues,
+            path,
+            f"{field}.wheels.early_game",
+        )
+        astral_reign = _validate_named_items(
+            wheel_groups.get("astral_reign"),
+            issues,
+            path,
+            f"{field}.wheels.astral_reign",
+        )
+        if name is not None:
+            builds.append(
+                Build(
+                    name,
+                    tuple(covenants),
+                    WheelGroups(tuple(early_game), tuple(astral_reign)),
                 )
             )
-    return covenants, wheels
+    return builds
 
 
 def _parse_guide(path: Path, issues: list[ValidationIssue]) -> Guide | None:
@@ -252,7 +306,7 @@ def _parse_guide(path: Path, issues: list[ValidationIssue]) -> Guide | None:
         return None
 
     body = text[match.end() :]
-    if re.search(r"<[/!A-Za-z]|{%|{{", body):
+    if LAYOUT_MARKUP.search(body):
         _issue(
             issues,
             relative,
@@ -273,10 +327,14 @@ def _parse_guide(path: Path, issues: list[ValidationIssue]) -> Guide | None:
     for key in sorted(set(awakener) - ALLOWED_AWAKENER_FIELDS):
         _issue(issues, relative, f"awakener.{key}", "unknown field")
 
-    _non_empty_string(awakener.get("tagline"), issues, relative, "awakener.tagline")
-    _string_list(awakener.get("roles"), issues, relative, "awakener.roles")
+    tagline = _non_empty_string(
+        awakener.get("tagline"), issues, relative, "awakener.tagline"
+    )
+    roles = _string_list(awakener.get("roles"), issues, relative, "awakener.roles")
 
     ranks = awakener.get("ranks")
+    dps_ranks: list[Rank] = []
+    support_ranks: list[Rank] = []
     if not isinstance(ranks, dict) or not ranks:
         _issue(issues, relative, "awakener.ranks", "expected a non-empty mapping")
     else:
@@ -284,25 +342,29 @@ def _parse_guide(path: Path, issues: list[ValidationIssue]) -> Guide | None:
             _issue(issues, relative, f"awakener.ranks.{key}", "unknown rank")
         for key in ("dps", "support"):
             if key in ranks:
-                _validate_rank_entries(
+                parsed_ranks = _validate_rank_entries(
                     ranks[key], issues, relative, f"awakener.ranks.{key}"
                 )
+                if key == "dps":
+                    dps_ranks = parsed_ranks
+                else:
+                    support_ranks = parsed_ranks
 
-    _string_list(
+    stopping_points = _string_list(
         awakener.get("stopping_points"),
         issues,
         relative,
         "awakener.stopping_points",
     )
-    _validate_builds(awakener.get("builds"), issues, relative)
-    _validate_named_items(
+    builds = _validate_builds(awakener.get("builds"), issues, relative)
+    suggested_posses = _validate_named_items(
         awakener.get("suggested_posses"),
         issues,
         relative,
         "awakener.suggested_posses",
         required=False,
     )
-    _string_list(
+    works_well_with = _string_list(
         awakener.get("works_well_with"),
         issues,
         relative,
@@ -323,7 +385,22 @@ def _parse_guide(path: Path, issues: list[ValidationIssue]) -> Guide | None:
             "title",
             f"expected filename {slug}.md for this title",
         )
-    return Guide(relative, title, slug, realm, meta)
+    return Guide(
+        relative,
+        title,
+        slug,
+        realm,
+        Awakener(
+            tagline or "",
+            tuple(roles),
+            tuple(dps_ranks),
+            tuple(support_ranks),
+            tuple(stopping_points),
+            tuple(builds),
+            tuple(suggested_posses),
+            tuple(works_well_with),
+        ),
+    )
 
 
 def load_guides() -> tuple[list[Guide], list[ValidationIssue]]:
@@ -410,21 +487,17 @@ def build_asset_catalog(
             }
 
     for guide in guides:
-        awakener = guide.meta["awakener"]
+        awakener = guide.awakener
         add_awakeners(guide, [guide.title], "title")
-        related = awakener.get("works_well_with")
-        if isinstance(related, list):
-            add_awakeners(
-                guide,
-                [item for item in related if isinstance(item, str)],
-                "awakener.works_well_with",
-            )
+        add_awakeners(
+            guide,
+            list(awakener.works_well_with),
+            "awakener.works_well_with",
+        )
 
-        for build_index, build in enumerate(awakener.get("builds") or []):
-            if not isinstance(build, dict):
-                continue
-            for covenant in build.get("covenants") or []:
-                if not isinstance(covenant, str) or covenant in catalog["covenants"]:
+        for build_index, build in enumerate(awakener.builds):
+            for covenant in build.covenants:
+                if covenant in catalog["covenants"]:
                     continue
                 slug = slugify(covenant)
                 full = SOURCE_IMAGES / "covenants" / f"{slug}.png"
@@ -440,17 +513,13 @@ def build_asset_catalog(
                         "icon": _site_url(icon),
                         "url": f"/handbook/team#{slug}",
                     }
-            wheels = build.get("wheels")
-            if not isinstance(wheels, dict):
-                continue
-            for group, recommendations in wheels.items():
-                if not isinstance(recommendations, list):
-                    continue
+            for group, recommendations in (
+                ("early_game", build.wheels.early_game),
+                ("astral_reign", build.wheels.astral_reign),
+            ):
                 for item_index, recommendation in enumerate(recommendations):
-                    if not isinstance(recommendation, dict):
-                        continue
-                    name = recommendation.get("name")
-                    if not isinstance(name, str) or name in catalog["wheels"]:
+                    name = recommendation.name
+                    if name in catalog["wheels"]:
                         continue
                     slug = slugify(name)
                     image = SOURCE_IMAGES / "wheels" / f"{slug}.png"
@@ -464,11 +533,9 @@ def build_asset_catalog(
                     else:
                         catalog["wheels"][name] = {"image": _site_url(image)}
 
-        for posse_index, posse in enumerate(awakener.get("suggested_posses") or []):
-            if not isinstance(posse, dict):
-                continue
-            name = posse.get("name")
-            if not isinstance(name, str) or name in catalog["posses"]:
+        for posse_index, posse in enumerate(awakener.suggested_posses):
+            name = posse.name
+            if name in catalog["posses"]:
                 continue
             slug = slugify(name)
             image = SOURCE_IMAGES / "posses" / f"{slug}.png"

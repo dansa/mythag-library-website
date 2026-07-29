@@ -1,5 +1,22 @@
 {% extends "main.html" %}
 
+{% macro wheel_column(title, wheels, assets) %}
+  <div class="awakener-wheel-column">
+    <h3>{{ title }}</h3>
+    <div class="awakener-wheel-list">
+      {% for wheel in wheels %}
+        {% set wheel_asset = assets.wheels[wheel.name] %}
+        <figure>
+          <img src="{{ wheel_asset.image }}" alt="{{ wheel.name }}" loading="lazy">
+          <figcaption>
+            {{ wheel.name }}{% if wheel.note %}<br><em>{{ wheel.note }}</em>{% endif %}
+          </figcaption>
+        </figure>
+      {% endfor %}
+    </div>
+  </div>
+{% endmacro %}
+
 {% block content %}
   {% set guide = page.meta.awakener %}
   {% set assets = config.extra.awakener_assets %}
@@ -82,35 +99,8 @@
             {% endfor %}
           </div>
 
-          <div class="awakener-wheel-column">
-            <h3>Early Game Wheels</h3>
-            <div class="awakener-wheel-list">
-              {% for wheel in build.wheels.early_game %}
-                {% set wheel_asset = assets.wheels[wheel.name] %}
-                <figure>
-                  <img src="{{ wheel_asset.image }}" alt="{{ wheel.name }}" loading="lazy">
-                  <figcaption>
-                    {{ wheel.name }}{% if wheel.note %}<br><em>{{ wheel.note }}</em>{% endif %}
-                  </figcaption>
-                </figure>
-              {% endfor %}
-            </div>
-          </div>
-
-          <div class="awakener-wheel-column">
-            <h3>Astral Reign Wheels</h3>
-            <div class="awakener-wheel-list">
-              {% for wheel in build.wheels.astral_reign %}
-                {% set wheel_asset = assets.wheels[wheel.name] %}
-                <figure>
-                  <img src="{{ wheel_asset.image }}" alt="{{ wheel.name }}" loading="lazy">
-                  <figcaption>
-                    {{ wheel.name }}{% if wheel.note %}<br><em>{{ wheel.note }}</em>{% endif %}
-                  </figcaption>
-                </figure>
-              {% endfor %}
-            </div>
-          </div>
+          {{ wheel_column("Early Game Wheels", build.wheels.early_game, assets) }}
+          {{ wheel_column("Astral Reign Wheels", build.wheels.astral_reign, assets) }}
         </div>
       </section>
     {% endfor %}

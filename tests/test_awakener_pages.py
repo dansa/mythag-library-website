@@ -130,6 +130,23 @@ class AwakenerPreparationTests(unittest.TestCase):
             rendered = "\n".join(str(issue) for issue in issues)
             self.assertIn("content: use ordinary Markdown", rendered)
 
+    def test_allows_markdown_autolinks_in_guide_prose(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root, config = self.project(temporary)
+            guide = root / "lib" / "handbook" / "awakeners" / "chaos" / "example.md"
+            guide.write_text(
+                VALID_GUIDE.replace(
+                    "Ordinary **Markdown** prose.",
+                    "See <https://example.com> or contact <name@example.com>.",
+                ),
+                encoding="utf-8",
+            )
+            patches = self.patches(root, config)
+            with patches[0], patches[1], patches[2], patches[3], patches[4]:
+                _, issues = awakeners.load_guides()
+
+            self.assertNotIn("content", {issue.field for issue in issues})
+
     def test_missing_asset_stops_preparation(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             root, config = self.project(temporary)

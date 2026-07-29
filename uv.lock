@@ -89,6 +89,7 @@ version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "pillow" },
+    { name = "pyyaml" },
 ]
 
 [package.dev-dependencies]
@@ -97,7 +98,10 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "pillow", specifier = ">=12.3.0" }]
+requires-dist = [
+    { name = "pillow", specifier = ">=12.3.0" },
+    { name = "pyyaml", specifier = ">=6.0.3" },
+]
 
 [package.metadata.requires-dev]
 dev = [{ name = "zensical", specifier = "==0.0.51" }]

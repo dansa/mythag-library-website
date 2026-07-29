@@ -7,9 +7,15 @@ If you have feedback or suggestions, feel free to create an [Issue](https://gith
 # Installation and preview
 
 1. [Install Zensical](https://zensical.org/docs/get-started/#installation) with `pip` or `uv`
-2. Run `zensical serve` to preview the website locally. With `uv` it's `uv run zensical serve`
+2. Run `uv run mythag-serve` to preview the website locally.
 
-The preview shows your changes in real-time as you edit the files (might need to reload the page occasionally).
+The preview shows ordinary content, template, and CSS changes in real time (you
+might need to reload the page occasionally). Restart the preview after adding,
+renaming, moving, or removing an Awakener guide so its generated navigation can
+be refreshed.
+
+Run `uv run mythag-check` for a quick content and asset validation without a
+full production build.
 
 For a production build, run `uv run mythag-build`. This builds the site,
 generates one AVIF delivery asset for every PNG in `lib/images`, and updates the
@@ -21,7 +27,26 @@ conversions are reused from the ignored `.avif-cache` directory.
 
 The hosting provider must use `uv run mythag-build` as its production build
 command. Running `zensical build` directly skips AVIF generation and HTML
-rewriting.
+rewriting as well as Awakener validation and generated navigation.
+
+## Adding an Awakener guide
+
+1. Copy `templates/awakener.md` into the appropriate realm folder under
+   `lib/handbook/awakeners/` and name it after the Awakener, such as
+   `lib/handbook/awakeners/chaos/gdoll.md`.
+2. Fill in the YAML header and write the guide below it using ordinary
+   Markdown. Do not add HTML, CSS classes, or Jinja template calls.
+3. Add the ordinary game PNG assets under `lib/images/`; the production build
+   handles the web delivery format.
+4. Run `uv run mythag-check`, then preview with `uv run mythag-serve`.
+
+Fields such as `builds`, `suggested_posses`, and `works_well_with` can be
+removed when a guide does not need those sections.
+
+The shared Awakener layout is defined in
+`overrides/awakeners/awakener.html`, and its presentation is defined in
+`lib/styles/awakeners.css`. Editing those files updates every standalone
+Awakener guide.
 
 # How to
 

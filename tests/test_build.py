@@ -33,6 +33,25 @@ class ImageUrlTests(unittest.TestCase):
             with Image.open(awakener_avif) as converted:
                 self.assertEqual(converted.size, (430, 872))
 
+            site = Path(temporary) / "site"
+            site_wheel = site / "images" / "wheels" / "wheel.png"
+            site_wheel.parent.mkdir(parents=True)
+            Image.new("RGBA", (430, 872), (255, 0, 0, 128)).save(site_wheel)
+            page = site / "index.html"
+            page.write_text('<img src="/images/wheels/wheel.png">', encoding="utf-8")
+            with (
+                patch.object(build, "SOURCE_IMAGES", images),
+                patch.object(build, "SITE_ROOT", site),
+            ):
+                self.assertTrue(
+                    build.encode_cached(wheel, site_wheel.with_suffix(".avif"))
+                )
+                self.assertEqual(build.rewrite_html_images(), (1, 1))
+            self.assertIn(
+                'src="/images/wheels/wheel.avif" width="316" height="640"',
+                page.read_text(encoding="utf-8"),
+            )
+
     def test_rewrites_root_and_relative_image_urls_only_when_avif_exists(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             site = Path(temporary)
@@ -62,23 +81,26 @@ class ImageUrlTests(unittest.TestCase):
             page = site / "index.html"
             avif = site / "images" / "awakener.avif"
             avif.parent.mkdir(parents=True)
-            avif.write_bytes(b"avif")
             Image.new("RGBA", (400, 200)).save(avif.with_suffix(".png"))
+            Image.new("RGBA", (200, 100)).save(avif, "AVIF")
             page.write_text(
                 '<script src="/images/awakener.png"></script>'
                 '<img src="/images/awakener.png" alt="Awakener">'
-                '<img src="/images/awakener.png" alt="Small" width="100">',
+                '<img src="/images/awakener.png" alt="Small" width="100">'
+                '<img src="/images/awakener.png" alt="Decimal" width="117.95">',
                 encoding="utf-8",
             )
 
             with patch.object(build, "SITE_ROOT", site):
-                self.assertEqual(build.rewrite_html_images(), (1, 2))
+                self.assertEqual(build.rewrite_html_images(), (1, 3))
 
             rewritten = page.read_text(encoding="utf-8")
             self.assertIn('<script src="/images/awakener.png">', rewritten)
             self.assertIn('<img src="/images/awakener.avif"', rewritten)
-            self.assertIn('width="400" height="200">', rewritten)
+            self.assertIn('width="200" height="100">', rewritten)
             self.assertIn('width="100" height="50">', rewritten)
+            self.assertIn('width="117.95" height="59">', rewritten)
+            self.assertNotIn('width="117.95" width=', rewritten)
 
 
 if __name__ == "__main__":

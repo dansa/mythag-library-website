@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+import json
 import re
 import shutil
 import subprocess
@@ -17,19 +18,25 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE_IMAGES = ROOT / "lib" / "images"
 SITE_ROOT = ROOT / "site"
 CACHE_ROOT = ROOT / ".avif-cache"
-ENCODER_KEY = b"pillow-avif-quality70-speed6-444-v1\0"
+ENCODER_OPTIONS: dict[str, int | str] = {
+    "quality": 70,
+    "speed": 6,
+    "subsampling": "4:4:4",
+}
 WHEEL_MAX_EDGE = 640
-WHEEL_RESIZE_KEY = b"wheel-max-edge640-lanczos-v1\0"
+WHEEL_RESAMPLING = Image.Resampling.LANCZOS
 IMAGE_TAG = re.compile(r"<img\b[^>]*>", re.IGNORECASE)
 SOURCE_ATTRIBUTE = re.compile(
     r"(?P<prefix>(?<![-\w])src\s*=\s*)(?P<quote>['\"])(?P<url>[^'\"]+)(?P=quote)",
     re.IGNORECASE,
 )
 WIDTH_ATTRIBUTE = re.compile(
-    r"(?<![-\w])width\s*=\s*['\"](?P<value>\d+)['\"]", re.IGNORECASE
+    r"(?<![-\w])width\s*=\s*(?P<quote>['\"])(?P<value>[^'\"]*)(?P=quote)",
+    re.IGNORECASE,
 )
 HEIGHT_ATTRIBUTE = re.compile(
-    r"(?<![-\w])height\s*=\s*['\"](?P<value>\d+)['\"]", re.IGNORECASE
+    r"(?<![-\w])height\s*=\s*(?P<quote>['\"])(?P<value>[^'\"]*)(?P=quote)",
+    re.IGNORECASE,
 )
 
 
@@ -42,9 +49,16 @@ def is_wheel(source: Path) -> bool:
 
 
 def source_digest(source: Path) -> str:
-    digest = hashlib.sha256(ENCODER_KEY)
+    policy: dict[str, object] = {"format": "AVIF", **ENCODER_OPTIONS}
     if is_wheel(source):
-        digest.update(WHEEL_RESIZE_KEY)
+        policy["resize"] = {
+            "max_edge": WHEEL_MAX_EDGE,
+            "resampling": WHEEL_RESAMPLING.name,
+        }
+    serialized_policy = json.dumps(
+        policy, sort_keys=True, separators=(",", ":")
+    ).encode("ascii")
+    digest = hashlib.sha256(serialized_policy + b"\0")
     with source.open("rb") as handle:
         for chunk in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(chunk)
@@ -65,16 +79,14 @@ def encode_cached(source: Path, cached: Path) -> bool:
         with original.copy() as delivery:
             if is_wheel(source):
                 delivery.thumbnail(
-                    (WHEEL_MAX_EDGE, WHEEL_MAX_EDGE), Image.Resampling.LANCZOS
+                    (WHEEL_MAX_EDGE, WHEEL_MAX_EDGE), WHEEL_RESAMPLING
                 )
             size = delivery.size
             original_alpha = delivery.convert("RGBA").getchannel("A").copy()
             delivery.save(
                 temporary,
                 "AVIF",
-                quality=70,
-                speed=6,
-                subsampling="4:4:4",
+                **ENCODER_OPTIONS,
             )
 
     with Image.open(temporary) as converted:
@@ -162,11 +174,17 @@ def add_intrinsic_dimensions(tag: str, source: Path) -> str:
     source_width, source_height = image_size(source)
 
     if width_match:
-        width = int(width_match.group("value"))
+        try:
+            width = float(width_match.group("value"))
+        except ValueError:
+            return tag
         height = round(source_height * width / source_width)
         attributes = f' height="{height}"'
     elif height_match:
-        height = int(height_match.group("value"))
+        try:
+            height = float(height_match.group("value"))
+        except ValueError:
+            return tag
         width = round(source_width * height / source_height)
         attributes = f' width="{width}"'
     else:
@@ -208,7 +226,7 @@ def rewrite_html_images() -> tuple[int, int]:
             )
             replacements += 1
             assert source is not None
-            return add_intrinsic_dimensions(rewritten_tag, source)
+            return add_intrinsic_dimensions(rewritten_tag, source.with_suffix(".avif"))
 
         rewritten = IMAGE_TAG.sub(replace_tag, html)
         if replacements:

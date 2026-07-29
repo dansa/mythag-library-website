@@ -1,0 +1,168 @@
+"""Build the site and replace rendered PNG image URLs with cached AVIF assets."""
+
+from __future__ import annotations
+
+import hashlib
+import re
+import shutil
+import subprocess
+from pathlib import Path
+from urllib.parse import unquote, urlsplit, urlunsplit
+
+from PIL import Image, ImageChops, features
+
+
+ROOT = Path(__file__).resolve().parents[1]
+SOURCE_IMAGES = ROOT / "lib" / "images"
+SITE_ROOT = ROOT / "site"
+CACHE_ROOT = ROOT / ".avif-cache"
+ENCODER_KEY = b"pillow-avif-quality70-speed6-444-v1\0"
+IMAGE_TAG = re.compile(r"<img\b[^>]*>", re.IGNORECASE)
+SOURCE_ATTRIBUTE = re.compile(
+    r"(?P<prefix>(?<![-\w])src\s*=\s*)(?P<quote>['\"])(?P<url>[^'\"]+)(?P=quote)",
+    re.IGNORECASE,
+)
+
+
+def source_digest(source: Path) -> str:
+    digest = hashlib.sha256(ENCODER_KEY)
+    with source.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def encode_cached(source: Path, cached: Path) -> bool:
+    """Create or reuse an AVIF cache entry. Return True when it was encoded."""
+    digest = source_digest(source)
+    digest_file = cached.with_suffix(".avif.sha256")
+    if cached.is_file() and digest_file.is_file():
+        if digest_file.read_text(encoding="ascii").strip() == digest:
+            return False
+
+    cached.parent.mkdir(parents=True, exist_ok=True)
+    temporary = cached.with_suffix(".tmp.avif")
+    with Image.open(source) as original:
+        size = original.size
+        original_alpha = original.convert("RGBA").getchannel("A").copy()
+        original.save(
+            temporary,
+            "AVIF",
+            quality=70,
+            speed=6,
+            subsampling="4:4:4",
+        )
+
+    with Image.open(temporary) as converted:
+        if converted.size != size:
+            raise RuntimeError(f"AVIF dimensions changed for {source}")
+        converted_alpha = converted.convert("RGBA").getchannel("A")
+        alpha_error = ImageChops.difference(
+            original_alpha, converted_alpha
+        ).getextrema()[1]
+        if alpha_error > 32:
+            raise RuntimeError(
+                f"AVIF alpha error {alpha_error}/255 exceeded 32/255 for {source}"
+            )
+
+    temporary.replace(cached)
+    digest_file.write_text(f"{digest}\n", encoding="ascii")
+    return True
+
+
+def generate_avif_assets() -> tuple[int, int, int, int]:
+    encoded = 0
+    reused = 0
+    png_bytes = 0
+    avif_bytes = 0
+
+    for source in sorted(SOURCE_IMAGES.rglob("*.png")):
+        relative = source.relative_to(SOURCE_IMAGES).with_suffix(".avif")
+        cached = CACHE_ROOT / relative
+        destination = SITE_ROOT / "images" / relative
+        if encode_cached(source, cached):
+            encoded += 1
+        else:
+            reused += 1
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(cached, destination)
+        png_bytes += source.stat().st_size
+        avif_bytes += cached.stat().st_size
+
+    return encoded, reused, png_bytes, avif_bytes
+
+
+def avif_url(url: str, html_file: Path) -> str | None:
+    parsed = urlsplit(url)
+    if parsed.scheme or parsed.netloc or not parsed.path.lower().endswith(".png"):
+        return None
+
+    decoded_path = unquote(parsed.path)
+    if decoded_path.startswith("/"):
+        png_file = SITE_ROOT / decoded_path.lstrip("/")
+    else:
+        png_file = html_file.parent / decoded_path
+
+    try:
+        png_file.resolve().relative_to(SITE_ROOT.resolve())
+    except ValueError:
+        return None
+
+    if not png_file.with_suffix(".avif").is_file():
+        return None
+
+    avif_path = f"{parsed.path[:-4]}.avif"
+    return urlunsplit(("", "", avif_path, parsed.query, parsed.fragment))
+
+
+def rewrite_html_images() -> tuple[int, int]:
+    changed_files = 0
+    changed_urls = 0
+
+    for html_file in sorted(SITE_ROOT.rglob("*.html")):
+        html = html_file.read_text(encoding="utf-8")
+        replacements = 0
+
+        def replace(match: re.Match[str]) -> str:
+            nonlocal replacements
+            replacement = avif_url(match.group("url"), html_file)
+            if replacement is None:
+                return match.group(0)
+            replacements += 1
+            return (
+                f'{match.group("prefix")}{match.group("quote")}'
+                f'{replacement}{match.group("quote")}'
+            )
+
+        rewritten = IMAGE_TAG.sub(
+            lambda tag: SOURCE_ATTRIBUTE.sub(replace, tag.group(0)), html
+        )
+        if replacements:
+            html_file.write_text(rewritten, encoding="utf-8", newline="")
+            changed_files += 1
+            changed_urls += replacements
+
+    return changed_files, changed_urls
+
+
+def main() -> None:
+    if not features.check("avif"):
+        raise SystemExit("Pillow was installed without AVIF support")
+
+    zensical = shutil.which("zensical")
+    if zensical is None:
+        raise SystemExit("zensical must be available on PATH")
+
+    subprocess.run([zensical, "build", "--clean"], cwd=ROOT, check=True)
+    encoded, reused, png_bytes, avif_bytes = generate_avif_assets()
+    changed_files, changed_urls = rewrite_html_images()
+    reduction = (1 - avif_bytes / png_bytes) * 100 if png_bytes else 0
+    print(
+        "AVIF delivery: "
+        f"{encoded} encoded, {reused} cached, {changed_urls} image URLs across "
+        f"{changed_files} HTML files, {reduction:.1f}% fewer image bytes"
+    )
+
+
+if __name__ == "__main__":
+    main()

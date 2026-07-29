@@ -11,6 +11,13 @@ If you have feedback or suggestions, feel free to create an [Issue](https://gith
 
 The preview shows your changes in real-time as you edit the files (might need to reload the page occasionally).
 
+For a production build, run `uv run mythag-build`. This builds the site,
+generates one full-resolution AVIF for every PNG in `lib/images`, and updates
+the built HTML to serve AVIF images. Maintainers should continue adding and
+referencing ordinary PNG source assets; no manual conversion or AVIF filenames
+are needed. Unchanged conversions are reused from the ignored `.avif-cache`
+directory.
+
 # How to
 
 1. [Create a GitHub account](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github)

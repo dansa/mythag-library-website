@@ -1,5 +1,7 @@
 .DS_Store
 .cache
+.avif-cache
 .obsidian
 .venv
+*.egg-info/
 site

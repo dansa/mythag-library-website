@@ -3,6 +3,7 @@ from __future__ import annotations
 import tempfile
 import textwrap
 import unittest
+from contextlib import ExitStack, contextmanager
 from pathlib import Path
 from unittest.mock import patch
 
@@ -60,27 +61,35 @@ class AwakenerPreparationTests(unittest.TestCase):
         )
         return root, config
 
+    @contextmanager
     def patches(self, root: Path, config: Path):
-        return (
-            patch.object(awakeners, "ROOT", root),
-            patch.object(
-                awakeners,
-                "GUIDES_ROOT",
-                root / "lib" / "handbook" / "awakeners",
-            ),
-            patch.object(awakeners, "SOURCE_IMAGES", root / "lib" / "images"),
-            patch.object(awakeners, "SOURCE_CONFIG", config),
-            patch.object(
-                awakeners, "GENERATED_CONFIG", root / ".zensical.generated.toml"
-            ),
-        )
+        with ExitStack() as stack:
+            stack.enter_context(patch.object(awakeners, "ROOT", root))
+            stack.enter_context(
+                patch.object(
+                    awakeners,
+                    "GUIDES_ROOT",
+                    root / "lib" / "handbook" / "awakeners",
+                )
+            )
+            stack.enter_context(
+                patch.object(awakeners, "SOURCE_IMAGES", root / "lib" / "images")
+            )
+            stack.enter_context(patch.object(awakeners, "SOURCE_CONFIG", config))
+            stack.enter_context(
+                patch.object(
+                    awakeners,
+                    "GENERATED_CONFIG",
+                    root / ".zensical.generated.toml",
+                )
+            )
+            yield
 
     def test_prepares_navigation_and_assets_without_rewriting_source_config(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             root, config = self.project(temporary)
             original = config.read_text(encoding="utf-8")
-            patches = self.patches(root, config)
-            with patches[0], patches[1], patches[2], patches[3], patches[4]:
+            with self.patches(root, config):
                 guides = awakeners.prepare_awakeners()
 
             self.assertEqual([guide.title for guide in guides], ["Example"])
@@ -104,8 +113,7 @@ class AwakenerPreparationTests(unittest.TestCase):
                 ),
                 encoding="utf-8",
             )
-            patches = self.patches(root, config)
-            with patches[0], patches[1], patches[2], patches[3], patches[4]:
+            with self.patches(root, config):
                 _, issues = awakeners.load_guides()
 
             rendered = "\n".join(str(issue) for issue in issues)
@@ -123,8 +131,7 @@ class AwakenerPreparationTests(unittest.TestCase):
                 ),
                 encoding="utf-8",
             )
-            patches = self.patches(root, config)
-            with patches[0], patches[1], patches[2], patches[3], patches[4]:
+            with self.patches(root, config):
                 _, issues = awakeners.load_guides()
 
             rendered = "\n".join(str(issue) for issue in issues)
@@ -141,18 +148,29 @@ class AwakenerPreparationTests(unittest.TestCase):
                 ),
                 encoding="utf-8",
             )
-            patches = self.patches(root, config)
-            with patches[0], patches[1], patches[2], patches[3], patches[4]:
+            with self.patches(root, config):
                 _, issues = awakeners.load_guides()
 
             self.assertNotIn("content", {issue.field for issue in issues})
+
+    def test_every_allowed_tier_has_a_css_selector_and_color(self) -> None:
+        rank_styles = (awakeners.ROOT / "lib" / "styles" / "awakeners.css").read_text(
+            encoding="utf-8"
+        )
+        color_variables = (awakeners.ROOT / "lib" / "styles" / "extra.css").read_text(
+            encoding="utf-8"
+        )
+
+        for tier in awakeners.ALLOWED_TIERS:
+            with self.subTest(tier=tier):
+                self.assertIn(f'.awakener-rank[data-tier="{tier}"]', rank_styles)
+                self.assertIn(f"--md-tier-{tier.casefold()}:", color_variables)
 
     def test_missing_asset_stops_preparation(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             root, config = self.project(temporary)
             (root / "lib" / "images" / "awakeners" / "chaos" / "example--mini.png").unlink()
-            patches = self.patches(root, config)
-            with patches[0], patches[1], patches[2], patches[3], patches[4]:
+            with self.patches(root, config):
                 with self.assertRaises(awakeners.AwakenerValidationError) as context:
                     awakeners.prepare_awakeners()
 

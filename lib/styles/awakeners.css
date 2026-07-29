@@ -79,6 +79,10 @@
   font-weight: 700;
 }
 
+.awakener-rank[data-tier="S"] {
+  color: var(--md-tier-s);
+}
+
 .awakener-rank[data-tier="A"] {
   color: var(--md-tier-a);
 }

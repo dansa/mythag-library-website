@@ -81,7 +81,8 @@ Chaos "24" deals enough single-target damage that she's a viable endgame DPS aga
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Support)" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build (Support)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Scarlet Embrace](/images/covenants/scarlet-embrace--icon.png "Scarlet Embrace"){loading=lazy}](/handbook/team#scarlet-embrace)
@@ -99,8 +100,10 @@ Chaos "24" deals enough single-target damage that she's a viable endgame DPS aga
     </figure>
   </div>
   <div class="caption text-center">(Any support)</div>
+  <div class="caption text-center mobile">(Any support)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Elevated Focus](/images/wheels/elevated-focus.png "Elevated Focus"){loading=lazy} <figcaption>(Any aliemus)</figcaption>
     </figure>
@@ -108,7 +111,8 @@ Chaos "24" deals enough single-target damage that she's a viable endgame DPS aga
       ![Gluttony](/images/wheels/gluttony.png "Gluttony"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Manikin of Oblivion](/images/wheels/manikin-of-oblivion.png "Manikin of Oblivion"){loading=lazy} <figcaption>(Any aliemus)</figcaption>
     </figure>
@@ -122,7 +126,8 @@ Chaos "24" deals enough single-target damage that she's a viable endgame DPS aga
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Exalt DPS)" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build (Exalt DPS)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![April Tribute](/images/covenants/april-tribute--icon.png "April Tribute"){loading=lazy}](/handbook/team#april-tribute)
@@ -141,8 +146,10 @@ Chaos "24" deals enough single-target damage that she's a viable endgame DPS aga
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Crimson Pulse](/handbook/team#crimson-pulse)</div>
+  <div class="caption text-center mobile" markdown="span">[April Tribute](/handbook/team#april-tribute) &middot; [Crimson Pulse](/handbook/team#crimson-pulse)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Elevated Focus](/images/wheels/elevated-focus.png "Elevated Focus"){loading=lazy} <figcaption>Elevated Focus</figcaption>
     </figure>
@@ -150,7 +157,8 @@ Chaos "24" deals enough single-target damage that she's a viable endgame DPS aga
       ![Analysis of Death](/images/wheels/analysis-of-death.png "Analysis of Death"){loading=lazy} <figcaption>Analysis of Death</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Celestial Beast](/images/wheels/celestial-beast.png "Celestial Beast"){loading=lazy} <figcaption>Celestial Beast</figcaption>
     </figure>
@@ -232,7 +240,8 @@ At E3, she can be a DPS that sets up burst combos with Combat Stance and Precisi
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Support)" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build (Support)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Burial Ground's Sighs](/images/covenants/burial-grounds-sighs--icon.png "Burial Ground's Sighs"){loading=lazy}](/handbook/team#burial-grounds-sighs)
@@ -250,8 +259,10 @@ At E3, she can be a DPS that sets up burst combos with Combat Stance and Precisi
     </figure>
   </div>
   <div class="caption text-center">(Any support)</div>
+  <div class="caption text-center mobile">(Any support)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Elevated Focus](/images/wheels/elevated-focus.png "Elevated Focus"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -259,7 +270,8 @@ At E3, she can be a DPS that sets up burst combos with Combat Stance and Precisi
       ![Whisper](/images/wheels/whisper.png "Whisper"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Dusk and Dawn](/images/wheels/dusk-and-dawn.png "Dusk and Dawn"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -273,7 +285,8 @@ At E3, she can be a DPS that sets up burst combos with Combat Stance and Precisi
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Precision Slash DPS)" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build (Precision Slash DPS)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Dream of Medicine](/images/covenants/dream-of-medicine--icon.png "Dream of Medicine"){loading=lazy}](/handbook/team#dream-of-medicine)
@@ -292,8 +305,10 @@ At E3, she can be a DPS that sets up burst combos with Combat Stance and Precisi
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Feast from Afar](/handbook/team#feast-from-afar)</div>
+  <div class="caption text-center mobile" markdown="span">[Dream of Medicine](/handbook/team#dream-of-medicine) &middot; [Feast from Afar](/handbook/team#feast-from-afar)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Analysis of Death](/images/wheels/analysis-of-death.png "Analysis of Death"){loading=lazy} <figcaption>Analysis of Death</figcaption>
     </figure>
@@ -301,7 +316,8 @@ At E3, she can be a DPS that sets up burst combos with Combat Stance and Precisi
       ![To My Dearest Friend](/images/wheels/to-my-dearest-friend.png "To My Dearest Friend"){loading=lazy} <figcaption>To My Dearest Friend</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Grace Through Pain](/images/wheels/grace-through-pain.png "Grace Through Pain"){loading=lazy} <figcaption>Grace Through Pain</figcaption>
     </figure>
@@ -383,7 +399,8 @@ She also generates a bit of healing and aliemus, and her high base Keyflare Rege
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build" markdown>
+  <div class="team-build team-build--single center" markdown>
+  <div class="heading text-center build-heading">Example Build</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Life Drain](/images/covenants/life-drain--icon.png "Life Drain"){loading=lazy}](/handbook/team#life-drain)
@@ -393,8 +410,10 @@ She also generates a bit of healing and aliemus, and her high base Keyflare Rege
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Life Drain](/handbook/team#life-drain)</div>
+  <div class="caption text-center mobile" markdown="span">[Life Drain](/handbook/team#life-drain)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Gluttony](/images/wheels/gluttony.png "Gluttony"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -402,7 +421,8 @@ She also generates a bit of healing and aliemus, and her high base Keyflare Rege
       ![Frenzy](/images/wheels/frenzy.png "Frenzy"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Merciful Nurturing](/images/wheels/merciful-nurturing.png "Merciful Nurturing"){loading=lazy} <figcaption>(Any Keyflare Regen stat)</figcaption>
     </figure>
@@ -486,7 +506,8 @@ At OE, she can carry boss fights by herself.
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Dream of Medicine](/images/covenants/dream-of-medicine--icon.png "Dream of Medicine"){loading=lazy}](/handbook/team#dream-of-medicine)
@@ -505,8 +526,10 @@ At OE, she can carry boss fights by herself.
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Burial Ground's Sighs](/handbook/team#burial-grounds-sighs)</div>
+  <div class="caption text-center mobile" markdown="span">[Dream of Medicine](/handbook/team#dream-of-medicine) &middot; [Burial Ground's Sighs](/handbook/team#burial-grounds-sighs)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Elevated Focus](/images/wheels/elevated-focus.png "Elevated Focus"){loading=lazy} <figcaption>(Any aliemus)</figcaption>
     </figure>
@@ -514,7 +537,8 @@ At OE, she can carry boss fights by herself.
       ![Gluttony](/images/wheels/gluttony.png "Gluttony"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Manikin of Oblivion](/images/wheels/manikin-of-oblivion.png "Manikin of Oblivion"){loading=lazy} <figcaption>(Any aliemus)</figcaption>
     </figure>
@@ -602,7 +626,8 @@ Works best with teammates that want to combo off and play a lot of cards.
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build" markdown>
+  <div class="team-build team-build--single center" markdown>
+  <div class="heading text-center build-heading">Example Build</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Life Drain](/images/covenants/life-drain--icon.png "Life Drain"){loading=lazy}](/handbook/team#life-drain)
@@ -612,8 +637,10 @@ Works best with teammates that want to combo off and play a lot of cards.
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Life Drain](/handbook/team#life-drain)</div>
+  <div class="caption text-center mobile" markdown="span">[Life Drain](/handbook/team#life-drain)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Gluttony](/images/wheels/gluttony.png "Gluttony"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -621,7 +648,8 @@ Works best with teammates that want to combo off and play a lot of cards.
       ![Frenzy](/images/wheels/frenzy.png "Frenzy"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Merciful Nurturing](/images/wheels/merciful-nurturing.png "Merciful Nurturing"){loading=lazy} <figcaption>(Any Keyflare Regen stat)</figcaption>
     </figure>
@@ -700,7 +728,8 @@ Kath needs E3 and her posse to work. She likes teammates who provide STR and cri
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Feast from Afar](/images/covenants/feast-from-afar--icon.png "Feast from Afar"){loading=lazy}](/handbook/team#feast-from-afar)
@@ -719,8 +748,10 @@ Kath needs E3 and her posse to work. She likes teammates who provide STR and cri
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Paradox](/handbook/team#paradox)</div>
+  <div class="caption text-center mobile" markdown="span">[Feast from Afar](/handbook/team#feast-from-afar) &middot; [Paradox](/handbook/team#paradox)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Analysis of Death](/images/wheels/analysis-of-death.png "Analysis of Death"){loading=lazy} <figcaption>Analysis of Death</figcaption>
     </figure>
@@ -728,7 +759,8 @@ Kath needs E3 and her posse to work. She likes teammates who provide STR and cri
       ![The Land of Nonexistence](/images/wheels/the-land-of-nonexistence.png "The Land of Nonexistence"){loading=lazy} <figcaption>The Land of Nonexistence</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Blade of the Titan](/images/wheels/blade-of-the-titan.png "Blade of the Titan"){loading=lazy} <figcaption>Blade of the Titan</figcaption>
     </figure>
@@ -810,7 +842,8 @@ OE makes her a top-tier arithmetica support.</p>
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Deus Ex Machina](/images/covenants/deus-ex-machina--icon.png "Deus Ex Machina"){loading=lazy}](/handbook/team#deus-ex-machina)
@@ -828,8 +861,10 @@ OE makes her a top-tier arithmetica support.</p>
     </figure>
   </div>
   <div class="caption text-center" markdown="span">(Any support)</div>
+  <div class="caption text-center mobile">(Any support)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Aged](/images/wheels/aged.png "Aged"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -837,7 +872,8 @@ OE makes her a top-tier arithmetica support.</p>
       ![Whisper](/images/wheels/whisper.png "Whisper"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Hymn of the Sovereign](/images/wheels/hymn-of-the-sovereign.png "Hymn of the Sovereign"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -916,7 +952,8 @@ Lily works best as the main shielder and healer in poison teams, but she can fit
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Feast from Afar](/images/covenants/feast-from-afar--icon.png "Feast from Afar"){loading=lazy}](/handbook/team#feast-from-afar)
@@ -935,8 +972,10 @@ Lily works best as the main shielder and healer in poison teams, but she can fit
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Twisted Twins: White](/handbook/team#twisted-twins-white)</div>
+  <div class="caption text-center mobile" markdown="span">[Feast from Afar](/handbook/team#feast-from-afar) &middot; [Twisted Twins: White](/handbook/team#twisted-twins-white)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Cloaked in the Night](/images/wheels/cloaked-in-the-night.png "Cloaked in the Night"){loading=lazy} <figcaption>(Any Death Res.)</figcaption>
     </figure>
@@ -944,7 +983,8 @@ Lily works best as the main shielder and healer in poison teams, but she can fit
       ![The Land of Nonexistence](/images/wheels/the-land-of-nonexistence.png "The Land of Nonexistence"){loading=lazy} <figcaption>The Land of Nonexistence</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Grace Through Pain](/images/wheels/grace-through-pain.png "Grace Through Pain"){loading=lazy} <figcaption>(Any Death Res.)</figcaption>
     </figure>
@@ -1030,7 +1070,8 @@ Her Over-Exalt deals bonus damage equal to 15% of the enemy's max HP. This boost
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Dream of Medicine](/images/covenants/dream-of-medicine--icon.png "Dream of Medicine"){loading=lazy}](/handbook/team#dream-of-medicine)
@@ -1049,8 +1090,10 @@ Her Over-Exalt deals bonus damage equal to 15% of the enemy's max HP. This boost
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Crimson Pulse](/handbook/team#crimson-pulse)</div>
+  <div class="caption text-center mobile" markdown="span">[Dream of Medicine](/handbook/team#dream-of-medicine) &middot; [Crimson Pulse](/handbook/team#crimson-pulse)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Hand of Oblivion](/images/wheels/hand-of-oblivion.png "Hand of Oblivion"){loading=lazy} <figcaption>Hand of Oblivion</figcaption>
     </figure>
@@ -1058,7 +1101,8 @@ Her Over-Exalt deals bonus damage equal to 15% of the enemy's max HP. This boost
       ![Analysis of Death](/images/wheels/analysis-of-death.png "Analysis of Death"){loading=lazy} <figcaption>Analysis of Death</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Celestial Beast](/images/wheels/celestial-beast.png "Celestial Beast"){loading=lazy} <figcaption>Celestial Beast</figcaption>
     </figure>
@@ -1142,7 +1186,8 @@ She works best in short stages, as her playstyle means you probably won't surviv
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![April Tribute](/images/covenants/april-tribute--icon.png "April Tribute"){loading=lazy}](/handbook/team#april-tribute)
@@ -1161,8 +1206,10 @@ She works best in short stages, as her playstyle means you probably won't surviv
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Crimson Pulse](/handbook/team#crimson-pulse)</div>
+  <div class="caption text-center mobile" markdown="span">[April Tribute](/handbook/team#april-tribute) &middot; [Crimson Pulse](/handbook/team#crimson-pulse)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Critical Point](/images/wheels/critical-point.png "Critical Point"){loading=lazy} <figcaption>Critical Point</figcaption>
     </figure>
@@ -1170,7 +1217,8 @@ She works best in short stages, as her playstyle means you probably won't surviv
       ![Analysis of Death](/images/wheels/analysis-of-death.png "Analysis of Death"){loading=lazy} <figcaption>Analysis of Death</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Celestial Beast](/images/wheels/celestial-beast.png "Celestial Beast"){loading=lazy} <figcaption>Celestial Beast</figcaption>
     </figure>
@@ -1250,7 +1298,8 @@ Nautila's exalt can support counter teams by converting counter into AOE damage.
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Burial Ground's Sighs](/images/covenants/burial-grounds-sighs--icon.png "Burial Ground's Sighs"){loading=lazy}](/handbook/team#burial-grounds-sighs)
@@ -1269,8 +1318,10 @@ Nautila's exalt can support counter teams by converting counter into AOE damage.
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Cursed Rabbit](/handbook/team#cursed-rabbit)</div>
+  <div class="caption text-center mobile" markdown="span">[Burial Ground's Sighs](/handbook/team#burial-grounds-sighs) &middot; [Cursed Rabbit](/handbook/team#cursed-rabbit)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Aged](/images/wheels/aged.png "Aged"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -1278,7 +1329,8 @@ Nautila's exalt can support counter teams by converting counter into AOE damage.
       ![Whisper](/images/wheels/whisper.png "Whisper"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Memory Spiral](/images/wheels/memory-spiral.png "Memory Spiral"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -1354,7 +1406,8 @@ Works best in a team full of poison characters. Nymphaea's rouse makes her a dec
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Keyflare Support)" markdown>
+  <div class="team-build team-build--single center" markdown>
+  <div class="heading text-center build-heading">Example Build (Keyflare Support)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Life Drain](/images/covenants/life-drain--icon.png "Life Drain"){loading=lazy}](/handbook/team#life-drain)
@@ -1364,8 +1417,10 @@ Works best in a team full of poison characters. Nymphaea's rouse makes her a dec
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Life Drain](/handbook/team#life-drain)</div>
+  <div class="caption text-center mobile" markdown="span">[Life Drain](/handbook/team#life-drain)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Gluttony](/images/wheels/gluttony.png "Gluttony"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -1373,7 +1428,8 @@ Works best in a team full of poison characters. Nymphaea's rouse makes her a dec
       ![Frenzy](/images/wheels/frenzy.png "Frenzy"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Merciful Nurturing](/images/wheels/merciful-nurturing.png "Merciful Nurturing"){loading=lazy} <figcaption>(Any Keyflare Regen stat)</figcaption>
     </figure>
@@ -1387,7 +1443,8 @@ Works best in a team full of poison characters. Nymphaea's rouse makes her a dec
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Poison DPS)" markdown>
+  <div class="team-build team-build--single center" markdown>
+  <div class="heading text-center build-heading">Example Build (Poison DPS)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Steppenwolf](/images/covenants/steppenwolf--icon.png "Steppenwolf"){loading=lazy}](/handbook/team#steppenwolf)
@@ -1397,8 +1454,10 @@ Works best in a team full of poison characters. Nymphaea's rouse makes her a dec
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Steppenwolf](/handbook/team#steppenwolf)</div>
+  <div class="caption text-center mobile" markdown="span">[Steppenwolf](/handbook/team#steppenwolf)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Cursed Binding](/images/wheels/cursed-binding.png "Cursed Binding"){loading=lazy} <figcaption>Cursed Binding</figcaption>
     </figure>
@@ -1406,7 +1465,8 @@ Works best in a team full of poison characters. Nymphaea's rouse makes her a dec
       ![Elevated Focus](/images/wheels/elevated-focus.png "Elevated Focus"){loading=lazy} <figcaption>Elevated Focus</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Gift of Decay](/images/wheels/gift-of-decay.png "Gift of Decay"){loading=lazy} <figcaption>Gift of Decay</figcaption>
     </figure>
@@ -1491,7 +1551,8 @@ Ogier scales well with investment and becomes crazy good at +12 and level 90 wit
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Feast from Afar](/images/covenants/feast-from-afar--icon.png "Feast from Afar"){loading=lazy}](/handbook/team#feast-from-afar)
@@ -1510,8 +1571,10 @@ Ogier scales well with investment and becomes crazy good at +12 and level 90 wit
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Burial Ground's Sighs](/handbook/team#burial-grounds-sighs)</div>
+  <div class="caption text-center mobile" markdown="span">[Feast from Afar](/handbook/team#feast-from-afar) &middot; [Burial Ground's Sighs](/handbook/team#burial-grounds-sighs)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![The Land of Nonexistence](/images/wheels/the-land-of-nonexistence.png "The Land of Nonexistence"){loading=lazy} <figcaption>The Land of Nonexistence</figcaption>
     </figure>
@@ -1519,7 +1582,8 @@ Ogier scales well with investment and becomes crazy good at +12 and level 90 wit
       ![Whisper](/images/wheels/whisper.png "Whisper"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Heart of a Knight](/images/wheels/heart-of-a-knight.png "Heart of a Knight"){loading=lazy} <figcaption>A Knight's Vow</figcaption>
     </figure>
@@ -1597,7 +1661,8 @@ She was caught in the crossfire when [Astral Reign](/handbook/storylines#astral-
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Keyflare Support)" markdown>
+  <div class="team-build team-build--single center" markdown>
+  <div class="heading text-center build-heading">Example Build (Keyflare Support)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Life Drain](/images/covenants/life-drain--icon.png "Life Drain"){loading=lazy}](/handbook/team#life-drain)
@@ -1607,8 +1672,10 @@ She was caught in the crossfire when [Astral Reign](/handbook/storylines#astral-
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Life Drain](/handbook/team#life-drain)</div>
+  <div class="caption text-center mobile" markdown="span">[Life Drain](/handbook/team#life-drain)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Gluttony](/images/wheels/gluttony.png "Gluttony"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -1616,7 +1683,8 @@ She was caught in the crossfire when [Astral Reign](/handbook/storylines#astral-
       ![Frenzy](/images/wheels/frenzy.png "Frenzy"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Merciful Nurturing](/images/wheels/merciful-nurturing.png "Merciful Nurturing"){loading=lazy} <figcaption>(Any Keyflare Regen stat)</figcaption>
     </figure>
@@ -1630,7 +1698,8 @@ She was caught in the crossfire when [Astral Reign](/handbook/storylines#astral-
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Counter DPS)" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build (Counter DPS)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Steppenwolf](/images/covenants/steppenwolf--icon.png "Steppenwolf"){loading=lazy}](/handbook/team#steppenwolf)
@@ -1649,8 +1718,10 @@ She was caught in the crossfire when [Astral Reign](/handbook/storylines#astral-
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[April Tribute](/handbook/team#april-tribute)</div>
+  <div class="caption text-center mobile" markdown="span">[Steppenwolf](/handbook/team#steppenwolf) &middot; [April Tribute](/handbook/team#april-tribute)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Analysis of Death](/images/wheels/analysis-of-death.png "Analysis of Death"){loading=lazy} <figcaption>Analysis of Death</figcaption>
     </figure>
@@ -1658,7 +1729,8 @@ She was caught in the crossfire when [Astral Reign](/handbook/storylines#astral-
       ![Cloaked in the Night](/images/wheels/cloaked-in-the-night.png "Cloaked in the Night"){loading=lazy} <figcaption>Cloaked in the Night</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Drifting in Desire](/images/wheels/drifting-in-desire.png "Drifting in Desire"){loading=lazy} <figcaption>Drifting in Desire</figcaption>
     </figure>
@@ -1736,7 +1808,8 @@ She works best with teammates that have high-cost cards or specific cards they n
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build" markdown>
+  <div class="team-build team-build--single center" markdown>
+  <div class="heading text-center build-heading">Example Build</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Life Drain](/images/covenants/life-drain--icon.png "Life Drain"){loading=lazy}](/handbook/team#life-drain)
@@ -1746,8 +1819,10 @@ She works best with teammates that have high-cost cards or specific cards they n
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Life Drain](/handbook/team#life-drain)</div>
+  <div class="caption text-center mobile" markdown="span">[Life Drain](/handbook/team#life-drain)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Gluttony](/images/wheels/gluttony.png "Gluttony"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -1755,7 +1830,8 @@ She works best with teammates that have high-cost cards or specific cards they n
       ![Frenzy](/images/wheels/frenzy.png "Frenzy"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Merciful Nurturing](/images/wheels/merciful-nurturing.png "Merciful Nurturing"){loading=lazy} <figcaption>(Any Keyflare Regen stat)</figcaption>
     </figure>
@@ -1831,7 +1907,8 @@ Her DPS build revolves around using dual posse every turn to scale Predetermined
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Keyflare Support)" markdown>
+  <div class="team-build team-build--single center" markdown>
+  <div class="heading text-center build-heading">Example Build (Keyflare Support)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Life Drain](/images/covenants/life-drain--icon.png "Life Drain"){loading=lazy}](/handbook/team#life-drain)
@@ -1841,8 +1918,10 @@ Her DPS build revolves around using dual posse every turn to scale Predetermined
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Life Drain](/handbook/team#life-drain)</div>
+  <div class="caption text-center mobile" markdown="span">[Life Drain](/handbook/team#life-drain)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Gluttony](/images/wheels/gluttony.png "Gluttony"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -1850,7 +1929,8 @@ Her DPS build revolves around using dual posse every turn to scale Predetermined
       ![Frenzy](/images/wheels/frenzy.png "Frenzy"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Merciful Nurturing](/images/wheels/merciful-nurturing.png "Merciful Nurturing"){loading=lazy} <figcaption>(Any Keyflare Regen stat)</figcaption>
     </figure>
@@ -1864,7 +1944,8 @@ Her DPS build revolves around using dual posse every turn to scale Predetermined
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Posse Spam DPS)" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build (Posse Spam DPS)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Paradox](/images/covenants/paradox--icon.png "Paradox"){loading=lazy}](/handbook/team#paradox)
@@ -1883,8 +1964,10 @@ Her DPS build revolves around using dual posse every turn to scale Predetermined
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Crimson Pulse](/handbook/team#crimson-pulse)</div>
+  <div class="caption text-center mobile" markdown="span">[Paradox](/handbook/team#paradox) &middot; [Crimson Pulse](/handbook/team#crimson-pulse)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Moment of Reunion](/images/wheels/moment-of-reunion.png "Moment of Reunion"){loading=lazy} <figcaption>Moment of Reunion</figcaption>
     </figure>
@@ -1892,7 +1975,8 @@ Her DPS build revolves around using dual posse every turn to scale Predetermined
       ![Analysis of Death](/images/wheels/analysis-of-death.png "Analysis of Death"){loading=lazy} <figcaption>Analysis of Death</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Eternal Requiem](/images/wheels/eternal-requiem.png "Eternal Requiem"){loading=lazy} <figcaption>Eternal Requiem</figcaption>
     </figure>
@@ -1973,7 +2057,8 @@ Ryker is also excellent at drawing cards and searching for cards, making him a g
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Scarlet Embrace](/images/covenants/scarlet-embrace--icon.png "Scarlet Embrace"){loading=lazy}](/handbook/team#scarlet-embrace)
@@ -1992,8 +2077,10 @@ Ryker is also excellent at drawing cards and searching for cards, making him a g
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Burial Ground's Sighs](/handbook/team#burial-grounds-sighs)</div>
+  <div class="caption text-center mobile" markdown="span">[Scarlet Embrace](/handbook/team#scarlet-embrace) &middot; [Burial Ground's Sighs](/handbook/team#burial-grounds-sighs)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Frenzy](/images/wheels/frenzy.png "Frenzy"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -2001,7 +2088,8 @@ Ryker is also excellent at drawing cards and searching for cards, making him a g
       ![Emerge](/images/wheels/emerge.png "Emerge"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Path Forsaken](/images/wheels/path-forsaken.png "Path Forsaken"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -2084,7 +2172,8 @@ Needs E2 and lots of arithmetica to work well. Also very complex and time-consum
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Keyflare Support)" markdown>
+  <div class="team-build team-build--single center" markdown>
+  <div class="heading text-center build-heading">Example Build (Keyflare Support)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Life Drain](/images/covenants/life-drain--icon.png "Life Drain"){loading=lazy}](/handbook/team#life-drain)
@@ -2094,8 +2183,10 @@ Needs E2 and lots of arithmetica to work well. Also very complex and time-consum
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Life Drain](/handbook/team#life-drain)</div>
+  <div class="caption text-center mobile" markdown="span">[Life Drain](/handbook/team#life-drain)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Gluttony](/images/wheels/gluttony.png "Gluttony"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -2103,7 +2194,8 @@ Needs E2 and lots of arithmetica to work well. Also very complex and time-consum
       ![Frenzy](/images/wheels/frenzy.png "Frenzy"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Merciful Nurturing](/images/wheels/merciful-nurturing.png "Merciful Nurturing"){loading=lazy} <figcaption>(Any Keyflare Regen stat)</figcaption>
     </figure>
@@ -2117,7 +2209,8 @@ Needs E2 and lots of arithmetica to work well. Also very complex and time-consum
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Wing Spam Carry)" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build (Wing Spam Carry)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Dream of Medicine](/images/covenants/dream-of-medicine--icon.png "Dream of Medicine"){loading=lazy}](/handbook/team#dream-of-medicine)
@@ -2136,8 +2229,10 @@ Needs E2 and lots of arithmetica to work well. Also very complex and time-consum
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Crimson Pulse](/handbook/team#crimson-pulse)</div>
+  <div class="caption text-center mobile" markdown="span">[Dream of Medicine](/handbook/team#dream-of-medicine) &middot; [Crimson Pulse](/handbook/team#crimson-pulse)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Moment of Reunion](/images/wheels/moment-of-reunion.png "Moment of Reunion"){loading=lazy} <figcaption>Moment of Reunion</figcaption>
     </figure>
@@ -2145,7 +2240,8 @@ Needs E2 and lots of arithmetica to work well. Also very complex and time-consum
       ![Analysis of Death](/images/wheels/analysis-of-death.png "Analysis of Death"){loading=lazy} <figcaption>Analysis of Death</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Wheel Unseen](/images/wheels/wheel-unseen.png "Wheel Unseen"){loading=lazy} <figcaption>Wheel Unseen</figcaption>
     </figure>
@@ -2226,7 +2322,8 @@ Her actual damage is low, so she needs a team that stacks lots of STR and Tentac
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Crimson Pulse](/images/covenants/crimson-pulse--icon.png "Crimson Pulse"){loading=lazy}](/handbook/team#crimson-pulse)
@@ -2245,8 +2342,10 @@ Her actual damage is low, so she needs a team that stacks lots of STR and Tentac
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Scarlet Embrace](/handbook/team#scarlet-embrace)</div>
+  <div class="caption text-center mobile" markdown="span">[Crimson Pulse](/handbook/team#crimson-pulse) &middot; [Scarlet Embrace](/handbook/team#scarlet-embrace)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Analysis of Death](/images/wheels/analysis-of-death.png "Analysis of Death"){loading=lazy} <figcaption>Analysis of Death</figcaption>
     </figure>
@@ -2254,7 +2353,8 @@ Her actual damage is low, so she needs a team that stacks lots of STR and Tentac
       ![Critical Point](/images/wheels/critical-point.png "Critical Point"){loading=lazy} <figcaption>Critical Point</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Path Forsaken](/images/wheels/path-forsaken.png "Path Forsaken"){loading=lazy} <figcaption>Path Forsaken</figcaption>
     </figure>
@@ -2333,7 +2433,8 @@ In fights where you can stall and build counter, Caecus works as a main DPS. His
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Support)" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build (Support)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Burial Ground's Sighs](/images/covenants/burial-grounds-sighs--icon.png "Burial Ground's Sighs"){loading=lazy}](/handbook/team#burial-grounds-sighs)
@@ -2351,8 +2452,10 @@ In fights where you can stall and build counter, Caecus works as a main DPS. His
     </figure>
   </div>
   <div class="caption text-center" markdown="span">(Any support)</div>
+  <div class="caption text-center mobile" markdown="span">(Any support)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Aged](/images/wheels/aged.png "Aged"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -2360,7 +2463,8 @@ In fights where you can stall and build counter, Caecus works as a main DPS. His
       ![Whisper](/images/wheels/whisper.png "Whisper"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Fin of Sorrow](/images/wheels/fin-of-sorrow.png "Fin of Sorrow"){loading=lazy} <figcaption>Fin of Sorrow</figcaption>
     </figure>
@@ -2374,7 +2478,8 @@ In fights where you can stall and build counter, Caecus works as a main DPS. His
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Counter DPS)" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build (Counter DPS)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Steppenwolf](/images/covenants/steppenwolf--icon.png "Steppenwolf"){loading=lazy}](/handbook/team#steppenwolf)
@@ -2393,8 +2498,10 @@ In fights where you can stall and build counter, Caecus works as a main DPS. His
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[April Tribute](/handbook/team#april-tribute)</div>
+  <div class="caption text-center mobile" markdown="span">[Steppenwolf](/handbook/team#steppenwolf) &middot; [April Tribute](/handbook/team#april-tribute)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Analysis of Death](/images/wheels/analysis-of-death.png "Analysis of Death"){loading=lazy} <figcaption>Analysis of Death</figcaption>
     </figure>
@@ -2402,7 +2509,8 @@ In fights where you can stall and build counter, Caecus works as a main DPS. His
       ![Cloaked in the Night](/images/wheels/cloaked-in-the-night.png "Cloaked in the Night"){loading=lazy} <figcaption>Cloaked in the Night</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Drifting in Desire](/images/wheels/drifting-in-desire.png "Drifting in Desire"){loading=lazy} <figcaption>Drifting in Desire</figcaption>
     </figure>
@@ -2482,7 +2590,8 @@ Celeste also generates a bit of arithmetica and Tentacle DMG, and her defensive 
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Burial Ground's Sighs](/images/covenants/burial-grounds-sighs--icon.png "Burial Ground's Sighs"){loading=lazy}](/handbook/team#burial-grounds-sighs)
@@ -2500,8 +2609,10 @@ Celeste also generates a bit of arithmetica and Tentacle DMG, and her defensive 
     </figure>
   </div>
   <div class="caption text-center" markdown="span">(Any support)</div>
+  <div class="caption text-center mobile" markdown="span">(Any support)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Hope](/images/wheels/hope.png "Hope"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -2509,7 +2620,8 @@ Celeste also generates a bit of arithmetica and Tentacle DMG, and her defensive 
       ![Whisper](/images/wheels/whisper.png "Whisper"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Hymn of the Sovereign](/images/wheels/hymn-of-the-sovereign.png "Hymn of the Sovereign"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -2589,7 +2701,8 @@ Corposant is notably strong in story mode and Hectic Skybound Rail, as she easil
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Shield Support)" markdown>
+  <div class="team-build team-build--single center" markdown>
+  <div class="heading text-center build-heading">Example Build (Shield Support)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Burial Ground's Sighs](/images/covenants/burial-grounds-sighs--icon.png "Burial Ground's Sighs"){loading=lazy}](/handbook/team#burial-grounds-sighs)
@@ -2599,8 +2712,10 @@ Corposant is notably strong in story mode and Hectic Skybound Rail, as she easil
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Burial Ground's Sighs](/handbook/team#burial-grounds-sighs)</div>
+  <div class="caption text-center mobile" markdown="span">[Burial Ground's Sighs](/handbook/team#burial-grounds-sighs)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Data is Flesh](/images/wheels/data-is-flesh.png "Data is Flesh"){loading=lazy} <figcaption>Data is Flesh</figcaption>
     </figure>
@@ -2608,7 +2723,8 @@ Corposant is notably strong in story mode and Hectic Skybound Rail, as she easil
       ![Gluttony](/images/wheels/gluttony.png "Gluttony"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Dusk & Dawn](/images/wheels/dusk-and-dawn.png "Dusk & Dawn"){loading=lazy} <figcaption>(Any Death Res.)</figcaption>
     </figure>
@@ -2622,7 +2738,8 @@ Corposant is notably strong in story mode and Hectic Skybound Rail, as she easil
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Main DPS)" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build (Main DPS)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Dream of Medicine](/images/covenants/dream-of-medicine--icon.png "Dream of Medicine"){loading=lazy}](/handbook/team#dream-of-medicine)
@@ -2641,8 +2758,10 @@ Corposant is notably strong in story mode and Hectic Skybound Rail, as she easil
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Crimson Pulse](/handbook/team#crimson-pulse)</div>
+  <div class="caption text-center mobile" markdown="span">[Dream of Medicine](/handbook/team#dream-of-medicine) &middot; [Crimson Pulse](/handbook/team#crimson-pulse)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![To My Dearest Friend](/images/wheels/to-my-dearest-friend.png "To My Dearest Friend"){loading=lazy} <figcaption>To My Dearest Friend</figcaption>
     </figure>
@@ -2650,7 +2769,8 @@ Corposant is notably strong in story mode and Hectic Skybound Rail, as she easil
       ![Analysis of Death](/images/wheels/analysis-of-death.png "Analysis of Death"){loading=lazy} <figcaption>Analysis of Death</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Blade of the Titan](/images/wheels/blade-of-the-titan.png "Blade of the Titan"){loading=lazy} <figcaption>Blade of the Titan</figcaption>
     </figure>
@@ -2731,7 +2851,8 @@ Faros can also be built as a DPS that spams Deep Currents to apply poison. This 
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Support)" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build (Support)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Burial Ground's Sighs](/images/covenants/burial-grounds-sighs--icon.png "Burial Ground's Sighs"){loading=lazy}](/handbook/team#burial-grounds-sighs)
@@ -2749,8 +2870,10 @@ Faros can also be built as a DPS that spams Deep Currents to apply poison. This 
     </figure>
   </div>
   <div class="caption text-center" markdown="span">(Any support)</div>
+  <div class="caption text-center mobile" markdown="span">(Any support)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Aged](/images/wheels/aged.png "Aged"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -2758,7 +2881,8 @@ Faros can also be built as a DPS that spams Deep Currents to apply poison. This 
       ![Whisper](/images/wheels/whisper.png "Whisper"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Dusk & Dawn](/images/wheels/dusk-and-dawn.png "Dusk & Dawn"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -2772,7 +2896,8 @@ Faros can also be built as a DPS that spams Deep Currents to apply poison. This 
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Poison DPS)" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build (Poison DPS)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Dream of Medicine](/images/covenants/dream-of-medicine--icon.png "Dream of Medicine"){loading=lazy}](/handbook/team#dream-of-medicine)
@@ -2791,8 +2916,10 @@ Faros can also be built as a DPS that spams Deep Currents to apply poison. This 
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Steppenwolf](/handbook/team#steppenwolf)</div>
+  <div class="caption text-center mobile" markdown="span">[Dream of Medicine](/handbook/team#dream-of-medicine) &middot; [Steppenwolf](/handbook/team#steppenwolf)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Cursed Binding](/images/wheels/cursed-binding.png "Cursed Binding"){loading=lazy} <figcaption>Cursed Binding</figcaption>
     </figure>
@@ -2800,7 +2927,8 @@ Faros can also be built as a DPS that spams Deep Currents to apply poison. This 
       ![Sever and Scar](/images/wheels/sever-and-scar.png "Sever and Scar"){loading=lazy} <figcaption>(Any DMG Amp)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Amidst the Downpour](/images/wheels/amidst-the-downpour.png "Amidst the Downpour"){loading=lazy} <figcaption>Amidst the Downpour</figcaption>
     </figure>
@@ -2880,7 +3008,8 @@ Goliath is a solid DPS at low levels. His exalt cards and Decapitation Damage sc
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Support)" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build (Support)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Burial Ground's Sighs](/images/covenants/burial-grounds-sighs--icon.png "Burial Ground's Sighs"){loading=lazy}](/handbook/team#burial-grounds-sighs)
@@ -2898,8 +3027,10 @@ Goliath is a solid DPS at low levels. His exalt cards and Decapitation Damage sc
     </figure>
   </div>
   <div class="caption text-center" markdown="span">(Any support)</div>
+  <div class="caption text-center mobile" markdown="span">(Any support)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Aged](/images/wheels/aged.png "Aged"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -2907,7 +3038,8 @@ Goliath is a solid DPS at low levels. His exalt cards and Decapitation Damage sc
       ![Whisper](/images/wheels/whisper.png "Whisper"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Hymn of the Sovereign](/images/wheels/hymn-of-the-sovereign.png "Hymn of the Sovereign"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -2921,7 +3053,8 @@ Goliath is a solid DPS at low levels. His exalt cards and Decapitation Damage sc
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (DPS)" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build (DPS)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![April Tribute](/images/covenants/april-tribute--icon.png "April Tribute"){loading=lazy}](/handbook/team#april-tribute)
@@ -2940,8 +3073,10 @@ Goliath is a solid DPS at low levels. His exalt cards and Decapitation Damage sc
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Crimson Pulse](/handbook/team#crimson-pulse)</div>
+  <div class="caption text-center mobile" markdown="span">[April Tribute](/handbook/team#april-tribute) &middot; [Crimson Pulse](/handbook/team#crimson-pulse)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![To My Dearest Friend](/images/wheels/to-my-dearest-friend.png "To My Dearest Friend"){loading=lazy} <figcaption>To My Dearest Friend</figcaption>
     </figure>
@@ -2949,7 +3084,8 @@ Goliath is a solid DPS at low levels. His exalt cards and Decapitation Damage sc
       ![Analysis of Death](/images/wheels/analysis-of-death.png "Analysis of Death"){loading=lazy} <figcaption>Analysis of Death</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Blade of the Titan](/images/wheels/blade-of-the-titan.png "Blade of the Titan"){loading=lazy} <figcaption>Blade of the Titan</figcaption>
     </figure>
@@ -3032,7 +3168,8 @@ At endgame, Miryam is usually seen supporting [GMurphy](#gmurphy) Lemurian teams
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Burial Ground's Sighs](/images/covenants/burial-grounds-sighs--icon.png "Burial Ground's Sighs"){loading=lazy}](/handbook/team#burial-grounds-sighs)
@@ -3050,8 +3187,10 @@ At endgame, Miryam is usually seen supporting [GMurphy](#gmurphy) Lemurian teams
     </figure>
   </div>
   <div class="caption text-center" markdown="span">(Any support)</div>
+  <div class="caption text-center mobile" markdown="span">(Any support)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Gluttony](/images/wheels/gluttony.png "Gluttony"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -3059,7 +3198,8 @@ At endgame, Miryam is usually seen supporting [GMurphy](#gmurphy) Lemurian teams
       ![Frenzy](/images/wheels/frenzy.png "Frenzy"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Manikin of Oblivion](/images/wheels/manikin-of-oblivion.png "Manikin of Oblivion"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -3140,7 +3280,8 @@ Works well with [GMurphy](#gmurphy) even though she isn't a Lemurian, as she can
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build" markdown>
+  <div class="team-build team-build--single center" markdown>
+  <div class="heading text-center build-heading">Example Build</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Life Drain](/images/covenants/life-drain--icon.png "Life Drain"){loading=lazy}](/handbook/team#life-drain)
@@ -3150,8 +3291,10 @@ Works well with [GMurphy](#gmurphy) even though she isn't a Lemurian, as she can
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Life Drain](/handbook/team#life-drain)</div>
+  <div class="caption text-center mobile" markdown="span">[Life Drain](/handbook/team#life-drain)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Gluttony](/images/wheels/gluttony.png "Gluttony"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -3159,7 +3302,8 @@ Works well with [GMurphy](#gmurphy) even though she isn't a Lemurian, as she can
       ![Frenzy](/images/wheels/frenzy.png "Frenzy"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Rewinding Time](/images/wheels/rewinding-time.png "Rewinding Time"){loading=lazy} <figcaption>(Any Keyflare Regen stat)</figcaption>
     </figure>
@@ -3237,7 +3381,8 @@ Sanga can solo DPS at low levels, but she struggles with enemies that have a lot
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Burial Ground's Sighs](/images/covenants/burial-grounds-sighs--icon.png "Burial Ground's Sighs"){loading=lazy}](/handbook/team#burial-grounds-sighs)
@@ -3256,8 +3401,10 @@ Sanga can solo DPS at low levels, but she struggles with enemies that have a lot
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Twisted Twins: White](/handbook/team#twisted-twins-white)</div>
+  <div class="caption text-center mobile" markdown="span">[Burial Ground's Sighs](/handbook/team#burial-grounds-sighs) &middot; [Twisted Twins: White](/handbook/team#twisted-twins-white)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Memory Syndrome](/images/wheels/memory-syndrome.png "Memory Syndrome"){loading=lazy} <figcaption>(Any Death Res.)</figcaption>
     </figure>
@@ -3265,7 +3412,8 @@ Sanga can solo DPS at low levels, but she struggles with enemies that have a lot
       ![Analysis of Death](/images/wheels/analysis-of-death.png "Analysis of Death"){loading=lazy} <figcaption>Analysis of Death</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Dusk & Dawn](/images/wheels/dusk-and-dawn.png "Dusk & Dawn"){loading=lazy} <figcaption>(Any Death Res.)</figcaption>
     </figure>
@@ -3346,7 +3494,8 @@ At low levels, Abyss Order and tentacle slaps are enough to make Tulu usable as 
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Burial Ground's Sighs](/images/covenants/burial-grounds-sighs--icon.png "Burial Ground's Sighs"){loading=lazy}](/handbook/team#burial-grounds-sighs)
@@ -3364,8 +3513,10 @@ At low levels, Abyss Order and tentacle slaps are enough to make Tulu usable as 
     </figure>
   </div>
   <div class="caption text-center" markdown="span">(Any support)</div>
+  <div class="caption text-center mobile" markdown="span">(Any support)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Elevated Focus](/images/wheels/elevated-focus.png "Elevated Focus"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -3373,7 +3524,8 @@ At low levels, Abyss Order and tentacle slaps are enough to make Tulu usable as 
       ![To My Dearest Friend](/images/wheels/to-my-dearest-friend.png "To My Dearest Friend"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Hymn of the Sovereign](/images/wheels/hymn-of-the-sovereign.png "Hymn of the Sovereign"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -3459,7 +3611,8 @@ GMurphy is a viable endgame DPS with OE and high investment. In [Astral Reign](/
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Keyflare Support)" markdown>
+  <div class="team-build team-build--single center" markdown>
+  <div class="heading text-center build-heading">Example Build (Keyflare Support)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Life Drain](/images/covenants/life-drain--icon.png "Life Drain"){loading=lazy}](/handbook/team#life-drain)
@@ -3469,8 +3622,10 @@ GMurphy is a viable endgame DPS with OE and high investment. In [Astral Reign](/
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Life Drain](/handbook/team#life-drain)</div>
+  <div class="caption text-center mobile" markdown="span">[Life Drain](/handbook/team#life-drain)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Gluttony](/images/wheels/gluttony.png "Gluttony"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -3478,7 +3633,8 @@ GMurphy is a viable endgame DPS with OE and high investment. In [Astral Reign](/
       ![Frenzy](/images/wheels/frenzy.png "Frenzy"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Rewinding Time](/images/wheels/rewinding-time.png "Rewinding Time"){loading=lazy} <figcaption>(Any Keyflare Regen stat)</figcaption>
     </figure>
@@ -3492,7 +3648,8 @@ GMurphy is a viable endgame DPS with OE and high investment. In [Astral Reign](/
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Main DPS)" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build (Main DPS)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Dream of Medicine](/images/covenants/dream-of-medicine--icon.png "Dream of Medicine"){loading=lazy}](/handbook/team#dream-of-medicine)
@@ -3511,8 +3668,10 @@ GMurphy is a viable endgame DPS with OE and high investment. In [Astral Reign](/
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Crimson Pulse](/handbook/team#crimson-pulse)</div>
+  <div class="caption text-center mobile" markdown="span">[Dream of Medicine](/handbook/team#dream-of-medicine) &middot; [Crimson Pulse](/handbook/team#crimson-pulse)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Elevated Focus](/images/wheels/elevated-focus.png "Elevated Focus"){loading=lazy} <figcaption>Elevated Focus</figcaption>
     </figure>
@@ -3520,7 +3679,8 @@ GMurphy is a viable endgame DPS with OE and high investment. In [Astral Reign](/
       ![Analysis of Death](/images/wheels/analysis-of-death.png "Analysis of Death"){loading=lazy} <figcaption>Analysis of Death</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Uteri Somnia](/images/wheels/uteri-somnia.png "Uteri Somnia"){loading=lazy} <figcaption>Uteri Somnia</figcaption>
     </figure>
@@ -3603,7 +3763,8 @@ He works best with E3 and high levels, in Aftershock-focused teams with [Corposa
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Dream of Medicine](/images/covenants/dream-of-medicine--icon.png "Dream of Medicine"){loading=lazy}](/handbook/team#dream-of-medicine)
@@ -3622,8 +3783,10 @@ He works best with E3 and high levels, in Aftershock-focused teams with [Corposa
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Crimson Pulse](/handbook/team#crimson-pulse)</div>
+  <div class="caption text-center mobile" markdown="span">[Dream of Medicine](/handbook/team#dream-of-medicine) &middot; [Crimson Pulse](/handbook/team#crimson-pulse)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Analysis of Death](/images/wheels/analysis-of-death.png "Analysis of Death"){loading=lazy} <figcaption>Analysis of Death</figcaption>
     </figure>
@@ -3631,7 +3794,8 @@ He works best with E3 and high levels, in Aftershock-focused teams with [Corposa
       ![Aged](/images/wheels/aged.png "Aged"){loading=lazy} <figcaption>Aged</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![The Living Cage](/images/wheels/the-living-cage.png "The Living Cage"){loading=lazy} <figcaption>(Any Crit DMG stat)</figcaption>
     </figure>
@@ -3713,7 +3877,8 @@ Needs her posse, Reload! skill levels, and soulforge levels. She likes defensive
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Pursuit Support/DPS)" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build (Pursuit Support/DPS)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Returnal Line](/images/covenants/returnal-line--icon.png "Returnal Line"){loading=lazy}](/handbook/team#returnal-line)
@@ -3732,8 +3897,10 @@ Needs her posse, Reload! skill levels, and soulforge levels. She likes defensive
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Deus Ex Machina](/handbook/team#deus-ex-machina)</div>
+  <div class="caption text-center mobile" markdown="span">[Returnal Line](/handbook/team#returnal-line) &middot; [Deus Ex Machina](/handbook/team#deus-ex-machina)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Gluttony](/images/wheels/gluttony.png "Gluttony"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -3741,7 +3908,8 @@ Needs her posse, Reload! skill levels, and soulforge levels. She likes defensive
       ![Whisper](/images/wheels/whisper.png "Whisper"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Memory Spiral](/images/wheels/memory-spiral.png "Memory Spiral"){loading=lazy} <figcaption>(Any Realm Mastery)</figcaption>
     </figure>
@@ -3755,7 +3923,8 @@ Needs her posse, Reload! skill levels, and soulforge levels. She likes defensive
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (One-shot Exalt DPS)" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build (One-shot Exalt DPS)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![April Tribute](/images/covenants/april-tribute--icon.png "April Tribute"){loading=lazy}](/handbook/team#april-tribute)
@@ -3774,8 +3943,10 @@ Needs her posse, Reload! skill levels, and soulforge levels. She likes defensive
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Sweet Slug](/handbook/team#sweet-slug)</div>
+  <div class="caption text-center mobile" markdown="span">[April Tribute](/handbook/team#april-tribute) &middot; [Sweet Slug](/handbook/team#sweet-slug)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Data is Flesh](/images/wheels/data-is-flesh.png "Data is Flesh"){loading=lazy} <figcaption>(Any Realm Mastery)</figcaption>
     </figure>
@@ -3783,7 +3954,8 @@ Needs her posse, Reload! skill levels, and soulforge levels. She likes defensive
       ![Duty's Gravitas](/images/wheels/dutys-gravitas.png "Duty's Gravitas"){loading=lazy} <figcaption>(Any Realm Mastery)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![The Faraway Eden](/images/wheels/the-faraway-eden.png "The Faraway Eden"){loading=lazy} <figcaption>The Faraway Eden</figcaption>
     </figure>
@@ -3866,7 +4038,8 @@ At high investment, Colorless Spiral applies a lot of poison with critical hits,
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Support)" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build (Support)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Burial Ground's Sighs](/images/covenants/burial-grounds-sighs--icon.png "Burial Ground's Sighs"){loading=lazy}](/handbook/team#burial-grounds-sighs)
@@ -3885,8 +4058,10 @@ At high investment, Colorless Spiral applies a lot of poison with critical hits,
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Cursed Rabbit](/handbook/team#cursed-rabbit)</div>
+  <div class="caption text-center mobile" markdown="span">[Burial Ground's Sighs](/handbook/team#burial-grounds-sighs) &middot; [Cursed Rabbit](/handbook/team#cursed-rabbit)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Aged](/images/wheels/aged.png "Aged"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -3894,7 +4069,8 @@ At high investment, Colorless Spiral applies a lot of poison with critical hits,
       ![Gluttony](/images/wheels/gluttony.png "Gluttony"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Pale Descendant](/images/wheels/pale-descendant.png "Pale Descendant"){loading=lazy} <figcaption>Pale Descendant</figcaption>
     </figure>
@@ -3908,7 +4084,8 @@ At high investment, Colorless Spiral applies a lot of poison with critical hits,
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Poison DPS)" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build (Poison DPS)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Dream of Medicine](/images/covenants/dream-of-medicine--icon.png "Dream of Medicine"){loading=lazy}](/handbook/team#dream-of-medicine)
@@ -3927,8 +4104,10 @@ At high investment, Colorless Spiral applies a lot of poison with critical hits,
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Crimson Pulse](/handbook/team#crimson-pulse)</div>
+  <div class="caption text-center mobile" markdown="span">[Dream of Medicine](/handbook/team#dream-of-medicine) &middot; [Crimson Pulse](/handbook/team#crimson-pulse)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Cursed Binding](/images/wheels/cursed-binding.png "Cursed Binding"){loading=lazy} <figcaption>Cursed Binding</figcaption>
     </figure>
@@ -3936,7 +4115,8 @@ At high investment, Colorless Spiral applies a lot of poison with critical hits,
       ![Analysis of Death](/images/wheels/analysis-of-death.png "Analysis of Death"){loading=lazy} <figcaption>Analysis of Death</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Gift of Decay](/images/wheels/gift-of-decay.png "Gift of Decay"){loading=lazy} <figcaption>Gift of Decay</figcaption>
     </figure>
@@ -4018,7 +4198,8 @@ Aigis is a great support for any team, but she pairs especially well with glass 
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Keyflare Support)" markdown>
+  <div class="team-build team-build--single center" markdown>
+  <div class="heading text-center build-heading">Example Build (Keyflare Support)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Life Drain](/images/covenants/life-drain--icon.png "Life Drain"){loading=lazy}](/handbook/team#life-drain)
@@ -4028,8 +4209,10 @@ Aigis is a great support for any team, but she pairs especially well with glass 
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Life Drain](/handbook/team#life-drain)</div>
+  <div class="caption text-center mobile" markdown="span">[Life Drain](/handbook/team#life-drain)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Gluttony](/images/wheels/gluttony.png "Gluttony"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -4037,7 +4220,8 @@ Aigis is a great support for any team, but she pairs especially well with glass 
       ![Frenzy](/images/wheels/frenzy.png "Frenzy"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Rewinding Time](/images/wheels/rewinding-time.png "Rewinding Time"){loading=lazy} <figcaption>(Any Keyflare Regen stat)</figcaption>
     </figure>
@@ -4051,7 +4235,8 @@ Aigis is a great support for any team, but she pairs especially well with glass 
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Exalt Support)" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build (Exalt Support)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Burial Ground's Sighs](/images/covenants/burial-grounds-sighs--icon.png "Burial Ground's Sighs"){loading=lazy}](/handbook/team#burial-grounds-sighs)
@@ -4069,8 +4254,10 @@ Aigis is a great support for any team, but she pairs especially well with glass 
     </figure>
   </div>
   <div class="caption text-center" markdown="span">(Any support)</div>
+  <div class="caption text-center mobile" markdown="span">(Any support)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Gluttony](/images/wheels/gluttony.png "Gluttony"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -4078,7 +4265,8 @@ Aigis is a great support for any team, but she pairs especially well with glass 
       ![Frenzy](/images/wheels/frenzy.png "Frenzy"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Hymn of the Sovereign](/images/wheels/hymn-of-the-sovereign.png "Hymn of the Sovereign"){loading=lazy} <figcaption>(Any aliemus)</figcaption>
     </figure>
@@ -4157,7 +4345,8 @@ Doresain is strong at low levels but falls off at endgame, especially against bo
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![April Tribute](/images/covenants/april-tribute--icon.png "April Tribute"){loading=lazy}](/handbook/team#april-tribute)
@@ -4176,8 +4365,10 @@ Doresain is strong at low levels but falls off at endgame, especially against bo
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Crimson Pulse](/handbook/team#crimson-pulse)</div>
+  <div class="caption text-center mobile" markdown="span">[April Tribute](/handbook/team#april-tribute) &middot; [Crimson Pulse](/handbook/team#crimson-pulse)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Nobleman's Staff](/images/wheels/noblemans-staff.png "Nobleman's Staff"){loading=lazy} <figcaption>Nobleman's Staff</figcaption>
     </figure>
@@ -4185,7 +4376,8 @@ Doresain is strong at low levels but falls off at endgame, especially against bo
       ![Analysis of Death](/images/wheels/analysis-of-death.png "Analysis of Death"){loading=lazy} <figcaption>Analysis of Death</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Bloody Feast](/images/wheels/bloody-feast.png "Bloody Feast"){loading=lazy} <figcaption>Bloody Feast</figcaption>
     </figure>
@@ -4266,7 +4458,8 @@ Faint is often paired with [GDoll](#gdoll) for boss fights, but fits in any team
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build" markdown>
+  <div class="team-build team-build--single center" markdown>
+  <div class="heading text-center build-heading">Example Build</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Burial Ground's Sighs](/images/covenants/burial-grounds-sighs--icon.png "Burial Ground's Sighs"){loading=lazy}](/handbook/team#burial-grounds-sighs)
@@ -4276,8 +4469,10 @@ Faint is often paired with [GDoll](#gdoll) for boss fights, but fits in any team
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Burial Ground's Sighs](/handbook/team#burial-grounds-sighs)</div>
+  <div class="caption text-center mobile" markdown="span">[Burial Ground's Sighs](/handbook/team#burial-grounds-sighs)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Cloaked in the Night](/images/wheels/cloaked-in-the-night.png "Cloaked in the Night"){loading=lazy} <figcaption>(Any Death Res.)</figcaption>
     </figure>
@@ -4285,7 +4480,8 @@ Faint is often paired with [GDoll](#gdoll) for boss fights, but fits in any team
       ![Memory Syndrome](/images/wheels/memory-syndrome.png "Memory Syndrome"){loading=lazy} <figcaption>(Any Death Res.)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Dusk & Dawn](/images/wheels/dusk-and-dawn.png "Dusk & Dawn"){loading=lazy} <figcaption>(Any Death Res.)</figcaption>
     </figure>
@@ -4361,7 +4557,8 @@ Helot can also be built as a DPS that focuses on setting up huge Shattering Stri
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Support)" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build (Support)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Burial Ground's Sighs](/images/covenants/burial-grounds-sighs--icon.png "Burial Ground's Sighs"){loading=lazy}](/handbook/team#burial-grounds-sighs)
@@ -4379,8 +4576,10 @@ Helot can also be built as a DPS that focuses on setting up huge Shattering Stri
     </figure>
   </div>
   <div class="caption text-center" markdown="span">(Any support)</div>
+  <div class="caption text-center mobile" markdown="span">(Any support)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Aged](/images/wheels/aged.png "Aged"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -4388,7 +4587,8 @@ Helot can also be built as a DPS that focuses on setting up huge Shattering Stri
       ![Whisper](/images/wheels/whisper.png "Whisper"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Hymn of the Sovereign](/images/wheels/hymn-of-the-sovereign.png "Hymn of the Sovereign"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -4402,7 +4602,8 @@ Helot can also be built as a DPS that focuses on setting up huge Shattering Stri
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Shattering Strike DPS)" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build (Shattering Strike DPS)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Steppenwolf](/images/covenants/steppenwolf--icon.png "Steppenwolf"){loading=lazy}](/handbook/team#steppenwolf)
@@ -4421,8 +4622,10 @@ Helot can also be built as a DPS that focuses on setting up huge Shattering Stri
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[April Tribute](/handbook/team#april-tribute)</div>
+  <div class="caption text-center mobile" markdown="span">[Steppenwolf](/handbook/team#steppenwolf) &middot; [April Tribute](/handbook/team#april-tribute)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Hand of Oblivion](/images/wheels/hand-of-oblivion.png "Hand of Oblivion"){loading=lazy} <figcaption>Hand of Oblivion</figcaption>
     </figure>
@@ -4430,7 +4633,8 @@ Helot can also be built as a DPS that focuses on setting up huge Shattering Stri
       ![To My Dearest Friend](/images/wheels/to-my-dearest-friend.png "To My Dearest Friend"){loading=lazy} <figcaption>To My Dearest Friend</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Chains Unbound](/images/wheels/chains-unbound.png "Chains Unbound"){loading=lazy} <figcaption>Chains Unbound</figcaption>
     </figure>
@@ -4509,7 +4713,8 @@ Needs E3 and The Lone Seed for consistency. She works best with [Aigis](#aigis) 
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![April Tribute](/images/covenants/april-tribute--icon.png "April Tribute"){loading=lazy}](/handbook/team#april-tribute)
@@ -4528,8 +4733,10 @@ Needs E3 and The Lone Seed for consistency. She works best with [Aigis](#aigis) 
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Steppenwolf](/handbook/team#steppenwolf)</div>
+  <div class="caption text-center mobile" markdown="span">[April Tribute](/handbook/team#april-tribute) &middot; [Steppenwolf](/handbook/team#steppenwolf)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Hand of Oblivion](/images/wheels/hand-of-oblivion.png "Hand of Oblivion"){loading=lazy} <figcaption>Hand of Oblivion</figcaption>
     </figure>
@@ -4537,7 +4744,8 @@ Needs E3 and The Lone Seed for consistency. She works best with [Aigis](#aigis) 
       ![To My Dearest Friend](/images/wheels/to-my-dearest-friend.png "To My Dearest Friend"){loading=lazy} <figcaption>To My Dearest Friend</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Celestial Beast](/images/wheels/celestial-beast.png "Celestial Beast"){loading=lazy} <figcaption>Celestial Beast</figcaption>
     </figure>
@@ -4618,7 +4826,8 @@ Leigh makes a lot of embryo when roused, and her OE is a good source of STR too.
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Burial Ground's Sighs](/images/covenants/burial-grounds-sighs--icon.png "Burial Ground's Sighs"){loading=lazy}](/handbook/team#burial-grounds-sighs)
@@ -4637,8 +4846,10 @@ Leigh makes a lot of embryo when roused, and her OE is a good source of STR too.
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Cursed Rabbit](/handbook/team#cursed-rabbit)</div>
+  <div class="caption text-center mobile" markdown="span">[Burial Ground's Sighs](/handbook/team#burial-grounds-sighs) &middot; [Cursed Rabbit](/handbook/team#cursed-rabbit)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Nobleman's Staff](/images/wheels/noblemans-staff.png "Nobleman's Staff"){loading=lazy} <figcaption>Nobleman's Staff</figcaption>
     </figure>
@@ -4646,7 +4857,8 @@ Leigh makes a lot of embryo when roused, and her OE is a good source of STR too.
       ![Gluttony](/images/wheels/gluttony.png "Gluttony"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![The Glutton's Tale](/images/wheels/the-gluttons-tale.png "The Glutton's Tale"){loading=lazy} <figcaption>The Glutton's Tale</figcaption>
     </figure>
@@ -4728,7 +4940,8 @@ Works best with a main DPS that relies on their exalt and doesn't need arithmeti
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Dream of Medicine](/images/covenants/dream-of-medicine--icon.png "Dream of Medicine"){loading=lazy}](/handbook/team#dream-of-medicine)
@@ -4747,8 +4960,10 @@ Works best with a main DPS that relies on their exalt and doesn't need arithmeti
     </figure>
   </div>
   <div class="caption text-center" markdown="span">(Any support)</div>
+  <div class="caption text-center mobile" markdown="span">[Dream of Medicine](/handbook/team#dream-of-medicine) &middot; (Any support)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Aged](/images/wheels/aged.png "Aged"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -4756,7 +4971,8 @@ Works best with a main DPS that relies on their exalt and doesn't need arithmeti
       ![Whisper](/images/wheels/whisper.png "Whisper"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Manikin of Oblivion](/images/wheels/manikin-of-oblivion.png "Manikin of Oblivion"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -4839,7 +5055,8 @@ Works best with high-CON teammates, as your Crimson Furnace scales with your max
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Paradox](/images/covenants/paradox--icon.png "Paradox"){loading=lazy}](/handbook/team#paradox)
@@ -4858,8 +5075,10 @@ Works best with high-CON teammates, as your Crimson Furnace scales with your max
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Cursed Rabbit](/handbook/team#cursed-rabbit)</div>
+  <div class="caption text-center mobile" markdown="span">[Paradox](/handbook/team#paradox) &middot; [Cursed Rabbit](/handbook/team#cursed-rabbit)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Data is Flesh](/images/wheels/data-is-flesh.png "Data is Flesh"){loading=lazy} <figcaption>Data is Flesh</figcaption>
     </figure>
@@ -4867,7 +5086,8 @@ Works best with high-CON teammates, as your Crimson Furnace scales with your max
       ![Gluttony](/images/wheels/gluttony.png "Gluttony"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![The Last Verse](/images/wheels/the-last-verse.png "The Last Verse"){loading=lazy} <figcaption>The Last Verse</figcaption>
     </figure>
@@ -4947,7 +5167,8 @@ Usually seen with [Pickman](#pickman), as he builds STR for her and massively bu
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![April Tribute](/images/covenants/april-tribute--icon.png "April Tribute"){loading=lazy}](/handbook/team#april-tribute)
@@ -4966,8 +5187,10 @@ Usually seen with [Pickman](#pickman), as he builds STR for her and massively bu
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Crimson Pulse](/handbook/team#crimson-pulse)</div>
+  <div class="caption text-center mobile" markdown="span">[April Tribute](/handbook/team#april-tribute) &middot; [Crimson Pulse](/handbook/team#crimson-pulse)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Critical Point](/images/wheels/critical-point.png "Critical Point"){loading=lazy} <figcaption>Critical Point</figcaption>
     </figure>
@@ -4975,7 +5198,8 @@ Usually seen with [Pickman](#pickman), as he builds STR for her and massively bu
       ![Analysis of Death](/images/wheels/analysis-of-death.png "Analysis of Death"){loading=lazy} <figcaption>Analysis of Death</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Bloody Feast](/images/wheels/bloody-feast.png "Bloody Feast"){loading=lazy} <figcaption>Bloody Feast</figcaption>
     </figure>
@@ -5059,7 +5283,8 @@ At E2 she is the best support for almost every team. The only reason she isn't i
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Keyflare Support)" markdown>
+  <div class="team-build team-build--single center" markdown>
+  <div class="heading text-center build-heading">Example Build (Keyflare Support)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Life Drain](/images/covenants/life-drain--icon.png "Life Drain"){loading=lazy}](/handbook/team#life-drain)
@@ -5069,8 +5294,10 @@ At E2 she is the best support for almost every team. The only reason she isn't i
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Life Drain](/handbook/team#life-drain)</div>
+  <div class="caption text-center mobile" markdown="span">[Life Drain](/handbook/team#life-drain)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Gluttony](/images/wheels/gluttony.png "Gluttony"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -5078,7 +5305,8 @@ At E2 she is the best support for almost every team. The only reason she isn't i
       ![Frenzy](/images/wheels/frenzy.png "Frenzy"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Merciful Nurturing](/images/wheels/merciful-nurturing.png "Merciful Nurturing"){loading=lazy} <figcaption>(Any Keyflare Regen stat)</figcaption>
     </figure>
@@ -5092,7 +5320,8 @@ At E2 she is the best support for almost every team. The only reason she isn't i
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Aliemus Support)" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build (Aliemus Support)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Burial Ground's Sighs](/images/covenants/burial-grounds-sighs--icon.png "Burial Ground's Sighs"){loading=lazy}](/handbook/team#burial-grounds-sighs)
@@ -5110,8 +5339,10 @@ At E2 she is the best support for almost every team. The only reason she isn't i
     </figure>
   </div>
   <div class="caption text-center" markdown="span">(Any support)</div>
+  <div class="caption text-center mobile" markdown="span">(Any support)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Gluttony](/images/wheels/gluttony.png "Gluttony"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -5119,7 +5350,8 @@ At E2 she is the best support for almost every team. The only reason she isn't i
       ![Frenzy](/images/wheels/frenzy.png "Frenzy"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Manikin of Oblivion](/images/wheels/manikin-of-oblivion.png "Manikin of Oblivion"){loading=lazy} <figcaption>(Any aliemus)</figcaption>
     </figure>
@@ -5201,7 +5433,8 @@ OE makes him a decent if fragile endgame DPS.
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![April Tribute](/images/covenants/april-tribute--icon.png "April Tribute"){loading=lazy}](/handbook/team#april-tribute)
@@ -5220,8 +5453,10 @@ OE makes him a decent if fragile endgame DPS.
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Crimson Pulse](/handbook/team#crimson-pulse)</div>
+  <div class="caption text-center mobile" markdown="span">[April Tribute](/handbook/team#april-tribute) &middot; [Crimson Pulse](/handbook/team#crimson-pulse)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Critical Point](/images/wheels/critical-point.png "Critical Point"){loading=lazy} <figcaption>Critical Point</figcaption>
     </figure>
@@ -5229,7 +5464,8 @@ OE makes him a decent if fragile endgame DPS.
       ![Analysis of Death](/images/wheels/analysis-of-death.png "Analysis of Death"){loading=lazy} <figcaption>Analysis of Death</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Bloody Feast](/images/wheels/bloody-feast.png "Bloody Feast"){loading=lazy} <figcaption>Bloody Feast</figcaption>
     </figure>
@@ -5313,7 +5549,8 @@ Can solo carry at low levels, but works best with a dedicated poison applier on 
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Support)" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build (Support)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Dream of Medicine](/images/covenants/dream-of-medicine--icon.png "Dream of Medicine"){loading=lazy}](/handbook/team#dream-of-medicine)
@@ -5331,8 +5568,10 @@ Can solo carry at low levels, but works best with a dedicated poison applier on 
     </figure>
   </div>
   <div class="caption text-center" markdown="span">(Any support)</div>
+  <div class="caption text-center mobile" markdown="span">(Any support)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Whisper](/images/wheels/whisper.png "Whisper"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -5340,7 +5579,8 @@ Can solo carry at low levels, but works best with a dedicated poison applier on 
       ![Gluttony](/images/wheels/gluttony.png "Gluttony"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Silent Banquet](/images/wheels/silent-banquet.png "Silent Banquet"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -5354,7 +5594,8 @@ Can solo carry at low levels, but works best with a dedicated poison applier on 
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Poison DPS)" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build (Poison DPS)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Dream of Medicine](/images/covenants/dream-of-medicine--icon.png "Dream of Medicine"){loading=lazy}](/handbook/team#dream-of-medicine)
@@ -5373,8 +5614,10 @@ Can solo carry at low levels, but works best with a dedicated poison applier on 
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Steppenwolf](/handbook/team#steppenwolf)</div>
+  <div class="caption text-center mobile" markdown="span">[Dream of Medicine](/handbook/team#dream-of-medicine) &middot; [Steppenwolf](/handbook/team#steppenwolf)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Cursed Binding](/images/wheels/cursed-binding.png "Cursed Binding"){loading=lazy} <figcaption>Cursed Binding</figcaption>
     </figure>
@@ -5382,7 +5625,8 @@ Can solo carry at low levels, but works best with a dedicated poison applier on 
       ![Sever and Scar](/images/wheels/sever-and-scar.png "Sever and Scar"){loading=lazy} <figcaption>(Any DMG Amp)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Gift of Decay](/images/wheels/gift-of-decay.png "Gift of Decay"){loading=lazy} <figcaption>Gift of Decay</figcaption>
     </figure>
@@ -5469,7 +5713,8 @@ She discards cards and messes with your hand, so she works best with teammates t
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Dream of Medicine](/images/covenants/dream-of-medicine--icon.png "Dream of Medicine"){loading=lazy}](/handbook/team#dream-of-medicine)
@@ -5488,8 +5733,10 @@ She discards cards and messes with your hand, so she works best with teammates t
     </figure>
   </div>
   <div class="caption text-center" markdown="span">(Any support)</div>
+  <div class="caption text-center mobile" markdown="span">[Dream of Medicine](/handbook/team#dream-of-medicine) &middot; (Any support)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Whisper](/images/wheels/whisper.png "Whisper"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -5497,7 +5744,8 @@ She discards cards and messes with your hand, so she works best with teammates t
       ![Emerge](/images/wheels/emerge.png "Emerge"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Rewinding Time](/images/wheels/rewinding-time.png "Rewinding Time"){loading=lazy} <figcaption>Rewinding Time</figcaption>
     </figure>
@@ -5582,7 +5830,8 @@ Her Astral Reign image relic makes her exalt inflict permanent STR down, enablin
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Dream of Medicine](/images/covenants/dream-of-medicine--icon.png "Dream of Medicine"){loading=lazy}](/handbook/team#dream-of-medicine)
@@ -5600,8 +5849,10 @@ Her Astral Reign image relic makes her exalt inflict permanent STR down, enablin
     </figure>
   </div>
   <div class="caption text-center" markdown="span">(Any support)</div>
+  <div class="caption text-center mobile" markdown="span">(Any support)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Aged](/images/wheels/aged.png "Aged"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -5609,7 +5860,8 @@ Her Astral Reign image relic makes her exalt inflict permanent STR down, enablin
       ![Whisper](/images/wheels/whisper.png "Whisper"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Happy Magic Show](/images/wheels/happy-magic-show.png "Happy Magic Show"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -5689,7 +5941,8 @@ Castor can deal solid damage by tossing Plumes to inflict corrosion stacks, but 
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Full Tank)" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build (Full Tank)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Dream of Medicine](/images/covenants/dream-of-medicine--icon.png "Dream of Medicine"){loading=lazy}](/handbook/team#dream-of-medicine)
@@ -5708,8 +5961,10 @@ Castor can deal solid damage by tossing Plumes to inflict corrosion stacks, but 
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Cursed Rabbit](/handbook/team#cursed-rabbit)</div>
+  <div class="caption text-center mobile" markdown="span">[Dream of Medicine](/handbook/team#dream-of-medicine) &middot; [Cursed Rabbit](/handbook/team#cursed-rabbit)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Data is Flesh](/images/wheels/data-is-flesh.png "Data is Flesh"){loading=lazy} <figcaption>Data is Flesh</figcaption>
     </figure>
@@ -5717,7 +5972,8 @@ Castor can deal solid damage by tossing Plumes to inflict corrosion stacks, but 
       ![Whisper](/images/wheels/whisper.png "Whisper"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Unbearable Freedom](/images/wheels/unbearable-freedom.png "Unbearable Freedom"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -5731,7 +5987,8 @@ Castor can deal solid damage by tossing Plumes to inflict corrosion stacks, but 
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Hybrid DPS)" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build (Hybrid DPS)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Steppenwolf](/images/covenants/steppenwolf--icon.png "Steppenwolf"){loading=lazy}](/handbook/team#steppenwolf)
@@ -5749,8 +6006,10 @@ Castor can deal solid damage by tossing Plumes to inflict corrosion stacks, but 
     </figure>
   </div>
   <div class="caption text-center" markdown="span">Mix of 2 sets with 3-piece DMG amplification bonus</div>
+  <div class="caption text-center mobile" markdown="span">[Steppenwolf](/handbook/team#steppenwolf) &middot; [Photosynthesis Ritual](/handbook/team#photosynthesis-ritual)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Cursed Binding](/images/wheels/cursed-binding.png "Cursed Binding"){loading=lazy} <figcaption>(Any DMG Amp)</figcaption>
     </figure>
@@ -5758,7 +6017,8 @@ Castor can deal solid damage by tossing Plumes to inflict corrosion stacks, but 
       ![Sever and Scar](/images/wheels/sever-and-scar.png "Sever and Scar"){loading=lazy} <figcaption>(Any DMG Amp)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Chains Unbound](/images/wheels/chains-unbound.png "Chains Unbound"){loading=lazy} <figcaption>(Any DMG Amp)</figcaption>
     </figure>
@@ -5841,7 +6101,8 @@ She works best with DPS that rely on STR, but improves basically any team by bei
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Keyflare Support)" markdown>
+  <div class="team-build team-build--single center" markdown>
+  <div class="heading text-center build-heading">Example Build (Keyflare Support)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Life Drain](/images/covenants/life-drain--icon.png "Life Drain"){loading=lazy}](/handbook/team#life-drain)
@@ -5851,8 +6112,10 @@ She works best with DPS that rely on STR, but improves basically any team by bei
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Life Drain](/handbook/team#life-drain)</div>
+  <div class="caption text-center mobile" markdown="span">[Life Drain](/handbook/team#life-drain)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Analysis of Death](/images/wheels/analysis-of-death.png "Analysis of Death"){loading=lazy} <figcaption>Analysis of Death</figcaption>
     </figure>
@@ -5860,7 +6123,8 @@ She works best with DPS that rely on STR, but improves basically any team by bei
       ![Frenzy](/images/wheels/frenzy.png "Frenzy"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Merciful Nurturing](/images/wheels/merciful-nurturing.png "Merciful Nurturing"){loading=lazy} <figcaption>(Any Keyflare Regen stat)</figcaption>
     </figure>
@@ -5874,7 +6138,8 @@ She works best with DPS that rely on STR, but improves basically any team by bei
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (STR Buff Support)" markdown>
+  <div class="team-build team-build--single center" markdown>
+  <div class="heading text-center build-heading">Example Build (STR Buff Support)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Twisted Twins: Black](/images/covenants/twisted-twins-black--icon.png "Twisted Twins: Black"){loading=lazy}](/handbook/team#twisted-twins-black)
@@ -5884,8 +6149,10 @@ She works best with DPS that rely on STR, but improves basically any team by bei
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Twisted Twins: Black](/handbook/team#twisted-twins-black)</div>
+  <div class="caption text-center mobile" markdown="span">[Twisted Twins: Black](/handbook/team#twisted-twins-black)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Analysis of Death](/images/wheels/analysis-of-death.png "Analysis of Death"){loading=lazy} <figcaption>Analysis of Death</figcaption>
     </figure>
@@ -5893,7 +6160,8 @@ She works best with DPS that rely on STR, but improves basically any team by bei
       ![Frenzy](/images/wheels/frenzy.png "Frenzy"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Amidst the Downpour](/images/wheels/amidst-the-downpour.png "Amidst the Downpour"){loading=lazy} <figcaption>Amidst the Downpour</figcaption>
     </figure>
@@ -5974,7 +6242,8 @@ Her OE puts three Mirages in hand, enabling silly burst damage with high investm
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![April Tribute](/images/covenants/april-tribute--icon.png "April Tribute"){loading=lazy}](/handbook/team#april-tribute)
@@ -5993,8 +6262,10 @@ Her OE puts three Mirages in hand, enabling silly burst damage with high investm
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Steppenwolf](/handbook/team#steppenwolf)</div>
+  <div class="caption text-center mobile" markdown="span">[April Tribute](/handbook/team#april-tribute) &middot; [Steppenwolf](/handbook/team#steppenwolf)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Elevated Focus](/images/wheels/elevated-focus.png "Elevated Focus"){loading=lazy} <figcaption>Elevated Focus</figcaption>
     </figure>
@@ -6002,7 +6273,8 @@ Her OE puts three Mirages in hand, enabling silly burst damage with high investm
       ![Analysis of Death](/images/wheels/analysis-of-death.png "Analysis of Death"){loading=lazy} <figcaption>Analysis of Death</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Blade of the Titan](/images/wheels/blade-of-the-titan.png "Blade of the Titan"){loading=lazy} <figcaption>Blade of the Titan</figcaption>
     </figure>
@@ -6084,7 +6356,8 @@ Usually seen in stall teams with [Castor](#castor) because each Onyx Plume benef
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build" markdown>
+  <div class="team-build team-build--single center" markdown>
+  <div class="heading text-center build-heading">Example Build</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Life Drain](/images/covenants/life-drain--icon.png "Life Drain"){loading=lazy}](/handbook/team#life-drain)
@@ -6094,8 +6367,10 @@ Usually seen in stall teams with [Castor](#castor) because each Onyx Plume benef
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Life Drain](/handbook/team#life-drain)</div>
+  <div class="caption text-center mobile" markdown="span">[Life Drain](/handbook/team#life-drain)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Gluttony](/images/wheels/gluttony.png "Gluttony"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -6103,7 +6378,8 @@ Usually seen in stall teams with [Castor](#castor) because each Onyx Plume benef
       ![Frenzy](/images/wheels/frenzy.png "Frenzy"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Core Meltdown](/images/wheels/core-meltdown.png "Core Meltdown"){loading=lazy} <figcaption>Core Meltdown</figcaption>
     </figure>
@@ -6185,7 +6461,8 @@ At E1, Horla is also one of the most consistent weakness and vulnerable appliers
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Twisted Twins: White](/images/covenants/twisted-twins-white--icon.png "Twisted Twins: White"){loading=lazy}](/handbook/team#twisted-twins-white)
@@ -6204,8 +6481,10 @@ At E1, Horla is also one of the most consistent weakness and vulnerable appliers
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Twisted Twins: Black](/handbook/team#twisted-twins-black)</div>
+  <div class="caption text-center mobile" markdown="span">[Twisted Twins: White](/handbook/team#twisted-twins-white) &middot; [Twisted Twins: Black](/handbook/team#twisted-twins-black)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Aged](/images/wheels/aged.png "Aged"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -6213,7 +6492,8 @@ At E1, Horla is also one of the most consistent weakness and vulnerable appliers
       ![Whisper](/images/wheels/whisper.png "Whisper"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Dusk & Dawn](/images/wheels/dusk-and-dawn.png "Dusk & Dawn"){loading=lazy} <figcaption>(Any Death Res.)</figcaption>
     </figure>
@@ -6290,7 +6570,8 @@ Jenkin can work as a main DPS herself, but needs high levels or STR buffs to do 
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Support)" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build (Support)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Scarlet Embrace](/images/covenants/scarlet-embrace--icon.png "Scarlet Embrace"){loading=lazy}](/handbook/team#scarlet-embrace)
@@ -6308,8 +6589,10 @@ Jenkin can work as a main DPS herself, but needs high levels or STR buffs to do 
     </figure>
   </div>
   <div class="caption text-center" markdown="span">(Any support)</div>
+  <div class="caption text-center mobile" markdown="span">(Any support)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Aged](/images/wheels/aged.png "Aged"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -6317,7 +6600,8 @@ Jenkin can work as a main DPS herself, but needs high levels or STR buffs to do 
       ![Whisper](/images/wheels/whisper.png "Whisper"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Hymn of the Sovereign](/images/wheels/hymn-of-the-sovereign.png "Hymn of the Sovereign"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -6331,7 +6615,8 @@ Jenkin can work as a main DPS herself, but needs high levels or STR buffs to do 
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Main DPS)" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build (Main DPS)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![April Tribute](/images/covenants/april-tribute--icon.png "April Tribute"){loading=lazy}](/handbook/team#april-tribute)
@@ -6350,8 +6635,10 @@ Jenkin can work as a main DPS herself, but needs high levels or STR buffs to do 
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Crimson Pulse](/handbook/team#crimson-pulse)</div>
+  <div class="caption text-center mobile" markdown="span">[April Tribute](/handbook/team#april-tribute) &middot; [Crimson Pulse](/handbook/team#crimson-pulse)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Analysis of Death](/images/wheels/analysis-of-death.png "Analysis of Death"){loading=lazy} <figcaption>Analysis of Death</figcaption>
     </figure>
@@ -6359,7 +6646,8 @@ Jenkin can work as a main DPS herself, but needs high levels or STR buffs to do 
       ![Critical Point](/images/wheels/critical-point.png "Critical Point"){loading=lazy} <figcaption>Critical Point</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Blade of the Titan](/images/wheels/blade-of-the-titan.png "Blade of the Titan"){loading=lazy} <figcaption>Blade of the Titan</figcaption>
     </figure>
@@ -6439,7 +6727,8 @@ Hard to use early on, but gets much better with teammates that give her defense,
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![April Tribute](/images/covenants/april-tribute--icon.png "April Tribute"){loading=lazy}](/handbook/team#april-tribute)
@@ -6458,8 +6747,10 @@ Hard to use early on, but gets much better with teammates that give her defense,
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Steppenwolf](/handbook/team#steppenwolf)</div>
+  <div class="caption text-center mobile" markdown="span">[April Tribute](/handbook/team#april-tribute) &middot; [Steppenwolf](/handbook/team#steppenwolf)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Analysis of Death](/images/wheels/analysis-of-death.png "Analysis of Death"){loading=lazy} <figcaption>Analysis of Death</figcaption>
     </figure>
@@ -6467,7 +6758,8 @@ Hard to use early on, but gets much better with teammates that give her defense,
       ![Critical Point](/images/wheels/critical-point.png "Critical Point"){loading=lazy} <figcaption>Critical Point</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Twisted Knight Ballad](/images/wheels/twisted-knight-ballad.png "Twisted Knight Ballad"){loading=lazy} <figcaption>Twisted Knight Ballad</figcaption>
     </figure>
@@ -6548,7 +6840,8 @@ Needs E1 for consistency and E3 for high damage. OE makes him one of the top DPS
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![April Tribute](/images/covenants/april-tribute--icon.png "April Tribute"){loading=lazy}](/handbook/team#april-tribute)
@@ -6567,8 +6860,10 @@ Needs E1 for consistency and E3 for high damage. OE makes him one of the top DPS
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Crimson Pulse](/handbook/team#crimson-pulse)</div>
+  <div class="caption text-center mobile" markdown="span">[April Tribute](/handbook/team#april-tribute) &middot; [Crimson Pulse](/handbook/team#crimson-pulse)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Elevated Focus](/images/wheels/elevated-focus.png "Elevated Focus"){loading=lazy} <figcaption>Elevated Focus</figcaption>
     </figure>
@@ -6576,7 +6871,8 @@ Needs E1 for consistency and E3 for high damage. OE makes him one of the top DPS
       ![Analysis of Death](/images/wheels/analysis-of-death.png "Analysis of Death"){loading=lazy} <figcaption>Analysis of Death</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Twisted Knight Ballad](/images/wheels/twisted-knight-ballad.png "Twisted Knight Ballad"){loading=lazy} <figcaption>Twisted Knight Ballad</figcaption>
     </figure>
@@ -6658,7 +6954,8 @@ At E2, her defense card becomes quite good, making her a usable shielder for Ult
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Exalt Support)" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build (Exalt Support)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Burial Ground's Sighs](/images/covenants/burial-grounds-sighs--icon.png "Burial Ground's Sighs"){loading=lazy}](/handbook/team#burial-grounds-sighs)
@@ -6676,8 +6973,10 @@ At E2, her defense card becomes quite good, making her a usable shielder for Ult
     </figure>
   </div>
   <div class="caption text-center" markdown="span">(Any support)</div>
+  <div class="caption text-center mobile" markdown="span">(Any support)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Aged](/images/wheels/aged.png "Aged"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -6685,7 +6984,8 @@ At E2, her defense card becomes quite good, making her a usable shielder for Ult
       ![Whisper](/images/wheels/whisper.png "Whisper"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Hymn of the Sovereign](/images/wheels/hymn-of-the-sovereign.png "Hymn of the Sovereign"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -6699,7 +6999,8 @@ At E2, her defense card becomes quite good, making her a usable shielder for Ult
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (E2 Defense Build)" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build (E2 Defense Build)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Feast from Afar](/images/covenants/feast-from-afar--icon.png "Feast from Afar"){loading=lazy}](/handbook/team#feast-from-afar)
@@ -6718,8 +7019,10 @@ At E2, her defense card becomes quite good, making her a usable shielder for Ult
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Twisted Twins: White](/handbook/team#twisted-twins-white)</div>
+  <div class="caption text-center mobile" markdown="span">[Feast from Afar](/handbook/team#feast-from-afar) &middot; [Twisted Twins: White](/handbook/team#twisted-twins-white)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Data is Flesh](/images/wheels/data-is-flesh.png "Data is Flesh"){loading=lazy} <figcaption>Data is Flesh</figcaption>
     </figure>
@@ -6727,7 +7030,8 @@ At E2, her defense card becomes quite good, making her a usable shielder for Ult
       ![The Land of Nonexistence](/images/wheels/the-land-of-nonexistence.png "The Land of Nonexistence"){loading=lazy} <figcaption>The Land of Nonexistence</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Memory Spiral](/images/wheels/memory-spiral.png "Memory Spiral"){loading=lazy} <figcaption>Memory Spiral</figcaption>
     </figure>
@@ -6806,7 +7110,8 @@ Technically usable as a damage dealer, but works best with counter relics or a r
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Support)" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build (Support)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Dream of Medicine](/images/covenants/dream-of-medicine--icon.png "Dream of Medicine"){loading=lazy}](/handbook/team#dream-of-medicine)
@@ -6824,8 +7129,10 @@ Technically usable as a damage dealer, but works best with counter relics or a r
     </figure>
   </div>
   <div class="caption text-center" markdown="span">(Any support)</div>
+  <div class="caption text-center mobile" markdown="span">(Any support)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Aged](/images/wheels/aged.png "Aged"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -6833,7 +7140,8 @@ Technically usable as a damage dealer, but works best with counter relics or a r
       ![Whisper](/images/wheels/whisper.png "Whisper"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Hymn of the Sovereign](/images/wheels/hymn-of-the-sovereign.png "Hymn of the Sovereign"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -6847,7 +7155,8 @@ Technically usable as a damage dealer, but works best with counter relics or a r
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build (Counter DPS)" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build (Counter DPS)</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Steppenwolf](/images/covenants/steppenwolf--icon.png "Steppenwolf"){loading=lazy}](/handbook/team#steppenwolf)
@@ -6866,8 +7175,10 @@ Technically usable as a damage dealer, but works best with counter relics or a r
     </figure>
   </div>
   <div class="caption text-center" markdown="span">[Dream of Medicine](/handbook/team#dream-of-medicine)</div>
+  <div class="caption text-center mobile" markdown="span">[Steppenwolf](/handbook/team#steppenwolf) &middot; [Dream of Medicine](/handbook/team#dream-of-medicine)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Cloaked in the Night](/images/wheels/cloaked-in-the-night.png "Cloaked in the Night"){loading=lazy} <figcaption>Cloaked in the Night</figcaption>
     </figure>
@@ -6875,7 +7186,8 @@ Technically usable as a damage dealer, but works best with counter relics or a r
       ![Sever and Scar](/images/wheels/sever-and-scar.png "Sever and Scar"){loading=lazy} <figcaption>(Any DMG Amp)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Drifting in Desire](/images/wheels/drifting-in-desire.png "Drifting in Desire"){loading=lazy} <figcaption>Drifting in Desire</figcaption>
     </figure>
@@ -6957,7 +7269,8 @@ At E3, her exalt lets a teammate exalt twice in one turn. This is useful for cha
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Burial Ground's Sighs](/images/covenants/burial-grounds-sighs--icon.png "Burial Ground's Sighs"){loading=lazy}](/handbook/team#burial-grounds-sighs)
@@ -6975,8 +7288,10 @@ At E3, her exalt lets a teammate exalt twice in one turn. This is useful for cha
     </figure>
   </div>
   <div class="caption text-center" markdown="span">(Any support)</div>
+  <div class="caption text-center mobile" markdown="span">(Any support)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Aged](/images/wheels/aged.png "Aged"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -6984,7 +7299,8 @@ At E3, her exalt lets a teammate exalt twice in one turn. This is useful for cha
       ![Whisper](/images/wheels/whisper.png "Whisper"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Manikin of Oblivion](/images/wheels/manikin-of-oblivion.png "Manikin of Oblivion"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -7067,7 +7383,8 @@ She works best supporting a DPS that has good cards, but hits hard enough to sol
 
 <section class="section" markdown>
 <div class="hagrid grid-mobile-1/1 grid-desktop-1/1/1" markdown>
-  <div class="team-build center" data-heading="Example Build" markdown>
+  <div class="team-build center" markdown>
+  <div class="heading text-center build-heading">Example Build</div>
   <div class="hagrid grid-1/1" markdown="span">
     <figure class="center">
       [![Dream of Medicine](/images/covenants/dream-of-medicine--icon.png "Dream of Medicine"){loading=lazy}](/handbook/team#dream-of-medicine)
@@ -7085,8 +7402,10 @@ She works best supporting a DPS that has good cards, but hits hard enough to sol
     </figure>
   </div>
   <div class="caption text-center" markdown="span">(Any support)</div>
+  <div class="caption text-center mobile" markdown="span">(Any support)</div>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Early Game Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Early Game Wheels</span>
     <figure markdown="span">
       ![Aged](/images/wheels/aged.png "Aged"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
@@ -7094,7 +7413,8 @@ She works best supporting a DPS that has good cards, but hits hard enough to sol
       ![Whisper](/images/wheels/whisper.png "Whisper"){loading=lazy} <figcaption>(Any support)</figcaption>
     </figure>
   </div>
-  <div class="hagrid grid-1/1 build-column" data-heading="Astral Reign Wheels" markdown="span">
+  <div class="hagrid grid-1/1 build-column" markdown="span">
+  <span class="heading text-center build-heading">Astral Reign Wheels</span>
     <figure markdown="span">
       ![Eternal Weave](/images/wheels/eternal-weave.png "Eternal Weave"){loading=lazy} <figcaption>(Any Realm Mastery)</figcaption>
     </figure>

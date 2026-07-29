@@ -6,6 +6,7 @@ import hashlib
 import re
 import shutil
 import subprocess
+from functools import lru_cache
 from pathlib import Path
 from urllib.parse import unquote, urlsplit, urlunsplit
 
@@ -21,6 +22,12 @@ IMAGE_TAG = re.compile(r"<img\b[^>]*>", re.IGNORECASE)
 SOURCE_ATTRIBUTE = re.compile(
     r"(?P<prefix>(?<![-\w])src\s*=\s*)(?P<quote>['\"])(?P<url>[^'\"]+)(?P=quote)",
     re.IGNORECASE,
+)
+WIDTH_ATTRIBUTE = re.compile(
+    r"(?<![-\w])width\s*=\s*['\"](?P<value>\d+)['\"]", re.IGNORECASE
+)
+HEIGHT_ATTRIBUTE = re.compile(
+    r"(?<![-\w])height\s*=\s*['\"](?P<value>\d+)['\"]", re.IGNORECASE
 )
 
 
@@ -92,7 +99,7 @@ def generate_avif_assets() -> tuple[int, int, int, int]:
     return encoded, reused, png_bytes, avif_bytes
 
 
-def avif_url(url: str, html_file: Path) -> str | None:
+def local_png(url: str, html_file: Path) -> Path | None:
     parsed = urlsplit(url)
     if parsed.scheme or parsed.netloc or not parsed.path.lower().endswith(".png"):
         return None
@@ -111,8 +118,47 @@ def avif_url(url: str, html_file: Path) -> str | None:
     if not png_file.with_suffix(".avif").is_file():
         return None
 
+    return png_file
+
+
+def avif_url(url: str, html_file: Path) -> str | None:
+    if local_png(url, html_file) is None:
+        return None
+
+    parsed = urlsplit(url)
     avif_path = f"{parsed.path[:-4]}.avif"
     return urlunsplit(("", "", avif_path, parsed.query, parsed.fragment))
+
+
+@lru_cache(maxsize=None)
+def image_size(source: Path) -> tuple[int, int]:
+    with Image.open(source) as image:
+        return image.size
+
+
+def add_intrinsic_dimensions(tag: str, source: Path) -> str:
+    width_match = WIDTH_ATTRIBUTE.search(tag)
+    height_match = HEIGHT_ATTRIBUTE.search(tag)
+    if width_match and height_match:
+        return tag
+
+    source_width, source_height = image_size(source)
+
+    if width_match:
+        width = int(width_match.group("value"))
+        height = round(source_height * width / source_width)
+        attributes = f' height="{height}"'
+    elif height_match:
+        height = int(height_match.group("value"))
+        width = round(source_width * height / source_height)
+        attributes = f' width="{width}"'
+    else:
+        attributes = f' width="{source_width}" height="{source_height}"'
+
+    insert_at = tag.rfind("/>")
+    if insert_at == -1:
+        insert_at = tag.rfind(">")
+    return f"{tag[:insert_at]}{attributes}{tag[insert_at:]}"
 
 
 def rewrite_html_images() -> tuple[int, int]:
@@ -123,20 +169,31 @@ def rewrite_html_images() -> tuple[int, int]:
         html = html_file.read_text(encoding="utf-8")
         replacements = 0
 
-        def replace(match: re.Match[str]) -> str:
+        def replace_tag(tag_match: re.Match[str]) -> str:
             nonlocal replacements
-            replacement = avif_url(match.group("url"), html_file)
-            if replacement is None:
-                return match.group(0)
-            replacements += 1
-            return (
-                f'{match.group("prefix")}{match.group("quote")}'
-                f'{replacement}{match.group("quote")}'
-            )
+            tag = tag_match.group(0)
+            source_match = SOURCE_ATTRIBUTE.search(tag)
+            if source_match is None:
+                return tag
 
-        rewritten = IMAGE_TAG.sub(
-            lambda tag: SOURCE_ATTRIBUTE.sub(replace, tag.group(0)), html
-        )
+            source = local_png(source_match.group("url"), html_file)
+            replacement = avif_url(source_match.group("url"), html_file)
+            if replacement is None:
+                return tag
+
+            rewritten_tag = SOURCE_ATTRIBUTE.sub(
+                lambda match: (
+                    f'{match.group("prefix")}{match.group("quote")}'
+                    f'{replacement}{match.group("quote")}'
+                ),
+                tag,
+                count=1,
+            )
+            replacements += 1
+            assert source is not None
+            return add_intrinsic_dimensions(rewritten_tag, source)
+
+        rewritten = IMAGE_TAG.sub(replace_tag, html)
         if replacements:
             html_file.write_text(rewritten, encoding="utf-8", newline="")
             changed_files += 1

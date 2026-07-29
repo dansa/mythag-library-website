@@ -5,6 +5,8 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
+from PIL import Image
+
 from mythag_site import build
 
 
@@ -39,18 +41,22 @@ class ImageUrlTests(unittest.TestCase):
             avif = site / "images" / "awakener.avif"
             avif.parent.mkdir(parents=True)
             avif.write_bytes(b"avif")
+            Image.new("RGBA", (400, 200)).save(avif.with_suffix(".png"))
             page.write_text(
                 '<script src="/images/awakener.png"></script>'
-                '<img src="/images/awakener.png" alt="Awakener">',
+                '<img src="/images/awakener.png" alt="Awakener">'
+                '<img src="/images/awakener.png" alt="Small" width="100">',
                 encoding="utf-8",
             )
 
             with patch.object(build, "SITE_ROOT", site):
-                self.assertEqual(build.rewrite_html_images(), (1, 1))
+                self.assertEqual(build.rewrite_html_images(), (1, 2))
 
             rewritten = page.read_text(encoding="utf-8")
             self.assertIn('<script src="/images/awakener.png">', rewritten)
             self.assertIn('<img src="/images/awakener.avif"', rewritten)
+            self.assertIn('width="400" height="200">', rewritten)
+            self.assertIn('width="100" height="50">', rewritten)
 
 
 if __name__ == "__main__":

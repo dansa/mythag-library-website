@@ -467,6 +467,31 @@
     grid-template-columns: 1fr 2fr;
     gap: 16px;
   }
+
+  .md-typeset .team-build.center,
+  .team-build > .caption {
+    grid-column: 1 / -1;
+  }
+
+  .md-typeset .team-build.center {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .team-build > .hagrid {
+    display: contents;
+  }
+}
+
+.team-build::before,
+.build-column::before {
+  content: attr(data-heading);
+  grid-column: 1 / -1;
+  font-family: var(--md-alt-font-family);
+  font-size: 1.25em;
+  font-weight: bold;
+  text-align: center;
 }
 
 /* Item */

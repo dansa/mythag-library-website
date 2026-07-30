@@ -457,13 +457,13 @@ def _parse_guide(path: Path, issues: list[ValidationIssue]) -> Guide | None:
         _issue(issues, relative, "", f"unknown realm directory {realm!r}")
     if title is None:
         return None
-    slug = slugify(title.strip('"'))
-    if path.stem != slug:
+    slug = path.stem
+    if CONTENT_ID.fullmatch(slug) is None:
         _issue(
             issues,
             relative,
-            "title",
-            f"expected filename {slug}.md for this title",
+            "",
+            "expected a lowercase kebab-case filename",
         )
     return Guide(
         relative,
@@ -612,18 +612,28 @@ def build_asset_catalog(
     }
     standalone = {guide.slug: guide for guide in guides}
 
-    def add_portrait(guide: Guide) -> None:
+    def find_awakener_assets(
+        guide: Guide, content_id: str, field: str
+    ) -> tuple[Path, Path] | None:
         full = _find_unique_asset(
-            f"awakeners/*/{guide.slug}.png", issues, guide.path, "title"
+            f"awakeners/*/{content_id}.png", issues, guide.path, field
         )
         mini = _find_unique_asset(
-            f"awakeners/*/{guide.slug}--mini.png", issues, guide.path, "title"
+            f"awakeners/*/{content_id}--mini.png", issues, guide.path, field
         )
-        if full is not None and mini is not None:
-            catalog["portraits"][guide.title] = {
-                "image": _site_url(full),
-                "mini": _site_url(mini),
-            }
+        if full is None or mini is None:
+            return None
+        return full, mini
+
+    def add_portrait(guide: Guide) -> None:
+        assets = find_awakener_assets(guide, guide.slug, "title")
+        if assets is None:
+            return
+        full, mini = assets
+        catalog["portraits"][guide.title] = {
+            "image": _site_url(full),
+            "mini": _site_url(mini),
+        }
 
     def add_awakeners(guide: Guide, content_ids: list[str], field: str) -> None:
         for content_id in content_ids:
@@ -639,14 +649,10 @@ def build_asset_catalog(
             )
             if label is None:
                 continue
-            full = _find_unique_asset(
-                f"awakeners/*/{content_id}.png", issues, guide.path, field
-            )
-            mini = _find_unique_asset(
-                f"awakeners/*/{content_id}--mini.png", issues, guide.path, field
-            )
-            if full is None or mini is None:
+            assets = find_awakener_assets(guide, content_id, field)
+            if assets is None:
                 continue
+            full, mini = assets
             target = standalone.get(content_id)
             url = (
                 f"/handbook/awakeners/{target.realm}/{target.slug}/"

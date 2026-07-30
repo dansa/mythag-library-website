@@ -182,6 +182,31 @@ class AwakenerPreparationTests(unittest.TestCase):
                 str(context.exception),
             )
 
+    def test_filename_is_stable_id_when_title_punctuation_differs(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root, config = self.project(temporary)
+            chaos = root / "lib" / "handbook" / "awakeners" / "chaos"
+            guide = chaos / "example.md"
+            guide.replace(chaos / "gdoll.md")
+            renamed = chaos / "gdoll.md"
+            renamed.write_text(
+                renamed.read_text(encoding="utf-8").replace(
+                    "title: Example", "title: G-Doll", 1
+                ),
+                encoding="utf-8",
+            )
+            portraits = root / "lib" / "images" / "awakeners" / "chaos"
+            (portraits / "example.png").replace(portraits / "gdoll.png")
+            (portraits / "example--mini.png").replace(portraits / "gdoll--mini.png")
+            (root / "content" / "awakeners.yaml").write_text(
+                "gdoll: G-Doll\n", encoding="utf-8"
+            )
+
+            with self.patches(root, config):
+                guides = awakeners.prepare_awakeners()
+
+            self.assertEqual((guides[0].slug, guides[0].title), ("gdoll", "G-Doll"))
+
     def test_rejects_layout_markup_in_guide_prose(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             root, config = self.project(temporary)

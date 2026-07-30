@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import tempfile
 import textwrap
+import tomllib
 import unittest
 from contextlib import ExitStack, contextmanager
 from pathlib import Path
@@ -147,6 +148,19 @@ class AwakenerPreparationTests(unittest.TestCase):
                 '"Example" = { image = "/images/awakeners/chaos/example.png"',
                 generated,
             )
+            config_data = tomllib.loads(generated)
+            index = config_data["project"]["extra"]["awakener_index"]
+            self.assertEqual(index["family_order"], ["chaos"])
+            self.assertEqual(index["family"]["chaos"]["groups"], ["chaos"])
+            self.assertEqual(index["group"]["chaos"]["guides"], ["example"])
+            self.assertEqual(
+                index["guide"]["example"],
+                {
+                    "label": "Example",
+                    "image": "/images/awakeners/chaos/example--mini.png",
+                    "url": "/handbook/awakeners/chaos/example/",
+                },
+            )
 
     def test_nests_subrealm_guides_under_their_realm_family(self) -> None:
         guides = [
@@ -204,6 +218,46 @@ class AwakenerPreparationTests(unittest.TestCase):
 
             self.assertIn(
                 "title: expected catalog label 'Different Name'",
+                str(context.exception),
+            )
+
+    def test_rejects_awakener_catalog_entry_without_a_guide(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root, config = self.project(temporary)
+            (root / "content" / "awakeners.yaml").write_text(
+                "example: Example\nmissing: Missing\n", encoding="utf-8"
+            )
+
+            with self.patches(root, config):
+                with self.assertRaises(awakeners.AwakenerValidationError) as context:
+                    awakeners.prepare_awakeners()
+
+            self.assertIn(
+                "content/awakeners.yaml: missing: does not have a standalone guide",
+                str(context.exception),
+            )
+
+    def test_rejects_related_awakener_without_a_guide(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root, config = self.project(temporary)
+            guide = root / "lib" / "handbook" / "awakeners" / "chaos" / "example.md"
+            guide.write_text(
+                guide.read_text(encoding="utf-8").replace(
+                    "  works_well_with: []", "  works_well_with:\n    - missing"
+                ),
+                encoding="utf-8",
+            )
+            (root / "content" / "awakeners.yaml").write_text(
+                "example: Example\nmissing: Missing\n", encoding="utf-8"
+            )
+
+            with self.patches(root, config):
+                with self.assertRaises(awakeners.AwakenerValidationError) as context:
+                    awakeners.prepare_awakeners()
+
+            self.assertIn(
+                "awakener.works_well_with: Awakener ID 'missing' does not have a "
+                "standalone guide",
                 str(context.exception),
             )
 

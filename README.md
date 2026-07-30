@@ -11,8 +11,9 @@ If you have feedback or suggestions, feel free to create an [Issue](https://gith
 
 The preview shows ordinary content, template, and CSS changes in real time (you
 might need to reload the page occasionally). Restart the preview after adding,
-renaming, moving, or removing an Awakener guide so its generated navigation can
-be refreshed.
+renaming, moving, or removing an Awakener guide, editing a content catalog, or
+adding or removing structured covenant, wheel, posse, or related-Awakener IDs.
+Those changes refresh generated navigation and asset lookups only at startup.
 
 Run `uv run mythag-check` for a quick content and asset validation without a
 full production build.

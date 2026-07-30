@@ -1,33 +1,63 @@
 import re
+import subprocess
+import sys
+import tempfile
+import tomllib
 import unittest
+from collections import Counter
+from html.parser import HTMLParser
 from pathlib import Path
+from unittest.mock import patch
 
-from mythag_site import awakeners
+from mythag_site import awakeners, build
 
 
 ROOT = Path(__file__).resolve().parents[1]
-GUIDE_HEADING = re.compile(
-    r"^### .+? \{#(?P<anchor>[a-z0-9-]+) \.tier \.text-center\}$",
-    re.MULTILINE,
-)
-REALM_HEADING = re.compile(
-    r"^## .+? \{#(?P<anchor>[a-z0-9-]+)\}$",
-    re.MULTILINE,
-)
-LEGACY_LINK = re.compile(
-    r'^- \[[^]]+\]\(/handbook/awakeners/(?P<realm>[a-z-]+)/(?P<slug>[a-z0-9-]+)/\)'
-    r'\{#(?P<anchor>[a-z0-9-]+)\}$',
-    re.MULTILINE,
-)
-RAW_TAGS = ("div", "figure", "p", "section")
 
 
-def awakener_sources() -> list[Path]:
-    sources = [ROOT / "lib" / "handbook" / "awakeners.md"]
-    include_root = ROOT / "includes" / "handbook" / "awakeners"
-    if include_root.exists():
-        sources.extend(sorted(include_root.rglob("*.md")))
-    return sources
+class AwakenerIndexParser(HTMLParser):
+    def __init__(self, guide_ids: set[str]) -> None:
+        super().__init__()
+        self.guide_ids = guide_ids
+        self.cards: dict[str, dict[str, str]] = {}
+        self.card_order: list[str] = []
+        self.toc_hrefs: set[str] = set()
+        self._active_card: str | None = None
+        self._active_label: list[str] = []
+        self._secondary_toc_depth = 0
+
+    def handle_starttag(
+        self, tag: str, attrs: list[tuple[str, str | None]]
+    ) -> None:
+        values = {key: value or "" for key, value in attrs}
+        classes = set(values.get("class", "").split())
+        if tag == "nav" and (
+            self._secondary_toc_depth or "md-nav--secondary" in classes
+        ):
+            self._secondary_toc_depth += 1
+        if tag == "a" and self._secondary_toc_depth and values.get("href", "").startswith("#"):
+            self.toc_hrefs.add(values["href"])
+        if tag == "a" and values.get("id") in self.guide_ids:
+            self._active_card = values["id"]
+            self._active_label = []
+            self.card_order.append(self._active_card)
+            self.cards[self._active_card] = {"href": values.get("href", "")}
+        elif tag == "img" and self._active_card is not None:
+            self.cards[self._active_card].update(values)
+
+    def handle_data(self, data: str) -> None:
+        if self._active_card is not None:
+            self._active_label.append(data)
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag == "a" and self._active_card is not None:
+            self.cards[self._active_card]["label"] = "".join(
+                self._active_label
+            ).strip()
+            self._active_card = None
+            self._active_label = []
+        elif tag == "nav" and self._secondary_toc_depth:
+            self._secondary_toc_depth -= 1
 
 
 class AwakenerContentTests(unittest.TestCase):
@@ -43,65 +73,145 @@ class AwakenerContentTests(unittest.TestCase):
                     "Any support",
                 )
 
-    def test_guide_and_realm_anchors_are_explicit_and_unique(self) -> None:
-        main = awakener_sources()[0].read_text(encoding="utf-8")
-        realm_anchors = REALM_HEADING.findall(main)
-        self.assertEqual(len(realm_anchors), len(set(realm_anchors)))
+    def test_index_inventory_is_generated(self) -> None:
+        source = (ROOT / "lib" / "handbook" / "awakeners.md").read_text(
+            encoding="utf-8"
+        )
+        template = (
+            ROOT / "overrides" / "awakeners" / "index.html"
+        ).read_text(encoding="utf-8")
 
-        guide_anchors: list[str] = []
-        for source in awakener_sources():
-            text = source.read_text(encoding="utf-8")
-            tier_headings = re.findall(
-                r"^### .+? \{[^}]*\.tier \.text-center\}$",
-                text,
-                re.MULTILINE,
+        self.assertIn("template: awakeners/index.html", source)
+        self.assertNotIn("/handbook/awakeners/chaos/", source)
+        self.assertIn('id="{{ guide_id }}"', template)
+
+    def test_rendered_index_covers_guides_fragments_and_delivery_contract(self) -> None:
+        guides = awakeners.prepare_awakeners()
+        subprocess.run(
+            [
+                sys.executable,
+                "-m",
+                "zensical",
+                "build",
+                "--clean",
+                "--config-file",
+                str(awakeners.GENERATED_CONFIG),
+            ],
+            cwd=ROOT,
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+        config = tomllib.loads(
+            awakeners.GENERATED_CONFIG.read_text(encoding="utf-8")
+        )
+        index = config["project"]["extra"]["awakener_index"]
+        guide_ids = {guide.slug for guide in guides}
+
+        with tempfile.TemporaryDirectory() as temporary:
+            temporary_site = Path(temporary)
+            rendered_index = temporary_site / "handbook" / "awakeners" / "index.html"
+            rendered_index.parent.mkdir(parents=True)
+            rendered_index.write_text(
+                (ROOT / "site" / "handbook" / "awakeners" / "index.html").read_text(
+                    encoding="utf-8"
+                ),
+                encoding="utf-8",
             )
-            explicit_headings = list(GUIDE_HEADING.finditer(text))
-            self.assertEqual(
-                len(tier_headings),
-                len(explicit_headings),
-                f"Every guide heading in {source.relative_to(ROOT)} needs an explicit anchor",
+            for guide in index["guide"].values():
+                avif = (temporary_site / guide["image"].lstrip("/")).with_suffix(
+                    ".avif"
+                )
+                avif.parent.mkdir(parents=True, exist_ok=True)
+                avif.touch()
+
+            with patch.object(build, "SITE_ROOT", temporary_site):
+                build.rewrite_html_images()
+                rendered_guide = (
+                    temporary_site
+                    / "handbook"
+                    / "awakeners"
+                    / "chaos"
+                    / "24"
+                    / "index.html"
+                )
+                rendered_guide.parent.mkdir(parents=True)
+                rendered_guide.write_text(
+                    (
+                        ROOT
+                        / "site"
+                        / "handbook"
+                        / "awakeners"
+                        / "chaos"
+                        / "24"
+                        / "index.html"
+                    ).read_text(encoding="utf-8"),
+                    encoding="utf-8",
+                )
+                build.expand_html_abbreviations()
+
+            html = rendered_index.read_text(encoding="utf-8")
+            guide_html = rendered_guide.read_text(encoding="utf-8")
+
+        parser = AwakenerIndexParser(guide_ids)
+        parser.feed(html)
+        self.assertEqual(set(parser.cards), guide_ids)
+        expected_order = [
+            guide_id
+            for family_id in index["family_order"]
+            for group_id in index["family"][family_id]["groups"]
+            for guide_id in index["group"][group_id]["guides"]
+        ]
+        self.assertEqual(parser.card_order, expected_order)
+        self.assertEqual(
+            parser.toc_hrefs,
+            {
+                *(f"#{guide_id}" for guide_id in guide_ids),
+                "#chaos",
+                "#aequor",
+                "#benthos-aequor",
+                "#caro",
+                "#propagation-caro",
+                "#ultra",
+                "#singularity-ultra",
+            },
+        )
+        self.assertIn('class="awakener-index-grid grid-96"', html)
+        for guide in guides:
+            with self.subTest(guide=guide.slug):
+                card = parser.cards[guide.slug]
+                expected = index["guide"][guide.slug]
+                self.assertEqual(
+                    card["href"],
+                    expected["url"],
+                )
+                self.assertEqual(card["label"], expected["label"])
+                self.assertEqual(
+                    card["src"], Path(expected["image"]).with_suffix(".avif").as_posix()
+                )
+                self.assertEqual(card["alt"], "")
+                self.assertEqual(card["width"], "360")
+                self.assertEqual(card["height"], "360")
+                self.assertEqual(card["loading"], "lazy")
+                self.assertEqual(card["decoding"], "async")
+
+        rendered_terms = Counter(
+            match.group("term")
+            for match in re.finditer(
+                r'<abbr\b[^>]*>(?P<term>.*?)</abbr>', guide_html, re.DOTALL
             )
-            guide_anchors.extend(match.group("anchor") for match in explicit_headings)
-
-        legacy_anchors = [match.group("anchor") for match in LEGACY_LINK.finditer(main)]
-        guide_anchors.extend(legacy_anchors)
-
-        self.assertTrue(guide_anchors)
-        self.assertEqual(len(guide_anchors), len(set(guide_anchors)))
-
-    def test_legacy_indexes_cover_every_standalone_guide(self) -> None:
-        main = awakener_sources()[0].read_text(encoding="utf-8")
-        guide_root = ROOT / "lib" / "handbook" / "awakeners"
-        for realm_directory in guide_root.iterdir():
-            if not realm_directory.is_dir():
-                continue
-            indexed = {
-                match.group("slug")
-                for match in LEGACY_LINK.finditer(main)
-                if match.group("realm") == realm_directory.name
+        )
+        legacy_terms = Counter(
+            {
+                "Spamming": 1,
+                "DPS": 3,
+                "E0": 1,
+                "E2": 1,
+                "E3": 1,
+                "GDoll": 1,
             }
-            standalone = {path.stem for path in realm_directory.glob("*.md")}
-
-            with self.subTest(realm=realm_directory.name):
-                self.assertEqual(indexed, standalone)
-
-    def test_raw_html_is_balanced_within_each_guide(self) -> None:
-        for source in awakener_sources():
-            text = source.read_text(encoding="utf-8")
-            headings = list(GUIDE_HEADING.finditer(text))
-            for index, heading in enumerate(headings):
-                end = headings[index + 1].start() if index + 1 < len(headings) else len(text)
-                guide = text[heading.start() : end]
-                for tag in RAW_TAGS:
-                    openings = len(re.findall(rf"<{tag}(?:\s|>)", guide))
-                    closings = guide.count(f"</{tag}>")
-                    self.assertEqual(
-                        openings,
-                        closings,
-                        f"Unbalanced <{tag}> in {source.relative_to(ROOT)} at "
-                        f"#{heading.group('anchor')}",
-                    )
+        )
+        self.assertFalse(legacy_terms - rendered_terms)
 
     def test_standalone_guides_do_not_link_back_to_legacy_fragments(self) -> None:
         guide_root = ROOT / "lib" / "handbook" / "awakeners"

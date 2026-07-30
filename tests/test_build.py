@@ -103,5 +103,49 @@ class ImageUrlTests(unittest.TestCase):
             self.assertNotIn('width="117.95" width=', rewritten)
 
 
+class AbbreviationTests(unittest.TestCase):
+    def test_expands_template_text_without_touching_existing_markup(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            site = root / "site"
+            page = site / "handbook" / "awakeners" / "chaos" / "24" / "index.html"
+            abbreviations = root / "abbreviations.md"
+            page.parent.mkdir(parents=True)
+            page.write_text(
+                '<div class="awakener-guide" data-abbreviations>'
+                '<p title="DPS">Spamming DPS at E0 with GDoll.</p>'
+                '<p><abbr title="existing">DPS</abbr> and <code>E0</code></p>'
+                '</div><p>DPS outside the guide.</p>',
+                encoding="utf-8",
+            )
+            abbreviations.write_text(
+                '*[DPS]: Damage dealer.\n'
+                '*[E0]: No enlightens.\n'
+                '*[GDoll]: Genesis Doll.\n'
+                '*[Spamming]: Repeatedly using an ability.\n',
+                encoding="utf-8",
+            )
+
+            with (
+                patch.object(build, "SITE_ROOT", site),
+                patch.object(build, "ABBREVIATIONS", abbreviations),
+            ):
+                self.assertEqual(build.expand_html_abbreviations(), (1, 4))
+                self.assertEqual(build.expand_html_abbreviations(), (0, 0))
+
+            rewritten = page.read_text(encoding="utf-8")
+            self.assertIn(
+                '<abbr title="Repeatedly using an ability.">Spamming</abbr> '
+                '<abbr title="Damage dealer.">DPS</abbr> at '
+                '<abbr title="No enlightens.">E0</abbr> with '
+                '<abbr title="Genesis Doll.">GDoll</abbr>.',
+                rewritten,
+            )
+            self.assertIn('<p title="DPS">', rewritten)
+            self.assertIn('<abbr title="existing">DPS</abbr>', rewritten)
+            self.assertIn('<code>E0</code>', rewritten)
+            self.assertIn('<p>DPS outside the guide.</p>', rewritten)
+
+
 if __name__ == "__main__":
     unittest.main()

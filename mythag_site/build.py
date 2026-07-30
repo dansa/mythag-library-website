@@ -3,11 +3,13 @@
 from __future__ import annotations
 
 import hashlib
+import html
 import json
 import re
 import shutil
 import subprocess
 from functools import lru_cache
+from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlsplit, urlunsplit
 
@@ -24,6 +26,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE_IMAGES = ROOT / "lib" / "images"
 SITE_ROOT = ROOT / "site"
 CACHE_ROOT = ROOT / ".avif-cache"
+ABBREVIATIONS = ROOT / "includes" / "abbreviations.md"
 ENCODER_OPTIONS: dict[str, int | str] = {
     "quality": 70,
     "speed": 6,
@@ -44,6 +47,10 @@ HEIGHT_ATTRIBUTE = re.compile(
     r"(?<![-\w])height\s*=\s*(?P<quote>['\"])(?P<value>[^'\"]*)(?P=quote)",
     re.IGNORECASE,
 )
+ABBREVIATION_DEFINITION = re.compile(
+    r"^\*\[(?P<term>[^]]+)]\s*:\s*(?P<title>.+)$"
+)
+ABBREVIATION_SKIP_TAGS = {"abbr", "code", "pre", "script", "style"}
 
 
 def is_wheel(source: Path) -> bool:
@@ -243,6 +250,127 @@ def rewrite_html_images() -> tuple[int, int]:
     return changed_files, changed_urls
 
 
+def load_abbreviations() -> dict[str, str]:
+    definitions: dict[str, str] = {}
+    for line_number, line in enumerate(
+        ABBREVIATIONS.read_text(encoding="utf-8").splitlines(), start=1
+    ):
+        if not line.startswith("*["):
+            continue
+        match = ABBREVIATION_DEFINITION.fullmatch(line)
+        if match is None:
+            raise RuntimeError(
+                f"Invalid abbreviation definition at {ABBREVIATIONS}:{line_number}"
+            )
+        term = match.group("term").strip()
+        title = match.group("title").strip()
+        if not term or not title:
+            raise RuntimeError(
+                f"Empty abbreviation definition at {ABBREVIATIONS}:{line_number}"
+            )
+        if term in definitions:
+            raise RuntimeError(
+                f"Duplicate abbreviation {term!r} at {ABBREVIATIONS}:{line_number}"
+            )
+        definitions[term] = title
+    if not definitions:
+        raise RuntimeError(f"No abbreviation definitions found in {ABBREVIATIONS}")
+    return definitions
+
+
+class AwakenerAbbreviationParser(HTMLParser):
+    def __init__(self, definitions: dict[str, str]) -> None:
+        super().__init__(convert_charrefs=False)
+        terms = sorted(definitions, key=len, reverse=True)
+        self.pattern = re.compile(
+            rf"\b(?:{'|'.join(re.escape(term) for term in terms)})\b"
+        )
+        self.definitions = definitions
+        self.output: list[str] = []
+        self.replacements = 0
+        self._scope_tag: str | None = None
+        self._scope_depth = 0
+        self._skip_depth = 0
+
+    def handle_starttag(
+        self, tag: str, attrs: list[tuple[str, str | None]]
+    ) -> None:
+        self.output.append(self.get_starttag_text())
+        attributes = dict(attrs)
+        if self._scope_tag is not None:
+            if tag == self._scope_tag:
+                self._scope_depth += 1
+            if tag in ABBREVIATION_SKIP_TAGS:
+                self._skip_depth += 1
+        elif "data-abbreviations" in attributes:
+            self._scope_tag = tag
+            self._scope_depth = 1
+
+    def handle_startendtag(
+        self, tag: str, attrs: list[tuple[str, str | None]]
+    ) -> None:
+        self.output.append(self.get_starttag_text())
+
+    def handle_endtag(self, tag: str) -> None:
+        self.output.append(f"</{tag}>")
+        if self._scope_tag is None:
+            return
+        if tag in ABBREVIATION_SKIP_TAGS and self._skip_depth:
+            self._skip_depth -= 1
+        if tag == self._scope_tag:
+            self._scope_depth -= 1
+            if not self._scope_depth:
+                self._scope_tag = None
+
+    def handle_data(self, data: str) -> None:
+        if self._scope_tag is None or self._skip_depth:
+            self.output.append(data)
+            return
+
+        def replace(match: re.Match[str]) -> str:
+            self.replacements += 1
+            term = match.group(0)
+            title = html.escape(self.definitions[term], quote=True)
+            return f'<abbr title="{title}">{html.escape(term)}</abbr>'
+
+        self.output.append(self.pattern.sub(replace, data))
+
+    def handle_entityref(self, name: str) -> None:
+        self.output.append(f"&{name};")
+
+    def handle_charref(self, name: str) -> None:
+        self.output.append(f"&#{name};")
+
+    def handle_comment(self, data: str) -> None:
+        self.output.append(f"<!--{data}-->")
+
+    def handle_decl(self, decl: str) -> None:
+        self.output.append(f"<!{decl}>")
+
+    def handle_pi(self, data: str) -> None:
+        self.output.append(f"<?{data}>")
+
+    def unknown_decl(self, data: str) -> None:
+        self.output.append(f"<![{data}]>")
+
+
+def expand_html_abbreviations() -> tuple[int, int]:
+    definitions = load_abbreviations()
+    changed_files = 0
+    changed_terms = 0
+    for html_file in sorted(SITE_ROOT.rglob("*.html")):
+        source = html_file.read_text(encoding="utf-8")
+        parser = AwakenerAbbreviationParser(definitions)
+        parser.feed(source)
+        parser.close()
+        if not parser.replacements:
+            continue
+        html_file.write_text("".join(parser.output), encoding="utf-8", newline="")
+        changed_files += 1
+        changed_terms += parser.replacements
+    return changed_files, changed_terms
+
+
 def main() -> None:
     if not features.check("avif"):
         raise SystemExit("Pillow was installed without AVIF support")
@@ -269,12 +397,15 @@ def main() -> None:
     )
     encoded, reused, png_bytes, avif_bytes = generate_avif_assets()
     changed_files, changed_urls = rewrite_html_images()
+    abbreviation_files, abbreviation_terms = expand_html_abbreviations()
     reduction = (1 - avif_bytes / png_bytes) * 100 if png_bytes else 0
     print(
         f"Awakener content: {len(guides)} guides valid\n"
         "AVIF delivery: "
         f"{encoded} encoded, {reused} cached, {changed_urls} image URLs across "
-        f"{changed_files} HTML files, {reduction:.1f}% fewer image bytes"
+        f"{changed_files} HTML files, {reduction:.1f}% fewer image bytes\n"
+        "Awakener abbreviations: "
+        f"{abbreviation_terms} terms across {abbreviation_files} HTML files"
     )
 
 

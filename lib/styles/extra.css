@@ -415,7 +415,8 @@
   gap: 16px;
 }
 
-.grid-96 {
+.grid-96,
+.md-typeset ul.grid-96 {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
   gap: 16px;

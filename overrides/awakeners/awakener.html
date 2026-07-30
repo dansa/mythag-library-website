@@ -105,39 +105,49 @@
       </section>
     {% endfor %}
 
-    {% if guide.suggested_posses or guide.works_well_with %}
+    {% if guide.suggested_posses or guide.suggested_posses_note or guide.works_well_with or guide.works_well_with_note %}
       <section class="awakener-section awakener-recommendations">
-        {% if guide.suggested_posses %}
+        {% if guide.suggested_posses or guide.suggested_posses_note %}
           <div>
             <h2>Suggested Posse</h2>
-            <div class="awakener-recommendation-list">
-              {% for posse in guide.suggested_posses %}
-                {% set posse_asset = assets.posses[posse.name] %}
-                <figure>
-                  <img src="{{ posse_asset.image }}" alt="{{ posse.name }}" loading="lazy">
-                  <figcaption>
-                    {{ posse.name }}{% if posse.note %}<br><em>{{ posse.note }}</em>{% endif %}
-                  </figcaption>
-                </figure>
-              {% endfor %}
-            </div>
+            {% if guide.suggested_posses_note %}
+              <p class="awakener-section-note">{{ guide.suggested_posses_note }}</p>
+            {% endif %}
+            {% if guide.suggested_posses %}
+              <div class="awakener-recommendation-list">
+                {% for posse in guide.suggested_posses %}
+                  {% set posse_asset = assets.posses[posse.name] %}
+                  <figure>
+                    <img src="{{ posse_asset.image }}" alt="{{ posse.name }}" loading="lazy">
+                    <figcaption>
+                      {{ posse.name }}{% if posse.note %}<br><em>{{ posse.note }}</em>{% endif %}
+                    </figcaption>
+                  </figure>
+                {% endfor %}
+              </div>
+            {% endif %}
           </div>
         {% endif %}
 
-        {% if guide.works_well_with %}
+        {% if guide.works_well_with or guide.works_well_with_note %}
           <div>
             <h2>Works Well With</h2>
-            <div class="awakener-recommendation-list">
-              {% for related in guide.works_well_with %}
-                {% set related_asset = assets.awakeners[related] %}
-                <figure>
-                  <a href="{{ related_asset.url }}">
-                    <img src="{{ related_asset.mini }}" alt="{{ related }}" loading="lazy">
-                    <figcaption>{{ related }}</figcaption>
-                  </a>
-                </figure>
-              {% endfor %}
-            </div>
+            {% if guide.works_well_with_note %}
+              <p class="awakener-section-note">{{ guide.works_well_with_note }}</p>
+            {% endif %}
+            {% if guide.works_well_with %}
+              <div class="awakener-recommendation-list">
+                {% for related in guide.works_well_with %}
+                  {% set related_asset = assets.awakeners[related] %}
+                  <figure>
+                    <a href="{{ related_asset.url }}">
+                      <img src="{{ related_asset.mini }}" alt="{{ related }}" loading="lazy">
+                      <figcaption>{{ related }}</figcaption>
+                    </a>
+                  </figure>
+                {% endfor %}
+              </div>
+            {% endif %}
           </div>
         {% endif %}
       </section>

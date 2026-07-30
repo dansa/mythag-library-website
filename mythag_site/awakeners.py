@@ -39,9 +39,21 @@ ALLOWED_AWAKENER_FIELDS = {
     "stopping_points",
     "builds",
     "suggested_posses",
+    "suggested_posses_note",
     "works_well_with",
+    "works_well_with_note",
 }
-ALLOWED_TIERS = {"S", "A", "B", "C", "D"}
+TIER_STYLE_NAMES = {
+    "S": "s",
+    "A": "a",
+    "B+": "b-plus",
+    "B": "b",
+    "C+": "c-plus",
+    "C": "c",
+    "D": "d",
+    "F": "f",
+}
+ALLOWED_TIERS = set(TIER_STYLE_NAMES)
 FRONT_MATTER = re.compile(r"\A---[ \t]*\r?\n(?P<yaml>.*?)\r?\n---[ \t]*(?:\r?\n|\Z)", re.DOTALL)
 LAYOUT_MARKUP = re.compile(
     r"{{|{%|<!--|<![A-Za-z]|</?[A-Za-z][A-Za-z0-9-]*(?:\s[^<>]*|/?)>"
@@ -95,7 +107,9 @@ class Awakener:
     stopping_points: tuple[str, ...]
     builds: tuple[Build, ...]
     suggested_posses: tuple[Recommendation, ...]
+    suggested_posses_note: str | None
     works_well_with: tuple[str, ...]
+    works_well_with_note: str | None
 
 
 @dataclass(frozen=True)
@@ -364,6 +378,14 @@ def _parse_guide(path: Path, issues: list[ValidationIssue]) -> Guide | None:
         "awakener.suggested_posses",
         required=False,
     )
+    suggested_posses_note = None
+    if "suggested_posses_note" in awakener:
+        suggested_posses_note = _non_empty_string(
+            awakener["suggested_posses_note"],
+            issues,
+            relative,
+            "awakener.suggested_posses_note",
+        )
     works_well_with = _string_list(
         awakener.get("works_well_with"),
         issues,
@@ -371,6 +393,14 @@ def _parse_guide(path: Path, issues: list[ValidationIssue]) -> Guide | None:
         "awakener.works_well_with",
         required=False,
     )
+    works_well_with_note = None
+    if "works_well_with_note" in awakener:
+        works_well_with_note = _non_empty_string(
+            awakener["works_well_with_note"],
+            issues,
+            relative,
+            "awakener.works_well_with_note",
+        )
 
     realm = path.parent.name
     if realm not in REALM_NAMES:
@@ -398,7 +428,9 @@ def _parse_guide(path: Path, issues: list[ValidationIssue]) -> Guide | None:
             tuple(stopping_points),
             tuple(builds),
             tuple(suggested_posses),
+            suggested_posses_note,
             tuple(works_well_with),
+            works_well_with_note,
         ),
     )
 

@@ -30,8 +30,10 @@ awakener:
   suggested_posses:
     - name: Posse Name
       note: Optional explanation
+  suggested_posses_note: Optional note such as Any
   works_well_with:
     - Other Awakener
+  works_well_with_note: Optional note such as Anyone
 ---
 
 Write the guide as ordinary Markdown here.

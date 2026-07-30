@@ -36,6 +36,7 @@
     --md-tier-c-plus: #e69138;
     --md-tier-c: #e06666;
     --md-tier-d: #cc0000;
+    --md-tier-f: var(--md-default-fg-color);
 
     --md-tier-free: #fff2cc;
     --md-tier-standard: #c9daf8;
@@ -64,6 +65,7 @@
     --md-tier-c-plus: #ffab57;
     --md-tier-c: #f07f7f;
     --md-tier-d: #ff6b6b;
+    --md-tier-f: var(--md-default-fg-color);
 
     --md-tier-free: #6d623a;
     --md-tier-standard: #4b6288;

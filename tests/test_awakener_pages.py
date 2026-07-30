@@ -27,7 +27,9 @@ awakener:
     - E0
   builds: []
   suggested_posses: []
+  suggested_posses_note: Any
   works_well_with: []
+  works_well_with_note: Anyone
 ---
 
 Ordinary **Markdown** prose.
@@ -161,10 +163,10 @@ class AwakenerPreparationTests(unittest.TestCase):
             encoding="utf-8"
         )
 
-        for tier in awakeners.ALLOWED_TIERS:
+        for tier, style_name in awakeners.TIER_STYLE_NAMES.items():
             with self.subTest(tier=tier):
                 self.assertIn(f'.awakener-rank[data-tier="{tier}"]', rank_styles)
-                self.assertIn(f"--md-tier-{tier.casefold()}:", color_variables)
+                self.assertIn(f"--md-tier-{style_name}:", color_variables)
 
     def test_missing_asset_stops_preparation(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:

@@ -12,6 +12,11 @@ REALM_HEADING = re.compile(
     r"^## .+? \{#(?P<anchor>[a-z0-9-]+)\}$",
     re.MULTILINE,
 )
+LEGACY_LINK = re.compile(
+    r'^- \[[^]]+\]\(/handbook/awakeners/(?P<realm>[a-z-]+)/(?P<slug>[a-z0-9-]+)/\)'
+    r'\{#(?P<anchor>[a-z0-9-]+)\}$',
+    re.MULTILINE,
+)
 RAW_TAGS = ("div", "figure", "p", "section")
 
 
@@ -45,8 +50,25 @@ class AwakenerContentTests(unittest.TestCase):
             )
             guide_anchors.extend(match.group("anchor") for match in explicit_headings)
 
+        legacy_anchors = [match.group("anchor") for match in LEGACY_LINK.finditer(main)]
+        guide_anchors.extend(legacy_anchors)
+
         self.assertTrue(guide_anchors)
         self.assertEqual(len(guide_anchors), len(set(guide_anchors)))
+
+    def test_chaos_legacy_index_covers_every_standalone_guide(self) -> None:
+        main = awakener_sources()[0].read_text(encoding="utf-8")
+        indexed = {
+            match.group("slug")
+            for match in LEGACY_LINK.finditer(main)
+            if match.group("realm") == "chaos"
+        }
+        standalone = {
+            path.stem
+            for path in (ROOT / "lib" / "handbook" / "awakeners" / "chaos").glob("*.md")
+        }
+
+        self.assertEqual(indexed, standalone)
 
     def test_raw_html_is_balanced_within_each_guide(self) -> None:
         for source in awakener_sources():

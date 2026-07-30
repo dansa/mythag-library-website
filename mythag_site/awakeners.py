@@ -162,6 +162,9 @@ def _content_id(
     field: str,
 ) -> str | None:
     content_id = _non_empty_string(value, issues, path, field)
+    if content_id is not None and value != content_id:
+        _issue(issues, path, field, "must not have leading or trailing whitespace")
+        return None
     if content_id is not None and CONTENT_ID.fullmatch(content_id) is None:
         _issue(
             issues,

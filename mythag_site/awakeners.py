@@ -7,7 +7,6 @@ import json
 import re
 import shutil
 import subprocess
-import unicodedata
 from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
@@ -133,12 +132,6 @@ class AwakenerValidationError(Exception):
             f"- {issue}" for issue in issues
         )
         super().__init__(message)
-
-
-def slugify(value: str) -> str:
-    normalized = unicodedata.normalize("NFKD", value).casefold()
-    normalized = normalized.replace("'", "").replace("’", "")
-    return re.sub(r"[^a-z0-9]+", "-", normalized).strip("-")
 
 
 def _issue(

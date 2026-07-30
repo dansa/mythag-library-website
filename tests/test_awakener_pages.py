@@ -167,15 +167,11 @@ class AwakenerPreparationTests(unittest.TestCase):
             awakeners.Guide(
                 Path("lib/handbook/awakeners/aequor/aurita.md"),
                 "Aurita",
-                "aurita",
-                "aequor",
                 sentinel.awakener,
             ),
             awakeners.Guide(
                 Path("lib/handbook/awakeners/benthos-aequor/pontos.md"),
                 "Pontos",
-                "pontos",
-                "benthos-aequor",
                 sentinel.awakener,
             ),
         ]
@@ -186,6 +182,17 @@ class AwakenerPreparationTests(unittest.TestCase):
         self.assertIn('    "handbook/awakeners/aequor/aurita.md",', rendered)
         self.assertIn('    { "Benthos Aequor" = [', rendered)
         self.assertIn('      "handbook/awakeners/benthos-aequor/pontos.md",', rendered)
+
+    def test_derives_guide_identity_and_url_from_source_path(self) -> None:
+        guide = awakeners.Guide(
+            Path("lib/handbook/awakeners/benthos-aequor/pontos.md"),
+            "Pontos",
+            sentinel.awakener,
+        )
+
+        self.assertEqual(guide.slug, "pontos")
+        self.assertEqual(guide.realm, "benthos-aequor")
+        self.assertEqual(guide.url, "/handbook/awakeners/benthos-aequor/pontos/")
 
     def test_reports_multiple_schema_errors_with_field_paths(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
@@ -204,6 +211,134 @@ class AwakenerPreparationTests(unittest.TestCase):
             self.assertIn("awakener.roles[0]: expected a non-empty string", rendered)
             self.assertIn("awakener.ranks.support[0].tier: expected one of", rendered)
             self.assertIn("awakener.ranks.support[0].surprise: unknown field", rendered)
+
+    def test_rejects_surrounding_whitespace_in_rendered_strings(self) -> None:
+        cases = (
+            ("title", "title: Example", "title: ' Example '"),
+            (
+                "template",
+                "template: awakeners/awakener.html",
+                "template: ' awakeners/awakener.html '",
+            ),
+            ("awakener.roles[0]", "    - Support", "    - ' Support '"),
+            (
+                "awakener.ranks.support[0].tier",
+                "      - tier: B",
+                "      - tier: ' B '",
+            ),
+        )
+
+        for field, original, replacement in cases:
+            with self.subTest(field=field), tempfile.TemporaryDirectory() as temporary:
+                root, config = self.project(temporary)
+                guide = (
+                    root
+                    / "lib"
+                    / "handbook"
+                    / "awakeners"
+                    / "chaos"
+                    / "example.md"
+                )
+                guide.write_text(
+                    guide.read_text(encoding="utf-8").replace(original, replacement, 1),
+                    encoding="utf-8",
+                )
+
+                with self.patches(root, config):
+                    _, issues = awakeners.load_guides()
+
+                rendered = "\n".join(str(issue) for issue in issues)
+                self.assertIn(
+                    f"{field}: must not have leading or trailing whitespace",
+                    rendered,
+                )
+
+    def test_rejects_duplicate_yaml_keys_in_guides_and_catalogs(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root, config = self.project(temporary)
+            guide = (
+                root / "lib" / "handbook" / "awakeners" / "chaos" / "example.md"
+            )
+            guide.write_text(
+                guide.read_text(encoding="utf-8").replace(
+                    "  tagline: Example tagline",
+                    "  tagline: First\n  tagline: Second",
+                    1,
+                ),
+                encoding="utf-8",
+            )
+
+            with self.patches(root, config):
+                _, guide_issues = awakeners.load_guides()
+
+            self.assertIn(
+                "found duplicate key 'tagline'",
+                "\n".join(str(issue) for issue in guide_issues),
+            )
+
+        with tempfile.TemporaryDirectory() as temporary:
+            root, config = self.project(temporary)
+            (root / "content" / "awakeners.yaml").write_text(
+                "example: First\nexample: Second\n",
+                encoding="utf-8",
+            )
+            issues: list[awakeners.ValidationIssue] = []
+
+            with self.patches(root, config):
+                awakeners.load_content_catalog(issues)
+
+            self.assertIn(
+                "found duplicate key 'example'",
+                "\n".join(str(issue) for issue in issues),
+            )
+
+    def test_reports_mixed_type_unknown_fields_without_crashing(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root, config = self.project(temporary)
+            guide = (
+                root / "lib" / "handbook" / "awakeners" / "chaos" / "example.md"
+            )
+            guide.write_text(
+                guide.read_text(encoding="utf-8").replace(
+                    "  tagline: Example tagline",
+                    "  1: malformed\n  surprise: true\n  tagline: Example tagline",
+                    1,
+                ),
+                encoding="utf-8",
+            )
+
+            with self.patches(root, config):
+                _, issues = awakeners.load_guides()
+
+            rendered = "\n".join(str(issue) for issue in issues)
+            self.assertIn("awakener.1: expected a string field name", rendered)
+            self.assertIn("awakener.surprise: unknown field", rendered)
+
+    def test_reports_duplicate_filename_as_slug_issue(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root, config = self.project(temporary)
+            source = (
+                root / "lib" / "handbook" / "awakeners" / "chaos" / "example.md"
+            )
+            duplicate = (
+                root / "lib" / "handbook" / "awakeners" / "aequor" / "example.md"
+            )
+            duplicate.parent.mkdir()
+            duplicate.write_text(
+                source.read_text(encoding="utf-8").replace(
+                    "title: Example", "title: Other", 1
+                ),
+                encoding="utf-8",
+            )
+
+            with self.patches(root, config):
+                _, issues = awakeners.load_guides()
+
+            duplicate_issues = [
+                issue for issue in issues if "duplicate slug" in issue.message
+            ]
+            self.assertEqual(len(duplicate_issues), 1)
+            self.assertEqual(duplicate_issues[0].field, "slug")
 
     def test_rejects_guide_title_that_disagrees_with_awakener_catalog(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
@@ -368,6 +503,25 @@ class AwakenerPreparationTests(unittest.TestCase):
             self.assertIn(
                 "must not have leading or trailing whitespace",
                 str(context.exception),
+            )
+
+    def test_rejects_catalog_label_with_surrounding_whitespace(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root, config = self.project(temporary)
+            (root / "content" / "awakeners.yaml").write_text(
+                "example: ' Example '\n",
+                encoding="utf-8",
+            )
+            issues: list[awakeners.ValidationIssue] = []
+
+            with self.patches(root, config):
+                awakeners.load_content_catalog(issues)
+
+            rendered = "\n".join(str(issue) for issue in issues)
+            self.assertIn(
+                "content/awakeners.yaml: example: "
+                "must not have leading or trailing whitespace",
+                rendered,
             )
 
     def test_resolves_content_id_to_catalog_label_and_assets(self) -> None:

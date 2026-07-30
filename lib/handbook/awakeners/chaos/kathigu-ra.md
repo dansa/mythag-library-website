@@ -35,10 +35,10 @@ awakener:
     - id: undying-sun
       note: 'Psyche Deepdive: Kathigu-Ra'
   works_well_with:
-    - Clementine
-    - Horla
-    - Tinct
-    - Karen
+    - clementine
+    - horla
+    - tinct
+    - karen
 ---
 
 A bruiser who can generate huge shields with her defense card in addition to huge damage.

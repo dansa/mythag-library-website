@@ -36,9 +36,9 @@ awakener:
   suggested_posses: []
   suggested_posses_note: Any
   works_well_with:
-    - Mouchette
-    - Tawil
-    - Hameln
+    - mouchette
+    - tawil
+    - hameln
   works_well_with_note: Anyone
 ---
 

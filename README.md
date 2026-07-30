@@ -37,14 +37,17 @@ rewriting as well as Awakener validation and generated navigation.
 2. Fill in the YAML header and write the guide below it using ordinary
    Markdown. Do not add HTML, CSS classes, or Jinja template calls.
 3. Reference covenants, wheels, and posses by their kebab-case IDs from
-   `awakener-content.yaml`. When introducing a new item, add its ID and display
-   label to that catalog; the ID must match its PNG filename.
+   the matching YAML file under `content/`. When introducing a new item, add
+   its ID and display label to that catalog; the ID must match its PNG filename.
 4. Add the ordinary game PNG assets under `lib/images/`; the production build
    handles the web delivery format.
 5. Run `uv run mythag-check`, then preview with `uv run mythag-serve`.
 
 Fields such as `builds`, `suggested_posses`, and `works_well_with` can be
 removed when a guide does not need those sections.
+
+The guide `title` must match its filename's label in `content/awakeners.yaml`.
+Use Awakener IDs from that same catalog in `works_well_with`.
 
 The shared Awakener layout is defined in
 `overrides/awakeners/awakener.html`, and its presentation is defined in

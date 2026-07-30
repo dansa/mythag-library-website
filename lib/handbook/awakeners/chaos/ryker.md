@@ -39,10 +39,10 @@ awakener:
   suggested_posses: []
   suggested_posses_note: Any
   works_well_with:
-    - Tawil
-    - Kathigu-Ra
-    - Mouchette
-    - Karen
+    - tawil
+    - kathigu-ra
+    - mouchette
+    - karen
 ---
 
 An offensive support who gives you money and permanent upgrades as you progress through the exploration. All these small buffs add up to a big damage boost for boss fights.

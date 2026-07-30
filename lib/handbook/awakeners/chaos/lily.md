@@ -38,9 +38,9 @@ awakener:
     - id: tiny-wish
       note: Early game
   works_well_with:
-    - GDoll
-    - Daffodil
-    - Liz
+    - gdoll
+    - daffodil
+    - liz
   works_well_with_note: Anyone
 ---
 

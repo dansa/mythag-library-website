@@ -47,10 +47,10 @@ awakener:
     - id: tiny-wish
       note: Early game
   works_well_with:
-    - Lily
-    - Xu
-    - Nymphaea
-    - '"24"'
+    - lily
+    - xu
+    - nymphaea
+    - '24'
 ---
 
 A versatile aliemus battery who brings big [DMG amplification](/handbook/team#dmg-amplification-base-dmg) buffs and access to both weakness and vulnerable at E1. She shines in poison teams, but works as an aliemus support anywhere.

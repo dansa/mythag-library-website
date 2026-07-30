@@ -53,10 +53,10 @@ awakener:
     - id: a-mouses-wisdom
       note: Faded Legacy Ch. 2
   works_well_with:
-    - Hameln
-    - Ryker
-    - Karen
-    - GMurphy
+    - hameln
+    - ryker
+    - karen
+    - gmurphy
 ---
 
 A ridiculously versatile support who can use cards from any character in the team or realm. Their wings do all kinds of stuff too.

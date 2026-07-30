@@ -49,10 +49,10 @@ awakener:
     - id: obsession-eternal
       note: Faded Legacy Ch. 5
   works_well_with:
-    - Mouchette
-    - Kathigu-Ra
-    - Tawil
-    - Hameln
+    - mouchette
+    - kathigu-ra
+    - tawil
+    - hameln
 ---
 
 A complex and versatile support. Her exalt gives you the last 3 cards you played last turn, which enables perfect setups for specific DPS she pairs well with. At E3, she also lets you replace your posse with anything you want, for instance getting Voices In Your Head for vulnerable and weakness on demand.

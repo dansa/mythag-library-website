@@ -39,10 +39,10 @@ awakener:
   suggested_posses: []
   suggested_posses_note: Any
   works_well_with:
-    - Tawil
-    - Mouchette
-    - Lotan
-    - Casiah
+    - tawil
+    - mouchette
+    - lotan
+    - casiah
 ---
 
 A utility support who draws cards, copies card effects, and gives you 2 extra arithmetica every turn when roused.

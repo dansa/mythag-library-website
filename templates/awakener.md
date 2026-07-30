@@ -32,7 +32,7 @@ awakener:
       note: Optional explanation
   suggested_posses_note: Optional note such as Any
   works_well_with:
-    - Other Awakener
+    - other-awakener-id
   works_well_with_note: Optional note such as Anyone
 ---
 

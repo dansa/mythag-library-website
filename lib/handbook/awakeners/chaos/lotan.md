@@ -37,10 +37,10 @@ awakener:
     - id: tiny-wish
       note: Faded Legacy Ch. 1
   works_well_with:
-    - Thais
-    - Hameln
-    - Helot
-    - Pickman
+    - thais
+    - hameln
+    - helot
+    - pickman
 ---
 
 A damage dealer who uses 0-cost Blade of Defiance combos to power up her exalt. While she's decent at clearing mobs, she struggles with sustained damage on bosses with a lot of HP.

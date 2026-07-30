@@ -48,10 +48,10 @@ awakener:
     - id: tiny-wish
       note: Early game
   works_well_with:
-    - GDoll
-    - Xu
-    - Lily
-    - Liz
+    - gdoll
+    - xu
+    - lily
+    - liz
 ---
 
 Nymphaea's exalt instantly triggers poison, speeding up the long time poison teams usually take to kill enemies. She also boosts teamwide poison in [Astral Reign](/handbook/storylines#astral-reign-arc-2) stages, and her high base keyflare regen makes her a solid [keyflare bot](/handbook/team#the-almighty-keyflare-bot).

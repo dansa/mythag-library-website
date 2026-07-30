@@ -20,7 +20,7 @@
 {% block content %}
   {% set guide = page.meta.awakener %}
   {% set assets = config.extra.awakener_assets %}
-  {% set portrait = assets.awakeners[page.meta.title] %}
+  {% set portrait = assets.portraits[page.meta.title] %}
 
   {% include "partials/actions.html" %}
 
@@ -141,8 +141,8 @@
                   {% set related_asset = assets.awakeners[related] %}
                   <figure>
                     <a href="{{ related_asset.url }}">
-                      <img src="{{ related_asset.mini }}" alt="{{ related }}" loading="lazy">
-                      <figcaption>{{ related }}</figcaption>
+                      <img src="{{ related_asset.mini }}" alt="{{ related_asset.label }}" loading="lazy">
+                      <figcaption>{{ related_asset.label }}</figcaption>
                     </a>
                   </figure>
                 {% endfor %}

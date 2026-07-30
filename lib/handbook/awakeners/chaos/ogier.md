@@ -37,10 +37,10 @@ awakener:
   suggested_posses: []
   suggested_posses_note: Any
   works_well_with:
-    - Daffodil
-    - Jenkin
-    - Liz
-    - Tawil
+    - daffodil
+    - jenkin
+    - liz
+    - tawil
 ---
 
 A shielder who gives a burst of temporary STR with his exalt, making him a good teammate for characters that rely on STR to deal damage.

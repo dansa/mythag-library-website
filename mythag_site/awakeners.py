@@ -8,6 +8,7 @@ import re
 import shutil
 import subprocess
 import unicodedata
+from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -18,7 +19,7 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 GUIDES_ROOT = ROOT / "lib" / "handbook" / "awakeners"
 SOURCE_IMAGES = ROOT / "lib" / "images"
-CONTENT_CATALOG = ROOT / "awakener-content.yaml"
+CONTENT_ROOT = ROOT / "content"
 SOURCE_CONFIG = ROOT / "zensical.toml"
 GENERATED_CONFIG = ROOT / ".zensical.generated.toml"
 NAV_MARKER = "@mythag-awakener-nav"
@@ -56,7 +57,7 @@ TIER_STYLE_NAMES = {
     "F": "f",
 }
 ALLOWED_TIERS = set(TIER_STYLE_NAMES)
-CONTENT_CATEGORIES = ("covenants", "wheels", "posses")
+CONTENT_CATEGORIES = ("awakeners", "covenants", "wheels", "posses")
 CONTENT_ID = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*\Z")
 FRONT_MATTER = re.compile(r"\A---[ \t]*\r?\n(?P<yaml>.*?)\r?\n---[ \t]*(?:\r?\n|\Z)", re.DOTALL)
 LAYOUT_MARKUP = re.compile(
@@ -176,11 +177,12 @@ def _content_id(
     return content_id
 
 
-def _string_list(
+def _parsed_string_list(
     value: Any,
     issues: list[ValidationIssue],
     path: Path,
     field: str,
+    parser: Callable[[Any, list[ValidationIssue], Path, str], str | None],
     *,
     required: bool = True,
 ) -> list[str]:
@@ -193,10 +195,23 @@ def _string_list(
 
     result: list[str] = []
     for index, item in enumerate(value):
-        parsed = _non_empty_string(item, issues, path, f"{field}[{index}]")
+        parsed = parser(item, issues, path, f"{field}[{index}]")
         if parsed is not None:
             result.append(parsed)
     return result
+
+
+def _string_list(
+    value: Any,
+    issues: list[ValidationIssue],
+    path: Path,
+    field: str,
+    *,
+    required: bool = True,
+) -> list[str]:
+    return _parsed_string_list(
+        value, issues, path, field, _non_empty_string, required=required
+    )
 
 
 def _content_id_list(
@@ -204,17 +219,12 @@ def _content_id_list(
     issues: list[ValidationIssue],
     path: Path,
     field: str,
+    *,
+    required: bool = True,
 ) -> list[str]:
-    if not isinstance(value, list) or not value:
-        _issue(issues, path, field, "expected a non-empty list")
-        return []
-
-    result: list[str] = []
-    for index, item in enumerate(value):
-        parsed = _content_id(item, issues, path, f"{field}[{index}]")
-        if parsed is not None:
-            result.append(parsed)
-    return result
+    return _parsed_string_list(
+        value, issues, path, field, _content_id, required=required
+    )
 
 
 def _validate_rank_entries(
@@ -426,7 +436,7 @@ def _parse_guide(path: Path, issues: list[ValidationIssue]) -> Guide | None:
             relative,
             "awakener.suggested_posses_note",
         )
-    works_well_with = _string_list(
+    works_well_with = _content_id_list(
         awakener.get("works_well_with"),
         issues,
         relative,
@@ -505,35 +515,27 @@ def load_guides() -> tuple[list[Guide], list[ValidationIssue]]:
 def load_content_catalog(
     issues: list[ValidationIssue],
 ) -> dict[str, dict[str, str]]:
-    relative = CONTENT_CATALOG.relative_to(ROOT)
     catalog = {category: {} for category in CONTENT_CATEGORIES}
-    if not CONTENT_CATALOG.is_file():
-        _issue(issues, relative, "", "missing content catalog")
-        return catalog
-
-    try:
-        raw = yaml.safe_load(CONTENT_CATALOG.read_text(encoding="utf-8"))
-    except yaml.MarkedYAMLError as error:
-        mark = error.problem_mark
-        field = ""
-        if mark is not None:
-            field = f"line {mark.line + 1}, column {mark.column + 1}"
-        _issue(issues, relative, field, error.problem or "invalid YAML")
-        return catalog
-
-    if not isinstance(raw, dict):
-        _issue(issues, relative, "", "expected a mapping")
-        return catalog
-    for category in sorted(set(raw) - set(CONTENT_CATEGORIES)):
-        _issue(issues, relative, str(category), "unknown category")
-
     for category in CONTENT_CATEGORIES:
-        entries = raw.get(category)
+        path = CONTENT_ROOT / f"{category}.yaml"
+        relative = path.relative_to(ROOT)
+        if not path.is_file():
+            _issue(issues, relative, "", "missing content catalog")
+            continue
+        try:
+            entries = yaml.safe_load(path.read_text(encoding="utf-8"))
+        except yaml.MarkedYAMLError as error:
+            mark = error.problem_mark
+            field = ""
+            if mark is not None:
+                field = f"line {mark.line + 1}, column {mark.column + 1}"
+            _issue(issues, relative, field, error.problem or "invalid YAML")
+            continue
         if not isinstance(entries, dict):
-            _issue(issues, relative, category, "expected a mapping of IDs to labels")
+            _issue(issues, relative, "", "expected a mapping of IDs to labels")
             continue
         for content_id, raw_label in entries.items():
-            field = f"{category}.{content_id}"
+            field = str(content_id)
             parsed_id = _content_id(content_id, issues, relative, field)
             label = _non_empty_string(raw_label, issues, relative, field)
             if parsed_id is not None and label is not None:
@@ -583,39 +585,76 @@ def _site_url(path: Path) -> str:
     return "/" + path.relative_to(ROOT / "lib").as_posix()
 
 
+def validate_guide_titles(
+    guides: list[Guide],
+    content_catalog: dict[str, dict[str, str]],
+    issues: list[ValidationIssue],
+) -> None:
+    for guide in guides:
+        label = _catalog_label(
+            content_catalog, "awakeners", guide.slug, issues, guide.path, "title"
+        )
+        if label is not None and guide.title != label:
+            _issue(issues, guide.path, "title", f"expected catalog label {label!r}")
+
+
 def build_asset_catalog(
     guides: list[Guide],
     content_catalog: dict[str, dict[str, str]],
     issues: list[ValidationIssue],
 ) -> dict[str, dict[str, dict[str, str]]]:
     catalog: dict[str, dict[str, dict[str, str]]] = {
+        "portraits": {},
         "awakeners": {},
         "covenants": {},
         "wheels": {},
         "posses": {},
     }
-    standalone = {guide.title.casefold(): guide for guide in guides}
+    standalone = {guide.slug: guide for guide in guides}
 
-    def add_awakeners(guide: Guide, names: list[str], field: str) -> None:
-        for name in names:
-            if name in catalog["awakeners"]:
+    def add_portrait(guide: Guide) -> None:
+        full = _find_unique_asset(
+            f"awakeners/*/{guide.slug}.png", issues, guide.path, "title"
+        )
+        mini = _find_unique_asset(
+            f"awakeners/*/{guide.slug}--mini.png", issues, guide.path, "title"
+        )
+        if full is not None and mini is not None:
+            catalog["portraits"][guide.title] = {
+                "image": _site_url(full),
+                "mini": _site_url(mini),
+            }
+
+    def add_awakeners(guide: Guide, content_ids: list[str], field: str) -> None:
+        for content_id in content_ids:
+            if content_id in catalog["awakeners"]:
                 continue
-            slug = slugify(name.strip('"'))
+            label = _catalog_label(
+                content_catalog,
+                "awakeners",
+                content_id,
+                issues,
+                guide.path,
+                field,
+            )
+            if label is None:
+                continue
             full = _find_unique_asset(
-                f"awakeners/*/{slug}.png", issues, guide.path, field
+                f"awakeners/*/{content_id}.png", issues, guide.path, field
             )
             mini = _find_unique_asset(
-                f"awakeners/*/{slug}--mini.png", issues, guide.path, field
+                f"awakeners/*/{content_id}--mini.png", issues, guide.path, field
             )
             if full is None or mini is None:
                 continue
-            target = standalone.get(name.casefold())
+            target = standalone.get(content_id)
             url = (
                 f"/handbook/awakeners/{target.realm}/{target.slug}/"
                 if target is not None
-                else f"/handbook/awakeners/#{slug}"
+                else f"/handbook/awakeners/#{content_id}"
             )
-            catalog["awakeners"][name] = {
+            catalog["awakeners"][content_id] = {
+                "label": label,
                 "image": _site_url(full),
                 "mini": _site_url(mini),
                 "url": url,
@@ -623,7 +662,7 @@ def build_asset_catalog(
 
     for guide in guides:
         awakener = guide.awakener
-        add_awakeners(guide, [guide.title], "title")
+        add_portrait(guide)
         add_awakeners(
             guide,
             list(awakener.works_well_with),
@@ -738,7 +777,7 @@ def _render_nav(guides: list[Guide], indent: str) -> str:
 
 def _render_catalog(catalog: dict[str, dict[str, dict[str, str]]]) -> str:
     lines = ["", "# Generated by mythag_site.awakeners; do not edit this file."]
-    for category in ("awakeners", "covenants", "wheels", "posses"):
+    for category in ("portraits", "awakeners", "covenants", "wheels", "posses"):
         lines.append(f"[project.extra.awakener_assets.{category}]")
         for name, values in sorted(catalog[category].items(), key=lambda item: item[0].casefold()):
             rendered = ", ".join(
@@ -752,6 +791,7 @@ def _render_catalog(catalog: dict[str, dict[str, dict[str, str]]]) -> str:
 def prepare_awakeners(*, write_config: bool = True) -> list[Guide]:
     guides, issues = load_guides()
     content_catalog = load_content_catalog(issues)
+    validate_guide_titles(guides, content_catalog, issues)
     catalog = build_asset_catalog(guides, content_catalog, issues)
     if issues:
         raise AwakenerValidationError(issues)

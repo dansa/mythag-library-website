@@ -38,9 +38,9 @@ awakener:
   suggested_posses: []
   suggested_posses_note: Any
   works_well_with:
-    - Tawil
-    - Kathigu-Ra
-    - Ramona
+    - tawil
+    - kathigu-ra
+    - ramona
   works_well_with_note: Anyone
 ---
 

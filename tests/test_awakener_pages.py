@@ -61,10 +61,13 @@ class AwakenerPreparationTests(unittest.TestCase):
             ),
             encoding="utf-8",
         )
-        (root / "awakener-content.yaml").write_text(
-            "covenants: {}\nwheels: {}\nposses: {}\n",
-            encoding="utf-8",
+        content = root / "content"
+        content.mkdir()
+        (content / "awakeners.yaml").write_text(
+            "example: Example\n", encoding="utf-8"
         )
+        for category in ("covenants", "wheels", "posses"):
+            (content / f"{category}.yaml").write_text("{}\n", encoding="utf-8")
         return root, config
 
     def add_catalog_references(self, root: Path, covenant_id: str) -> None:
@@ -84,9 +87,12 @@ class AwakenerPreparationTests(unittest.TestCase):
             ),
             encoding="utf-8",
         )
-        (root / "awakener-content.yaml").write_text(
-            "covenants:\n  burial-grounds-sighs: Burial Ground's Sighs\n"
-            "wheels:\n  wheel-unseen: Wheel Unseen\nposses: {}\n",
+        (root / "content" / "covenants.yaml").write_text(
+            "burial-grounds-sighs: Burial Ground's Sighs\n",
+            encoding="utf-8",
+        )
+        (root / "content" / "wheels.yaml").write_text(
+            "wheel-unseen: Wheel Unseen\n",
             encoding="utf-8",
         )
         wheels = root / "lib" / "images" / "wheels"
@@ -107,8 +113,8 @@ class AwakenerPreparationTests(unittest.TestCase):
             stack.enter_context(
                 patch.object(
                     awakeners,
-                    "CONTENT_CATALOG",
-                    root / "awakener-content.yaml",
+                    "CONTENT_ROOT",
+                    root / "content",
                 )
             )
             stack.enter_context(
@@ -136,7 +142,7 @@ class AwakenerPreparationTests(unittest.TestCase):
             generated = (root / ".zensical.generated.toml").read_text(encoding="utf-8")
             self.assertIn('{ "Chaos" = [', generated)
             self.assertIn('"handbook/awakeners/chaos/example.md"', generated)
-            self.assertIn('[project.extra.awakener_assets.awakeners]', generated)
+            self.assertIn('[project.extra.awakener_assets.portraits]', generated)
             self.assertIn(
                 '"Example" = { image = "/images/awakeners/chaos/example.png"',
                 generated,
@@ -159,6 +165,22 @@ class AwakenerPreparationTests(unittest.TestCase):
             self.assertIn("awakener.roles[0]: expected a non-empty string", rendered)
             self.assertIn("awakener.ranks.support[0].tier: expected one of", rendered)
             self.assertIn("awakener.ranks.support[0].surprise: unknown field", rendered)
+
+    def test_rejects_guide_title_that_disagrees_with_awakener_catalog(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root, config = self.project(temporary)
+            (root / "content" / "awakeners.yaml").write_text(
+                "example: Different Name\n", encoding="utf-8"
+            )
+
+            with self.patches(root, config):
+                with self.assertRaises(awakeners.AwakenerValidationError) as context:
+                    awakeners.prepare_awakeners()
+
+            self.assertIn(
+                "title: expected catalog label 'Different Name'",
+                str(context.exception),
+            )
 
     def test_rejects_layout_markup_in_guide_prose(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:

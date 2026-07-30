@@ -39,10 +39,10 @@ awakener:
   suggested_posses: []
   suggested_posses_note: Any
   works_well_with:
-    - Kathigu-Ra
-    - Tawil
-    - Ryker
-    - GRamona
+    - kathigu-ra
+    - tawil
+    - ryker
+    - gramona
 ---
 
 Karen's exalt banks 3 arithmetica you can use at any time (and applies random buffs at E3). This makes her a cheap but effective support for characters that need a lot of arithmetica. She applies decent poison in [Astral Reign](/handbook/storylines#astral-reign-arc-2) too.

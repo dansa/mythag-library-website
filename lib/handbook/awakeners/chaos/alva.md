@@ -52,10 +52,10 @@ awakener:
     - id: the-lone-seed
       note: Faded Legacy Ch. 7
   works_well_with:
-    - Nautila
-    - Thais
-    - Helot
-    - Sanga
+    - nautila
+    - thais
+    - helot
+    - sanga
 ---
 
 Some of the hardest stages fill your hand with crap and seal you so you can't do anything. Alva counters them by getting rid of seals and symptoms, while providing shields and vulnerable with her exalt.

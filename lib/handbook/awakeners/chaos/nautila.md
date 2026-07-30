@@ -41,10 +41,10 @@ awakener:
   suggested_posses: []
   suggested_posses_note: Any
   works_well_with:
-    - Sanga
-    - Alva
-    - Daffodil
-    - Caecus
+    - sanga
+    - alva
+    - daffodil
+    - caecus
 ---
 
 A solid defensive support and combo piece. Her unique exalt takes your existing shield and multiplies it, which is amazing for shield scaling teammates like [Sanga](/handbook/awakeners/#sanga) and [Alva](/handbook/awakeners/chaos/alva/).

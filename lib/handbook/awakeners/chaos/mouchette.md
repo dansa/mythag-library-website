@@ -39,10 +39,10 @@ awakener:
     - id: from-the-mist-realm
       note: 'Multiverse Link: Mouchette'
   works_well_with:
-    - Aigis
-    - Helot
-    - Arachne
-    - GRamona
+    - aigis
+    - helot
+    - arachne
+    - gramona
 ---
 
 A strike-centric DPS whose E1 gives huge damage buffs from triggering death resistance.

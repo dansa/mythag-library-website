@@ -48,10 +48,10 @@ awakener:
     - id: feast-of-decay
       note: 'Psyche Deepdive: Wanda'
   works_well_with:
-    - Daffodil
-    - Arachne
-    - Wanda
-    - Winkle
+    - daffodil
+    - arachne
+    - wanda
+    - winkle
 ---
 
 A niche support who is mainly used to remove counter from enemies with Wax-Hot Desire.

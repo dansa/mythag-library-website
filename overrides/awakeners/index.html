@@ -7,7 +7,7 @@
 
   {{ page.content }}
 
-  <nav class="awakener-index" aria-label="Awakener guides">
+  <nav class="awakener-index" aria-label="Awakener guides" data-abbreviations>
     {% for family_id in index.family_order %}
       {% set family = index.family[family_id] %}
       <section class="awakener-index-family" data-realm="{{ family_id }}" aria-labelledby="{{ family_id }}">

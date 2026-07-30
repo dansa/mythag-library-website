@@ -1,8 +1,10 @@
+import re
 import subprocess
 import sys
 import tempfile
 import tomllib
 import unittest
+from collections import Counter
 from html.parser import HTMLParser
 from pathlib import Path
 from unittest.mock import patch
@@ -113,8 +115,31 @@ class AwakenerContentTests(unittest.TestCase):
 
             with patch.object(build, "SITE_ROOT", temporary_site):
                 build.rewrite_html_images()
+                rendered_guide = (
+                    temporary_site
+                    / "handbook"
+                    / "awakeners"
+                    / "chaos"
+                    / "24"
+                    / "index.html"
+                )
+                rendered_guide.parent.mkdir(parents=True)
+                rendered_guide.write_text(
+                    (
+                        ROOT
+                        / "site"
+                        / "handbook"
+                        / "awakeners"
+                        / "chaos"
+                        / "24"
+                        / "index.html"
+                    ).read_text(encoding="utf-8"),
+                    encoding="utf-8",
+                )
+                build.expand_html_abbreviations()
 
             html = rendered_index.read_text(encoding="utf-8")
+            guide_html = rendered_guide.read_text(encoding="utf-8")
 
         parser = AwakenerIndexParser(guide_ids)
         parser.feed(html)
@@ -157,6 +182,24 @@ class AwakenerContentTests(unittest.TestCase):
                 self.assertEqual(card["height"], "360")
                 self.assertEqual(card["loading"], "lazy")
                 self.assertEqual(card["decoding"], "async")
+
+        rendered_terms = Counter(
+            match.group("term")
+            for match in re.finditer(
+                r'<abbr\b[^>]*>(?P<term>.*?)</abbr>', guide_html, re.DOTALL
+            )
+        )
+        legacy_terms = Counter(
+            {
+                "Spamming": 1,
+                "DPS": 3,
+                "E0": 1,
+                "E2": 1,
+                "E3": 1,
+                "GDoll": 1,
+            }
+        )
+        self.assertFalse(legacy_terms - rendered_terms)
 
     def test_standalone_guides_do_not_link_back_to_legacy_fragments(self) -> None:
         guide_root = ROOT / "lib" / "handbook" / "awakeners"

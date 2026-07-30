@@ -15,6 +15,8 @@ awakener:
     dps:
       - tier: B+
         note: Good Early
+      - tier: A
+        note: at OE
     support:
       - tier: A
         note: Great

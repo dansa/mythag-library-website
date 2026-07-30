@@ -16,6 +16,8 @@ awakener:
     support:
       - tier: D
         note: Meme
+      - tier: B
+        note: at OE
   stopping_points:
     - E3
     - OE

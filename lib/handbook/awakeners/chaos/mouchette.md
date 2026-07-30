@@ -17,6 +17,8 @@ awakener:
     support:
       - tier: F
         note: ???
+      - tier: C
+        note: at OE
   stopping_points:
     - E2
     - E3

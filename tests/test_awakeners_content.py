@@ -61,6 +61,18 @@ class AwakenerIndexParser(HTMLParser):
 
 
 class AwakenerContentTests(unittest.TestCase):
+    def test_preserves_support_build_covenant_guidance(self) -> None:
+        guides, issues = awakeners.load_guides()
+        self.assertEqual(issues, [])
+        by_slug = {guide.slug: guide for guide in guides}
+
+        for slug in ("24", "alva", "karen"):
+            with self.subTest(guide=slug):
+                self.assertEqual(
+                    by_slug[slug].awakener.builds[0].covenants_note,
+                    "Any support",
+                )
+
     def test_index_inventory_is_generated(self) -> None:
         source = (ROOT / "lib" / "handbook" / "awakeners.md").read_text(
             encoding="utf-8"

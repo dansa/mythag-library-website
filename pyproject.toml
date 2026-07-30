@@ -17,7 +17,7 @@ mythag-build = "mythag_site.build:main"
 
 [dependency-groups]
 dev = [
-    "zensical>=0.0.44",
+    "zensical==0.0.51",
 ]
 
 [tool.setuptools]

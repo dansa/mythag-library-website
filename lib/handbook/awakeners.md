@@ -32,9 +32,9 @@ icon: lucide/book-user
     **[Ultra:](#ultra)** [Casiah](#casiah) [Castor](#castor) [Clementine](#clementine) [Daffodil](#daffodil) [Erica](#erica) [Horla](#horla) [Jenkin](#jenkin) [Liz](#liz) [Pollux](#pollux) [Tinct](#tinct) [Wanda](#wanda) [Winkle](#winkle) <br /> **[Singularity: Ultra:](#singularity-ultra)** [Arachne](#arachne)
 </div>
 
-## Chaos
+## Chaos {#chaos}
 
-### "24" {.tier .text-center}
+### "24" {#24 .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -70,11 +70,11 @@ icon: lucide/book-user
     <span class="heading">E0, E2, E3</span>
 </div>
 <div markdown>
-A flexible, high-damage support whose abilities vary according to the realm she's used with.</p>
+A flexible, high-damage support whose abilities vary according to the realm she's used with.
 
-Chaos "24" deals enough single-target damage that she's a viable endgame DPS against bosses. Ultra "24" is also very strong in [Faded Legacy](/handbook/storylines#faded-legacy-arc-1), but got nerfed into the ground in [Astral Reign](/handbook/storylines#astral-reign-arc-2).</p>
+Chaos "24" deals enough single-target damage that she's a viable endgame DPS against bosses. Ultra "24" is also very strong in [Faded Legacy](/handbook/storylines#faded-legacy-arc-1), but got nerfed into the ground in [Astral Reign](/handbook/storylines#astral-reign-arc-2).
 
-"24" likes teammates who can grant aliemus to fuel her exalt spam, or who synergize with poison (in Aequor) or counter (in Ultra).</p>
+"24" likes teammates who can grant aliemus to fuel her exalt spam, or who synergize with poison (in Aequor) or counter (in Ultra).
 </div>
 </div>
 </div>
@@ -195,7 +195,7 @@ Chaos "24" deals enough single-target damage that she's a viable endgame DPS aga
 </div>
 </section>
 
-### Alva {.tier .text-center}
+### Alva {#alva .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -351,9 +351,10 @@ At E3, she can be a DPS that sets up burst combos with Combat Stance and Precisi
   [![Sanga](/images/awakeners/aequor/sanga--mini.png "Sanga"){loading=lazy}](#sanga) <figcaption>[Sanga](#sanga)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Doll {.tier .text-center}
+### Doll {#doll .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -454,9 +455,10 @@ She also generates a bit of healing and aliemus, and her high base Keyflare Rege
   ![](/images/emojis/aigis-questioning.png){loading=lazy} <figcaption>(Anyone)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### GDoll {.tier .text-center}
+### GDoll {#gdoll .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -577,9 +579,10 @@ At OE, she can carry boss fights by herself.
   [!["24"](/images/awakeners/chaos/24--mini.png "&quot;24&quot;"){loading=lazy}](#24) <figcaption>["24"](#24)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Hameln {.tier .text-center}
+### Hameln {#hameln .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -681,9 +684,10 @@ Works best with teammates that want to combo off and play a lot of cards.
   [![Casiah](/images/awakeners/ultra/casiah--mini.png "Casiah"){loading=lazy}](#casiah) <figcaption>[Casiah](#casiah)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Kathigu-Ra {.tier .text-center}
+### Kathigu-Ra {#kathigu-ra .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -794,9 +798,10 @@ Kath needs E3 and her posse to work. She likes teammates who provide STR and cri
   [![Karen](/images/awakeners/chaos/karen--mini.png "Karen"){loading=lazy}](#karen) <figcaption>[Karen](#karen)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Karen {.tier .text-center}
+### Karen {#karen .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -834,7 +839,7 @@ Karen's exalt banks 3 arithmetica you can use at any time (and applies random bu
 
 While her skills are weak, they can be retained for defensive utility at the right moment, or simply held so they don't go back into the deck.
 
-OE makes her a top-tier arithmetica support.</p>
+OE makes her a top-tier arithmetica support.
 </div>
 </div>
 </div>
@@ -905,9 +910,10 @@ OE makes her a top-tier arithmetica support.</p>
   [![GRamona](/images/awakeners/chaos/gramona--mini.png "GRamona"){loading=lazy}](#gramona) <figcaption>[GRamona](#gramona)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Lily {.tier .text-center}
+### Lily {#lily .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -1023,9 +1029,10 @@ Lily works best as the main shielder and healer in poison teams, but she can fit
   ![](/images/emojis/aigis-questioning.png){loading=lazy} <figcaption>(Anyone)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Lotan {.tier .text-center}
+### Lotan {#lotan .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -1136,9 +1143,10 @@ Her Over-Exalt deals bonus damage equal to 15% of the enemy's max HP. This boost
   [![Pickman](/images/awakeners/caro/pickman--mini.png "Pickman"){loading=lazy}](#pickman) <figcaption>[Pickman](#pickman)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Mouchette {.tier .text-center}
+### Mouchette {#mouchette .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -1252,9 +1260,10 @@ She works best in short stages, as her playstyle means you probably won't surviv
   [![GRamona](/images/awakeners/chaos/gramona--mini.png "GRamona"){loading=lazy}](#gramona) <figcaption>[GRamona](#gramona)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Nautila {.tier .text-center}
+### Nautila {#nautila .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -1362,9 +1371,10 @@ Nautila's exalt can support counter teams by converting counter into AOE damage.
   [![Caecus](/images/awakeners/aequor/caecus--mini.png "Caecus"){loading=lazy}](#caecus) <figcaption>[Caecus](#caecus)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Nymphaea {.tier .text-center}
+### Nymphaea {#nymphaea .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -1505,9 +1515,10 @@ Works best in a team full of poison characters. Nymphaea's rouse makes her a dec
   [![Liz](/images/awakeners/ultra/liz--mini.png "Liz"){loading=lazy}](#liz) <figcaption>[Liz](#liz)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Ogier {.tier .text-center}
+### Ogier {#ogier .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -1615,9 +1626,10 @@ Ogier scales well with investment and becomes crazy good at +12 and level 90 wit
   [![Tawil](/images/awakeners/chaos/tawil--mini.png "Tawil"){loading=lazy}](#tawil) <figcaption>[Tawil](#tawil)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Pandia {.tier .text-center}
+### Pandia {#pandia .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -1764,9 +1776,10 @@ She was caught in the crossfire when [Astral Reign](/handbook/storylines#astral-
   [![Winkle](/images/awakeners/ultra/winkle--mini.png "Winkle"){loading=lazy}](#winkle) <figcaption>[Winkle](#winkle)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Ramona {.tier .text-center}
+### Ramona {#ramona .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -1863,9 +1876,10 @@ She works best with teammates that have high-cost cards or specific cards they n
   ![](/images/emojis/aigis-questioning.png){loading=lazy} <figcaption>(Anyone)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### GRamona {.tier .text-center}
+### GRamona {#gramona .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -2010,9 +2024,10 @@ Her DPS build revolves around using dual posse every turn to scale Predetermined
   [![Hameln](/images/awakeners/chaos/hameln--mini.png "Hameln"){loading=lazy}](#hameln) <figcaption>[Hameln](#hameln)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Ryker {.tier .text-center}
+### Ryker {#ryker .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -2121,9 +2136,10 @@ Ryker is also excellent at drawing cards and searching for cards, making him a g
   [![Karen](/images/awakeners/chaos/karen--mini.png "Karen"){loading=lazy}](#karen) <figcaption>[Karen](#karen)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Tawil {.tier .text-center}
+### Tawil {#tawil .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -2275,11 +2291,12 @@ Needs E2 and lots of arithmetica to work well. Also very complex and time-consum
   [![GMurphy](/images/awakeners/aequor/gmurphy--mini.png "GMurphy"){loading=lazy}](#gmurphy) <figcaption>[GMurphy](#gmurphy)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-## Aequor
+## Aequor {#aequor}
 
-### Aurita {.tier .text-center}
+### Aurita {#aurita .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -2388,9 +2405,10 @@ Her actual damage is low, so she needs a team that stacks lots of STR and Tentac
   [![Faros](/images/awakeners/aequor/faros--mini.png "Faros"){loading=lazy}](#faros) <figcaption>[Faros](#faros)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Caecus {.tier .text-center}
+### Caecus {#caecus .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -2544,9 +2562,10 @@ In fights where you can stall and build counter, Caecus works as a main DPS. His
   ![](/images/emojis/aigis-questioning.png){loading=lazy} <figcaption>(Anyone)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Celeste {.tier .text-center}
+### Celeste {#celeste .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -2653,9 +2672,10 @@ Celeste also generates a bit of arithmetica and Tentacle DMG, and her defensive 
   ![](/images/emojis/aigis-questioning.png){loading=lazy} <figcaption>(Anyone)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Corposant {.tier .text-center}
+### Corposant {#corposant .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -2804,9 +2824,10 @@ Corposant is notably strong in story mode and Hectic Skybound Rail, as she easil
   [![Casiah](/images/awakeners/ultra/casiah--mini.png "Casiah"){loading=lazy}](#casiah) <figcaption>[Casiah](#casiah)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Faros {.tier .text-center}
+### Faros {#faros .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -2962,9 +2983,10 @@ Faros can also be built as a DPS that spams Deep Currents to apply poison. This 
   [![Aurita](/images/awakeners/aequor/aurita--mini.png "Aurita"){loading=lazy}](#aurita) <figcaption>[Aurita](#aurita)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Goliath {.tier .text-center}
+### Goliath {#goliath .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -3119,9 +3141,10 @@ Goliath is a solid DPS at low levels. His exalt cards and Decapitation Damage sc
   [![Aurita](/images/awakeners/aequor/aurita--mini.png "Aurita"){loading=lazy}](#aurita) <figcaption>[Aurita](#aurita)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Miryam {.tier .text-center}
+### Miryam {#miryam .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -3231,9 +3254,10 @@ At endgame, Miryam is usually seen supporting [GMurphy](#gmurphy) Lemurian teams
   ![](/images/emojis/aigis-questioning.png){loading=lazy} <figcaption>(Anyone)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Murphy {.tier .text-center}
+### Murphy {#murphy .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -3335,9 +3359,10 @@ Works well with [GMurphy](#gmurphy) even though she isn't a Lemurian, as she can
   ![](/images/emojis/aigis-questioning.png){loading=lazy} <figcaption>(Anyone)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Sanga {.tier .text-center}
+### Sanga {#sanga .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -3447,9 +3472,10 @@ Sanga can solo DPS at low levels, but she struggles with enemies that have a lot
   [![Winkle](/images/awakeners/ultra/winkle--mini.png "Winkle"){loading=lazy}](#winkle) <figcaption>[Winkle](#winkle)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Tulu {.tier .text-center}
+### Tulu {#tulu .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -3559,11 +3585,12 @@ At low levels, Abyss Order and tentacle slaps are enough to make Tulu usable as 
   [![Aurita](/images/awakeners/aequor/aurita--mini.png "Aurita"){loading=lazy}](#aurita) <figcaption>[Aurita](#aurita)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-## Benthos: Aequor
+## Benthos: Aequor {#benthos-aequor}
 
-### GMurphy {.tier .text-center}
+### GMurphy {#gmurphy .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -3714,9 +3741,10 @@ GMurphy is a viable endgame DPS with OE and high investment. In [Astral Reign](/
   [![Murphy](/images/awakeners/aequor/murphy--mini.png "Murphy"){loading=lazy}](#murphy) <figcaption>[Murphy](#murphy)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Pontos {.tier .text-center}
+### Pontos {#pontos .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -3829,9 +3857,10 @@ He works best with E3 and high levels, in Aftershock-focused teams with [Corposa
   [![GMurphy](/images/awakeners/aequor/gmurphy--mini.png "GMurphy"){loading=lazy}](#gmurphy) <figcaption>[GMurphy](#gmurphy)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Vortice {.tier .text-center}
+### Vortice {#vortice .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -3989,11 +4018,12 @@ Needs her posse, Reload! skill levels, and soulforge levels. She likes defensive
   [![Pickman](/images/awakeners/caro/pickman--mini.png "Pickman"){loading=lazy}](#pickman) <figcaption>[Pickman](#pickman)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-## Caro
+## Caro {#caro}
 
-### Agrippa {.tier .text-center}
+### Agrippa {#agrippa .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -4150,9 +4180,10 @@ At high investment, Colorless Spiral applies a lot of poison with critical hits,
   [![GDoll](/images/awakeners/chaos/gdoll--mini.png "GDoll"){loading=lazy}](#gdoll) <figcaption>[GDoll](#gdoll)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Aigis {.tier .text-center}
+### Aigis {#aigis .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -4298,9 +4329,10 @@ Aigis is a great support for any team, but she pairs especially well with glass 
   ![](/images/emojis/aigis-questioning.png){loading=lazy} <figcaption>(Anyone)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Doresain {.tier .text-center}
+### Doresain {#doresain .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -4411,9 +4443,10 @@ Doresain is strong at low levels but falls off at endgame, especially against bo
   [![Vortice](/images/awakeners/aequor/vortice--mini.png "Vortice"){loading=lazy}](#vortice) <figcaption>[Vortice](#vortice)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Faint {.tier .text-center}
+### Faint {#faint .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -4513,9 +4546,10 @@ Faint is often paired with [GDoll](#gdoll) for boss fights, but fits in any team
   ![](/images/emojis/aigis-questioning.png){loading=lazy} <figcaption>(Anyone)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Helot {.tier .text-center}
+### Helot {#helot .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -4668,9 +4702,10 @@ Helot can also be built as a DPS that focuses on setting up huge Shattering Stri
   [![Aigis](/images/awakeners/caro/aigis--mini.png "Aigis"){loading=lazy}](#aigis) <figcaption>[Aigis](#aigis)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### GHelot {.tier .text-center}
+### GHelot {#ghelot .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -4779,9 +4814,10 @@ Needs E3 and The Lone Seed for consistency. She works best with [Aigis](#aigis) 
   [![Horla](/images/awakeners/ultra/horla--mini.png "Horla"){loading=lazy}](#horla) <figcaption>[Horla](#horla)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Leigh {.tier .text-center}
+### Leigh {#leigh .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -4890,9 +4926,10 @@ Leigh makes a lot of embryo when roused, and her OE is a good source of STR too.
   ![](/images/emojis/aigis-questioning.png){loading=lazy} <figcaption>(Anyone)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Pickman {.tier .text-center}
+### Pickman {#pickman .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -5006,9 +5043,10 @@ Works best with a main DPS that relies on their exalt and doesn't need arithmeti
   [![Vortice](/images/awakeners/aequor/vortice--mini.png "Vortice"){loading=lazy}](#vortice) <figcaption>[Vortice](#vortice)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Salvador {.tier .text-center}
+### Salvador {#salvador .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -5121,9 +5159,10 @@ Works best with high-CON teammates, as your Crimson Furnace scales with your max
   ![](/images/emojis/aigis-questioning.png){loading=lazy} <figcaption>(Anyone)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Sorel {.tier .text-center}
+### Sorel {#sorel .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -5233,9 +5272,10 @@ Usually seen with [Pickman](#pickman), as he builds STR for her and massively bu
   [![Celeste](/images/awakeners/aequor/celeste--mini.png "Celeste"){loading=lazy}](#celeste) <figcaption>[Celeste](#celeste)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Thais {.tier .text-center}
+### Thais {#thais .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -5383,9 +5423,10 @@ At E2 she is the best support for almost every team. The only reason she isn't i
   ![](/images/emojis/aigis-questioning.png){loading=lazy} <figcaption>(Anyone)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Uvhash {.tier .text-center}
+### Uvhash {#uvhash .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -5499,9 +5540,10 @@ OE makes him a decent if fragile endgame DPS.
   [![Faint](/images/awakeners/caro/faint--mini.png "Faint"){loading=lazy}](#faint) <figcaption>[Faint](#faint)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Xu {.tier .text-center}
+### Xu {#xu .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -5660,11 +5702,12 @@ Can solo carry at low levels, but works best with a dedicated poison applier on 
   [![Agrippa](/images/awakeners/caro/agrippa--mini.png "Agrippa"){loading=lazy}](#agrippa) <figcaption>[Agrippa](#agrippa)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-## Propagation: Caro
+## Propagation: Caro {#propagation-caro}
 
-### Saya {.tier .text-center}
+### Saya {#saya .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -5779,11 +5822,12 @@ She discards cards and messes with your hand, so she works best with teammates t
   ![](/images/emojis/aigis-questioning.png){loading=lazy} <figcaption>(Anyone)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-## Ultra
+## Ultra {#ultra}
 
-### Casiah {.tier .text-center}
+### Casiah {#casiah .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -5893,9 +5937,10 @@ Her Astral Reign image relic makes her exalt inflict permanent STR down, enablin
   [![Tawil](/images/awakeners/chaos/tawil--mini.png "Tawil"){loading=lazy}](#tawil) <figcaption>[Tawil](#tawil)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Castor {.tier .text-center}
+### Castor {#castor .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -6052,9 +6097,10 @@ Castor can deal solid damage by tossing Plumes to inflict corrosion stacks, but 
   ![](/images/emojis/aigis-questioning.png){loading=lazy} <figcaption>(Anyone)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Clementine {.tier .text-center}
+### Clementine {#clementine .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -6193,9 +6239,10 @@ She works best with DPS that rely on STR, but improves basically any team by bei
   ![](/images/emojis/aigis-questioning.png){loading=lazy} <figcaption>(Anyone)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Daffodil {.tier .text-center}
+### Daffodil {#daffodil .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -6308,9 +6355,10 @@ Her OE puts three Mirages in hand, enabling silly burst damage with high investm
   [![Nautila](/images/awakeners/chaos/nautila--mini.png "Nautila"){loading=lazy}](#nautila) <figcaption>[Nautila](#nautila)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Erica {.tier .text-center}
+### Erica {#erica .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -6411,9 +6459,10 @@ Usually seen in stall teams with [Castor](#castor) because each Onyx Plume benef
   [![Winkle](/images/awakeners/ultra/winkle--mini.png "Winkle"){loading=lazy}](#winkle) <figcaption>[Winkle](#winkle)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Horla {.tier .text-center}
+### Horla {#horla .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -6525,9 +6574,10 @@ At E1, Horla is also one of the most consistent weakness and vulnerable appliers
   ![](/images/emojis/aigis-questioning.png){loading=lazy} <figcaption>(Anyone)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Jenkin {.tier .text-center}
+### Jenkin {#jenkin .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -6681,9 +6731,10 @@ Jenkin can work as a main DPS herself, but needs high levels or STR buffs to do 
   [![Winkle](/images/awakeners/ultra/winkle--mini.png "Winkle"){loading=lazy}](#winkle) <figcaption>[Winkle](#winkle)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Liz {.tier .text-center}
+### Liz {#liz .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -6793,9 +6844,10 @@ Hard to use early on, but gets much better with teammates that give her defense,
   [![Winkle](/images/awakeners/ultra/winkle--mini.png "Winkle"){loading=lazy}](#winkle) <figcaption>[Winkle](#winkle)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Pollux {.tier .text-center}
+### Pollux {#pollux .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -6906,9 +6958,10 @@ Needs E1 for consistency and E3 for high damage. OE makes him one of the top DPS
   [![Winkle](/images/awakeners/ultra/winkle--mini.png "Winkle"){loading=lazy}](#winkle) <figcaption>[Winkle](#winkle)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Tinct {.tier .text-center}
+### Tinct {#tinct .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -7063,9 +7116,10 @@ At E2, her defense card becomes quite good, making her a usable shielder for Ult
   [![Doresain](/images/awakeners/caro/doresain--mini.png "Doresain"){loading=lazy}](#doresain) <figcaption>[Doresain](#doresain)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Wanda {.tier .text-center}
+### Wanda {#wanda .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -7221,9 +7275,10 @@ Technically usable as a damage dealer, but works best with counter relics or a r
   [![Winkle](/images/awakeners/ultra/winkle--mini.png "Winkle"){loading=lazy}](#winkle) <figcaption>[Winkle](#winkle)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-### Winkle {.tier .text-center}
+### Winkle {#winkle .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -7332,11 +7387,12 @@ At E3, her exalt lets a teammate exalt twice in one turn. This is useful for cha
   [![Jenkin](/images/awakeners/ultra/jenkin--mini.png "Jenkin"){loading=lazy}](#jenkin) <figcaption>[Jenkin](#jenkin)</figcaption>
   </figure>
 </div>
+</div>
 </section>
 
-## Singularity: Ultra
+## Singularity: Ultra {#singularity-ultra}
 
-### Arachne {.tier .text-center}
+### Arachne {#arachne .tier .text-center}
 
 <div class="text-center" markdown style="margin-bottom: 24px;">
   <p class="heading" markdown="span" style="margin: 0;">
@@ -7447,5 +7503,6 @@ She works best supporting a DPS that has good cards, but hits hard enough to sol
   <figure markdown="span">
   [![Jenkin](/images/awakeners/ultra/jenkin--mini.png "Jenkin"){loading=lazy}](#jenkin) <figcaption>[Jenkin](#jenkin)</figcaption>
   </figure>
+</div>
 </div>
 </section>

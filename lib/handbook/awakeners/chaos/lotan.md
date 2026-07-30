@@ -24,17 +24,17 @@ awakener:
   builds:
     - name: Example Build
       covenants:
-        - Dream of Medicine
-        - Crimson Pulse
+        - dream-of-medicine
+        - crimson-pulse
       wheels:
         early_game:
-          - name: Hand of Oblivion
-          - name: Analysis of Death
+          - id: hand-of-oblivion
+          - id: analysis-of-death
         astral_reign:
-          - name: Celestial Beast
-          - name: Analysis of Death
+          - id: celestial-beast
+          - id: analysis-of-death
   suggested_posses:
-    - name: Tiny Wish
+    - id: tiny-wish
       note: Faded Legacy Ch. 1
   works_well_with:
     - Thais

@@ -25,18 +25,18 @@ awakener:
   builds:
     - name: Example Build
       covenants:
-        - Burial Ground's Sighs
-        - Cursed Rabbit
+        - burial-grounds-sighs
+        - cursed-rabbit
       wheels:
         early_game:
-          - name: Aged
+          - id: aged
             note: Any support
-          - name: Whisper
+          - id: whisper
             note: Any support
         astral_reign:
-          - name: Memory Spiral
+          - id: memory-spiral
             note: Any support
-          - name: Cloaked in the Night
+          - id: cloaked-in-the-night
             note: Any support
   suggested_posses: []
   suggested_posses_note: Any

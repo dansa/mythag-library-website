@@ -23,18 +23,18 @@ awakener:
   builds:
     - name: Example Build
       covenants:
-        - Scarlet Embrace
-        - Burial Ground's Sighs
+        - scarlet-embrace
+        - burial-grounds-sighs
       wheels:
         early_game:
-          - name: Frenzy
+          - id: frenzy
             note: Any support
-          - name: Emerge
+          - id: emerge
             note: Any support
         astral_reign:
-          - name: Path Forsaken
+          - id: path-forsaken
             note: Any support
-          - name: Fate Roulette
+          - id: fate-roulette
             note: Any support
   suggested_posses: []
   suggested_posses_note: Any

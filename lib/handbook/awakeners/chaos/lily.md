@@ -22,20 +22,20 @@ awakener:
   builds:
     - name: Example Build
       covenants:
-        - Feast from Afar
-        - 'Twisted Twins: White'
+        - feast-from-afar
+        - twisted-twins-white
       wheels:
         early_game:
-          - name: Cloaked in the Night
+          - id: cloaked-in-the-night
             note: Any Death Res.
-          - name: The Land of Nonexistence
+          - id: the-land-of-nonexistence
         astral_reign:
-          - name: Grace Through Pain
+          - id: grace-through-pain
             note: Any Death Res.
-          - name: The Land of Nonexistence
+          - id: the-land-of-nonexistence
   suggested_posses:
-    - name: Plague of Illusions
-    - name: Tiny Wish
+    - id: plague-of-illusions
+    - id: tiny-wish
       note: Early game
   works_well_with:
     - GDoll

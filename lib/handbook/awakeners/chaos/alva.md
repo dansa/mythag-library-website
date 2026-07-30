@@ -24,32 +24,32 @@ awakener:
   builds:
     - name: Example Build (Support)
       covenants:
-        - Burial Ground's Sighs
-        - Feast from Afar
+        - burial-grounds-sighs
+        - feast-from-afar
       wheels:
         early_game:
-          - name: Elevated Focus
+          - id: elevated-focus
             note: Any support
-          - name: Whisper
+          - id: whisper
             note: Any support
         astral_reign:
-          - name: Dusk and Dawn
+          - id: dusk-and-dawn
             note: Any support
-          - name: Elevated Focus
+          - id: elevated-focus
             note: Any support
     - name: Example Build (Precision Slash DPS)
       covenants:
-        - Dream of Medicine
-        - Feast from Afar
+        - dream-of-medicine
+        - feast-from-afar
       wheels:
         early_game:
-          - name: Analysis of Death
-          - name: To My Dearest Friend
+          - id: analysis-of-death
+          - id: to-my-dearest-friend
         astral_reign:
-          - name: Grace Through Pain
-          - name: Blade of the Titan
+          - id: grace-through-pain
+          - id: blade-of-the-titan
   suggested_posses:
-    - name: The Lone Seed
+    - id: the-lone-seed
       note: Faded Legacy Ch. 7
   works_well_with:
     - Nautila

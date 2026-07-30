@@ -29,22 +29,22 @@ awakener:
   builds:
     - name: Example Build
       covenants:
-        - Dream of Medicine
-        - Burial Ground's Sighs
+        - dream-of-medicine
+        - burial-grounds-sighs
       wheels:
         early_game:
-          - name: Elevated Focus
+          - id: elevated-focus
             note: Any aliemus
-          - name: Gluttony
+          - id: gluttony
             note: Any support
         astral_reign:
-          - name: Manikin of Oblivion
+          - id: manikin-of-oblivion
             note: Any aliemus
-          - name: Elevated Focus
+          - id: elevated-focus
             note: Any aliemus
   suggested_posses:
-    - name: Plague of Illusions
-    - name: Tiny Wish
+    - id: plague-of-illusions
+    - id: tiny-wish
       note: Early game
   works_well_with:
     - Lily

@@ -61,7 +61,37 @@ class AwakenerPreparationTests(unittest.TestCase):
             ),
             encoding="utf-8",
         )
+        (root / "awakener-content.yaml").write_text(
+            "covenants: {}\nwheels: {}\nposses: {}\n",
+            encoding="utf-8",
+        )
         return root, config
+
+    def add_catalog_references(self, root: Path, covenant_id: str) -> None:
+        guide = root / "lib" / "handbook" / "awakeners" / "chaos" / "example.md"
+        guide.write_text(
+            VALID_GUIDE.replace(
+                "  builds: []",
+                "  builds:\n"
+                "    - name: Example Build\n"
+                "      covenants:\n"
+                f"        - {covenant_id}\n"
+                "      wheels:\n"
+                "        early_game:\n"
+                "          - id: wheel-unseen\n"
+                "        astral_reign:\n"
+                "          - id: wheel-unseen",
+            ),
+            encoding="utf-8",
+        )
+        (root / "awakener-content.yaml").write_text(
+            "covenants:\n  burial-grounds-sighs: Burial Ground's Sighs\n"
+            "wheels:\n  wheel-unseen: Wheel Unseen\nposses: {}\n",
+            encoding="utf-8",
+        )
+        wheels = root / "lib" / "images" / "wheels"
+        wheels.mkdir()
+        (wheels / "wheel-unseen.png").write_bytes(b"png")
 
     @contextmanager
     def patches(self, root: Path, config: Path):
@@ -72,6 +102,13 @@ class AwakenerPreparationTests(unittest.TestCase):
                     awakeners,
                     "GUIDES_ROOT",
                     root / "lib" / "handbook" / "awakeners",
+                )
+            )
+            stack.enter_context(
+                patch.object(
+                    awakeners,
+                    "CONTENT_CATALOG",
+                    root / "awakener-content.yaml",
                 )
             )
             stack.enter_context(
@@ -177,6 +214,39 @@ class AwakenerPreparationTests(unittest.TestCase):
                     awakeners.prepare_awakeners()
 
             self.assertIn("no asset matched 'awakeners/*/example--mini.png'", str(context.exception))
+
+    def test_rejects_unknown_content_id_with_suggestion(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root, config = self.project(temporary)
+            self.add_catalog_references(root, "burial-ground-sighs")
+
+            with self.patches(root, config):
+                with self.assertRaises(awakeners.AwakenerValidationError) as context:
+                    awakeners.prepare_awakeners()
+
+            self.assertIn(
+                "unknown covenant ID 'burial-ground-sighs'; "
+                "did you mean 'burial-grounds-sighs'?",
+                str(context.exception),
+            )
+
+    def test_resolves_content_id_to_catalog_label_and_assets(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root, config = self.project(temporary)
+            self.add_catalog_references(root, "burial-grounds-sighs")
+            covenants = root / "lib" / "images" / "covenants"
+            covenants.mkdir()
+            (covenants / "burial-grounds-sighs.png").write_bytes(b"png")
+            (covenants / "burial-grounds-sighs--icon.png").write_bytes(b"png")
+
+            with self.patches(root, config):
+                awakeners.prepare_awakeners()
+
+            generated = (root / ".zensical.generated.toml").read_text(encoding="utf-8")
+            self.assertIn(
+                '"burial-grounds-sighs" = { label = "Burial Ground\'s Sighs"',
+                generated,
+            )
 
 
 if __name__ == "__main__":

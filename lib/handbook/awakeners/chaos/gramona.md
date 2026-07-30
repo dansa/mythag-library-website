@@ -22,31 +22,31 @@ awakener:
   builds:
     - name: Example Build (Keyflare Support)
       covenants:
-        - Life Drain
+        - life-drain
       wheels:
         early_game:
-          - name: Gluttony
+          - id: gluttony
             note: Any support
-          - name: Frenzy
+          - id: frenzy
             note: Any support
         astral_reign:
-          - name: Merciful Nurturing
+          - id: merciful-nurturing
             note: Any Keyflare Regen stat
-          - name: Gateway of Truth
+          - id: gateway-of-truth
             note: Any Keyflare Regen stat
     - name: Example Build (Posse Spam DPS)
       covenants:
-        - Paradox
-        - Crimson Pulse
+        - paradox
+        - crimson-pulse
       wheels:
         early_game:
-          - name: Moment of Reunion
-          - name: Analysis of Death
+          - id: moment-of-reunion
+          - id: analysis-of-death
         astral_reign:
-          - name: Eternal Requiem
-          - name: Blade of the Titan
+          - id: eternal-requiem
+          - id: blade-of-the-titan
   suggested_posses:
-    - name: Obsession Eternal
+    - id: obsession-eternal
       note: Faded Legacy Ch. 5
   works_well_with:
     - Mouchette

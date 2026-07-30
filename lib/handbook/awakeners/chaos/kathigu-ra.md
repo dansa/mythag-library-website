@@ -22,17 +22,17 @@ awakener:
   builds:
     - name: Example Build
       covenants:
-        - Feast from Afar
-        - Paradox
+        - feast-from-afar
+        - paradox
       wheels:
         early_game:
-          - name: Analysis of Death
-          - name: The Land of Nonexistence
+          - id: analysis-of-death
+          - id: the-land-of-nonexistence
         astral_reign:
-          - name: Blade of the Titan
-          - name: The Land of Nonexistence
+          - id: blade-of-the-titan
+          - id: the-land-of-nonexistence
   suggested_posses:
-    - name: Undying Sun
+    - id: undying-sun
       note: 'Psyche Deepdive: Kathigu-Ra'
   works_well_with:
     - Clementine

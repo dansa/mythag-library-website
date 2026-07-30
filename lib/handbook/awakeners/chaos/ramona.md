@@ -21,17 +21,17 @@ awakener:
   builds:
     - name: Example Build
       covenants:
-        - Life Drain
+        - life-drain
       wheels:
         early_game:
-          - name: Gluttony
+          - id: gluttony
             note: Any support
-          - name: Frenzy
+          - id: frenzy
             note: Any support
         astral_reign:
-          - name: Merciful Nurturing
+          - id: merciful-nurturing
             note: Any Keyflare Regen stat
-          - name: Gateway of Truth
+          - id: gateway-of-truth
             note: Any Keyflare Regen stat
   suggested_posses: []
   suggested_posses_note: Any

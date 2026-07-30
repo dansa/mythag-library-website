@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import difflib
 import json
 import re
 import shutil
@@ -17,6 +18,7 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 GUIDES_ROOT = ROOT / "lib" / "handbook" / "awakeners"
 SOURCE_IMAGES = ROOT / "lib" / "images"
+CONTENT_CATALOG = ROOT / "awakener-content.yaml"
 SOURCE_CONFIG = ROOT / "zensical.toml"
 GENERATED_CONFIG = ROOT / ".zensical.generated.toml"
 NAV_MARKER = "@mythag-awakener-nav"
@@ -54,6 +56,8 @@ TIER_STYLE_NAMES = {
     "F": "f",
 }
 ALLOWED_TIERS = set(TIER_STYLE_NAMES)
+CONTENT_CATEGORIES = ("covenants", "wheels", "posses")
+CONTENT_ID = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*\Z")
 FRONT_MATTER = re.compile(r"\A---[ \t]*\r?\n(?P<yaml>.*?)\r?\n---[ \t]*(?:\r?\n|\Z)", re.DOTALL)
 LAYOUT_MARKUP = re.compile(
     r"{{|{%|<!--|<![A-Za-z]|</?[A-Za-z][A-Za-z0-9-]*(?:\s[^<>]*|/?)>"
@@ -81,7 +85,7 @@ class Rank:
 
 @dataclass(frozen=True)
 class Recommendation:
-    name: str
+    content_id: str
     note: str | None
 
 
@@ -154,6 +158,24 @@ def _non_empty_string(
     return value.strip()
 
 
+def _content_id(
+    value: Any,
+    issues: list[ValidationIssue],
+    path: Path,
+    field: str,
+) -> str | None:
+    content_id = _non_empty_string(value, issues, path, field)
+    if content_id is not None and CONTENT_ID.fullmatch(content_id) is None:
+        _issue(
+            issues,
+            path,
+            field,
+            "expected a lowercase kebab-case content ID such as burial-grounds-sighs",
+        )
+        return None
+    return content_id
+
+
 def _string_list(
     value: Any,
     issues: list[ValidationIssue],
@@ -172,6 +194,24 @@ def _string_list(
     result: list[str] = []
     for index, item in enumerate(value):
         parsed = _non_empty_string(item, issues, path, f"{field}[{index}]")
+        if parsed is not None:
+            result.append(parsed)
+    return result
+
+
+def _content_id_list(
+    value: Any,
+    issues: list[ValidationIssue],
+    path: Path,
+    field: str,
+) -> list[str]:
+    if not isinstance(value, list) or not value:
+        _issue(issues, path, field, "expected a non-empty list")
+        return []
+
+    result: list[str] = []
+    for index, item in enumerate(value):
+        parsed = _content_id(item, issues, path, f"{field}[{index}]")
         if parsed is not None:
             result.append(parsed)
     return result
@@ -211,7 +251,7 @@ def _validate_rank_entries(
     return ranks
 
 
-def _validate_named_items(
+def _validate_content_recommendations(
     value: Any,
     issues: list[ValidationIssue],
     path: Path,
@@ -230,17 +270,17 @@ def _validate_named_items(
     for index, item in enumerate(value):
         item_field = f"{field}[{index}]"
         if not isinstance(item, dict):
-            _issue(issues, path, item_field, "expected a mapping with a name")
+            _issue(issues, path, item_field, "expected a mapping with an id")
             continue
-        unknown = set(item) - {"name", "note"}
+        unknown = set(item) - {"id", "note"}
         for key in sorted(unknown):
             _issue(issues, path, f"{item_field}.{key}", "unknown field")
-        name = _non_empty_string(item.get("name"), issues, path, f"{item_field}.name")
+        content_id = _content_id(item.get("id"), issues, path, f"{item_field}.id")
         note = None
         if "note" in item:
             note = _non_empty_string(item["note"], issues, path, f"{item_field}.note")
-        if name is not None:
-            recommendations.append(Recommendation(name, note))
+        if content_id is not None:
+            recommendations.append(Recommendation(content_id, note))
     return recommendations
 
 
@@ -265,7 +305,7 @@ def _validate_builds(
         for key in sorted(unknown):
             _issue(issues, path, f"{field}.{key}", "unknown field")
         name = _non_empty_string(build.get("name"), issues, path, f"{field}.name")
-        covenants = _string_list(
+        covenants = _content_id_list(
             build.get("covenants"), issues, path, f"{field}.covenants"
         )
 
@@ -276,13 +316,13 @@ def _validate_builds(
         unknown_groups = set(wheel_groups) - {"early_game", "astral_reign"}
         for key in sorted(unknown_groups):
             _issue(issues, path, f"{field}.wheels.{key}", "unknown field")
-        early_game = _validate_named_items(
+        early_game = _validate_content_recommendations(
             wheel_groups.get("early_game"),
             issues,
             path,
             f"{field}.wheels.early_game",
         )
-        astral_reign = _validate_named_items(
+        astral_reign = _validate_content_recommendations(
             wheel_groups.get("astral_reign"),
             issues,
             path,
@@ -371,7 +411,7 @@ def _parse_guide(path: Path, issues: list[ValidationIssue]) -> Guide | None:
         "awakener.stopping_points",
     )
     builds = _validate_builds(awakener.get("builds"), issues, relative)
-    suggested_posses = _validate_named_items(
+    suggested_posses = _validate_content_recommendations(
         awakener.get("suggested_posses"),
         issues,
         relative,
@@ -462,6 +502,67 @@ def load_guides() -> tuple[list[Guide], list[ValidationIssue]]:
     return guides, issues
 
 
+def load_content_catalog(
+    issues: list[ValidationIssue],
+) -> dict[str, dict[str, str]]:
+    relative = CONTENT_CATALOG.relative_to(ROOT)
+    catalog = {category: {} for category in CONTENT_CATEGORIES}
+    if not CONTENT_CATALOG.is_file():
+        _issue(issues, relative, "", "missing content catalog")
+        return catalog
+
+    try:
+        raw = yaml.safe_load(CONTENT_CATALOG.read_text(encoding="utf-8"))
+    except yaml.MarkedYAMLError as error:
+        mark = error.problem_mark
+        field = ""
+        if mark is not None:
+            field = f"line {mark.line + 1}, column {mark.column + 1}"
+        _issue(issues, relative, field, error.problem or "invalid YAML")
+        return catalog
+
+    if not isinstance(raw, dict):
+        _issue(issues, relative, "", "expected a mapping")
+        return catalog
+    for category in sorted(set(raw) - set(CONTENT_CATEGORIES)):
+        _issue(issues, relative, str(category), "unknown category")
+
+    for category in CONTENT_CATEGORIES:
+        entries = raw.get(category)
+        if not isinstance(entries, dict):
+            _issue(issues, relative, category, "expected a mapping of IDs to labels")
+            continue
+        for content_id, raw_label in entries.items():
+            field = f"{category}.{content_id}"
+            parsed_id = _content_id(content_id, issues, relative, field)
+            label = _non_empty_string(raw_label, issues, relative, field)
+            if parsed_id is not None and label is not None:
+                catalog[category][parsed_id] = label
+    return catalog
+
+
+def _catalog_label(
+    content_catalog: dict[str, dict[str, str]],
+    category: str,
+    content_id: str,
+    issues: list[ValidationIssue],
+    source_path: Path,
+    field: str,
+) -> str | None:
+    label = content_catalog[category].get(content_id)
+    if label is not None:
+        return label
+
+    message = f"unknown {category.removesuffix('s')} ID {content_id!r}"
+    suggestions = difflib.get_close_matches(
+        content_id, content_catalog[category], n=1, cutoff=0.6
+    )
+    if suggestions:
+        message += f"; did you mean {suggestions[0]!r}?"
+    _issue(issues, source_path, field, message)
+    return None
+
+
 def _find_unique_asset(
     pattern: str,
     issues: list[ValidationIssue],
@@ -483,7 +584,9 @@ def _site_url(path: Path) -> str:
 
 
 def build_asset_catalog(
-    guides: list[Guide], issues: list[ValidationIssue]
+    guides: list[Guide],
+    content_catalog: dict[str, dict[str, str]],
+    issues: list[ValidationIssue],
 ) -> dict[str, dict[str, dict[str, str]]]:
     catalog: dict[str, dict[str, dict[str, str]]] = {
         "awakeners": {},
@@ -531,55 +634,79 @@ def build_asset_catalog(
             for covenant in build.covenants:
                 if covenant in catalog["covenants"]:
                     continue
-                slug = slugify(covenant)
-                full = SOURCE_IMAGES / "covenants" / f"{slug}.png"
-                icon = SOURCE_IMAGES / "covenants" / f"{slug}--icon.png"
                 field = f"awakener.builds[{build_index}].covenants"
+                label = _catalog_label(
+                    content_catalog, "covenants", covenant, issues, guide.path, field
+                )
+                if label is None:
+                    continue
+                full = SOURCE_IMAGES / "covenants" / f"{covenant}.png"
+                icon = SOURCE_IMAGES / "covenants" / f"{covenant}--icon.png"
                 if not full.is_file():
                     _issue(issues, guide.path, field, f"missing {full.relative_to(ROOT)}")
                 if not icon.is_file():
                     _issue(issues, guide.path, field, f"missing {icon.relative_to(ROOT)}")
                 if full.is_file() and icon.is_file():
                     catalog["covenants"][covenant] = {
+                        "label": label,
                         "image": _site_url(full),
                         "icon": _site_url(icon),
-                        "url": f"/handbook/team#{slug}",
+                        "url": f"/handbook/team#{covenant}",
                     }
             for group, recommendations in (
                 ("early_game", build.wheels.early_game),
                 ("astral_reign", build.wheels.astral_reign),
             ):
                 for item_index, recommendation in enumerate(recommendations):
-                    name = recommendation.name
-                    if name in catalog["wheels"]:
+                    content_id = recommendation.content_id
+                    if content_id in catalog["wheels"]:
                         continue
-                    slug = slugify(name)
-                    image = SOURCE_IMAGES / "wheels" / f"{slug}.png"
+                    field = (
+                        f"awakener.builds[{build_index}].wheels.{group}"
+                        f"[{item_index}].id"
+                    )
+                    label = _catalog_label(
+                        content_catalog,
+                        "wheels",
+                        content_id,
+                        issues,
+                        guide.path,
+                        field,
+                    )
+                    if label is None:
+                        continue
+                    image = SOURCE_IMAGES / "wheels" / f"{content_id}.png"
                     if not image.is_file():
-                        _issue(
-                            issues,
-                            guide.path,
-                            f"awakener.builds[{build_index}].wheels.{group}[{item_index}].name",
-                            f"missing {image.relative_to(ROOT)}",
-                        )
+                        _issue(issues, guide.path, field, f"missing {image.relative_to(ROOT)}")
                     else:
-                        catalog["wheels"][name] = {"image": _site_url(image)}
+                        catalog["wheels"][content_id] = {
+                            "label": label,
+                            "image": _site_url(image),
+                        }
 
         for posse_index, posse in enumerate(awakener.suggested_posses):
-            name = posse.name
-            if name in catalog["posses"]:
+            content_id = posse.content_id
+            if content_id in catalog["posses"]:
                 continue
-            slug = slugify(name)
-            image = SOURCE_IMAGES / "posses" / f"{slug}.png"
+            field = f"awakener.suggested_posses[{posse_index}].id"
+            label = _catalog_label(
+                content_catalog,
+                "posses",
+                content_id,
+                issues,
+                guide.path,
+                field,
+            )
+            if label is None:
+                continue
+            image = SOURCE_IMAGES / "posses" / f"{content_id}.png"
             if not image.is_file():
-                _issue(
-                    issues,
-                    guide.path,
-                    f"awakener.suggested_posses[{posse_index}].name",
-                    f"missing {image.relative_to(ROOT)}",
-                )
+                _issue(issues, guide.path, field, f"missing {image.relative_to(ROOT)}")
             else:
-                catalog["posses"][name] = {"image": _site_url(image)}
+                catalog["posses"][content_id] = {
+                    "label": label,
+                    "image": _site_url(image),
+                }
     return catalog
 
 
@@ -624,7 +751,8 @@ def _render_catalog(catalog: dict[str, dict[str, dict[str, str]]]) -> str:
 
 def prepare_awakeners(*, write_config: bool = True) -> list[Guide]:
     guides, issues = load_guides()
-    catalog = build_asset_catalog(guides, issues)
+    content_catalog = load_content_catalog(issues)
+    catalog = build_asset_catalog(guides, content_catalog, issues)
     if issues:
         raise AwakenerValidationError(issues)
 

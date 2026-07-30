@@ -26,31 +26,31 @@ awakener:
   builds:
     - name: Example Build (Keyflare Support)
       covenants:
-        - Life Drain
+        - life-drain
       wheels:
         early_game:
-          - name: Gluttony
+          - id: gluttony
             note: Any support
-          - name: Frenzy
+          - id: frenzy
             note: Any support
         astral_reign:
-          - name: Merciful Nurturing
+          - id: merciful-nurturing
             note: Any Keyflare Regen stat
-          - name: Gateway of Truth
+          - id: gateway-of-truth
             note: Any Keyflare Regen stat
     - name: Example Build (Wing Spam Carry)
       covenants:
-        - Dream of Medicine
-        - Crimson Pulse
+        - dream-of-medicine
+        - crimson-pulse
       wheels:
         early_game:
-          - name: Moment of Reunion
-          - name: Analysis of Death
+          - id: moment-of-reunion
+          - id: analysis-of-death
         astral_reign:
-          - name: Wheel Unseen
-          - name: Blade of the Titan
+          - id: wheel-unseen
+          - id: blade-of-the-titan
   suggested_posses:
-    - name: A Mouse's Wisdom
+    - id: a-mouses-wisdom
       note: Faded Legacy Ch. 2
   works_well_with:
     - Hameln

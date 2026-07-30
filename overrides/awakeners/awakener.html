@@ -5,11 +5,11 @@
     <h3>{{ title }}</h3>
     <div class="awakener-wheel-list">
       {% for wheel in wheels %}
-        {% set wheel_asset = assets.wheels[wheel.name] %}
+        {% set wheel_asset = assets.wheels[wheel.id] %}
         <figure>
-          <img src="{{ wheel_asset.image }}" alt="{{ wheel.name }}" loading="lazy">
+          <img src="{{ wheel_asset.image }}" alt="{{ wheel_asset.label }}" loading="lazy">
           <figcaption>
-            {{ wheel.name }}{% if wheel.note %}<br><em>{{ wheel.note }}</em>{% endif %}
+            {{ wheel_asset.label }}{% if wheel.note %}<br><em>{{ wheel.note }}</em>{% endif %}
           </figcaption>
         </figure>
       {% endfor %}
@@ -91,9 +91,9 @@
                 <a href="{{ covenant_asset.url }}">
                   <span class="awakener-covenant-images">
                     <img src="{{ covenant_asset.icon }}" alt="" loading="lazy">
-                    <img src="{{ covenant_asset.image }}" alt="{{ covenant }}" loading="lazy">
+                    <img src="{{ covenant_asset.image }}" alt="{{ covenant_asset.label }}" loading="lazy">
                   </span>
-                  <figcaption>{{ covenant }}</figcaption>
+                  <figcaption>{{ covenant_asset.label }}</figcaption>
                 </a>
               </figure>
             {% endfor %}
@@ -116,11 +116,11 @@
             {% if guide.suggested_posses %}
               <div class="awakener-recommendation-list">
                 {% for posse in guide.suggested_posses %}
-                  {% set posse_asset = assets.posses[posse.name] %}
+                  {% set posse_asset = assets.posses[posse.id] %}
                   <figure>
-                    <img src="{{ posse_asset.image }}" alt="{{ posse.name }}" loading="lazy">
+                    <img src="{{ posse_asset.image }}" alt="{{ posse_asset.label }}" loading="lazy">
                     <figcaption>
-                      {{ posse.name }}{% if posse.note %}<br><em>{{ posse.note }}</em>{% endif %}
+                      {{ posse_asset.label }}{% if posse.note %}<br><em>{{ posse.note }}</em>{% endif %}
                     </figcaption>
                   </figure>
                 {% endfor %}

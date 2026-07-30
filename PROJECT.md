@@ -14,6 +14,10 @@ matter and ordinary Markdown prose; their shared HTML belongs in
 `overrides/awakeners/awakener.html`, not in the guide files. Run
 `uv run mythag-check` after editing their structured fields.
 
+Awakener guides reference covenants, wheels, and posses with exact kebab-case
+IDs defined in `awakener-content.yaml`. That catalog is the single source for
+their human-readable labels, while matching PNG filenames provide their assets.
+
 ### Frontmatter
 
 Every `.md` file must have YAML frontmatter at the top:

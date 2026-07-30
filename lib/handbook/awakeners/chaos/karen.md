@@ -23,18 +23,18 @@ awakener:
   builds:
     - name: Example Build
       covenants:
-        - Deus Ex Machina
-        - Burial Ground's Sighs
+        - deus-ex-machina
+        - burial-grounds-sighs
       wheels:
         early_game:
-          - name: Aged
+          - id: aged
             note: Any support
-          - name: Whisper
+          - id: whisper
             note: Any support
         astral_reign:
-          - name: Hymn of the Sovereign
+          - id: hymn-of-the-sovereign
             note: Any support
-          - name: Elevated Focus
+          - id: elevated-focus
             note: Any support
   suggested_posses: []
   suggested_posses_note: Any

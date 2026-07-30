@@ -23,17 +23,17 @@ awakener:
   builds:
     - name: Example Build
       covenants:
-        - Feast from Afar
-        - Burial Ground's Sighs
+        - feast-from-afar
+        - burial-grounds-sighs
       wheels:
         early_game:
-          - name: The Land of Nonexistence
-          - name: Whisper
+          - id: the-land-of-nonexistence
+          - id: whisper
             note: Any support
         astral_reign:
-          - name: Heart of a Knight
+          - id: heart-of-a-knight
             note: A Knight's Vow
-          - name: The Land of Nonexistence
+          - id: the-land-of-nonexistence
   suggested_posses: []
   suggested_posses_note: Any
   works_well_with:

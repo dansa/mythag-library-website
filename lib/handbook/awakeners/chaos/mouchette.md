@@ -26,17 +26,17 @@ awakener:
   builds:
     - name: Example Build
       covenants:
-        - April Tribute
-        - Crimson Pulse
+        - april-tribute
+        - crimson-pulse
       wheels:
         early_game:
-          - name: Critical Point
-          - name: Analysis of Death
+          - id: critical-point
+          - id: analysis-of-death
         astral_reign:
-          - name: Celestial Beast
-          - name: Analysis of Death
+          - id: celestial-beast
+          - id: analysis-of-death
   suggested_posses:
-    - name: From the Mist Realm
+    - id: from-the-mist-realm
       note: 'Multiverse Link: Mouchette'
   works_well_with:
     - Aigis

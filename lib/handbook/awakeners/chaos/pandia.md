@@ -21,31 +21,31 @@ awakener:
   builds:
     - name: Example Build (Keyflare Support)
       covenants:
-        - Life Drain
+        - life-drain
       wheels:
         early_game:
-          - name: Gluttony
+          - id: gluttony
             note: Any support
-          - name: Frenzy
+          - id: frenzy
             note: Any support
         astral_reign:
-          - name: Merciful Nurturing
+          - id: merciful-nurturing
             note: Any Keyflare Regen stat
-          - name: Gateway of Truth
+          - id: gateway-of-truth
             note: Any Keyflare Regen stat
     - name: Example Build (Counter DPS)
       covenants:
-        - Steppenwolf
-        - April Tribute
+        - steppenwolf
+        - april-tribute
       wheels:
         early_game:
-          - name: Analysis of Death
-          - name: Cloaked in the Night
+          - id: analysis-of-death
+          - id: cloaked-in-the-night
         astral_reign:
-          - name: Drifting in Desire
-          - name: Analysis of Death
+          - id: drifting-in-desire
+          - id: analysis-of-death
   suggested_posses:
-    - name: Feast of Decay
+    - id: feast-of-decay
       note: 'Psyche Deepdive: Wanda'
   works_well_with:
     - Daffodil

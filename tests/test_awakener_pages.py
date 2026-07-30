@@ -356,6 +356,20 @@ class AwakenerPreparationTests(unittest.TestCase):
                 str(context.exception),
             )
 
+    def test_rejects_content_id_with_surrounding_whitespace(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root, config = self.project(temporary)
+            self.add_catalog_references(root, '" burial-grounds-sighs "')
+
+            with self.patches(root, config):
+                with self.assertRaises(awakeners.AwakenerValidationError) as context:
+                    awakeners.prepare_awakeners()
+
+            self.assertIn(
+                "must not have leading or trailing whitespace",
+                str(context.exception),
+            )
+
     def test_resolves_content_id_to_catalog_label_and_assets(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             root, config = self.project(temporary)

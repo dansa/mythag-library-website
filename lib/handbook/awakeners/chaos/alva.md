@@ -26,6 +26,7 @@ awakener:
       covenants:
         - burial-grounds-sighs
         - feast-from-afar
+      covenants_note: Any support
       wheels:
         early_game:
           - id: elevated-focus

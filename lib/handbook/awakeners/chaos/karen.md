@@ -25,6 +25,7 @@ awakener:
       covenants:
         - deus-ex-machina
         - burial-grounds-sighs
+      covenants_note: Any support
       wheels:
         early_game:
           - id: aged

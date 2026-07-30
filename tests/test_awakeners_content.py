@@ -2,6 +2,8 @@ import re
 import unittest
 from pathlib import Path
 
+from mythag_site import awakeners
+
 
 ROOT = Path(__file__).resolve().parents[1]
 GUIDE_HEADING = re.compile(
@@ -29,6 +31,18 @@ def awakener_sources() -> list[Path]:
 
 
 class AwakenerContentTests(unittest.TestCase):
+    def test_preserves_support_build_covenant_guidance(self) -> None:
+        guides, issues = awakeners.load_guides()
+        self.assertEqual(issues, [])
+        by_slug = {guide.slug: guide for guide in guides}
+
+        for slug in ("24", "alva", "karen"):
+            with self.subTest(guide=slug):
+                self.assertEqual(
+                    by_slug[slug].awakener.builds[0].covenants_note,
+                    "Any support",
+                )
+
     def test_guide_and_realm_anchors_are_explicit_and_unique(self) -> None:
         main = awakener_sources()[0].read_text(encoding="utf-8")
         realm_anchors = REALM_HEADING.findall(main)

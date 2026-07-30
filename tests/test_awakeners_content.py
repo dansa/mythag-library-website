@@ -56,19 +56,21 @@ class AwakenerContentTests(unittest.TestCase):
         self.assertTrue(guide_anchors)
         self.assertEqual(len(guide_anchors), len(set(guide_anchors)))
 
-    def test_chaos_legacy_index_covers_every_standalone_guide(self) -> None:
+    def test_legacy_indexes_cover_every_standalone_guide(self) -> None:
         main = awakener_sources()[0].read_text(encoding="utf-8")
-        indexed = {
-            match.group("slug")
-            for match in LEGACY_LINK.finditer(main)
-            if match.group("realm") == "chaos"
-        }
-        standalone = {
-            path.stem
-            for path in (ROOT / "lib" / "handbook" / "awakeners" / "chaos").glob("*.md")
-        }
+        guide_root = ROOT / "lib" / "handbook" / "awakeners"
+        for realm_directory in guide_root.iterdir():
+            if not realm_directory.is_dir():
+                continue
+            indexed = {
+                match.group("slug")
+                for match in LEGACY_LINK.finditer(main)
+                if match.group("realm") == realm_directory.name
+            }
+            standalone = {path.stem for path in realm_directory.glob("*.md")}
 
-        self.assertEqual(indexed, standalone)
+            with self.subTest(realm=realm_directory.name):
+                self.assertEqual(indexed, standalone)
 
     def test_raw_html_is_balanced_within_each_guide(self) -> None:
         for source in awakener_sources():

@@ -21,6 +21,7 @@ awakener:
     - name: Example Build
       covenants:
         - covenant-id
+      covenants_note: Optional guidance such as Any support
       wheels:
         early_game:
           - id: wheel-id

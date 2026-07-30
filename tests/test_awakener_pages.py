@@ -5,7 +5,7 @@ import textwrap
 import unittest
 from contextlib import ExitStack, contextmanager
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import patch, sentinel
 
 from mythag_site import awakeners
 
@@ -147,6 +147,31 @@ class AwakenerPreparationTests(unittest.TestCase):
                 '"Example" = { image = "/images/awakeners/chaos/example.png"',
                 generated,
             )
+
+    def test_nests_subrealm_guides_under_their_realm_family(self) -> None:
+        guides = [
+            awakeners.Guide(
+                Path("lib/handbook/awakeners/aequor/aurita.md"),
+                "Aurita",
+                "aurita",
+                "aequor",
+                sentinel.awakener,
+            ),
+            awakeners.Guide(
+                Path("lib/handbook/awakeners/benthos-aequor/pontos.md"),
+                "Pontos",
+                "pontos",
+                "benthos-aequor",
+                sentinel.awakener,
+            ),
+        ]
+
+        rendered = awakeners._render_nav(guides, "  ")
+
+        self.assertEqual(rendered.count('{ "Aequor" = ['), 1)
+        self.assertIn('    "handbook/awakeners/aequor/aurita.md",', rendered)
+        self.assertIn('    { "Benthos Aequor" = [', rendered)
+        self.assertIn('      "handbook/awakeners/benthos-aequor/pontos.md",', rendered)
 
     def test_reports_multiple_schema_errors_with_field_paths(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
@@ -293,6 +318,29 @@ class AwakenerPreparationTests(unittest.TestCase):
             self.assertIn(
                 '"burial-grounds-sighs" = { label = "Burial Ground\'s Sighs"',
                 generated,
+            )
+
+    def test_accepts_optional_build_covenant_guidance(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root, config = self.project(temporary)
+            self.add_catalog_references(root, "burial-grounds-sighs")
+            guide = root / "lib" / "handbook" / "awakeners" / "chaos" / "example.md"
+            guide.write_text(
+                guide.read_text(encoding="utf-8").replace(
+                    "      wheels:", "      covenants_note: Any support\n      wheels:"
+                ),
+                encoding="utf-8",
+            )
+            covenants = root / "lib" / "images" / "covenants"
+            covenants.mkdir()
+            (covenants / "burial-grounds-sighs.png").write_bytes(b"png")
+            (covenants / "burial-grounds-sighs--icon.png").write_bytes(b"png")
+
+            with self.patches(root, config):
+                guides = awakeners.prepare_awakeners()
+
+            self.assertEqual(
+                guides[0].awakener.builds[0].covenants_note, "Any support"
             )
 
 

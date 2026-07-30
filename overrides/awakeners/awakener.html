@@ -84,19 +84,24 @@
       <section class="awakener-section awakener-build">
         <h2>{{ build.name }}</h2>
         <div class="awakener-build-grid">
-          <div class="awakener-covenants">
-            {% for covenant in build.covenants %}
-              {% set covenant_asset = assets.covenants[covenant] %}
-              <figure>
-                <a href="{{ covenant_asset.url }}">
-                  <span class="awakener-covenant-images">
-                    <img src="{{ covenant_asset.icon }}" alt="" loading="lazy">
-                    <img src="{{ covenant_asset.image }}" alt="{{ covenant_asset.label }}" loading="lazy">
-                  </span>
-                  <figcaption>{{ covenant_asset.label }}</figcaption>
-                </a>
-              </figure>
-            {% endfor %}
+          <div>
+            <div class="awakener-covenants">
+              {% for covenant in build.covenants %}
+                {% set covenant_asset = assets.covenants[covenant] %}
+                <figure>
+                  <a href="{{ covenant_asset.url }}">
+                    <span class="awakener-covenant-images">
+                      <img src="{{ covenant_asset.icon }}" alt="" loading="lazy">
+                      <img src="{{ covenant_asset.image }}" alt="{{ covenant_asset.label }}" loading="lazy">
+                    </span>
+                    <figcaption>{{ covenant_asset.label }}</figcaption>
+                  </a>
+                </figure>
+              {% endfor %}
+            </div>
+            {% if build.covenants_note %}
+              <p class="awakener-section-note">{{ build.covenants_note }}</p>
+            {% endif %}
           </div>
 
           {{ wheel_column("Early Game Wheels", build.wheels.early_game, assets) }}

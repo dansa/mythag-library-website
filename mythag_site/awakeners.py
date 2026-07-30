@@ -24,16 +24,18 @@ GENERATED_CONFIG = ROOT / ".zensical.generated.toml"
 NAV_MARKER = "@mythag-awakener-nav"
 TEMPLATE_NAME = "awakeners/awakener.html"
 
-REALMS: tuple[tuple[str, str], ...] = (
-    ("chaos", "Chaos"),
-    ("aequor", "Aequor"),
-    ("benthos-aequor", "Benthos: Aequor"),
-    ("caro", "Caro"),
-    ("propagation-caro", "Propagation: Caro"),
-    ("ultra", "Ultra"),
-    ("singularity-ultra", "Singularity: Ultra"),
+REALM_FAMILIES: tuple[tuple[str, tuple[tuple[str, str | None], ...]], ...] = (
+    ("Chaos", (("chaos", None),)),
+    (
+        "Aequor",
+        (("aequor", None), ("benthos-aequor", "Benthos Aequor")),
+    ),
+    ("Caro", (("caro", None), ("propagation-caro", "Propagation Caro"))),
+    ("Ultra", (("ultra", None), ("singularity-ultra", "Singularity Ultra"))),
 )
-REALM_NAMES = dict(REALMS)
+KNOWN_REALMS = {
+    realm for _, realms in REALM_FAMILIES for realm, _ in realms
+}
 ALLOWED_AWAKENER_FIELDS = {
     "tagline",
     "roles",
@@ -99,6 +101,7 @@ class WheelGroups:
 class Build:
     name: str
     covenants: tuple[str, ...]
+    covenants_note: str | None
     wheels: WheelGroups
 
 
@@ -304,13 +307,18 @@ def _validate_builds(
         if not isinstance(build, dict):
             _issue(issues, path, field, "expected a mapping")
             continue
-        unknown = set(build) - {"name", "covenants", "wheels"}
+        unknown = set(build) - {"name", "covenants", "covenants_note", "wheels"}
         for key in sorted(unknown):
             _issue(issues, path, f"{field}.{key}", "unknown field")
         name = _non_empty_string(build.get("name"), issues, path, f"{field}.name")
         covenants = _content_id_list(
             build.get("covenants"), issues, path, f"{field}.covenants"
         )
+        covenants_note = None
+        if "covenants_note" in build:
+            covenants_note = _non_empty_string(
+                build["covenants_note"], issues, path, f"{field}.covenants_note"
+            )
 
         wheel_groups = build.get("wheels")
         if not isinstance(wheel_groups, dict):
@@ -336,6 +344,7 @@ def _validate_builds(
                 Build(
                     name,
                     tuple(covenants),
+                    covenants_note,
                     WheelGroups(tuple(early_game), tuple(astral_reign)),
                 )
             )
@@ -446,7 +455,7 @@ def _parse_guide(path: Path, issues: list[ValidationIssue]) -> Guide | None:
         )
 
     realm = path.parent.name
-    if realm not in REALM_NAMES:
+    if realm not in KNOWN_REALMS:
         _issue(issues, relative, "", f"unknown realm directory {realm!r}")
     if title is None:
         return None
@@ -753,22 +762,31 @@ def _toml_string(value: str) -> str:
 
 
 def _render_nav(guides: list[Guide], indent: str) -> str:
-    grouped = {realm: [] for realm, _ in REALMS}
+    grouped = {realm: [] for realm in KNOWN_REALMS}
     for guide in guides:
         grouped.setdefault(guide.realm, []).append(guide)
 
     lines = [f'{indent}{{ "Awakener Guides" = [', f'{indent}  "handbook/awakeners.md",']
-    for realm, display_name in REALMS:
-        realm_guides = sorted(
-            grouped.get(realm, []), key=lambda guide: (guide.title.casefold(), guide.slug)
-        )
-        if not realm_guides:
+    for family_name, realms in REALM_FAMILIES:
+        if not any(grouped.get(realm) for realm, _ in realms):
             continue
-        lines.append(f'{indent}  {{ {_toml_string(display_name)} = [')
-        lines.extend(
-            f'{indent}    {_toml_string(guide.path.relative_to("lib").as_posix())},'
-            for guide in realm_guides
-        )
+        lines.append(f'{indent}  {{ {_toml_string(family_name)} = [')
+        for realm, subgroup_name in realms:
+            realm_guides = sorted(
+                grouped.get(realm, []),
+                key=lambda guide: (guide.title.casefold(), guide.slug),
+            )
+            if not realm_guides:
+                continue
+            if subgroup_name is not None:
+                lines.append(f'{indent}    {{ {_toml_string(subgroup_name)} = [')
+            guide_indent = indent + ("      " if subgroup_name is not None else "    ")
+            lines.extend(
+                f'{guide_indent}{_toml_string(guide.path.relative_to("lib").as_posix())},'
+                for guide in realm_guides
+            )
+            if subgroup_name is not None:
+                lines.append(f"{indent}    ]}},")
         lines.append(f"{indent}  ]}},")
     lines.append(f"{indent}]}},")
     return "\n".join(lines)

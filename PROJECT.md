@@ -8,6 +8,12 @@ The site is built with [Zensical](https://zensical.org). Content lives in `lib/`
 - **Folders** — represent the navigation structure. A folder with an `index.md` becomes a section with that page as the landing page.
 - Subfolders can be nested arbitrarily to create deeper navigation hierarchies.
 
+Standalone Awakener guides live under
+`lib/handbook/awakeners/<realm>/<awakener>.md`. They use structured YAML front
+matter and ordinary Markdown prose; their shared HTML belongs in
+`overrides/awakeners/awakener.html`, not in the guide files. Run
+`uv run mythag-check` after editing their structured fields.
+
 ### Frontmatter
 
 Every `.md` file must have YAML frontmatter at the top:

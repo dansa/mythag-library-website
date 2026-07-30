@@ -13,6 +13,12 @@ from urllib.parse import unquote, urlsplit, urlunsplit
 
 from PIL import Image, ImageChops, features
 
+from mythag_site.awakeners import (
+    GENERATED_CONFIG,
+    AwakenerValidationError,
+    prepare_awakeners,
+)
+
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE_IMAGES = ROOT / "lib" / "images"
@@ -245,11 +251,27 @@ def main() -> None:
     if zensical is None:
         raise SystemExit("zensical must be available on PATH")
 
-    subprocess.run([zensical, "build", "--clean"], cwd=ROOT, check=True)
+    try:
+        guides = prepare_awakeners()
+    except AwakenerValidationError as error:
+        raise SystemExit(str(error)) from error
+
+    subprocess.run(
+        [
+            zensical,
+            "build",
+            "--clean",
+            "--config-file",
+            str(GENERATED_CONFIG),
+        ],
+        cwd=ROOT,
+        check=True,
+    )
     encoded, reused, png_bytes, avif_bytes = generate_avif_assets()
     changed_files, changed_urls = rewrite_html_images()
     reduction = (1 - avif_bytes / png_bytes) * 100 if png_bytes else 0
     print(
+        f"Awakener content: {len(guides)} guides valid\n"
         "AVIF delivery: "
         f"{encoded} encoded, {reused} cached, {changed_urls} image URLs across "
         f"{changed_files} HTML files, {reduction:.1f}% fewer image bytes"

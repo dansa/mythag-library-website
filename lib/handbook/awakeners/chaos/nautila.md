@@ -47,6 +47,6 @@ awakener:
     - caecus
 ---
 
-A solid defensive support and combo piece. Her unique exalt takes your existing shield and multiplies it, which is amazing for shield scaling teammates like [Sanga](/handbook/awakeners/#sanga) and [Alva](/handbook/awakeners/chaos/alva/).
+A solid defensive support and combo piece. Her unique exalt takes your existing shield and multiplies it, which is amazing for shield scaling teammates like [Sanga](/handbook/awakeners/aequor/sanga/) and [Alva](/handbook/awakeners/chaos/alva/).
 
 Nautila's exalt can support counter teams by converting counter into AOE damage. At E3, it also blocks incoming debuffs, useful for many boss fights.

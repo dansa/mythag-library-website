@@ -88,3 +88,11 @@ class AwakenerContentTests(unittest.TestCase):
                         f"Unbalanced <{tag}> in {source.relative_to(ROOT)} at "
                         f"#{heading.group('anchor')}",
                     )
+
+    def test_standalone_guides_do_not_link_back_to_legacy_fragments(self) -> None:
+        guide_root = ROOT / "lib" / "handbook" / "awakeners"
+        for guide in guide_root.glob("*/*.md"):
+            with self.subTest(guide=guide.relative_to(ROOT)):
+                self.assertNotIn(
+                    "/handbook/awakeners/#", guide.read_text(encoding="utf-8")
+                )

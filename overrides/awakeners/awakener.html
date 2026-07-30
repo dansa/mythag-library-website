@@ -5,11 +5,11 @@
     <h3>{{ title }}</h3>
     <div class="awakener-wheel-list">
       {% for wheel in wheels %}
-        {% set wheel_asset = assets.wheels[wheel.name] %}
+        {% set wheel_asset = assets.wheels[wheel.id] %}
         <figure>
-          <img src="{{ wheel_asset.image }}" alt="{{ wheel.name }}" loading="lazy">
+          <img src="{{ wheel_asset.image }}" alt="{{ wheel_asset.label }}" loading="lazy">
           <figcaption>
-            {{ wheel.name }}{% if wheel.note %}<br><em>{{ wheel.note }}</em>{% endif %}
+            {{ wheel_asset.label }}{% if wheel.note %}<br><em>{{ wheel.note }}</em>{% endif %}
           </figcaption>
         </figure>
       {% endfor %}
@@ -20,7 +20,7 @@
 {% block content %}
   {% set guide = page.meta.awakener %}
   {% set assets = config.extra.awakener_assets %}
-  {% set portrait = assets.awakeners[page.meta.title] %}
+  {% set portrait = assets.portraits[page.meta.title] %}
 
   {% include "partials/actions.html" %}
 
@@ -84,19 +84,24 @@
       <section class="awakener-section awakener-build">
         <h2>{{ build.name }}</h2>
         <div class="awakener-build-grid">
-          <div class="awakener-covenants">
-            {% for covenant in build.covenants %}
-              {% set covenant_asset = assets.covenants[covenant] %}
-              <figure>
-                <a href="{{ covenant_asset.url }}">
-                  <span class="awakener-covenant-images">
-                    <img src="{{ covenant_asset.icon }}" alt="" loading="lazy">
-                    <img src="{{ covenant_asset.image }}" alt="{{ covenant }}" loading="lazy">
-                  </span>
-                  <figcaption>{{ covenant }}</figcaption>
-                </a>
-              </figure>
-            {% endfor %}
+          <div>
+            <div class="awakener-covenants">
+              {% for covenant in build.covenants %}
+                {% set covenant_asset = assets.covenants[covenant] %}
+                <figure>
+                  <a href="{{ covenant_asset.url }}">
+                    <span class="awakener-covenant-images">
+                      <img src="{{ covenant_asset.icon }}" alt="" loading="lazy">
+                      <img src="{{ covenant_asset.image }}" alt="{{ covenant_asset.label }}" loading="lazy">
+                    </span>
+                    <figcaption>{{ covenant_asset.label }}</figcaption>
+                  </a>
+                </figure>
+              {% endfor %}
+            </div>
+            {% if build.covenants_note %}
+              <p class="awakener-section-note">{{ build.covenants_note }}</p>
+            {% endif %}
           </div>
 
           {{ wheel_column("Early Game Wheels", build.wheels.early_game, assets) }}
@@ -105,39 +110,49 @@
       </section>
     {% endfor %}
 
-    {% if guide.suggested_posses or guide.works_well_with %}
+    {% if guide.suggested_posses or guide.suggested_posses_note or guide.works_well_with or guide.works_well_with_note %}
       <section class="awakener-section awakener-recommendations">
-        {% if guide.suggested_posses %}
+        {% if guide.suggested_posses or guide.suggested_posses_note %}
           <div>
             <h2>Suggested Posse</h2>
-            <div class="awakener-recommendation-list">
-              {% for posse in guide.suggested_posses %}
-                {% set posse_asset = assets.posses[posse.name] %}
-                <figure>
-                  <img src="{{ posse_asset.image }}" alt="{{ posse.name }}" loading="lazy">
-                  <figcaption>
-                    {{ posse.name }}{% if posse.note %}<br><em>{{ posse.note }}</em>{% endif %}
-                  </figcaption>
-                </figure>
-              {% endfor %}
-            </div>
+            {% if guide.suggested_posses_note %}
+              <p class="awakener-section-note">{{ guide.suggested_posses_note }}</p>
+            {% endif %}
+            {% if guide.suggested_posses %}
+              <div class="awakener-recommendation-list">
+                {% for posse in guide.suggested_posses %}
+                  {% set posse_asset = assets.posses[posse.id] %}
+                  <figure>
+                    <img src="{{ posse_asset.image }}" alt="{{ posse_asset.label }}" loading="lazy">
+                    <figcaption>
+                      {{ posse_asset.label }}{% if posse.note %}<br><em>{{ posse.note }}</em>{% endif %}
+                    </figcaption>
+                  </figure>
+                {% endfor %}
+              </div>
+            {% endif %}
           </div>
         {% endif %}
 
-        {% if guide.works_well_with %}
+        {% if guide.works_well_with or guide.works_well_with_note %}
           <div>
             <h2>Works Well With</h2>
-            <div class="awakener-recommendation-list">
-              {% for related in guide.works_well_with %}
-                {% set related_asset = assets.awakeners[related] %}
-                <figure>
-                  <a href="{{ related_asset.url }}">
-                    <img src="{{ related_asset.mini }}" alt="{{ related }}" loading="lazy">
-                    <figcaption>{{ related }}</figcaption>
-                  </a>
-                </figure>
-              {% endfor %}
-            </div>
+            {% if guide.works_well_with_note %}
+              <p class="awakener-section-note">{{ guide.works_well_with_note }}</p>
+            {% endif %}
+            {% if guide.works_well_with %}
+              <div class="awakener-recommendation-list">
+                {% for related in guide.works_well_with %}
+                  {% set related_asset = assets.awakeners[related] %}
+                  <figure>
+                    <a href="{{ related_asset.url }}">
+                      <img src="{{ related_asset.mini }}" alt="{{ related_asset.label }}" loading="lazy">
+                      <figcaption>{{ related_asset.label }}</figcaption>
+                    </a>
+                  </figure>
+                {% endfor %}
+              </div>
+            {% endif %}
           </div>
         {% endif %}
       </section>

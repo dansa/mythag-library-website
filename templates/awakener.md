@@ -20,18 +20,21 @@ awakener:
   builds:
     - name: Example Build
       covenants:
-        - Covenant Name
+        - covenant-id
+      covenants_note: Optional guidance such as Any support
       wheels:
         early_game:
-          - name: Wheel Name
+          - id: wheel-id
             note: Optional explanation
         astral_reign:
-          - name: Wheel Name
+          - id: wheel-id
   suggested_posses:
-    - name: Posse Name
+    - id: posse-id
       note: Optional explanation
+  suggested_posses_note: Optional note such as Any
   works_well_with:
-    - Other Awakener
+    - other-awakener-id
+  works_well_with_note: Optional note such as Anyone
 ---
 
 Write the guide as ordinary Markdown here.

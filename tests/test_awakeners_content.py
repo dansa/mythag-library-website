@@ -2,6 +2,8 @@ import re
 import unittest
 from pathlib import Path
 
+from mythag_site import awakeners
+
 
 ROOT = Path(__file__).resolve().parents[1]
 GUIDE_HEADING = re.compile(
@@ -10,6 +12,11 @@ GUIDE_HEADING = re.compile(
 )
 REALM_HEADING = re.compile(
     r"^## .+? \{#(?P<anchor>[a-z0-9-]+)\}$",
+    re.MULTILINE,
+)
+LEGACY_LINK = re.compile(
+    r'^- \[[^]]+\]\(/handbook/awakeners/(?P<realm>[a-z-]+)/(?P<slug>[a-z0-9-]+)/\)'
+    r'\{#(?P<anchor>[a-z0-9-]+)\}$',
     re.MULTILINE,
 )
 RAW_TAGS = ("div", "figure", "p", "section")
@@ -24,6 +31,18 @@ def awakener_sources() -> list[Path]:
 
 
 class AwakenerContentTests(unittest.TestCase):
+    def test_preserves_support_build_covenant_guidance(self) -> None:
+        guides, issues = awakeners.load_guides()
+        self.assertEqual(issues, [])
+        by_slug = {guide.slug: guide for guide in guides}
+
+        for slug in ("24", "alva", "karen"):
+            with self.subTest(guide=slug):
+                self.assertEqual(
+                    by_slug[slug].awakener.builds[0].covenants_note,
+                    "Any support",
+                )
+
     def test_guide_and_realm_anchors_are_explicit_and_unique(self) -> None:
         main = awakener_sources()[0].read_text(encoding="utf-8")
         realm_anchors = REALM_HEADING.findall(main)
@@ -45,8 +64,27 @@ class AwakenerContentTests(unittest.TestCase):
             )
             guide_anchors.extend(match.group("anchor") for match in explicit_headings)
 
+        legacy_anchors = [match.group("anchor") for match in LEGACY_LINK.finditer(main)]
+        guide_anchors.extend(legacy_anchors)
+
         self.assertTrue(guide_anchors)
         self.assertEqual(len(guide_anchors), len(set(guide_anchors)))
+
+    def test_legacy_indexes_cover_every_standalone_guide(self) -> None:
+        main = awakener_sources()[0].read_text(encoding="utf-8")
+        guide_root = ROOT / "lib" / "handbook" / "awakeners"
+        for realm_directory in guide_root.iterdir():
+            if not realm_directory.is_dir():
+                continue
+            indexed = {
+                match.group("slug")
+                for match in LEGACY_LINK.finditer(main)
+                if match.group("realm") == realm_directory.name
+            }
+            standalone = {path.stem for path in realm_directory.glob("*.md")}
+
+            with self.subTest(realm=realm_directory.name):
+                self.assertEqual(indexed, standalone)
 
     def test_raw_html_is_balanced_within_each_guide(self) -> None:
         for source in awakener_sources():
@@ -64,3 +102,11 @@ class AwakenerContentTests(unittest.TestCase):
                         f"Unbalanced <{tag}> in {source.relative_to(ROOT)} at "
                         f"#{heading.group('anchor')}",
                     )
+
+    def test_standalone_guides_do_not_link_back_to_legacy_fragments(self) -> None:
+        guide_root = ROOT / "lib" / "handbook" / "awakeners"
+        for guide in guide_root.glob("*/*.md"):
+            with self.subTest(guide=guide.relative_to(ROOT)):
+                self.assertNotIn(
+                    "/handbook/awakeners/#", guide.read_text(encoding="utf-8")
+                )

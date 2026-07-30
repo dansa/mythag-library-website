@@ -21,37 +21,37 @@ awakener:
   builds:
     - name: Example Build (Keyflare Support)
       covenants:
-        - Life Drain
+        - life-drain
       wheels:
         early_game:
-          - name: Gluttony
+          - id: gluttony
             note: Any support
-          - name: Frenzy
+          - id: frenzy
             note: Any support
         astral_reign:
-          - name: Merciful Nurturing
+          - id: merciful-nurturing
             note: Any Keyflare Regen stat
-          - name: Elevated Focus
+          - id: elevated-focus
             note: Any Keyflare Regen stat
     - name: Example Build (Poison DPS)
       covenants:
-        - Steppenwolf
+        - steppenwolf
       wheels:
         early_game:
-          - name: Cursed Binding
-          - name: Elevated Focus
+          - id: cursed-binding
+          - id: elevated-focus
         astral_reign:
-          - name: Gift of Decay
-          - name: Cursed Binding
+          - id: gift-of-decay
+          - id: cursed-binding
   suggested_posses:
-    - name: Plague of Illusions
-    - name: Tiny Wish
+    - id: plague-of-illusions
+    - id: tiny-wish
       note: Early game
   works_well_with:
-    - GDoll
-    - Xu
-    - Lily
-    - Liz
+    - gdoll
+    - xu
+    - lily
+    - liz
 ---
 
 Nymphaea's exalt instantly triggers poison, speeding up the long time poison teams usually take to kill enemies. She also boosts teamwide poison in [Astral Reign](/handbook/storylines#astral-reign-arc-2) stages, and her high base keyflare regen makes her a solid [keyflare bot](/handbook/team#the-almighty-keyflare-bot).

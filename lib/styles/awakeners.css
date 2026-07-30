@@ -72,6 +72,12 @@
   font-size: 0.75rem;
 }
 
+.awakener-section-note {
+  margin: 0.4rem 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
 .awakener-rank,
 .awakener-stopping-points {
   margin: 0.3rem 0 0;
@@ -87,8 +93,16 @@
   color: var(--md-tier-a);
 }
 
+.awakener-rank[data-tier="B+"] {
+  color: var(--md-tier-b-plus);
+}
+
 .awakener-rank[data-tier="B"] {
   color: var(--md-tier-b);
+}
+
+.awakener-rank[data-tier="C+"] {
+  color: var(--md-tier-c-plus);
 }
 
 .awakener-rank[data-tier="C"] {
@@ -97,6 +111,10 @@
 
 .awakener-rank[data-tier="D"] {
   color: var(--md-tier-d);
+}
+
+.awakener-rank[data-tier="F"] {
+  color: var(--md-tier-f);
 }
 
 .awakener-rank em,

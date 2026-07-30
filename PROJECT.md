@@ -14,6 +14,13 @@ matter and ordinary Markdown prose; their shared HTML belongs in
 `overrides/awakeners/awakener.html`, not in the guide files. Run
 `uv run mythag-check` after editing their structured fields.
 
+Awakener guides use exact kebab-case IDs defined by the four domain catalogs
+under `content/`: `awakeners.yaml`, `covenants.yaml`, `wheels.yaml`, and
+`posses.yaml`. These files are the single source for human-readable labels,
+while matching PNG filenames provide the assets. A guide's `title` must match
+its filename's entry in `content/awakeners.yaml` so Zensical can use the native
+page metadata without an additional preprocessing layer.
+
 ### Frontmatter
 
 Every `.md` file must have YAML frontmatter at the top:

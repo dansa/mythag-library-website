@@ -17,13 +17,13 @@
         </figure>
         <ul class="mythag-team__gear" aria-label="{{ member.awakener.label }} equipment">
           <li>
-            <a href="{{ member.covenant.url }}" aria-label="{{ member.covenant.label }}" title="{{ member.covenant.label }}">
+            <a href="{{ member.covenant.url }}" title="{{ member.covenant.label }}">
               <img src="{{ member.covenant.image }}" alt="" loading="lazy">
               <span class="sr-only">{{ member.covenant.label }}</span>
             </a>
           </li>
           {% for wheel in member.wheels %}
-            <li aria-label="{{ wheel.label }}" title="{{ wheel.label }}">
+            <li title="{{ wheel.label }}">
               <img src="{{ wheel.image }}" alt="" loading="lazy">
               <span class="sr-only">{{ wheel.label }}</span>
             </li>

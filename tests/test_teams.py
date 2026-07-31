@@ -117,8 +117,13 @@ class TeamTests(unittest.TestCase):
             )
         )
 
-        with self.assertRaisesRegex(TeamValidationError, "missing closing"):
-            scan_team_fences(["before", "```team", VALID_TEAM], Path("guide.md"))
+        with self.assertRaises(TeamValidationError) as caught:
+            scan_team_fences(
+                ["before", "```team", VALID_TEAM],
+                Path("guide.md"),
+                line_offset=4,
+            )
+        self.assertEqual(caught.exception.issues[0].line, 6)
 
     def test_zensical_renders_frontmatter_page_at_the_authored_position(self) -> None:
         with TemporaryDirectory() as temporary:

@@ -33,7 +33,9 @@ def _closing_fence(line: str, fence: str) -> bool:
     return re.fullmatch(rf"{re.escape(fence[0])}{{{len(fence)},}}[ \t]*", line) is not None
 
 
-def scan_team_fences(lines: list[str], path: Path) -> list[str | TeamFence]:
+def scan_team_fences(
+    lines: list[str], path: Path, *, line_offset: int = 0
+) -> list[str | TeamFence]:
     output: list[str | TeamFence] = []
     outer_fence: str | None = None
     index = 0
@@ -51,9 +53,22 @@ def scan_team_fences(lines: list[str], path: Path) -> list[str | TeamFence]:
                 closing += 1
             if closing == len(lines):
                 raise TeamValidationError(
-                    [ValidationIssue(path, "team", "missing closing ``` fence", index + 1, 1)]
+                    [
+                        ValidationIssue(
+                            path,
+                            "team",
+                            "missing closing ``` fence",
+                            index + 1 + line_offset,
+                            1,
+                        )
+                    ]
                 )
-            output.append(TeamFence("\n".join(lines[index + 1 : closing]), index + 1))
+            output.append(
+                TeamFence(
+                    "\n".join(lines[index + 1 : closing]),
+                    index + 1 + line_offset,
+                )
+            )
             output.extend("" for _ in range(closing - index))
             index = closing + 1
             continue
@@ -142,12 +157,11 @@ class TeamPreprocessor(Preprocessor):
         path, start_line = _source_context(self.md, lines)
         assets = context.config["extra"]["content_assets"]
         output: list[str] = []
-        for segment in scan_team_fences(lines, path):
+        for segment in scan_team_fences(lines, path, line_offset=start_line - 1):
             if isinstance(segment, str):
                 output.append(segment)
                 continue
-            fence = TeamFence(segment.source, segment.opening_line + start_line - 1)
-            team = resolve_team(parse_team(fence, path, assets), assets)
+            team = resolve_team(parse_team(segment, path, assets), assets)
             output.append(render_team(team).replace("\n", ""))
         return output
 

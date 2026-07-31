@@ -80,10 +80,6 @@ class TeamValidationError(Exception):
         )
 
 
-class _MarkedUniqueLoader(UniqueKeyLoader):
-    """Shared strict YAML loader with source-mark access."""
-
-
 def _collect_marks(node: Node, path: str, marks: dict[str, yaml.Mark]) -> None:
     marks[path] = node.start_mark
     if isinstance(node, MappingNode):
@@ -98,7 +94,7 @@ def _collect_marks(node: Node, path: str, marks: dict[str, yaml.Mark]) -> None:
 
 
 def _parse_yaml(source: str) -> tuple[Any, dict[str, yaml.Mark]]:
-    loader = _MarkedUniqueLoader(source)
+    loader = UniqueKeyLoader(source)
     try:
         node = loader.get_single_node()
         if node is None:
@@ -110,262 +106,158 @@ def _parse_yaml(source: str) -> tuple[Any, dict[str, yaml.Mark]]:
         loader.dispose()
 
 
-def _mark_for(marks: dict[str, yaml.Mark], field: str) -> yaml.Mark | None:
-    if field in marks:
-        return marks[field]
-    if "." in field:
-        return marks.get(field.rsplit(".", 1)[0])
-    return marks.get("")
+class _TeamValidator:
+    """Validation state for one authored team fence."""
 
+    def __init__(
+        self, path: Path, fence: TeamFence, marks: dict[str, yaml.Mark]
+    ) -> None:
+        self.path = path
+        self.fence = fence
+        self.marks = marks
+        self.issues: list[ValidationIssue] = []
 
-def _issue(
-    issues: list[ValidationIssue],
-    path: Path,
-    field: str,
-    message: str,
-    *,
-    fence: TeamFence,
-    mark: yaml.Mark | None = None,
-) -> None:
-    yaml_line = mark.line if mark is not None else 0
-    yaml_column = mark.column if mark is not None else 0
-    issues.append(
-        ValidationIssue(
-            path,
-            field,
-            message,
-            line=fence.opening_line + 1 + yaml_line,
-            column=yaml_column + 1,
-        )
-    )
+    def mark_for(self, field: str) -> yaml.Mark | None:
+        if field in self.marks:
+            return self.marks[field]
+        if "." in field:
+            return self.marks.get(field.rsplit(".", 1)[0])
+        return self.marks.get("")
 
-
-def _mapping(
-    value: Any,
-    issues: list[ValidationIssue],
-    path: Path,
-    field: str,
-    *,
-    fence: TeamFence,
-    marks: dict[str, yaml.Mark],
-) -> dict[str, Any] | None:
-    if not isinstance(value, dict):
-        _issue(
-            issues, path, field, "expected a mapping", fence=fence, mark=_mark_for(marks, field)
-        )
-        return None
-    return value
-
-
-def _string(
-    value: Any,
-    issues: list[ValidationIssue],
-    path: Path,
-    field: str,
-    *,
-    fence: TeamFence,
-    marks: dict[str, yaml.Mark],
-) -> str | None:
-    parsed, error = parse_non_empty_string(value, single_line=True)
-    if error is not None:
-        _issue(
-            issues,
-            path,
-            field,
-            error,
-            fence=fence,
-            mark=_mark_for(marks, field),
-        )
-        return None
-    return parsed
-
-
-def _content_id(
-    value: Any,
-    assets: dict[str, dict[str, str]],
-    category: str,
-    issues: list[ValidationIssue],
-    path: Path,
-    field: str,
-    *,
-    fence: TeamFence,
-    marks: dict[str, yaml.Mark],
-) -> str | None:
-    content_id, error = parse_content_id(value)
-    if error is not None:
-        _issue(
-            issues,
-            path,
-            field,
-            error,
-            fence=fence,
-            mark=_mark_for(marks, field),
-        )
-        return None
-    assert content_id is not None
-    if content_id not in assets:
-        _issue(
-            issues,
-            path,
-            field,
-            unknown_content_id_message(category, content_id, assets),
-            fence=fence,
-            mark=_mark_for(marks, field),
-        )
-        return None
-    return content_id
-
-
-def _fields(
-    value: dict[str, Any],
-    allowed: set[str],
-    issues: list[ValidationIssue],
-    path: Path,
-    field: str,
-    *,
-    fence: TeamFence,
-    marks: dict[str, yaml.Mark],
-) -> None:
-    for key in value:
-        child = f"{field}.{key}" if field else str(key)
-        if key not in allowed:
-            _issue(
-                issues,
-                path,
-                child,
-                "unknown field",
-                fence=fence,
-                mark=marks.get(f"{child}#key"),
+    def issue(
+        self,
+        field: str,
+        message: str,
+        *,
+        mark: yaml.Mark | None = None,
+    ) -> None:
+        source_mark = mark or self.mark_for(field)
+        yaml_line = source_mark.line if source_mark is not None else 0
+        yaml_column = source_mark.column if source_mark is not None else 0
+        self.issues.append(
+            ValidationIssue(
+                self.path,
+                field,
+                message,
+                line=self.fence.opening_line + 1 + yaml_line,
+                column=yaml_column + 1,
             )
-    for key in allowed - value.keys():
-        child = f"{field}.{key}" if field else key
-        _issue(
-            issues,
-            path,
-            child,
-            "missing required field",
-            fence=fence,
-            mark=_mark_for(marks, field),
         )
+
+    def mapping(self, value: Any, field: str) -> dict[str, Any] | None:
+        if not isinstance(value, dict):
+            self.issue(field, "expected a mapping")
+            return None
+        return value
+
+    def string(self, value: Any, field: str) -> str | None:
+        parsed, error = parse_non_empty_string(value, single_line=True)
+        if error is not None:
+            self.issue(field, error)
+            return None
+        return parsed
+
+    def content_id(
+        self,
+        value: Any,
+        assets: dict[str, dict[str, str]],
+        category: str,
+        field: str,
+    ) -> str | None:
+        content_id, error = parse_content_id(value)
+        if error is not None:
+            self.issue(field, error)
+            return None
+        assert content_id is not None
+        if content_id not in assets:
+            self.issue(
+                field, unknown_content_id_message(category, content_id, assets)
+            )
+            return None
+        return content_id
+
+    def fields(
+        self, value: dict[str, Any], allowed: set[str], field: str = ""
+    ) -> None:
+        for key in value:
+            child = f"{field}.{key}" if field else str(key)
+            if key not in allowed:
+                self.issue(
+                    child,
+                    "unknown field",
+                    mark=self.marks.get(f"{child}#key"),
+                )
+        for key in allowed - value.keys():
+            child = f"{field}.{key}" if field else key
+            self.issue(child, "missing required field", mark=self.mark_for(field))
 
 
 def parse_team(fence: TeamFence, path: Path, assets: AssetCatalog) -> TeamSpec:
-    issues: list[ValidationIssue] = []
     try:
         raw, marks = _parse_yaml(fence.source)
     except yaml.MarkedYAMLError as error:
-        _issue(
-            issues,
-            path,
-            "team",
-            error.problem or "invalid YAML",
-            fence=fence,
-            mark=error.problem_mark,
+        validator = _TeamValidator(path, fence, {})
+        validator.issue(
+            "team", error.problem or "invalid YAML", mark=error.problem_mark
         )
-        raise TeamValidationError(issues) from error
+        raise TeamValidationError(validator.issues) from error
 
-    root = _mapping(raw, issues, path, "team", fence=fence, marks=marks)
+    validator = _TeamValidator(path, fence, marks)
+    root = validator.mapping(raw, "team")
     if root is None:
-        raise TeamValidationError(issues)
-    _fields(
-        root,
-        {"name", "posse", "members"},
-        issues,
-        path,
-        "",
-        fence=fence,
-        marks=marks,
-    )
-    name = _string(root.get("name"), issues, path, "name", fence=fence, marks=marks)
-    posse_id = _content_id(
+        raise TeamValidationError(validator.issues)
+    validator.fields(root, {"name", "posse", "members"})
+    name = validator.string(root.get("name"), "name")
+    posse_id = validator.content_id(
         root.get("posse"),
         assets["posses"],
         "posses",
-        issues,
-        path,
         "posse",
-        fence=fence,
-        marks=marks,
     )
 
     members_raw = root.get("members")
     if not isinstance(members_raw, list):
-        _issue(
-            issues,
-            path,
+        validator.issue(
             "members",
             "expected a list of exactly four members",
-            fence=fence,
-            mark=_mark_for(marks, "members"),
         )
         members_raw = []
     elif len(members_raw) != 4:
-        _issue(
-            issues,
-            path,
-            "members",
-            "expected exactly four members",
-            fence=fence,
-            mark=_mark_for(marks, "members"),
-        )
+        validator.issue("members", "expected exactly four members")
 
     members: list[TeamMemberSpec] = []
     for index, member_raw in enumerate(members_raw):
         prefix = f"members[{index}]"
-        member = _mapping(member_raw, issues, path, prefix, fence=fence, marks=marks)
+        member = validator.mapping(member_raw, prefix)
         if member is None:
             continue
-        _fields(
-            member,
-            {"awakener", "covenant", "wheels"},
-            issues,
-            path,
-            prefix,
-            fence=fence,
-            marks=marks,
-        )
-        awakener_id = _content_id(
+        validator.fields(member, {"awakener", "covenant", "wheels"}, prefix)
+        awakener_id = validator.content_id(
             member.get("awakener"),
             assets["awakeners"],
             "awakeners",
-            issues,
-            path,
             f"{prefix}.awakener",
-            fence=fence,
-            marks=marks,
         )
-        covenant_id = _content_id(
+        covenant_id = validator.content_id(
             member.get("covenant"),
             assets["covenants"],
             "covenants",
-            issues,
-            path,
             f"{prefix}.covenant",
-            fence=fence,
-            marks=marks,
         )
         wheels_raw = member.get("wheels")
         wheel_ids: list[str] = []
         if not isinstance(wheels_raw, list) or len(wheels_raw) != 2:
-            _issue(
-                issues,
-                path,
+            validator.issue(
                 f"{prefix}.wheels",
                 "expected exactly two wheel IDs",
-                fence=fence,
-                mark=_mark_for(marks, f"{prefix}.wheels"),
             )
         else:
             for wheel_index, wheel_raw in enumerate(wheels_raw):
-                wheel_id = _content_id(
+                wheel_id = validator.content_id(
                     wheel_raw,
                     assets["wheels"],
                     "wheels",
-                    issues,
-                    path,
                     f"{prefix}.wheels[{wheel_index}]",
-                    fence=fence,
-                    marks=marks,
                 )
                 if wheel_id is not None:
                     wheel_ids.append(wheel_id)
@@ -374,8 +266,8 @@ def parse_team(fence: TeamFence, path: Path, assets: AssetCatalog) -> TeamSpec:
                 TeamMemberSpec(awakener_id, covenant_id, (wheel_ids[0], wheel_ids[1]))
             )
 
-    if issues or name is None or posse_id is None or len(members) != 4:
-        raise TeamValidationError(issues)
+    if validator.issues or name is None or posse_id is None or len(members) != 4:
+        raise TeamValidationError(validator.issues)
     return TeamSpec(name, posse_id, tuple(members))
 
 

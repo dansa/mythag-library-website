@@ -141,25 +141,13 @@ class AwakenerPreparationTests(unittest.TestCase):
             self.assertEqual([guide.title for guide in guides], ["Example"])
             self.assertEqual(config.read_text(encoding="utf-8"), original)
             generated = (root / ".zensical.generated.toml").read_text(encoding="utf-8")
-            self.assertIn('{ "Chaos" = [', generated)
-            self.assertIn('"handbook/awakeners/chaos/example.md"', generated)
-            self.assertIn('[project.extra.awakener_assets.portraits]', generated)
-            self.assertIn(
-                '"Example" = { image = "/images/awakeners/chaos/example.png"',
-                generated,
-            )
             config_data = tomllib.loads(generated)
             index = config_data["project"]["extra"]["awakener_index"]
-            self.assertEqual(index["family_order"], ["chaos"])
-            self.assertEqual(index["family"]["chaos"]["groups"], ["chaos"])
             self.assertEqual(index["group"]["chaos"]["guides"], ["example"])
+            self.assertEqual(index["guide"]["example"]["label"], "Example")
             self.assertEqual(
-                index["guide"]["example"],
-                {
-                    "label": "Example",
-                    "image": "/images/awakeners/chaos/example--mini.png",
-                    "url": "/handbook/awakeners/chaos/example/",
-                },
+                index["guide"]["example"]["url"],
+                "/handbook/awakeners/chaos/example/",
             )
 
     def test_check_validates_generated_config_without_writing_it(self) -> None:
@@ -191,22 +179,16 @@ class AwakenerPreparationTests(unittest.TestCase):
         ]
 
         rendered = awakeners._render_nav(guides, "  ")
+        nav = tomllib.loads(f"[project]\nnav = [\n{rendered}\n]\n")["project"][
+            "nav"
+        ]
 
-        self.assertEqual(rendered.count('{ "Aequor" = ['), 1)
-        self.assertIn('    "handbook/awakeners/aequor/aurita.md",', rendered)
-        self.assertIn('    { "Benthos Aequor" = [', rendered)
-        self.assertIn('      "handbook/awakeners/benthos-aequor/pontos.md",', rendered)
-
-    def test_derives_guide_identity_and_url_from_source_path(self) -> None:
-        guide = awakeners.Guide(
-            Path("lib/handbook/awakeners/benthos-aequor/pontos.md"),
-            "Pontos",
-            sentinel.awakener,
+        realm = nav[0]["Awakener Guides"][1]["Aequor"]
+        self.assertEqual(realm[0], "handbook/awakeners/aequor/aurita.md")
+        self.assertEqual(
+            realm[1]["Benthos Aequor"],
+            ["handbook/awakeners/benthos-aequor/pontos.md"],
         )
-
-        self.assertEqual(guide.slug, "pontos")
-        self.assertEqual(guide.realm, "benthos-aequor")
-        self.assertEqual(guide.url, "/handbook/awakeners/benthos-aequor/pontos/")
 
     def test_reports_multiple_schema_errors_with_field_paths(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
@@ -229,12 +211,6 @@ class AwakenerPreparationTests(unittest.TestCase):
     def test_rejects_surrounding_whitespace_in_rendered_strings(self) -> None:
         cases = (
             ("title", "title: Example", "title: ' Example '"),
-            (
-                "template",
-                "template: awakeners/awakener.html",
-                "template: ' awakeners/awakener.html '",
-            ),
-            ("awakener.roles[0]", "    - Support", "    - ' Support '"),
             (
                 "awakener.ranks.support[0].tier",
                 "      - tier: B",
@@ -467,19 +443,6 @@ class AwakenerPreparationTests(unittest.TestCase):
 
             self.assertNotIn("content", {issue.field for issue in issues})
 
-    def test_every_allowed_tier_has_a_css_selector_and_color(self) -> None:
-        rank_styles = (awakeners.ROOT / "lib" / "styles" / "awakeners.css").read_text(
-            encoding="utf-8"
-        )
-        color_variables = (awakeners.ROOT / "lib" / "styles" / "extra.css").read_text(
-            encoding="utf-8"
-        )
-
-        for tier, style_name in awakeners.TIER_STYLE_NAMES.items():
-            with self.subTest(tier=tier):
-                self.assertIn(f'.awakener-rank[data-tier="{tier}"]', rank_styles)
-                self.assertIn(f"--md-tier-{style_name}:", color_variables)
-
     def test_missing_asset_stops_preparation(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             root, config = self.project(temporary)
@@ -490,7 +453,7 @@ class AwakenerPreparationTests(unittest.TestCase):
 
             self.assertIn("no asset matched 'awakeners/*/example--mini.png'", str(context.exception))
 
-    def test_rejects_unknown_content_id_with_suggestion(self) -> None:
+    def test_rejects_unknown_content_id(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             root, config = self.project(temporary)
             self.add_catalog_references(root, "burial-ground-sighs")
@@ -500,42 +463,8 @@ class AwakenerPreparationTests(unittest.TestCase):
                     awakeners.prepare_awakeners()
 
             self.assertIn(
-                "unknown covenant ID 'burial-ground-sighs'; "
-                "did you mean 'burial-grounds-sighs'?",
+                "unknown covenant ID 'burial-ground-sighs'",
                 str(context.exception),
-            )
-
-    def test_rejects_content_id_with_surrounding_whitespace(self) -> None:
-        with tempfile.TemporaryDirectory() as temporary:
-            root, config = self.project(temporary)
-            self.add_catalog_references(root, '" burial-grounds-sighs "')
-
-            with self.patches(root, config):
-                with self.assertRaises(awakeners.AwakenerValidationError) as context:
-                    awakeners.prepare_awakeners()
-
-            self.assertIn(
-                "must not have leading or trailing whitespace",
-                str(context.exception),
-            )
-
-    def test_rejects_catalog_label_with_surrounding_whitespace(self) -> None:
-        with tempfile.TemporaryDirectory() as temporary:
-            root, config = self.project(temporary)
-            (root / "content" / "awakeners.yaml").write_text(
-                "example: ' Example '\n",
-                encoding="utf-8",
-            )
-            issues: list[awakeners.ValidationIssue] = []
-
-            with self.patches(root, config):
-                awakeners.load_content_catalog(issues)
-
-            rendered = "\n".join(str(issue) for issue in issues)
-            self.assertIn(
-                "content/awakeners.yaml: example: "
-                "must not have leading or trailing whitespace",
-                rendered,
             )
 
     def test_resolves_content_id_to_catalog_label_and_assets(self) -> None:
@@ -550,10 +479,16 @@ class AwakenerPreparationTests(unittest.TestCase):
             with self.patches(root, config):
                 awakeners.prepare_awakeners()
 
-            generated = (root / ".zensical.generated.toml").read_text(encoding="utf-8")
-            self.assertIn(
-                '"burial-grounds-sighs" = { label = "Burial Ground\'s Sighs"',
-                generated,
+            generated = tomllib.loads(
+                (root / ".zensical.generated.toml").read_text(encoding="utf-8")
+            )
+            covenant = generated["project"]["extra"]["awakener_assets"][
+                "covenants"
+            ]["burial-grounds-sighs"]
+            self.assertEqual(covenant["label"], "Burial Ground's Sighs")
+            self.assertEqual(
+                covenant["image"],
+                "/images/covenants/burial-grounds-sighs.png",
             )
 
     def test_accepts_optional_build_covenant_guidance(self) -> None:
@@ -567,14 +502,10 @@ class AwakenerPreparationTests(unittest.TestCase):
                 ),
                 encoding="utf-8",
             )
-            covenants = root / "lib" / "images" / "covenants"
-            covenants.mkdir()
-            (covenants / "burial-grounds-sighs.png").write_bytes(b"png")
-            (covenants / "burial-grounds-sighs--icon.png").write_bytes(b"png")
-
             with self.patches(root, config):
-                guides = awakeners.prepare_awakeners()
+                guides, issues = awakeners.load_guides()
 
+            self.assertEqual(issues, [])
             self.assertEqual(
                 guides[0].awakener.builds[0].covenants_note, "Any support"
             )

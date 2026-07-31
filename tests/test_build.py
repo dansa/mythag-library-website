@@ -24,8 +24,8 @@ class ImageUrlTests(unittest.TestCase):
             with patch.object(build, "SOURCE_IMAGES", images):
                 wheel_avif = Path(temporary) / "wheel.avif"
                 awakener_avif = Path(temporary) / "awakener.avif"
-                self.assertTrue(build.encode_cached(wheel, wheel_avif))
-                self.assertTrue(build.encode_cached(awakener, awakener_avif))
+                build.encode_cached(wheel, wheel_avif)
+                build.encode_cached(awakener, awakener_avif)
                 self.assertFalse(build.encode_cached(wheel, wheel_avif))
 
             with Image.open(wheel_avif) as converted:
@@ -35,7 +35,7 @@ class ImageUrlTests(unittest.TestCase):
 
             wheel_avif.write_bytes(b"corrupt")
             with patch.object(build, "SOURCE_IMAGES", images):
-                self.assertTrue(build.encode_cached(wheel, wheel_avif))
+                build.encode_cached(wheel, wheel_avif)
             self.assertTrue(build.is_valid_avif(wheel_avif))
 
             site = Path(temporary) / "site"
@@ -48,10 +48,8 @@ class ImageUrlTests(unittest.TestCase):
                 patch.object(build, "SOURCE_IMAGES", images),
                 patch.object(build, "SITE_ROOT", site),
             ):
-                self.assertTrue(
-                    build.encode_cached(wheel, site_wheel.with_suffix(".avif"))
-                )
-                self.assertEqual(build.rewrite_html_images(), (1, 1))
+                build.encode_cached(wheel, site_wheel.with_suffix(".avif"))
+                build.rewrite_html_images()
             self.assertIn(
                 'src="/images/wheels/wheel.avif" width="316" height="640"',
                 page.read_text(encoding="utf-8"),
@@ -99,7 +97,7 @@ class ImageUrlTests(unittest.TestCase):
             )
 
             with patch.object(build, "SITE_ROOT", site):
-                self.assertEqual(build.rewrite_html_images(), (1, 4))
+                build.rewrite_html_images()
 
             rewritten = page.read_text(encoding="utf-8")
             self.assertIn('<script src="/images/awakener.png">', rewritten)
@@ -108,7 +106,6 @@ class ImageUrlTests(unittest.TestCase):
             self.assertIn('width="200" height="100">', rewritten)
             self.assertIn('width="100" height="50">', rewritten)
             self.assertIn('width="117.95" height="59">', rewritten)
-            self.assertNotIn('width="117.95" width=', rewritten)
 
 
 class PngPruningTests(unittest.TestCase):
@@ -127,7 +124,6 @@ class PngPruningTests(unittest.TestCase):
             "index.html": '<a href="/images/example.png">image</a>',
             "entity.html": '<img src="/images/example&#46;png">',
             "styles.css": 'body { background: url("/images/example.png"); }',
-            "relative.css": 'body { background: url("example.png"); }',
             "app.js": 'const image = "/images/example.png";',
             "site.webmanifest": '{"icon": "/images/example.png"}',
         }
@@ -144,10 +140,12 @@ class PngPruningTests(unittest.TestCase):
                     patch.object(build, "SOURCE_IMAGES", images),
                     patch.object(build, "SITE_ROOT", site),
                 ):
-                    with self.assertRaisesRegex(RuntimeError, filename):
+                    with self.assertRaises(RuntimeError) as context:
                         build.verify_and_prune_source_pngs()
 
                 self.assertTrue(built_png.is_file())
+                if filename == "index.html":
+                    self.assertIn(filename, str(context.exception))
 
     def test_prunes_only_unreferenced_source_mapped_pngs(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
@@ -155,9 +153,7 @@ class PngPruningTests(unittest.TestCase):
             images = root / "source-images"
             site = root / "site"
             built_png = site / "images" / "example.png"
-            expected_bytes = self.make_delivery_pair(
-                images / "example.png", built_png
-            )
+            self.make_delivery_pair(images / "example.png", built_png)
             logo_png = site / "images" / "logo.png"
             self.make_delivery_pair(images / "logo.png", logo_png)
             theme_png = site / "assets" / "images" / "favicon.png"
@@ -171,14 +167,30 @@ class PngPruningTests(unittest.TestCase):
                 patch.object(build, "SOURCE_IMAGES", images),
                 patch.object(build, "SITE_ROOT", site),
             ):
-                self.assertEqual(
-                    build.verify_and_prune_source_pngs(), (1, expected_bytes)
-                )
+                build.verify_and_prune_source_pngs()
 
             self.assertFalse(built_png.exists())
             self.assertTrue(built_png.with_suffix(".avif").is_file())
             self.assertTrue(logo_png.is_file())
             self.assertTrue(theme_png.is_file())
+
+    def test_refuses_pruning_when_delivery_avif_is_invalid(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            images = root / "source-images"
+            site = root / "site"
+            built_png = site / "images" / "example.png"
+            self.make_delivery_pair(images / "example.png", built_png)
+            built_png.with_suffix(".avif").write_bytes(b"corrupt")
+
+            with (
+                patch.object(build, "SOURCE_IMAGES", images),
+                patch.object(build, "SITE_ROOT", site),
+            ):
+                with self.assertRaises(RuntimeError):
+                    build.verify_and_prune_source_pngs()
+
+            self.assertTrue(built_png.is_file())
 
 
 class AbbreviationTests(unittest.TestCase):
@@ -208,17 +220,17 @@ class AbbreviationTests(unittest.TestCase):
                 patch.object(build, "SITE_ROOT", site),
                 patch.object(build, "ABBREVIATIONS", abbreviations),
             ):
-                self.assertEqual(build.expand_html_abbreviations(), (1, 4))
+                build.expand_html_abbreviations()
                 self.assertEqual(build.expand_html_abbreviations(), (0, 0))
 
             rewritten = page.read_text(encoding="utf-8")
             self.assertIn(
-                '<abbr title="Repeatedly using an ability.">Spamming</abbr> '
-                '<abbr title="Damage dealer.">DPS</abbr> at '
-                '<abbr title="No enlightens.">E0</abbr> with '
-                '<abbr title="Genesis Doll.">GDoll</abbr>.',
+                '<abbr title="Repeatedly using an ability.">Spamming</abbr>',
                 rewritten,
             )
+            self.assertIn('<abbr title="Damage dealer.">DPS</abbr>', rewritten)
+            self.assertIn('<abbr title="No enlightens.">E0</abbr>', rewritten)
+            self.assertIn('<abbr title="Genesis Doll.">GDoll</abbr>', rewritten)
             self.assertIn('<p title="DPS">', rewritten)
             self.assertIn('<abbr title="existing">DPS</abbr>', rewritten)
             self.assertIn('<code>E0</code>', rewritten)

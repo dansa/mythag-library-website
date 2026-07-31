@@ -488,7 +488,7 @@ def _normalized_artifact_text(path: Path) -> str:
     except UnicodeDecodeError as error:
         relative = path.relative_to(SITE_ROOT).as_posix()
         raise RuntimeError(f"Cannot inspect deployable artifact {relative} as UTF-8") from error
-    normalized = unquote(source).casefold()
+    normalized = unquote(html.unescape(source)).casefold()
     return normalized.replace("\\u002e", ".").replace("\\/", "/")
 
 

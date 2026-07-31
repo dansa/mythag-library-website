@@ -125,6 +125,7 @@ class PngPruningTests(unittest.TestCase):
     def test_refuses_all_pruning_when_deployable_text_references_a_candidate(self) -> None:
         references = {
             "index.html": '<a href="/images/example.png">image</a>',
+            "entity.html": '<img src="/images/example&#46;png">',
             "styles.css": 'body { background: url("/images/example.png"); }',
             "relative.css": 'body { background: url("example.png"); }',
             "app.js": 'const image = "/images/example.png";',

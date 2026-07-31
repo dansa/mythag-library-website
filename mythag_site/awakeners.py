@@ -113,9 +113,15 @@ class ValidationIssue:
     path: Path
     field: str
     message: str
+    line: int | None = None
+    column: int | None = None
 
     def __str__(self) -> str:
         location = self.path.as_posix()
+        if self.line is not None:
+            location += f":{self.line}"
+            if self.column is not None:
+                location += f":{self.column}"
         if self.field:
             location = f"{location}: {self.field}"
         return f"{location}: {self.message}"
@@ -693,6 +699,58 @@ def validate_guide_catalog(
             "does not have a standalone guide",
         )
 
+    for guide in guides:
+        for content_id in guide.awakener.works_well_with:
+            field = "awakener.works_well_with"
+            if (
+                _catalog_label(
+                    content_catalog, "awakeners", content_id, issues, guide.path, field
+                )
+                is not None
+                and content_id not in guide_ids
+            ):
+                _issue(
+                    issues,
+                    guide.path,
+                    field,
+                    f"Awakener ID {content_id!r} does not have a standalone guide",
+                )
+
+        for build_index, build in enumerate(guide.awakener.builds):
+            for covenant in build.covenants:
+                _catalog_label(
+                    content_catalog,
+                    "covenants",
+                    covenant,
+                    issues,
+                    guide.path,
+                    f"awakener.builds[{build_index}].covenants",
+                )
+            for group, recommendations in (
+                ("early_game", build.wheels.early_game),
+                ("astral_reign", build.wheels.astral_reign),
+            ):
+                for item_index, recommendation in enumerate(recommendations):
+                    _catalog_label(
+                        content_catalog,
+                        "wheels",
+                        recommendation.content_id,
+                        issues,
+                        guide.path,
+                        f"awakener.builds[{build_index}].wheels.{group}"
+                        f"[{item_index}].id",
+                    )
+
+        for posse_index, posse in enumerate(guide.awakener.suggested_posses):
+            _catalog_label(
+                content_catalog,
+                "posses",
+                posse.content_id,
+                issues,
+                guide.path,
+                f"awakener.suggested_posses[{posse_index}].id",
+            )
+
 
 def build_asset_catalog(
     guides: list[Guide],
@@ -708,149 +766,54 @@ def build_asset_catalog(
     }
     standalone = {guide.slug: guide for guide in guides}
 
-    def find_awakener_assets(
-        guide: Guide, content_id: str, field: str
-    ) -> tuple[Path, Path] | None:
+    awakener_source = (CONTENT_ROOT / "awakeners.yaml").relative_to(ROOT)
+    for content_id, label in content_catalog["awakeners"].items():
+        target = standalone.get(content_id)
+        if target is None:
+            continue
         full = _find_unique_asset(
-            f"awakeners/*/{content_id}.png", issues, guide.path, field
+            f"awakeners/*/{content_id}.png", issues, awakener_source, content_id
         )
         mini = _find_unique_asset(
-            f"awakeners/*/{content_id}--mini.png", issues, guide.path, field
+            f"awakeners/*/{content_id}--mini.png", issues, awakener_source, content_id
         )
         if full is None or mini is None:
-            return None
-        return full, mini
-
-    def add_portrait(guide: Guide) -> None:
-        assets = find_awakener_assets(guide, guide.slug, "title")
-        if assets is None:
-            return
-        full, mini = assets
-        catalog["portraits"][guide.title] = {
-            "image": _site_url(full),
-            "mini": _site_url(mini),
+            continue
+        portrait = {"image": _site_url(full), "mini": _site_url(mini)}
+        catalog["portraits"][label] = portrait
+        catalog["awakeners"][content_id] = {
+            "label": label,
+            **portrait,
+            "url": target.url,
         }
 
-    def add_awakeners(guide: Guide, content_ids: list[str], field: str) -> None:
-        for content_id in content_ids:
-            if content_id in catalog["awakeners"]:
-                continue
-            label = _catalog_label(
-                content_catalog,
-                "awakeners",
-                content_id,
-                issues,
-                guide.path,
-                field,
-            )
-            if label is None:
-                continue
-            target = standalone.get(content_id)
-            if target is None:
-                _issue(
-                    issues,
-                    guide.path,
-                    field,
-                    f"Awakener ID {content_id!r} does not have a standalone guide",
-                )
-                continue
-            assets = find_awakener_assets(guide, content_id, field)
-            if assets is None:
-                continue
-            full, mini = assets
-            catalog["awakeners"][content_id] = {
+    covenant_source = (CONTENT_ROOT / "covenants.yaml").relative_to(ROOT)
+    for content_id, label in content_catalog["covenants"].items():
+        full = SOURCE_IMAGES / "covenants" / f"{content_id}.png"
+        icon = SOURCE_IMAGES / "covenants" / f"{content_id}--icon.png"
+        if not full.is_file():
+            _issue(issues, covenant_source, content_id, f"missing {full.relative_to(ROOT)}")
+        if not icon.is_file():
+            _issue(issues, covenant_source, content_id, f"missing {icon.relative_to(ROOT)}")
+        if full.is_file() and icon.is_file():
+            catalog["covenants"][content_id] = {
                 "label": label,
                 "image": _site_url(full),
-                "mini": _site_url(mini),
-                "url": target.url,
+                "icon": _site_url(icon),
+                "url": f"/handbook/team#{content_id}",
             }
 
-    for guide in guides:
-        awakener = guide.awakener
-        add_portrait(guide)
-        add_awakeners(
-            guide,
-            list(awakener.works_well_with),
-            "awakener.works_well_with",
-        )
-
-        for build_index, build in enumerate(awakener.builds):
-            for covenant in build.covenants:
-                if covenant in catalog["covenants"]:
-                    continue
-                field = f"awakener.builds[{build_index}].covenants"
-                label = _catalog_label(
-                    content_catalog, "covenants", covenant, issues, guide.path, field
-                )
-                if label is None:
-                    continue
-                full = SOURCE_IMAGES / "covenants" / f"{covenant}.png"
-                icon = SOURCE_IMAGES / "covenants" / f"{covenant}--icon.png"
-                if not full.is_file():
-                    _issue(issues, guide.path, field, f"missing {full.relative_to(ROOT)}")
-                if not icon.is_file():
-                    _issue(issues, guide.path, field, f"missing {icon.relative_to(ROOT)}")
-                if full.is_file() and icon.is_file():
-                    catalog["covenants"][covenant] = {
-                        "label": label,
-                        "image": _site_url(full),
-                        "icon": _site_url(icon),
-                        "url": f"/handbook/team#{covenant}",
-                    }
-            for group, recommendations in (
-                ("early_game", build.wheels.early_game),
-                ("astral_reign", build.wheels.astral_reign),
-            ):
-                for item_index, recommendation in enumerate(recommendations):
-                    content_id = recommendation.content_id
-                    if content_id in catalog["wheels"]:
-                        continue
-                    field = (
-                        f"awakener.builds[{build_index}].wheels.{group}"
-                        f"[{item_index}].id"
-                    )
-                    label = _catalog_label(
-                        content_catalog,
-                        "wheels",
-                        content_id,
-                        issues,
-                        guide.path,
-                        field,
-                    )
-                    if label is None:
-                        continue
-                    image = SOURCE_IMAGES / "wheels" / f"{content_id}.png"
-                    if not image.is_file():
-                        _issue(issues, guide.path, field, f"missing {image.relative_to(ROOT)}")
-                    else:
-                        catalog["wheels"][content_id] = {
-                            "label": label,
-                            "image": _site_url(image),
-                        }
-
-        for posse_index, posse in enumerate(awakener.suggested_posses):
-            content_id = posse.content_id
-            if content_id in catalog["posses"]:
-                continue
-            field = f"awakener.suggested_posses[{posse_index}].id"
-            label = _catalog_label(
-                content_catalog,
-                "posses",
-                content_id,
-                issues,
-                guide.path,
-                field,
-            )
-            if label is None:
-                continue
-            image = SOURCE_IMAGES / "posses" / f"{content_id}.png"
+    for category in ("wheels", "posses"):
+        source = (CONTENT_ROOT / f"{category}.yaml").relative_to(ROOT)
+        for content_id, label in content_catalog[category].items():
+            image = SOURCE_IMAGES / category / f"{content_id}.png"
             if not image.is_file():
-                _issue(issues, guide.path, field, f"missing {image.relative_to(ROOT)}")
-            else:
-                catalog["posses"][content_id] = {
-                    "label": label,
-                    "image": _site_url(image),
-                }
+                _issue(issues, source, content_id, f"missing {image.relative_to(ROOT)}")
+                continue
+            catalog[category][content_id] = {
+                "label": label,
+                "image": _site_url(image),
+            }
     return catalog
 
 
@@ -896,7 +859,7 @@ def _render_nav(guides: list[Guide], indent: str) -> str:
 def _render_catalog(catalog: AssetCatalog) -> str:
     lines = ["", "# Generated by mythag_site.awakeners; do not edit this file."]
     for category in ("portraits", "awakeners", "covenants", "wheels", "posses"):
-        lines.append(f"[project.extra.awakener_assets.{category}]")
+        lines.append(f"[project.extra.content_assets.{category}]")
         for name, values in sorted(catalog[category].items(), key=lambda item: item[0].casefold()):
             rendered = ", ".join(
                 f"{key} = {_toml_string(value)}" for key, value in values.items()
@@ -1030,9 +993,23 @@ def check_main() -> None:
     try:
         guides, catalog = collect_and_validate_awakeners()
         render_generated_config(guides, catalog)
+        from mythag_site.teams import (  # noqa: PLC0415
+            TeamValidationError,
+            validate_team_document,
+        )
+
+        team_issues = [
+            issue
+            for path in sorted((ROOT / "lib").rglob("*.md"))
+            for issue in validate_team_document(path, catalog)
+        ]
+        if team_issues:
+            raise TeamValidationError(team_issues)
     except AwakenerValidationError as error:
         raise SystemExit(str(error)) from error
-    print(f"Awakener content: {len(guides)} guides valid")
+    except TeamValidationError as error:
+        raise SystemExit(str(error)) from error
+    print(f"Content: {len(guides)} Awakener guides and inline teams valid")
 
 
 def serve_main() -> None:

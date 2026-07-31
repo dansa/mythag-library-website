@@ -1,0 +1,127 @@
+.mythag-team {
+  margin-block: 2rem;
+}
+
+.mythag-team :where(figure, p, ol, ul) {
+  margin: 0;
+}
+
+.md-typeset .mythag-team :where(ol, ul) {
+  padding: 0;
+  list-style: none;
+}
+
+.md-typeset .mythag-team li {
+  margin: 0;
+}
+
+.mythag-team__header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+  padding-block-end: 0.75rem;
+  border-block-end: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.mythag-team__title {
+  font-size: 1.25rem;
+  font-weight: 650;
+}
+
+.mythag-team__posse {
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: 2.5rem auto;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.75rem;
+}
+
+.mythag-team__posse img {
+  width: 2.5rem;
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+
+.md-typeset ol.mythag-team__members {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.mythag-team__member {
+  min-width: 0;
+  padding: 1rem 0.65rem 0;
+  border-inline-start: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.mythag-team__member:first-child {
+  border-inline-start: 0;
+}
+
+.mythag-team__awakener img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 168 / 250;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.mythag-team__awakener figcaption {
+  padding-block: 0.55rem 0.75rem;
+  color: var(--md-default-fg-color);
+  font-weight: 650;
+  text-align: center;
+}
+
+.md-typeset ul.mythag-team__gear {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.4rem;
+}
+
+.mythag-team__gear li,
+.mythag-team__gear a {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-width: 0;
+}
+
+.mythag-team__gear img {
+  display: block;
+  width: 100%;
+  max-height: 5.25rem;
+  object-fit: contain;
+}
+
+@media screen and (max-width: 44.984375em) {
+  .mythag-team__posse figcaption {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .md-typeset ol.mythag-team__members {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .mythag-team__awakener img {
+    aspect-ratio: 1;
+  }
+
+  .mythag-team__member:nth-child(odd) {
+    border-inline-start: 0;
+  }
+
+  .mythag-team__member:nth-child(n + 3) {
+    padding-block-start: 1.25rem;
+  }
+}

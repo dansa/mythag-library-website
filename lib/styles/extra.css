@@ -26,15 +26,15 @@
     --md-highlight-yes: #fce5cd;
     --md-highlight-no: #cfe2f3;
 
-    --md-effect-weakness: #855a85;
-    --md-effect-vulnerable: #9f5159;
+    --md-effect-weakness: #976798;
+    --md-effect-vulnerable: #a1525a;
 
-    --md-tier-s: #49699d;
-    --md-tier-a: #547048;
-    --md-tier-b-plus: #846400;
-    --md-tier-b: #7e661a;
-    --md-tier-c-plus: #935c24;
-    --md-tier-c: #a84c4c;
+    --md-tier-s: #6d9eeb;
+    --md-tier-a: #93c47d;
+    --md-tier-b-plus: #bf9000;
+    --md-tier-b: #f1c232;
+    --md-tier-c-plus: #e69138;
+    --md-tier-c: #e06666;
     --md-tier-d: #cc0000;
     --md-tier-f: var(--md-default-fg-color);
 
@@ -55,8 +55,8 @@
     --md-highlight-yes: #7a5a3a;
     --md-highlight-no: #3a5a7a;
 
-    --md-effect-weakness: #a67ea7;
-    --md-effect-vulnerable: #b77b81;
+    --md-effect-weakness: #976798;
+    --md-effect-vulnerable: #a1525a;
 
     --md-tier-s: #7fb0ff;
     --md-tier-a: #9fd98a;

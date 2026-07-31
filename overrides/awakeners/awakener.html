@@ -81,8 +81,8 @@
     </div>
 
     {% for build in guide.builds %}
-      <section class="awakener-section awakener-build" id="build-{{ loop.index }}" aria-labelledby="build-{{ loop.index }}-title">
-        <h2 id="build-{{ loop.index }}-title">{{ build.name }}</h2>
+      <section class="awakener-section awakener-build">
+        <h2>{{ build.name }}</h2>
         <div class="awakener-build-grid">
           <div class="awakener-covenant-column">
             <div class="awakener-covenants">
@@ -137,7 +137,7 @@
         {% endif %}
 
         {% if guide.works_well_with or guide.works_well_with_note %}
-          <div class="awakener-recommendation-group{% if not guide.works_well_with %} awakener-recommendation-group--note-only{% endif %}" id="works-well-with" data-kind="awakeners">
+          <div class="awakener-recommendation-group{% if not guide.works_well_with %} awakener-recommendation-group--note-only{% endif %}" id="works-well-with">
             <div class="awakener-recommendation-label">
               <h2>Works Well With</h2>
               {% if guide.works_well_with_note %}

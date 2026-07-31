@@ -217,10 +217,6 @@ class AwakenerContentTests(unittest.TestCase):
             guide_html,
         )
         self.assertIn('id="overview"', guide_html)
-        self.assertIn(
-            'id="build-1" aria-labelledby="build-1-title"',
-            guide_html,
-        )
         self.assertRegex(
             guide_html,
             r'<img src="/images/covenants/scarlet-embrace\.png" alt=""',

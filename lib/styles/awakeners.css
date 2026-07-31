@@ -59,11 +59,21 @@
 [data-md-color-scheme="default"] .awakener-guide {
   --awakener-link-color: #315f79;
   --awakener-link-hover-color: #214760;
+  --md-effect-weakness: #855a85;
+  --md-effect-vulnerable: #9f5159;
+  --md-tier-s: #49699d;
+  --md-tier-a: #547048;
+  --md-tier-b-plus: #846400;
+  --md-tier-b: #7e661a;
+  --md-tier-c-plus: #935c24;
+  --md-tier-c: #a84c4c;
 }
 
 [data-md-color-scheme="slate"] .awakener-guide {
   --awakener-link-color: #83b9d6;
   --awakener-link-hover-color: #b4daf0;
+  --md-effect-weakness: #a67ea7;
+  --md-effect-vulnerable: #b77b81;
 }
 
 .awakener-guide a {
@@ -357,12 +367,6 @@
   min-width: 0;
 }
 
-.awakener-recommendations {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0;
-}
-
 .awakener-recommendation-group {
   display: grid;
   grid-template-columns: minmax(8rem, 10rem) minmax(0, 1fr);
@@ -503,8 +507,7 @@
 }
 
 @media screen and (max-width: 44.984375em) {
-  .awakener-summary,
-  .awakener-recommendations {
+  .awakener-summary {
     grid-template-columns: 1fr;
   }
 

@@ -33,6 +33,11 @@ class ImageUrlTests(unittest.TestCase):
             with Image.open(awakener_avif) as converted:
                 self.assertEqual(converted.size, (430, 872))
 
+            wheel_avif.write_bytes(b"corrupt")
+            with patch.object(build, "SOURCE_IMAGES", images):
+                self.assertTrue(build.encode_cached(wheel, wheel_avif))
+            self.assertTrue(build.is_valid_avif(wheel_avif))
+
             site = Path(temporary) / "site"
             site_wheel = site / "images" / "wheels" / "wheel.png"
             site_wheel.parent.mkdir(parents=True)
@@ -85,22 +90,95 @@ class ImageUrlTests(unittest.TestCase):
             Image.new("RGBA", (200, 100)).save(avif, "AVIF")
             page.write_text(
                 '<script src="/images/awakener.png"></script>'
-                '<img src="/images/awakener.png" alt="Awakener">'
+                '<a class="glightbox" data-type="image" '
+                'href="/images/awakener.png">'
+                '<img src="/images/awakener.png" alt="Awakener"></a>'
                 '<img src="/images/awakener.png" alt="Small" width="100">'
                 '<img src="/images/awakener.png" alt="Decimal" width="117.95">',
                 encoding="utf-8",
             )
 
             with patch.object(build, "SITE_ROOT", site):
-                self.assertEqual(build.rewrite_html_images(), (1, 3))
+                self.assertEqual(build.rewrite_html_images(), (1, 4))
 
             rewritten = page.read_text(encoding="utf-8")
             self.assertIn('<script src="/images/awakener.png">', rewritten)
+            self.assertIn('href="/images/awakener.avif"', rewritten)
             self.assertIn('<img src="/images/awakener.avif"', rewritten)
             self.assertIn('width="200" height="100">', rewritten)
             self.assertIn('width="100" height="50">', rewritten)
             self.assertIn('width="117.95" height="59">', rewritten)
             self.assertNotIn('width="117.95" width=', rewritten)
+
+
+class PngPruningTests(unittest.TestCase):
+    def make_delivery_pair(self, source: Path, built_png: Path) -> int:
+        source.parent.mkdir(parents=True, exist_ok=True)
+        built_png.parent.mkdir(parents=True, exist_ok=True)
+        Image.new("RGBA", (32, 16), (255, 0, 0, 128)).save(source)
+        built_png.write_bytes(source.read_bytes())
+        Image.new("RGBA", (32, 16), (255, 0, 0, 128)).save(
+            built_png.with_suffix(".avif"), "AVIF"
+        )
+        return built_png.stat().st_size
+
+    def test_refuses_all_pruning_when_deployable_text_references_a_candidate(self) -> None:
+        references = {
+            "index.html": '<a href="/images/example.png">image</a>',
+            "entity.html": '<img src="/images/example&#46;png">',
+            "styles.css": 'body { background: url("/images/example.png"); }',
+            "relative.css": 'body { background: url("example.png"); }',
+            "app.js": 'const image = "/images/example.png";',
+            "site.webmanifest": '{"icon": "/images/example.png"}',
+        }
+        for filename, reference in references.items():
+            with self.subTest(filename=filename), tempfile.TemporaryDirectory() as temporary:
+                root = Path(temporary)
+                images = root / "source-images"
+                site = root / "site"
+                built_png = site / "images" / "example.png"
+                self.make_delivery_pair(images / "example.png", built_png)
+                (site / filename).write_text(reference, encoding="utf-8")
+
+                with (
+                    patch.object(build, "SOURCE_IMAGES", images),
+                    patch.object(build, "SITE_ROOT", site),
+                ):
+                    with self.assertRaisesRegex(RuntimeError, filename):
+                        build.verify_and_prune_source_pngs()
+
+                self.assertTrue(built_png.is_file())
+
+    def test_prunes_only_unreferenced_source_mapped_pngs(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            images = root / "source-images"
+            site = root / "site"
+            built_png = site / "images" / "example.png"
+            expected_bytes = self.make_delivery_pair(
+                images / "example.png", built_png
+            )
+            logo_png = site / "images" / "logo.png"
+            self.make_delivery_pair(images / "logo.png", logo_png)
+            theme_png = site / "assets" / "images" / "favicon.png"
+            theme_png.parent.mkdir(parents=True)
+            theme_png.write_bytes(b"theme")
+            (site / "index.html").write_text(
+                '<link rel="icon" href="/images/logo.png">', encoding="utf-8"
+            )
+
+            with (
+                patch.object(build, "SOURCE_IMAGES", images),
+                patch.object(build, "SITE_ROOT", site),
+            ):
+                self.assertEqual(
+                    build.verify_and_prune_source_pngs(), (1, expected_bytes)
+                )
+
+            self.assertFalse(built_png.exists())
+            self.assertTrue(built_png.with_suffix(".avif").is_file())
+            self.assertTrue(logo_png.is_file())
+            self.assertTrue(theme_png.is_file())
 
 
 class AbbreviationTests(unittest.TestCase):

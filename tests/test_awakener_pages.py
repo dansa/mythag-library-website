@@ -162,6 +162,20 @@ class AwakenerPreparationTests(unittest.TestCase):
                 },
             )
 
+    def test_check_validates_generated_config_without_writing_it(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root, config = self.project(temporary)
+            config.write_text(
+                "[project]\nnav = [\n  # @mythag-awakener-nav\n",
+                encoding="utf-8",
+            )
+
+            with self.patches(root, config):
+                with self.assertRaisesRegex(SystemExit, "generated config is invalid TOML"):
+                    awakeners.check_main()
+
+            self.assertFalse((root / ".zensical.generated.toml").exists())
+
     def test_nests_subrealm_guides_under_their_realm_family(self) -> None:
         guides = [
             awakeners.Guide(

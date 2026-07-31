@@ -24,16 +24,22 @@
   text-wrap: balance;
 }
 
-.awakener-roles {
+.md-typeset ul.awakener-roles {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   gap: 0.25rem 0.75rem;
   max-width: 70ch;
   margin: 0.75rem 0 0;
+  padding: 0;
   color: var(--md-default-fg-color--light);
   font-size: 0.78rem;
   line-height: 1.4;
+  list-style: none;
+}
+
+.md-typeset ul.awakener-roles li {
+  margin: 0;
 }
 
 .awakener-role:not(:last-child)::after {
@@ -48,6 +54,39 @@
 
 .awakener-role[data-role="Vulnerable"] {
   color: var(--md-effect-vulnerable);
+}
+
+[data-md-color-scheme="default"] .awakener-guide {
+  --awakener-link-color: #315f79;
+  --awakener-link-hover-color: #214760;
+}
+
+[data-md-color-scheme="slate"] .awakener-guide {
+  --awakener-link-color: #83b9d6;
+  --awakener-link-hover-color: #b4daf0;
+}
+
+.awakener-guide a {
+  color: var(--awakener-link-color);
+  text-decoration: underline;
+  text-decoration-thickness: 0.06em;
+  text-underline-offset: 0.12em;
+}
+
+.awakener-guide a figcaption {
+  color: inherit;
+  opacity: 1;
+}
+
+.awakener-guide a:hover {
+  color: var(--awakener-link-hover-color);
+}
+
+.awakener-guide a:focus-visible {
+  color: var(--awakener-link-hover-color);
+  outline: 0.12rem solid var(--awakener-link-color);
+  outline-offset: 0.12rem;
+  border-radius: 0.08rem;
 }
 
 .awakener-summary {
@@ -201,13 +240,23 @@
   margin-top: 1.2rem;
 }
 
+.awakener-guide [id] {
+  scroll-margin-top: 4rem;
+}
+
 .awakener-section {
   margin-top: 3rem;
   padding-top: 1rem;
   border-top: 0.05rem solid var(--md-default-fg-color--lightest);
 }
 
-.awakener-build > h2,
+.awakener-build > h2 {
+  margin-bottom: 1rem;
+  color: var(--md-default-fg-color);
+  font-size: 0.74rem;
+  text-align: left;
+}
+
 .awakener-recommendations h2 {
   margin-bottom: 1rem;
   color: var(--md-default-fg-color--light);
@@ -281,8 +330,11 @@
 }
 
 .awakener-wheel-column h3 {
-  margin-bottom: 0.75rem;
-  font-size: 0.72rem;
+  margin-bottom: 0.65rem;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
   text-align: left;
   overflow-wrap: anywhere;
 }

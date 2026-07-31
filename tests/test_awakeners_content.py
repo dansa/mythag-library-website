@@ -212,6 +212,19 @@ class AwakenerContentTests(unittest.TestCase):
             }
         )
         self.assertFalse(legacy_terms - rendered_terms)
+        self.assertIn(
+            '<ul class="awakener-roles" aria-label="Roles and mechanics">',
+            guide_html,
+        )
+        self.assertIn('id="overview"', guide_html)
+        self.assertRegex(
+            guide_html,
+            r'<img src="/images/covenants/scarlet-embrace\.png" alt=""',
+        )
+        self.assertRegex(
+            guide_html,
+            r'<img src="/images/awakeners/chaos/gdoll--mini\.png" alt=""',
+        )
 
     def test_standalone_guides_do_not_link_back_to_legacy_fragments(self) -> None:
         guide_root = ROOT / "lib" / "handbook" / "awakeners"

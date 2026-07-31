@@ -2,30 +2,39 @@
 
 from __future__ import annotations
 
-import difflib
 import json
 import re
 import subprocess
 import sys
 import tomllib
-from collections.abc import Callable, Hashable
+from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
 import yaml
 
+from mythag_site.content import (
+    CONTENT_CATEGORIES,
+    CONTENT_ID,
+    CONTENT_ROOT,
+    ROOT,
+    SOURCE_IMAGES,
+    AssetCatalog,
+    ValidationIssue,
+    load_yaml,
+    parse_content_id,
+    parse_non_empty_string,
+    unknown_content_id_message,
+)
+from mythag_site.teams import TeamValidationError
 
-ROOT = Path(__file__).resolve().parents[1]
+
 GUIDES_ROOT = ROOT / "lib" / "handbook" / "awakeners"
-SOURCE_IMAGES = ROOT / "lib" / "images"
-CONTENT_ROOT = ROOT / "content"
 SOURCE_CONFIG = ROOT / "zensical.toml"
 GENERATED_CONFIG = ROOT / ".zensical.generated.toml"
 NAV_MARKER = "@mythag-awakener-nav"
 TEMPLATE_NAME = "awakeners/awakener.html"
-
-type AssetCatalog = dict[str, dict[str, dict[str, str]]]
 
 REALM_FAMILIES: tuple[tuple[str, tuple[tuple[str, str | None], ...]], ...] = (
     ("Chaos", (("chaos", None),)),
@@ -61,70 +70,10 @@ TIER_STYLE_NAMES = {
     "F": "f",
 }
 ALLOWED_TIERS = set(TIER_STYLE_NAMES)
-CONTENT_CATEGORIES = ("awakeners", "covenants", "wheels", "posses")
-CONTENT_ID = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*\Z")
 FRONT_MATTER = re.compile(r"\A---[ \t]*\r?\n(?P<yaml>.*?)\r?\n---[ \t]*(?:\r?\n|\Z)", re.DOTALL)
 LAYOUT_MARKUP = re.compile(
     r"{{|{%|<!--|<![A-Za-z]|</?[A-Za-z][A-Za-z0-9-]*(?:\s[^<>]*|/?)>"
 )
-
-
-class _UniqueKeyLoader(yaml.SafeLoader):
-    """Safe YAML loader that rejects silently overwritten mapping keys."""
-
-
-def _construct_unique_mapping(
-    loader: yaml.SafeLoader, node: yaml.MappingNode, deep: bool = False
-) -> dict[Any, Any]:
-    loader.flatten_mapping(node)
-    mapping: dict[Any, Any] = {}
-    for key_node, value_node in node.value:
-        key = loader.construct_object(key_node, deep=deep)
-        if not isinstance(key, Hashable):
-            raise yaml.constructor.ConstructorError(
-                "while constructing a mapping",
-                node.start_mark,
-                "found an unhashable key",
-                key_node.start_mark,
-            )
-        if key in mapping:
-            raise yaml.constructor.ConstructorError(
-                "while constructing a mapping",
-                node.start_mark,
-                f"found duplicate key {key!r}",
-                key_node.start_mark,
-            )
-        mapping[key] = loader.construct_object(value_node, deep=deep)
-    return mapping
-
-
-_UniqueKeyLoader.add_constructor(
-    yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG,
-    _construct_unique_mapping,
-)
-
-
-def _load_yaml(text: str) -> Any:
-    return yaml.load(text, Loader=_UniqueKeyLoader)
-
-
-@dataclass(frozen=True)
-class ValidationIssue:
-    path: Path
-    field: str
-    message: str
-    line: int | None = None
-    column: int | None = None
-
-    def __str__(self) -> str:
-        location = self.path.as_posix()
-        if self.line is not None:
-            location += f":{self.line}"
-            if self.column is not None:
-                location += f":{self.column}"
-        if self.field:
-            location = f"{location}: {self.field}"
-        return f"{location}: {self.message}"
 
 
 @dataclass(frozen=True)
@@ -209,13 +158,11 @@ def _non_empty_string(
     field: str,
 ) -> str | None:
     """Accept a non-empty author value exactly as it will be rendered or indexed."""
-    if not isinstance(value, str) or not value.strip():
-        _issue(issues, path, field, "expected a non-empty string")
+    parsed, error = parse_non_empty_string(value)
+    if error is not None:
+        _issue(issues, path, field, error)
         return None
-    if value != value.strip():
-        _issue(issues, path, field, "must not have leading or trailing whitespace")
-        return None
-    return value
+    return parsed
 
 
 def _content_id(
@@ -224,14 +171,9 @@ def _content_id(
     path: Path,
     field: str,
 ) -> str | None:
-    content_id = _non_empty_string(value, issues, path, field)
-    if content_id is not None and CONTENT_ID.fullmatch(content_id) is None:
-        _issue(
-            issues,
-            path,
-            field,
-            "expected a lowercase kebab-case content ID such as burial-grounds-sighs",
-        )
+    content_id, error = parse_content_id(value)
+    if error is not None:
+        _issue(issues, path, field, error)
         return None
     return content_id
 
@@ -444,7 +386,7 @@ def _parse_guide(path: Path, issues: list[ValidationIssue]) -> Guide | None:
         _issue(issues, relative, "", "missing leading YAML front matter")
         return None
     try:
-        meta = _load_yaml(match.group("yaml"))
+        meta = load_yaml(match.group("yaml"))
     except yaml.MarkedYAMLError as error:
         mark = error.problem_mark
         location = "front matter"
@@ -615,7 +557,7 @@ def load_content_catalog(
             _issue(issues, relative, "", "missing content catalog")
             continue
         try:
-            entries = _load_yaml(path.read_text(encoding="utf-8"))
+            entries = load_yaml(path.read_text(encoding="utf-8"))
         except yaml.MarkedYAMLError as error:
             mark = error.problem_mark
             field = ""
@@ -647,12 +589,7 @@ def _catalog_label(
     if label is not None:
         return label
 
-    message = f"unknown {category.removesuffix('s')} ID {content_id!r}"
-    suggestions = difflib.get_close_matches(
-        content_id, content_catalog[category], n=1, cutoff=0.6
-    )
-    if suggestions:
-        message += f"; did you mean {suggestions[0]!r}?"
+    message = unknown_content_id_message(category, content_id, content_catalog[category])
     _issue(issues, source_path, field, message)
     return None
 
@@ -993,11 +930,7 @@ def check_main() -> None:
     try:
         guides, catalog = collect_and_validate_awakeners()
         render_generated_config(guides, catalog)
-        from mythag_site.teams import (  # noqa: PLC0415
-            TeamValidationError,
-            validate_team_document,
-        )
-
+        from mythag_site.team_extension import validate_team_document  # noqa: PLC0415
         team_issues = [
             issue
             for path in sorted((ROOT / "lib").rglob("*.md"))

@@ -5,19 +5,16 @@ from tempfile import TemporaryDirectory
 from pathlib import Path
 from unittest.mock import patch
 
-from markdown import Markdown
-
-from mythag_site import teams
+from mythag_site import team_extension
+from mythag_site.awakeners import GENERATED_CONFIG, prepare_awakeners
+from mythag_site.team_extension import scan_team_fences
 from mythag_site.teams import (
-    TeamExtension,
     TeamFence,
     TeamValidationError,
     parse_team,
     render_team,
     resolve_team,
-    scan_team_fences,
 )
-from zensical.extensions.context import ContextExtension, Page
 
 
 def asset(label: str, image: str, url: str | None = None) -> dict[str, str]:
@@ -123,24 +120,32 @@ class TeamTests(unittest.TestCase):
         with self.assertRaisesRegex(TeamValidationError, "missing closing"):
             scan_team_fences(["before", "```team", VALID_TEAM], Path("guide.md"))
 
-    def test_extension_renders_at_the_authored_position_in_page_prose(self) -> None:
+    def test_zensical_renders_frontmatter_page_at_the_authored_position(self) -> None:
         with TemporaryDirectory() as temporary:
             root = Path(temporary)
             source = root / "lib" / "handbook" / "awakeners" / "example.md"
             source.parent.mkdir(parents=True)
-            body = f"Before.\n\n```team\n{VALID_TEAM}```\n\nAfter.\n"
-            source.write_text(body, encoding="utf-8")
-            config = {"extra": {"content_assets": ASSETS}}
-            page = Page(url="/example/", path="handbook/awakeners/example.md")
-            markdown = Markdown(
-                extensions=[
-                    ContextExtension(page=page, config=config),
-                    TeamExtension(),
-                ]
+            document = (
+                "---\ntitle: Example team\n---\n\n"
+                f"Before.\n\n```team\n{VALID_TEAM}```\n\nAfter.\n"
             )
+            source.write_text(document, encoding="utf-8")
 
-            with patch.object(teams, "ROOT", root):
-                rendered = markdown.convert(body)
+            import zensical.config as zensical_config
+            from zensical.markdown.render import render
+
+            previous_config = zensical_config._CONFIG
+            try:
+                prepare_awakeners()
+                zensical_config.parse_zensical_config(str(GENERATED_CONFIG))
+                with patch.object(team_extension, "ROOT", root):
+                    rendered = render(
+                        document,
+                        "handbook/awakeners/example.md",
+                        "/handbook/awakeners/example/",
+                    )["content"]
+            finally:
+                zensical_config._CONFIG = previous_config
 
         self.assertLess(rendered.index("Before."), rendered.index("mythag-team"))
         self.assertLess(rendered.index("mythag-team"), rendered.index("After."))

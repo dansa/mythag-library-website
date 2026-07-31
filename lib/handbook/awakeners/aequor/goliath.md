@@ -13,7 +13,7 @@ awakener:
   ranks:
     dps:
       - tier: C
-        note: ' Usable'
+        note: Usable
     support:
       - tier: B
         note: Decent

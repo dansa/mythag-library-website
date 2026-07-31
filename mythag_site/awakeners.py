@@ -7,7 +7,7 @@ import json
 import re
 import shutil
 import subprocess
-from collections.abc import Callable
+from collections.abc import Callable, Hashable
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -64,6 +64,45 @@ FRONT_MATTER = re.compile(r"\A---[ \t]*\r?\n(?P<yaml>.*?)\r?\n---[ \t]*(?:\r?\n|
 LAYOUT_MARKUP = re.compile(
     r"{{|{%|<!--|<![A-Za-z]|</?[A-Za-z][A-Za-z0-9-]*(?:\s[^<>]*|/?)>"
 )
+
+
+class _UniqueKeyLoader(yaml.SafeLoader):
+    """Safe YAML loader that rejects silently overwritten mapping keys."""
+
+
+def _construct_unique_mapping(
+    loader: yaml.SafeLoader, node: yaml.MappingNode, deep: bool = False
+) -> dict[Any, Any]:
+    loader.flatten_mapping(node)
+    mapping: dict[Any, Any] = {}
+    for key_node, value_node in node.value:
+        key = loader.construct_object(key_node, deep=deep)
+        if not isinstance(key, Hashable):
+            raise yaml.constructor.ConstructorError(
+                "while constructing a mapping",
+                node.start_mark,
+                "found an unhashable key",
+                key_node.start_mark,
+            )
+        if key in mapping:
+            raise yaml.constructor.ConstructorError(
+                "while constructing a mapping",
+                node.start_mark,
+                f"found duplicate key {key!r}",
+                key_node.start_mark,
+            )
+        mapping[key] = loader.construct_object(value_node, deep=deep)
+    return mapping
+
+
+_UniqueKeyLoader.add_constructor(
+    yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG,
+    _construct_unique_mapping,
+)
+
+
+def _load_yaml(text: str) -> Any:
+    return yaml.load(text, Loader=_UniqueKeyLoader)
 
 
 @dataclass(frozen=True)
@@ -123,9 +162,20 @@ class Awakener:
 class Guide:
     path: Path
     title: str
-    slug: str
-    realm: str
     awakener: Awakener
+
+    @property
+    def slug(self) -> str:
+        return self.path.stem
+
+    @property
+    def realm(self) -> str:
+        return self.path.parent.name
+
+    @property
+    def url(self) -> str:
+        source = self.path.relative_to("lib").with_suffix("").as_posix()
+        return f"/{source}/"
 
 
 class AwakenerValidationError(Exception):
@@ -149,10 +199,14 @@ def _non_empty_string(
     path: Path,
     field: str,
 ) -> str | None:
+    """Accept a non-empty author value exactly as it will be rendered or indexed."""
     if not isinstance(value, str) or not value.strip():
         _issue(issues, path, field, "expected a non-empty string")
         return None
-    return value.strip()
+    if value != value.strip():
+        _issue(issues, path, field, "must not have leading or trailing whitespace")
+        return None
+    return value
 
 
 def _content_id(
@@ -162,9 +216,6 @@ def _content_id(
     field: str,
 ) -> str | None:
     content_id = _non_empty_string(value, issues, path, field)
-    if content_id is not None and value != content_id:
-        _issue(issues, path, field, "must not have leading or trailing whitespace")
-        return None
     if content_id is not None and CONTENT_ID.fullmatch(content_id) is None:
         _issue(
             issues,
@@ -174,6 +225,24 @@ def _content_id(
         )
         return None
     return content_id
+
+
+def _report_unknown_fields(
+    mapping: dict[Any, Any],
+    allowed: set[str],
+    issues: list[ValidationIssue],
+    path: Path,
+    field: str,
+    *,
+    message: str = "unknown field",
+) -> None:
+    unknown = (key for key in mapping if key not in allowed)
+    for key in sorted(unknown, key=str):
+        key_field = f"{field}.{key}" if field else str(key)
+        key_message = (
+            message if isinstance(key, str) else "expected a string field name"
+        )
+        _issue(issues, path, key_field, key_message)
 
 
 def _parsed_string_list(
@@ -241,9 +310,7 @@ def _validate_rank_entries(
         if not isinstance(item, dict):
             _issue(issues, path, item_field, "expected a mapping")
             continue
-        unknown = set(item) - {"tier", "note"}
-        for key in sorted(unknown):
-            _issue(issues, path, f"{item_field}.{key}", "unknown field")
+        _report_unknown_fields(item, {"tier", "note"}, issues, path, item_field)
         tier = _non_empty_string(item.get("tier"), issues, path, f"{item_field}.tier")
         if tier is not None and tier not in ALLOWED_TIERS:
             _issue(
@@ -281,9 +348,7 @@ def _validate_content_recommendations(
         if not isinstance(item, dict):
             _issue(issues, path, item_field, "expected a mapping with an id")
             continue
-        unknown = set(item) - {"id", "note"}
-        for key in sorted(unknown):
-            _issue(issues, path, f"{item_field}.{key}", "unknown field")
+        _report_unknown_fields(item, {"id", "note"}, issues, path, item_field)
         content_id = _content_id(item.get("id"), issues, path, f"{item_field}.id")
         note = None
         if "note" in item:
@@ -310,9 +375,13 @@ def _validate_builds(
         if not isinstance(build, dict):
             _issue(issues, path, field, "expected a mapping")
             continue
-        unknown = set(build) - {"name", "covenants", "covenants_note", "wheels"}
-        for key in sorted(unknown):
-            _issue(issues, path, f"{field}.{key}", "unknown field")
+        _report_unknown_fields(
+            build,
+            {"name", "covenants", "covenants_note", "wheels"},
+            issues,
+            path,
+            field,
+        )
         name = _non_empty_string(build.get("name"), issues, path, f"{field}.name")
         covenants = _content_id_list(
             build.get("covenants"), issues, path, f"{field}.covenants"
@@ -327,9 +396,13 @@ def _validate_builds(
         if not isinstance(wheel_groups, dict):
             _issue(issues, path, f"{field}.wheels", "expected a mapping")
             wheel_groups = {}
-        unknown_groups = set(wheel_groups) - {"early_game", "astral_reign"}
-        for key in sorted(unknown_groups):
-            _issue(issues, path, f"{field}.wheels.{key}", "unknown field")
+        _report_unknown_fields(
+            wheel_groups,
+            {"early_game", "astral_reign"},
+            issues,
+            path,
+            f"{field}.wheels",
+        )
         early_game = _validate_content_recommendations(
             wheel_groups.get("early_game"),
             issues,
@@ -362,7 +435,7 @@ def _parse_guide(path: Path, issues: list[ValidationIssue]) -> Guide | None:
         _issue(issues, relative, "", "missing leading YAML front matter")
         return None
     try:
-        meta = yaml.safe_load(match.group("yaml"))
+        meta = _load_yaml(match.group("yaml"))
     except yaml.MarkedYAMLError as error:
         mark = error.problem_mark
         location = "front matter"
@@ -393,8 +466,9 @@ def _parse_guide(path: Path, issues: list[ValidationIssue]) -> Guide | None:
     if not isinstance(awakener, dict):
         _issue(issues, relative, "awakener", "expected a mapping")
         return None
-    for key in sorted(set(awakener) - ALLOWED_AWAKENER_FIELDS):
-        _issue(issues, relative, f"awakener.{key}", "unknown field")
+    _report_unknown_fields(
+        awakener, ALLOWED_AWAKENER_FIELDS, issues, relative, "awakener"
+    )
 
     tagline = _non_empty_string(
         awakener.get("tagline"), issues, relative, "awakener.tagline"
@@ -407,8 +481,14 @@ def _parse_guide(path: Path, issues: list[ValidationIssue]) -> Guide | None:
     if not isinstance(ranks, dict) or not ranks:
         _issue(issues, relative, "awakener.ranks", "expected a non-empty mapping")
     else:
-        for key in sorted(set(ranks) - {"dps", "support"}):
-            _issue(issues, relative, f"awakener.ranks.{key}", "unknown rank")
+        _report_unknown_fields(
+            ranks,
+            {"dps", "support"},
+            issues,
+            relative,
+            "awakener.ranks",
+            message="unknown rank",
+        )
         for key in ("dps", "support"):
             if key in ranks:
                 parsed_ranks = _validate_rank_entries(
@@ -473,8 +553,6 @@ def _parse_guide(path: Path, issues: list[ValidationIssue]) -> Guide | None:
     return Guide(
         relative,
         title,
-        slug,
-        realm,
         Awakener(
             tagline or "",
             tuple(roles),
@@ -509,7 +587,7 @@ def load_guides() -> tuple[list[Guide], list[ValidationIssue]]:
                 _issue(
                     issues,
                     guide.path,
-                    "title",
+                    label,
                     f"duplicate {label}; first used by {index[key].path.as_posix()}",
                 )
             else:
@@ -528,7 +606,7 @@ def load_content_catalog(
             _issue(issues, relative, "", "missing content catalog")
             continue
         try:
-            entries = yaml.safe_load(path.read_text(encoding="utf-8"))
+            entries = _load_yaml(path.read_text(encoding="utf-8"))
         except yaml.MarkedYAMLError as error:
             mark = error.problem_mark
             field = ""
@@ -681,7 +759,7 @@ def build_asset_catalog(
                 "label": label,
                 "image": _site_url(full),
                 "mini": _site_url(mini),
-                "url": f"/handbook/awakeners/{target.realm}/{target.slug}/",
+                "url": target.url,
             }
 
     for guide in guides:
@@ -883,7 +961,7 @@ def _render_index(
         values = {
             "label": guide.title,
             "image": portrait["mini"],
-            "url": f"/handbook/awakeners/{guide.realm}/{guide.slug}/",
+            "url": guide.url,
         }
         rendered = ", ".join(
             f"{key} = {_toml_string(value)}" for key, value in values.items()

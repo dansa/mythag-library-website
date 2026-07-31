@@ -14,6 +14,8 @@ might need to reload the page occasionally). Restart the preview after adding,
 renaming, moving, or removing an Awakener guide, editing a content catalog, or
 adding or removing structured covenant, wheel, posse, or related-Awakener IDs.
 Those changes refresh generated navigation and asset lookups only at startup.
+This is a fast authoring preview: AVIF URL rewriting, production abbreviation
+expansion, and redundant-PNG pruning run only during `mythag-build`.
 
 Run `uv run mythag-check` for a quick content and asset validation without a
 full production build.
@@ -24,7 +26,12 @@ built HTML to serve AVIF images with intrinsic dimensions. Wheel delivery
 assets are capped at a 640-pixel edge; other images retain their source
 dimensions. Maintainers should continue adding and referencing ordinary PNG
 source assets; no manual conversion or AVIF filenames are needed. Unchanged
-conversions are reused from the ignored `.avif-cache` directory.
+conversions are reused from the ignored `.avif-cache` directory. The completed
+artifact is checked for surviving references before redundant built PNG copies
+are removed; the logo PNG is retained for favicon compatibility.
+
+To inspect the exact production output locally, build it and then run
+`uv run python -m http.server 8000 --directory site`.
 
 The hosting provider must use `uv run mythag-build` as its production build
 command. Running `zensical build` directly skips AVIF generation and HTML

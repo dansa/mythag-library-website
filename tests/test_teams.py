@@ -167,7 +167,7 @@ class TeamTests(unittest.TestCase):
         )
 
     def test_scanner_ignores_examples_and_rejects_unclosed_teams(self) -> None:
-        example = ["````markdown", "```team", VALID_TEAM, "```", "````"]
+        example = ["  ````markdown", "  ```team", VALID_TEAM, "  ```", "  ````"]
         self.assertFalse(
             any(
                 isinstance(segment, TeamFence)

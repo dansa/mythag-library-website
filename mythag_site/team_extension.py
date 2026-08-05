@@ -20,9 +20,12 @@ from mythag_site.teams import (
 )
 
 
-TEAM_OPEN = re.compile(r"^ {0,3}```team[ \t]*$")
+FENCE_INDENT = r" {0,3}"
+TEAM_OPEN = re.compile(rf"^{FENCE_INDENT}```team[ \t]*$")
 TEAM_INDENTED = re.compile(r"^[ \t]+```team[ \t]*$")
-FENCE_OPEN = re.compile(r"^(?P<fence>`{3,}|~{3,})(?:[^`~].*)?$")
+FENCE_OPEN = re.compile(
+    rf"^{FENCE_INDENT}(?P<fence>`{{3,}}|~{{3,}})(?:[^`~].*)?$"
+)
 FRONT_MATTER = re.compile(
     r"^-{3}[ \r\t]*?\n(.*?\r?\n)(?:\.{3}|-{3})[ \r\t]*\n",
     re.UNICODE | re.DOTALL,
@@ -32,7 +35,7 @@ FRONT_MATTER = re.compile(
 def _closing_fence(line: str, fence: str) -> bool:
     return (
         re.fullmatch(
-            rf"^ {{0,3}}{re.escape(fence[0])}{{{len(fence)},}}[ \t]*$", line
+            rf"^{FENCE_INDENT}{re.escape(fence[0])}{{{len(fence)},}}[ \t]*$", line
         )
         is not None
     )

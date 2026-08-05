@@ -183,6 +183,16 @@ class TeamTests(unittest.TestCase):
             )
         self.assertEqual(caught.exception.issues[0].line, 6)
 
+    def test_scanner_accepts_team_fence_trailing_whitespace(self) -> None:
+        segments = scan_team_fences(
+            ["```team   ", *VALID_TEAM.splitlines(), "```   "],
+            Path("guide.md"),
+        )
+
+        team_segments = [segment for segment in segments if isinstance(segment, TeamFence)]
+        self.assertEqual(len(team_segments), 1)
+        self.assertIn("name: Xu Poison", team_segments[0].source)
+
     def test_zensical_renders_frontmatter_page_at_the_authored_position(self) -> None:
         with TemporaryDirectory() as temporary:
             root = Path(temporary)
@@ -190,7 +200,7 @@ class TeamTests(unittest.TestCase):
             source.parent.mkdir(parents=True)
             document = (
                 "---\ntitle: Example team\n---\n\n"
-                f"Before.\n\n```team\n{VALID_TEAM}```\n\nAfter.\n"
+                f"Before.\n\n```team   \n{VALID_TEAM}```   \n\nAfter.\n"
             )
             source.write_text(document, encoding="utf-8")
 

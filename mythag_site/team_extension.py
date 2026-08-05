@@ -20,8 +20,7 @@ from mythag_site.teams import (
 )
 
 
-TEAM_OPEN = "```team"
-TEAM_CLOSE = "```"
+TEAM_OPEN = re.compile(r"^```team[ \t]*$")
 FENCE_OPEN = re.compile(r"^(?P<fence>`{3,}|~{3,})(?:[^`~].*)?$")
 FRONT_MATTER = re.compile(
     r"^-{3}[ \r\t]*?\n(.*?\r?\n)(?:\.{3}|-{3})[ \r\t]*\n",
@@ -31,6 +30,10 @@ FRONT_MATTER = re.compile(
 
 def _closing_fence(line: str, fence: str) -> bool:
     return re.fullmatch(rf"{re.escape(fence[0])}{{{len(fence)},}}[ \t]*", line) is not None
+
+
+def _team_open(line: str) -> bool:
+    return TEAM_OPEN.fullmatch(line) is not None
 
 
 def scan_team_fences(
@@ -47,9 +50,9 @@ def scan_team_fences(
                 outer_fence = None
             index += 1
             continue
-        if line == TEAM_OPEN:
+        if _team_open(line):
             closing = index + 1
-            while closing < len(lines) and lines[closing] != TEAM_CLOSE:
+            while closing < len(lines) and not _closing_fence(lines[closing], "```"):
                 closing += 1
             if closing == len(lines):
                 raise TeamValidationError(
@@ -147,7 +150,7 @@ def _source_context(md: Markdown, lines: list[str]) -> tuple[Path, int]:
 
 class TeamPreprocessor(Preprocessor):
     def run(self, lines: list[str]) -> list[str]:
-        if TEAM_OPEN not in lines:
+        if not any(_team_open(line) for line in lines):
             return lines
         context = ContextPreprocessor.from_markdown(self.md)
         if context is None:

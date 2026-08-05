@@ -72,24 +72,29 @@ name: Xu Poison
 posse: plague-of-illusions
 members:
   - awakener: xu
+    archetype: dps
     covenant: steppenwolf
     wheels: [gift-of-decay, cursed-binding]
   - awakener: nymphaea
+    archetype: support
     covenant: life-drain
     wheels: [merciful-nurturing, moment-of-reunion]
   - awakener: gdoll
+    archetype: support
     covenant: dream-of-medicine
     wheels: [manikin-of-oblivion, elevated-focus]
   - awakener: faint
+    archetype: tank
     covenant: burial-grounds-sighs
     wheels: [dusk-and-dawn, cloaked-in-the-night]
 ```
 ````
 
 Use the kebab-case IDs from the four YAML catalogs under `content/`. A team has
-one posse and exactly four members; each member has one covenant and two
-wheels. `uv run mythag-check` reports the source line and suggests the closest
-known ID when it finds a typo.
+one posse and exactly four members; each member has one covenant, two wheels,
+and an explicit `archetype` (`dps`, `support`, or `tank`). Keep that archetype
+separate from any authored role text. `uv run mythag-check` reports the source
+line and suggests the closest known ID when it finds a typo.
 
 The shared team fragment is defined in `overrides/teams/team.html`, and its
 presentation is defined in `lib/styles/teams.css`.

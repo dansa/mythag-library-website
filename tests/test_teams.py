@@ -94,8 +94,51 @@ class TeamTests(unittest.TestCase):
 
         self.assertIn("Xu &amp; Friends", rendered)
         self.assertIn('/awakeners/xu/', rendered)
-        self.assertIn('/images/steppenwolf.png', rendered)
+        self.assertIn('/images/steppenwolf--icon.png', rendered)
+        self.assertIn('title="Xu"', rendered)
+        self.assertIn('title="Steppenwolf"', rendered)
+        self.assertIn('title="Gift Of Decay"', rendered)
+        self.assertEqual(rendered.count('title="Gift Of Decay"'), 1)
         self.assertEqual(rendered.count('class="mythag-team__member"'), 4)
+
+    def test_accepts_optional_team_narrative_fields(self) -> None:
+        source = (
+            VALID_TEAM.replace(
+                "posse: plague-of-illusions",
+                "summary: A poison team\nposse: plague-of-illusions",
+            )
+            .replace(
+                "  - awakener: xu\n",
+                "  - awakener: xu\n    archetype: dps\n    role: Poison / DPS\n    note: Applies poison\n",
+            )
+        )
+
+        spec = parse_team(TeamFence(source, 10), Path("guide.md"), ASSETS)
+        rendered = render_team(resolve_team(spec, ASSETS))
+
+        self.assertEqual(spec.summary, "A poison team")
+        self.assertEqual(spec.members[0].archetype, "dps")
+        self.assertEqual(spec.members[0].role, "Poison / DPS")
+        self.assertEqual(spec.members[0].note, "Applies poison")
+        self.assertIn("A poison team", rendered)
+        self.assertIn('data-archetype="dps"', rendered)
+        self.assertIn("Poison / DPS", rendered)
+        self.assertIn("Applies poison", rendered)
+
+    def test_rejects_unknown_team_archetype(self) -> None:
+        source = VALID_TEAM.replace(
+            "  - awakener: xu\n",
+            "  - awakener: xu\n    archetype: striker\n",
+        )
+
+        with self.assertRaises(TeamValidationError) as caught:
+            parse_team(TeamFence(source, 10), Path("guide.md"), ASSETS)
+
+        self.assertEqual(
+            str(caught.exception.issues[0]),
+            "guide.md:15:16: members[0].archetype: "
+            "expected one of: dps, support, tank",
+        )
 
     def test_unknown_id_reports_physical_location_and_suggestion(self) -> None:
         source = VALID_TEAM.replace("cursed-binding", "cursed-bindng")

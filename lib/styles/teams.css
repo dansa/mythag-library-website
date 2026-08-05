@@ -1,17 +1,21 @@
 .mythag-team {
+  --mythag-team-rule: var(--md-default-fg-color--lightest);
+  --mythag-team-space: 1rem;
+  --mythag-team-member-inset: clamp(0.4rem, 0.9vw, 0.7rem);
+  --mythag-team-covenant-icon-scale: 1.65;
   margin-block: 2rem;
 }
 
-.mythag-team :where(figure, p, ol, ul) {
+[dir] .md-typeset .mythag-team :is(figure, p, ol, ul) {
   margin: 0;
 }
 
-.md-typeset .mythag-team :where(ol, ul) {
+[dir] .md-typeset .mythag-team :is(ol, ul) {
   padding: 0;
   list-style: none;
 }
 
-.md-typeset .mythag-team li {
+[dir] .md-typeset .mythag-team li {
   margin: 0;
 }
 
@@ -21,12 +25,19 @@
   align-items: center;
   gap: 1rem;
   padding-block-end: 0.75rem;
-  border-block-end: 1px solid var(--md-default-fg-color--lightest);
 }
 
 .mythag-team__title {
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 650;
+}
+
+.mythag-team__summary {
+  max-width: 46ch;
+  margin-block-start: 0.35rem;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.8rem;
+  line-height: 1.45;
 }
 
 .mythag-team__posse {
@@ -48,16 +59,63 @@
 .md-typeset ol.mythag-team__members {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
+  padding-block-start: var(--mythag-team-space);
 }
 
 .mythag-team__member {
+  --mythag-team-archetype-surface: transparent;
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  align-content: start;
+  row-gap: 0.7rem;
   min-width: 0;
-  padding: 1rem 0.65rem 0;
-  border-inline-start: 1px solid var(--md-default-fg-color--lightest);
+  padding-inline: var(--mythag-team-member-inset);
+  border-inline-start: 1px solid var(--mythag-team-rule);
+}
+
+.mythag-team__member--archetype-dps {
+  --mythag-team-archetype-surface: var(--md-highlight-dps);
+}
+
+.mythag-team__member--archetype-support {
+  --mythag-team-archetype-surface: var(--md-highlight-support);
+}
+
+.mythag-team__member--archetype-tank {
+  --mythag-team-archetype-surface: var(--md-highlight-tank);
 }
 
 .mythag-team__member:first-child {
   border-inline-start: 0;
+}
+
+.mythag-team__role {
+  justify-self: center;
+  min-height: 1.2em;
+  padding: 0.16rem 0.45rem;
+  background-color: var(--mythag-team-archetype-surface);
+  color: var(--md-default-fg-color);
+  font-size: 0.72rem;
+  font-weight: 650;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.mythag-team__awakener {
+  display: grid;
+  row-gap: 0.35rem;
+  width: auto;
+  justify-self: center;
+}
+
+.mythag-team__awakener a {
+  display: grid;
+  row-gap: 0.25rem;
+}
+
+.mythag-team :is(.mythag-team__awakener a, .mythag-team__covenant a):focus-visible {
+  outline: 2px solid var(--md-accent-fg-color);
+  outline-offset: 0.25rem;
 }
 
 .mythag-team__awakener img {
@@ -69,34 +127,80 @@
 }
 
 .mythag-team__awakener figcaption {
-  padding-block: 0.55rem 0.75rem;
+  padding-block: 0 0.45rem;
   color: var(--md-default-fg-color);
   font-weight: 650;
   text-align: center;
 }
 
-.md-typeset ul.mythag-team__gear {
+.mythag-team__context {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.4rem;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 3.25rem;
+  border-block-start: 1px solid var(--mythag-team-rule);
+  padding-block-start: 0.55rem;
 }
 
-.mythag-team__gear li,
-.mythag-team__gear a {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  min-width: 0;
+.mythag-team__note {
+  color: var(--md-default-fg-color--light);
+  font-size: 0.72rem;
+  line-height: 1.35;
+  text-align: center;
 }
 
-.mythag-team__gear img {
+.mythag-team__covenant,
+.mythag-team__covenant a {
+  display: grid;
+  place-items: center;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+}
+
+.mythag-team__covenant img {
   display: block;
-  width: 100%;
-  max-height: 5.25rem;
+  width: auto;
+  height: 3rem;
   object-fit: contain;
+  transform: scale(var(--mythag-team-covenant-icon-scale));
+}
+
+.md-typeset ol.mythag-team__wheels {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.35rem;
+  margin: 0;
+}
+
+.mythag-team__wheel {
+  display: grid;
+  grid-template-rows: auto auto;
+  align-content: start;
+  row-gap: 0.35rem;
+  justify-items: center;
+  min-width: 0;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.66rem;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.mythag-team__wheel img {
+  display: block;
+  width: min(100%, 4.5rem);
+  height: auto;
+}
+
+[dir] .md-typeset .mythag-team__member-details {
+  display: none;
 }
 
 @media screen and (max-width: 44.984375em) {
+  .mythag-team {
+    --mythag-team-mobile-sample: 2.65rem;
+  }
+
   .mythag-team__posse figcaption {
     position: absolute;
     width: 1px;
@@ -110,18 +214,225 @@
   }
 
   .md-typeset ol.mythag-team__members {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    display: block;
+    padding-block-start: 0.35rem;
+  }
+
+  .mythag-team__member {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: auto auto;
+    align-items: start;
+    column-gap: 0.35rem;
+    row-gap: 0.35rem;
+    padding: 0.5rem clamp(0.4rem, 2vw, 0.65rem);
+    border-inline-start: 0;
+    border-block-start: 1px solid var(--mythag-team-rule);
+  }
+
+  .mythag-team__member:first-child {
+    border-block-start: 0;
+  }
+
+  .mythag-team__awakener {
+    display: contents;
+  }
+
+  .mythag-team__awakener a {
+    display: grid;
+    grid-column: 1;
+    grid-row: 1;
+    place-items: center;
+    width: var(--mythag-team-mobile-sample);
+    height: var(--mythag-team-mobile-sample);
+    justify-self: center;
+  }
+
+  .mythag-team__awakener figcaption {
+    display: none;
   }
 
   .mythag-team__awakener img {
+    width: 100%;
+    height: 100%;
     aspect-ratio: 1;
   }
 
-  .mythag-team__member:nth-child(odd) {
-    border-inline-start: 0;
+  .mythag-team__role {
+    display: none;
   }
 
-  .mythag-team__member:nth-child(n + 3) {
-    padding-block-start: 1.25rem;
+  .mythag-team__context {
+    display: contents;
+  }
+
+  .mythag-team__covenant {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+    justify-self: center;
+    border: 0;
+    padding: 0;
+  }
+
+  .mythag-team__covenant,
+  .mythag-team__covenant a {
+    min-width: var(--mythag-team-mobile-sample);
+    min-height: var(--mythag-team-mobile-sample);
+  }
+
+  .mythag-team__covenant img {
+    width: var(--mythag-team-mobile-sample);
+    height: var(--mythag-team-mobile-sample);
+  }
+
+  .mythag-team__context .mythag-team__note {
+    display: none;
+  }
+
+  .md-typeset ol.mythag-team__wheels {
+    grid-column: 3 / -1;
+    grid-row: 1;
+    gap: 0.35rem;
+  }
+
+  .mythag-team__wheel {
+    grid-template-rows: var(--mythag-team-mobile-sample);
+  }
+
+  .mythag-team__wheel img {
+    width: var(--mythag-team-mobile-sample);
+    height: var(--mythag-team-mobile-sample);
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .mythag-team__wheel span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  [dir] .md-typeset .mythag-team__member-details {
+    display: block;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    min-width: 0;
+  }
+
+  [dir] .md-typeset .mythag-team__member-details {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  [dir] .md-typeset .mythag-team__member-details > summary {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0 0.55rem 0 0;
+    min-height: 44px;
+    font-size: inherit;
+    line-height: 1.2;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  [dir] .md-typeset .mythag-team__member-details > summary::before {
+    display: none;
+  }
+
+  [dir] .md-typeset .mythag-team__member-details > summary::after {
+    display: none;
+  }
+
+  [dir] .md-typeset .mythag-team__member-details > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .mythag-team__member-details-caret {
+    flex: none;
+    align-self: center;
+    box-sizing: border-box;
+    width: 0.55rem;
+    height: 0.55rem;
+    margin-inline-start: 0.15rem;
+    border-block-end: 0.1rem solid var(--md-default-fg-color);
+    border-inline-end: 0.1rem solid var(--md-default-fg-color);
+    transform: rotate(45deg);
+  }
+
+  .mythag-team__member-details[open] .mythag-team__member-details-caret {
+    transform: rotate(225deg);
+  }
+
+  .mythag-team__member-identity {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.1rem 0.4rem;
+    min-width: 0;
+  }
+
+  .mythag-team__member-name {
+    color: var(--md-default-fg-color);
+    font-size: 0.75rem;
+    font-weight: 650;
+  }
+
+  .mythag-team__member-role {
+    display: inline-block;
+    padding: 0.1rem 0.25rem;
+    background-color: var(--mythag-team-archetype-surface);
+    color: var(--md-default-fg-color);
+    font-size: 0.65rem;
+    line-height: 1.25;
+  }
+
+  .mythag-team__member-details-label {
+    color: var(--md-default-fg-color--light);
+    font-size: 0.62rem;
+    white-space: nowrap;
+  }
+
+  .mythag-team__member-details-content {
+    display: grid;
+    gap: 0.45rem;
+    border-block-start: 1px solid var(--mythag-team-rule);
+    padding: 0.5rem 0 0.15rem;
+  }
+
+  .mythag-team__member-details-content p {
+    color: var(--md-default-fg-color--light);
+    font-size: 0.68rem;
+    line-height: 1.35;
+  }
+
+  .mythag-team__member-details-content dl {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.35rem;
+    margin: 0;
+  }
+
+  .mythag-team__member-details-content dt {
+    color: var(--md-default-fg-color--light);
+    font-size: 0.58rem;
+    line-height: 1.2;
+  }
+
+  .mythag-team__member-details-content dd {
+    margin: 0.1rem 0 0;
+    color: var(--md-default-fg-color);
+    font-size: 0.64rem;
+    line-height: 1.25;
   }
 }

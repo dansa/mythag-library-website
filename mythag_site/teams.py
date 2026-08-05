@@ -23,6 +23,7 @@ from mythag_site.content import (
 
 TEMPLATE_ROOT = ROOT / "overrides"
 TEMPLATE_NAME = "teams/team.html"
+TEAM_ARCHETYPES = frozenset({"dps", "support", "tank"})
 
 
 @dataclass(frozen=True)
@@ -30,6 +31,9 @@ class TeamMemberSpec:
     awakener_id: str
     covenant_id: str
     wheel_ids: tuple[str, str]
+    role: str | None
+    archetype: str | None
+    note: str | None
 
 
 @dataclass(frozen=True)
@@ -37,6 +41,7 @@ class TeamSpec:
     name: str
     posse_id: str
     members: tuple[TeamMemberSpec, ...]
+    summary: str | None
 
 
 @dataclass(frozen=True)
@@ -57,6 +62,9 @@ class TeamMemberView:
     awakener: LinkedTeamAsset
     covenant: LinkedTeamAsset
     wheels: tuple[TeamAsset, TeamAsset]
+    role: str | None
+    archetype: str | None
+    note: str | None
 
 
 @dataclass(frozen=True)
@@ -64,6 +72,7 @@ class TeamView:
     name: str
     posse: TeamAsset
     members: tuple[TeamMemberView, ...]
+    summary: str | None
 
 
 @dataclass(frozen=True)
@@ -177,7 +186,12 @@ class _TeamValidator:
         return content_id
 
     def fields(
-        self, value: dict[str, Any], allowed: set[str], field: str = ""
+        self,
+        value: dict[str, Any],
+        allowed: set[str],
+        field: str = "",
+        *,
+        required: set[str] | None = None,
     ) -> None:
         for key in value:
             child = f"{field}.{key}" if field else str(key)
@@ -187,7 +201,7 @@ class _TeamValidator:
                     "unknown field",
                     mark=self.marks.get(f"{child}#key"),
                 )
-        for key in allowed - value.keys():
+        for key in (required if required is not None else allowed) - value.keys():
             child = f"{field}.{key}" if field else key
             self.issue(child, "missing required field", mark=self.mark_for(field))
 
@@ -206,8 +220,17 @@ def parse_team(fence: TeamFence, path: Path, assets: AssetCatalog) -> TeamSpec:
     root = validator.mapping(raw, "team")
     if root is None:
         raise TeamValidationError(validator.issues)
-    validator.fields(root, {"name", "posse", "members"})
+    validator.fields(
+        root,
+        {"name", "summary", "posse", "members"},
+        required={"name", "posse", "members"},
+    )
     name = validator.string(root.get("name"), "name")
+    summary = (
+        validator.string(root["summary"], "summary")
+        if "summary" in root
+        else None
+    )
     posse_id = validator.content_id(
         root.get("posse"),
         assets["posses"],
@@ -231,7 +254,32 @@ def parse_team(fence: TeamFence, path: Path, assets: AssetCatalog) -> TeamSpec:
         member = validator.mapping(member_raw, prefix)
         if member is None:
             continue
-        validator.fields(member, {"awakener", "covenant", "wheels"}, prefix)
+        validator.fields(
+            member,
+            {"awakener", "covenant", "wheels", "role", "archetype", "note"},
+            prefix,
+            required={"awakener", "covenant", "wheels"},
+        )
+        role = (
+            validator.string(member["role"], f"{prefix}.role")
+            if "role" in member
+            else None
+        )
+        archetype = (
+            validator.string(member["archetype"], f"{prefix}.archetype")
+            if "archetype" in member
+            else None
+        )
+        if archetype is not None and archetype not in TEAM_ARCHETYPES:
+            validator.issue(
+                f"{prefix}.archetype",
+                "expected one of: dps, support, tank",
+            )
+        note = (
+            validator.string(member["note"], f"{prefix}.note")
+            if "note" in member
+            else None
+        )
         awakener_id = validator.content_id(
             member.get("awakener"),
             assets["awakeners"],
@@ -263,12 +311,19 @@ def parse_team(fence: TeamFence, path: Path, assets: AssetCatalog) -> TeamSpec:
                     wheel_ids.append(wheel_id)
         if awakener_id and covenant_id and len(wheel_ids) == 2:
             members.append(
-                TeamMemberSpec(awakener_id, covenant_id, (wheel_ids[0], wheel_ids[1]))
+                TeamMemberSpec(
+                    awakener_id,
+                    covenant_id,
+                    (wheel_ids[0], wheel_ids[1]),
+                    role,
+                    archetype,
+                    note,
+                )
             )
 
     if validator.issues or name is None or posse_id is None or len(members) != 4:
         raise TeamValidationError(validator.issues)
-    return TeamSpec(name, posse_id, tuple(members))
+    return TeamSpec(name, posse_id, tuple(members), summary)
 
 
 def _asset(
@@ -286,7 +341,8 @@ def _linked_asset(
     content_id: str,
 ) -> LinkedTeamAsset:
     item = assets[category][content_id]
-    return LinkedTeamAsset(item["label"], item["image"], item["url"])
+    image = item["icon"] if category == "covenants" else item["image"]
+    return LinkedTeamAsset(item["label"], image, item["url"])
 
 
 def resolve_team(spec: TeamSpec, assets: AssetCatalog) -> TeamView:
@@ -298,10 +354,18 @@ def resolve_team(spec: TeamSpec, assets: AssetCatalog) -> TeamView:
                 _asset(assets, "wheels", member.wheel_ids[0]),
                 _asset(assets, "wheels", member.wheel_ids[1]),
             ),
+            role=member.role,
+            archetype=member.archetype,
+            note=member.note,
         )
         for member in spec.members
     )
-    return TeamView(spec.name, _asset(assets, "posses", spec.posse_id), members)
+    return TeamView(
+        spec.name,
+        _asset(assets, "posses", spec.posse_id),
+        members,
+        spec.summary,
+    )
 
 
 _TEMPLATES = Environment(

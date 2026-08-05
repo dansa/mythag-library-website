@@ -258,7 +258,7 @@ def parse_team(fence: TeamFence, path: Path, assets: AssetCatalog) -> TeamSpec:
             member,
             {"awakener", "covenant", "wheels", "role", "archetype", "note"},
             prefix,
-            required={"awakener", "covenant", "wheels"},
+            required={"awakener", "covenant", "wheels", "archetype"},
         )
         role = (
             validator.string(member["role"], f"{prefix}.role")

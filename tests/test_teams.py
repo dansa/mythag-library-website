@@ -69,15 +69,19 @@ name: Xu Poison
 posse: plague-of-illusions
 members:
   - awakener: xu
+    archetype: dps
     covenant: steppenwolf
     wheels: [gift-of-decay, cursed-binding]
   - awakener: nymphaea
+    archetype: support
     covenant: life-drain
     wheels: [merciful-nurturing, moment-of-reunion]
   - awakener: gdoll
+    archetype: support
     covenant: dream-of-medicine
     wheels: [manikin-of-oblivion, elevated-focus]
   - awakener: faint
+    archetype: tank
     covenant: burial-grounds-sighs
     wheels: [dusk-and-dawn, cloaked-in-the-night]
 """
@@ -99,7 +103,7 @@ class TeamTests(unittest.TestCase):
         self.assertIn('title="Steppenwolf"', rendered)
         self.assertIn('title="Gift Of Decay"', rendered)
         self.assertEqual(rendered.count('title="Gift Of Decay"'), 1)
-        self.assertEqual(rendered.count('class="mythag-team__member"'), 4)
+        self.assertEqual(rendered.count('<li class="mythag-team__member'), 4)
 
     def test_accepts_optional_team_narrative_fields(self) -> None:
         source = (
@@ -108,8 +112,8 @@ class TeamTests(unittest.TestCase):
                 "summary: A poison team\nposse: plague-of-illusions",
             )
             .replace(
-                "  - awakener: xu\n",
-                "  - awakener: xu\n    archetype: dps\n    role: Poison / DPS\n    note: Applies poison\n",
+                "    archetype: dps\n",
+                "    archetype: dps\n    role: Poison / DPS\n    note: Applies poison\n",
             )
         )
 
@@ -127,8 +131,8 @@ class TeamTests(unittest.TestCase):
 
     def test_rejects_unknown_team_archetype(self) -> None:
         source = VALID_TEAM.replace(
-            "  - awakener: xu\n",
-            "  - awakener: xu\n    archetype: striker\n",
+            "    archetype: dps\n",
+            "    archetype: striker\n",
         )
 
         with self.assertRaises(TeamValidationError) as caught:
@@ -140,6 +144,17 @@ class TeamTests(unittest.TestCase):
             "expected one of: dps, support, tank",
         )
 
+    def test_rejects_missing_team_archetype(self) -> None:
+        source = VALID_TEAM.replace("    archetype: dps\n", "", 1)
+
+        with self.assertRaises(TeamValidationError) as caught:
+            parse_team(TeamFence(source, 10), Path("guide.md"), ASSETS)
+
+        self.assertEqual(
+            str(caught.exception.issues[0]),
+            "guide.md:14:5: members[0].archetype: missing required field",
+        )
+
     def test_unknown_id_reports_physical_location_and_suggestion(self) -> None:
         source = VALID_TEAM.replace("cursed-binding", "cursed-bindng")
         with self.assertRaises(TeamValidationError) as caught:
@@ -147,7 +162,7 @@ class TeamTests(unittest.TestCase):
 
         self.assertEqual(
             str(caught.exception.issues[0]),
-            "guide.md:316:29: members[0].wheels[1]: "
+            "guide.md:317:29: members[0].wheels[1]: "
             "unknown wheel ID 'cursed-bindng'; did you mean 'cursed-binding'?",
         )
 

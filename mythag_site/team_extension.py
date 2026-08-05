@@ -20,7 +20,8 @@ from mythag_site.teams import (
 )
 
 
-TEAM_OPEN = re.compile(r"^```team[ \t]*$")
+TEAM_OPEN = re.compile(r"^ {0,3}```team[ \t]*$")
+TEAM_INDENTED = re.compile(r"^[ \t]+```team[ \t]*$")
 FENCE_OPEN = re.compile(r"^(?P<fence>`{3,}|~{3,})(?:[^`~].*)?$")
 FRONT_MATTER = re.compile(
     r"^-{3}[ \r\t]*?\n(.*?\r?\n)(?:\.{3}|-{3})[ \r\t]*\n",
@@ -29,11 +30,20 @@ FRONT_MATTER = re.compile(
 
 
 def _closing_fence(line: str, fence: str) -> bool:
-    return re.fullmatch(rf"{re.escape(fence[0])}{{{len(fence)},}}[ \t]*", line) is not None
+    return (
+        re.fullmatch(
+            rf"^ {{0,3}}{re.escape(fence[0])}{{{len(fence)},}}[ \t]*$", line
+        )
+        is not None
+    )
 
 
 def _team_open(line: str) -> bool:
     return TEAM_OPEN.fullmatch(line) is not None
+
+
+def _team_indented(line: str) -> bool:
+    return TEAM_INDENTED.fullmatch(line) is not None
 
 
 def scan_team_fences(
@@ -75,6 +85,19 @@ def scan_team_fences(
             output.extend("" for _ in range(closing - index))
             index = closing + 1
             continue
+        if _team_indented(line):
+            raise TeamValidationError(
+                [
+                    ValidationIssue(
+                        path,
+                        "team",
+                        "team blocks must be standalone top-level Markdown; "
+                        "nested lists, blockquotes, admonitions, and tabs are not supported",
+                        index + 1 + line_offset,
+                        1,
+                    )
+                ]
+            )
         match = FENCE_OPEN.fullmatch(line)
         if match is not None:
             outer_fence = match.group("fence")
@@ -150,7 +173,7 @@ def _source_context(md: Markdown, lines: list[str]) -> tuple[Path, int]:
 
 class TeamPreprocessor(Preprocessor):
     def run(self, lines: list[str]) -> list[str]:
-        if not any(_team_open(line) for line in lines):
+        if not any(_team_open(line) or _team_indented(line) for line in lines):
             return lines
         context = ContextPreprocessor.from_markdown(self.md)
         if context is None:

@@ -185,13 +185,28 @@ class TeamTests(unittest.TestCase):
 
     def test_scanner_accepts_team_fence_trailing_whitespace(self) -> None:
         segments = scan_team_fences(
-            ["```team   ", *VALID_TEAM.splitlines(), "```   "],
+            ["   ```team   ", *VALID_TEAM.splitlines(), "   ```   "],
             Path("guide.md"),
         )
 
         team_segments = [segment for segment in segments if isinstance(segment, TeamFence)]
         self.assertEqual(len(team_segments), 1)
         self.assertIn("name: Xu Poison", team_segments[0].source)
+
+    def test_scanner_rejects_nested_team_fence(self) -> None:
+        for opener in ("    ```team", "\t```team"):
+            with self.subTest(opener=repr(opener)):
+                with self.assertRaises(TeamValidationError) as caught:
+                    scan_team_fences(
+                        [opener, *VALID_TEAM.splitlines(), "    ```"],
+                        Path("guide.md"),
+                    )
+
+                self.assertEqual(
+                    str(caught.exception.issues[0]),
+                    "guide.md:1:1: team: team blocks must be standalone top-level Markdown; "
+                    "nested lists, blockquotes, admonitions, and tabs are not supported",
+                )
 
     def test_zensical_renders_frontmatter_page_at_the_authored_position(self) -> None:
         with TemporaryDirectory() as temporary:

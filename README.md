@@ -64,7 +64,9 @@ Awakener guide.
 
 ## Adding a team to a guide
 
-Place a `team` block anywhere ordinary Markdown is accepted:
+Place a `team` block as a standalone top-level Markdown block. It may be
+surrounded by ordinary Markdown and use up to three leading spaces, but it must
+not be nested inside a table, list, blockquote, admonition, or tabbed content:
 
 ````markdown
 ```team

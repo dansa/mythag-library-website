@@ -196,9 +196,27 @@ class TeamTests(unittest.TestCase):
             Path("guide.md"),
         )
 
-        team_segments = [segment for segment in segments if isinstance(segment, TeamFence)]
+        team_segments = [
+            segment for segment in segments if isinstance(segment, TeamFence)
+        ]
         self.assertEqual(len(team_segments), 1)
         self.assertIn("name: Xu Poison", team_segments[0].source)
+
+    def test_scanner_accepts_long_team_fences_and_requires_matching_close(self) -> None:
+        segments = scan_team_fences(
+            ["````team", *VALID_TEAM.splitlines(), "   `````"],
+            Path("guide.md"),
+        )
+
+        team_segments = [segment for segment in segments if isinstance(segment, TeamFence)]
+        self.assertEqual(len(team_segments), 1)
+
+        with self.assertRaises(TeamValidationError) as caught:
+            scan_team_fences(
+                ["````team", *VALID_TEAM.splitlines(), "```"],
+                Path("guide.md"),
+            )
+        self.assertEqual(caught.exception.issues[0].line, 1)
 
     def test_scanner_rejects_nested_team_fence(self) -> None:
         for opener in (
@@ -206,6 +224,7 @@ class TeamTests(unittest.TestCase):
             "    ```team",
             "\t```team",
             "- ```team",
+            "- ````team",
             "> ```team",
             "> > ```team",
             "> - ```team",

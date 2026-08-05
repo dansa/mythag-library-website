@@ -21,13 +21,13 @@ from mythag_site.teams import (
 
 
 FENCE_INDENT = r" {0,3}"
-TEAM_OPEN = re.compile(r"^```team[ \t]*$")
-TEAM_INDENTED = re.compile(r"^[ \t]+```team[ \t]*$")
+TEAM_OPEN = re.compile(r"^(?P<fence>`{3,})team[ \t]*$")
+TEAM_INDENTED = re.compile(r"^[ \t]+`{3,}team[ \t]*$")
 TEAM_CONTAINER = re.compile(
     r"^ {0,3}(?:(?:>[ \t]*)+(?:(?:[-+*]|\d+[.)])[ \t]+)*|"
-    r"(?:(?:[-+*]|\d+[.)])[ \t]+)+)```team[ \t]*$"
+    r"(?:(?:[-+*]|\d+[.)])[ \t]+)+)`{3,}team[ \t]*$"
 )
-TEAM_TABLE = re.compile(r"^\s*\|(?:[^|]*\|)*\s*```team[ \t]*(?:\|.*)?$")
+TEAM_TABLE = re.compile(r"^\s*\|(?:[^|]*\|)*\s*`{3,}team[ \t]*(?:\|.*)?$")
 FENCE_OPEN = re.compile(
     rf"^{FENCE_INDENT}(?P<fence>`{{3,}}|~{{3,}})(?:[^`~].*)?$"
 )
@@ -46,8 +46,8 @@ def _closing_fence(line: str, fence: str) -> bool:
     )
 
 
-def _team_open(line: str) -> bool:
-    return TEAM_OPEN.fullmatch(line) is not None
+def _team_open(line: str) -> re.Match[str] | None:
+    return TEAM_OPEN.fullmatch(line)
 
 
 def _team_indented(line: str) -> bool:
@@ -75,9 +75,13 @@ def scan_team_fences(
                 outer_fence = None
             index += 1
             continue
-        if _team_open(line):
+        team_open = _team_open(line)
+        if team_open is not None:
+            team_fence = team_open.group("fence")
             closing = index + 1
-            while closing < len(lines) and not _closing_fence(lines[closing], "```"):
+            while closing < len(lines) and not _closing_fence(
+                lines[closing], team_fence
+            ):
                 closing += 1
             if closing == len(lines):
                 raise TeamValidationError(
@@ -85,7 +89,7 @@ def scan_team_fences(
                         ValidationIssue(
                             path,
                             "team",
-                            "missing closing ``` fence",
+                            "missing closing team fence",
                             index + 1 + line_offset,
                             1,
                         )

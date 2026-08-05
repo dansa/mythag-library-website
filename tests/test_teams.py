@@ -94,7 +94,8 @@ class TeamTests(unittest.TestCase):
             Path("guide.md"),
             ASSETS,
         )
-        rendered = render_team(resolve_team(spec, ASSETS))
+        view = resolve_team(spec, ASSETS)
+        rendered = render_team(view)
 
         self.assertIn("Xu &amp; Friends", rendered)
         self.assertIn('/awakeners/xu/', rendered)
@@ -104,6 +105,11 @@ class TeamTests(unittest.TestCase):
         self.assertIn('title="Gift Of Decay"', rendered)
         self.assertEqual(rendered.count('title="Gift Of Decay"'), 1)
         self.assertEqual(rendered.count('<li class="mythag-team__member'), 4)
+        self.assertEqual(view.members[0].archetype_label, "DPS")
+        self.assertIn('class="mythag-team__role">DPS</p>', rendered)
+        self.assertIn('class="mythag-team__role">Support</p>', rendered)
+        self.assertIn('class="mythag-team__role">Tank</p>', rendered)
+        self.assertNotIn(">Dps<", rendered)
 
     def test_accepts_optional_team_narrative_fields(self) -> None:
         source = (
@@ -174,6 +180,7 @@ class TeamTests(unittest.TestCase):
                 for segment in scan_team_fences(example, Path("guide.md"))
             )
         )
+        self.assertEqual(team_extension.TeamPreprocessor(None).run(example), example)
 
         with self.assertRaises(TeamValidationError) as caught:
             scan_team_fences(
@@ -185,7 +192,7 @@ class TeamTests(unittest.TestCase):
 
     def test_scanner_accepts_team_fence_trailing_whitespace(self) -> None:
         segments = scan_team_fences(
-            ["   ```team   ", *VALID_TEAM.splitlines(), "   ```   "],
+            ["```team   ", *VALID_TEAM.splitlines(), "   ```   "],
             Path("guide.md"),
         )
 
@@ -194,7 +201,17 @@ class TeamTests(unittest.TestCase):
         self.assertIn("name: Xu Poison", team_segments[0].source)
 
     def test_scanner_rejects_nested_team_fence(self) -> None:
-        for opener in ("    ```team", "\t```team"):
+        for opener in (
+            "  ```team",
+            "    ```team",
+            "\t```team",
+            "- ```team",
+            "> ```team",
+            "> > ```team",
+            "> - ```team",
+            "- - ```team",
+            "| ```team |",
+        ):
             with self.subTest(opener=repr(opener)):
                 with self.assertRaises(TeamValidationError) as caught:
                     scan_team_fences(
@@ -205,7 +222,26 @@ class TeamTests(unittest.TestCase):
                 self.assertEqual(
                     str(caught.exception.issues[0]),
                     "guide.md:1:1: team: team blocks must be standalone top-level Markdown; "
-                    "nested lists, blockquotes, admonitions, and tabs are not supported",
+                    "nested tables, lists, blockquotes, admonitions, and tabs are not "
+                    "supported",
+                )
+
+    def test_validator_ignores_team_like_front_matter(self) -> None:
+        with TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            source = root / "guide.md"
+            source.write_text(
+                "---\n"
+                "description: |\n"
+                "  ```team\n"
+                "---\n"
+                "Body.\n",
+                encoding="utf-8",
+            )
+
+            with patch.object(team_extension, "ROOT", root):
+                self.assertEqual(
+                    team_extension.validate_team_document(source, ASSETS), []
                 )
 
     def test_zensical_renders_frontmatter_page_at_the_authored_position(self) -> None:

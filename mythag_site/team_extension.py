@@ -21,8 +21,13 @@ from mythag_site.teams import (
 
 
 FENCE_INDENT = r" {0,3}"
-TEAM_OPEN = re.compile(rf"^{FENCE_INDENT}```team[ \t]*$")
+TEAM_OPEN = re.compile(r"^```team[ \t]*$")
 TEAM_INDENTED = re.compile(r"^[ \t]+```team[ \t]*$")
+TEAM_CONTAINER = re.compile(
+    r"^ {0,3}(?:(?:>[ \t]*)+(?:(?:[-+*]|\d+[.)])[ \t]+)*|"
+    r"(?:(?:[-+*]|\d+[.)])[ \t]+)+)```team[ \t]*$"
+)
+TEAM_TABLE = re.compile(r"^\s*\|(?:[^|]*\|)*\s*```team[ \t]*(?:\|.*)?$")
 FENCE_OPEN = re.compile(
     rf"^{FENCE_INDENT}(?P<fence>`{{3,}}|~{{3,}})(?:[^`~].*)?$"
 )
@@ -47,6 +52,13 @@ def _team_open(line: str) -> bool:
 
 def _team_indented(line: str) -> bool:
     return TEAM_INDENTED.fullmatch(line) is not None
+
+
+def _team_container(line: str) -> bool:
+    return (
+        TEAM_CONTAINER.fullmatch(line) is not None
+        or TEAM_TABLE.fullmatch(line) is not None
+    )
 
 
 def scan_team_fences(
@@ -88,14 +100,15 @@ def scan_team_fences(
             output.extend("" for _ in range(closing - index))
             index = closing + 1
             continue
-        if _team_indented(line):
+        if _team_indented(line) or _team_container(line):
             raise TeamValidationError(
                 [
                     ValidationIssue(
                         path,
                         "team",
                         "team blocks must be standalone top-level Markdown; "
-                        "nested lists, blockquotes, admonitions, and tabs are not supported",
+                        "nested tables, lists, blockquotes, admonitions, and tabs "
+                        "are not supported",
                         index + 1 + line_offset,
                         1,
                     )
@@ -109,11 +122,34 @@ def scan_team_fences(
     return output
 
 
+def _needs_team_processing(lines: list[str]) -> bool:
+    try:
+        segments = scan_team_fences(lines, Path("<markdown>"))
+    except TeamValidationError:
+        return True
+    return any(isinstance(segment, TeamFence) for segment in segments)
+
+
+def _strip_front_matter(source: str) -> tuple[str, int]:
+    body = source
+    start_line = 1
+    if match := FRONT_MATTER.match(source):
+        body = source[match.end() :]
+        start_line = source[: match.end()].count("\n") + 1
+        stripped = len(body) - len(body.lstrip("\n"))
+        body = body.lstrip("\n")
+        start_line += stripped
+    return body, start_line
+
+
 def validate_team_document(path: Path, assets: AssetCatalog) -> list[ValidationIssue]:
     relative = path.relative_to(ROOT)
     try:
-        lines = path.read_text(encoding="utf-8").replace("\r\n", "\n").split("\n")
-        for segment in scan_team_fences(lines, relative):
+        source = path.read_text(encoding="utf-8").replace("\r\n", "\n")
+        body, start_line = _strip_front_matter(source)
+        for segment in scan_team_fences(
+            body.split("\n"), relative, line_offset=start_line - 1
+        ):
             if isinstance(segment, TeamFence):
                 parse_team(segment, relative, assets)
     except TeamValidationError as error:
@@ -121,12 +157,17 @@ def validate_team_document(path: Path, assets: AssetCatalog) -> list[ValidationI
     return []
 
 
-def _source_context(md: Markdown, lines: list[str]) -> tuple[Path, int]:
+def _context_or_error(md: Markdown) -> Any:
     context = ContextPreprocessor.from_markdown(md)
     if context is None:
         raise TeamValidationError(
             [ValidationIssue(Path("<markdown>"), "team", "missing Zensical page context")]
         )
+    return context
+
+
+def _source_context(md: Markdown, lines: list[str]) -> tuple[Path, int]:
+    context = _context_or_error(md)
     page_path = Path(context.page.path)
     candidates = (
         [page_path]
@@ -139,14 +180,7 @@ def _source_context(md: Markdown, lines: list[str]) -> tuple[Path, int]:
             [ValidationIssue(page_path, "team", "could not locate source page")]
         )
     source = source_path.read_text(encoding="utf-8").replace("\r\n", "\n")
-    body = source
-    start_line = 1
-    if match := FRONT_MATTER.match(source):
-        body = source[match.end() :]
-        start_line = source[: match.end()].count("\n") + 1
-        stripped = len(body) - len(body.lstrip("\n"))
-        body = body.lstrip("\n")
-        start_line += stripped
+    body, start_line = _strip_front_matter(source)
     normalized = (body + "\n\n").expandtabs(md.tab_length)
     normalized = re.sub(r"(?<=\n) +\n", "\n", normalized)
     expected_lines = normalized.split("\n")
@@ -176,13 +210,9 @@ def _source_context(md: Markdown, lines: list[str]) -> tuple[Path, int]:
 
 class TeamPreprocessor(Preprocessor):
     def run(self, lines: list[str]) -> list[str]:
-        if not any(_team_open(line) or _team_indented(line) for line in lines):
+        if not _needs_team_processing(lines):
             return lines
-        context = ContextPreprocessor.from_markdown(self.md)
-        if context is None:
-            raise TeamValidationError(
-                [ValidationIssue(Path("<markdown>"), "team", "missing Zensical page context")]
-            )
+        context = _context_or_error(self.md)
         path, start_line = _source_context(self.md, lines)
         assets = context.config["extra"]["content_assets"]
         output: list[str] = []

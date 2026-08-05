@@ -17,8 +17,8 @@
         <figure class="mythag-team__awakener">
           {% if member.role %}
             <p class="mythag-team__role">{{ member.role }}</p>
-          {% elif member.archetype %}
-            <p class="mythag-team__role">{{ member.archetype | title }}</p>
+          {% elif member.archetype_label %}
+            <p class="mythag-team__role">{{ member.archetype_label }}</p>
           {% endif %}
             <a href="{{ member.awakener.url }}" aria-label="{{ member.awakener.label }}" title="{{ member.awakener.label }}">
               <figcaption>{{ member.awakener.label }}</figcaption>
@@ -38,8 +38,8 @@
         </div>
         <div class="mythag-team__identity">
           <span class="mythag-team__member-name">{{ member.awakener.label }}</span>
-          {% if member.role or member.archetype %}
-            <span class="mythag-team__member-role">{{ member.role or (member.archetype | title) }}</span>
+          {% if member.role or member.archetype_label %}
+            <span class="mythag-team__member-role">{{ member.role or member.archetype_label }}</span>
           {% endif %}
         </div>
         <ol class="mythag-team__wheels" aria-label="{{ member.awakener.label }} wheels">

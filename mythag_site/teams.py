@@ -24,6 +24,7 @@ from mythag_site.content import (
 TEMPLATE_ROOT = ROOT / "overrides"
 TEMPLATE_NAME = "teams/team.html"
 TEAM_ARCHETYPES = frozenset({"dps", "support", "tank"})
+TEAM_ARCHETYPE_LABELS = {"dps": "DPS", "support": "Support", "tank": "Tank"}
 
 
 @dataclass(frozen=True)
@@ -64,6 +65,7 @@ class TeamMemberView:
     wheels: tuple[TeamAsset, TeamAsset]
     role: str | None
     archetype: str | None
+    archetype_label: str | None
     note: str | None
 
 
@@ -356,6 +358,7 @@ def resolve_team(spec: TeamSpec, assets: AssetCatalog) -> TeamView:
             ),
             role=member.role,
             archetype=member.archetype,
+            archetype_label=TEAM_ARCHETYPE_LABELS.get(member.archetype),
             note=member.note,
         )
         for member in spec.members

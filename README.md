@@ -72,6 +72,8 @@ content:
 ````markdown
 ```team
 name: Xu Poison
+context: Astral Reign - Story
+summary: A team that applies poison and triggers it to deal damage.
 posse: plague-of-illusions
 members:
   - awakener: xu
@@ -96,8 +98,9 @@ members:
 Use the kebab-case IDs from the four YAML catalogs under `content/`. A team has
 one posse and exactly four members; each member has one covenant, two wheels,
 and an explicit `archetype` (`dps`, `support`, or `tank`). Keep that archetype
-separate from any authored role text. `uv run mythag-check` reports the source
-line and suggests the closest known ID when it finds a typo.
+separate from any authored role text. `context`, `summary`, `role`, and `note`
+are optional authored presentation fields. `uv run mythag-check` reports the
+source line and suggests the closest known ID when it finds a typo.
 
 The shared team fragment is defined in `overrides/teams/team.html`, and its
 presentation is defined in `lib/styles/teams.css`.

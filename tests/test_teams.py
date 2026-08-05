@@ -115,7 +115,7 @@ class TeamTests(unittest.TestCase):
         source = (
             VALID_TEAM.replace(
                 "posse: plague-of-illusions",
-                "summary: A poison team\nposse: plague-of-illusions",
+                "context: Story mode\nsummary: A poison team\nposse: plague-of-illusions",
             )
             .replace(
                 "    archetype: dps\n",
@@ -127,10 +127,12 @@ class TeamTests(unittest.TestCase):
         rendered = render_team(resolve_team(spec, ASSETS))
 
         self.assertEqual(spec.summary, "A poison team")
+        self.assertEqual(spec.context, "Story mode")
         self.assertEqual(spec.members[0].archetype, "dps")
         self.assertEqual(spec.members[0].role, "Poison / DPS")
         self.assertEqual(spec.members[0].note, "Applies poison")
         self.assertIn("A poison team", rendered)
+        self.assertIn('class="mythag-team__eyebrow">Story mode</p>', rendered)
         self.assertIn('data-archetype="dps"', rendered)
         self.assertIn("Poison / DPS", rendered)
         self.assertIn("Applies poison", rendered)

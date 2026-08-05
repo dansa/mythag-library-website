@@ -47,6 +47,7 @@ All of these are viable approaches. The important part is to **know what your te
 
 ```team
 name: Caro Mouchette
+context: Faded Legacy - Story
 summary: A team that enables Mouchette to kill as fast as possible
 posse: tiny-wish
 members:
@@ -101,6 +102,7 @@ The [Newbie DPS Tier List](/handbook/tier-list) and [Newbie Support Tier List](/
 
 ```team
 name: Castor Agrippa Stall
+context: Astral Reign - D-Effect Zone
 summary: A team that outlasts enemies while waiting for relics to kill them
 posse: derision-of-destiny
 members:
@@ -142,6 +144,7 @@ Stall teams have to be wary of [Gaze](/handbook/storylines#light-cone-of-fate) i
 
 ```team
 name: Xu Poison
+context: Astral Reign - Story
 summary: A team that applies poison and triggers it to deal damage.
 posse: plague-of-illusions
 members:
@@ -187,6 +190,7 @@ A poison team is usually also a stall team, but it can be faster depending on th
 
 ```team
 name: Counter Bluwil
+context: Faded Legacy - Story Hard Mode
 summary: A team that can stack counter and convert it into damage
 posse: a-mouses-wisdom
 members:

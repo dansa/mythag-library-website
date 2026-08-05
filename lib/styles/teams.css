@@ -32,6 +32,14 @@
   font-weight: 650;
 }
 
+.mythag-team__eyebrow {
+  color: var(--md-default-fg-color--light);
+  font-size: 0.7rem;
+  font-weight: 650;
+  letter-spacing: 0.045em;
+  line-height: 1.25;
+}
+
 .mythag-team__summary {
   max-width: 46ch;
   margin-block-start: 0.35rem;

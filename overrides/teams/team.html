@@ -1,6 +1,9 @@
 <section class="mythag-team" aria-label="{{ team.name }} team" data-abbreviations>
   <header class="mythag-team__header">
     <div class="mythag-team__intro">
+      {% if team.context %}
+        <p class="mythag-team__eyebrow">{{ team.context }}</p>
+      {% endif %}
       <p class="mythag-team__title">{{ team.name }}</p>
       {% if team.summary %}
         <p class="mythag-team__summary">{{ team.summary }}</p>

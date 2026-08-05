@@ -42,6 +42,7 @@ class TeamSpec:
     name: str
     posse_id: str
     members: tuple[TeamMemberSpec, ...]
+    context: str | None
     summary: str | None
 
 
@@ -74,6 +75,7 @@ class TeamView:
     name: str
     posse: TeamAsset
     members: tuple[TeamMemberView, ...]
+    context: str | None
     summary: str | None
 
 
@@ -224,10 +226,15 @@ def parse_team(fence: TeamFence, path: Path, assets: AssetCatalog) -> TeamSpec:
         raise TeamValidationError(validator.issues)
     validator.fields(
         root,
-        {"name", "summary", "posse", "members"},
+        {"name", "context", "summary", "posse", "members"},
         required={"name", "posse", "members"},
     )
     name = validator.string(root.get("name"), "name")
+    context = (
+        validator.string(root["context"], "context")
+        if "context" in root
+        else None
+    )
     summary = (
         validator.string(root["summary"], "summary")
         if "summary" in root
@@ -325,7 +332,7 @@ def parse_team(fence: TeamFence, path: Path, assets: AssetCatalog) -> TeamSpec:
 
     if validator.issues or name is None or posse_id is None or len(members) != 4:
         raise TeamValidationError(validator.issues)
-    return TeamSpec(name, posse_id, tuple(members), summary)
+    return TeamSpec(name, posse_id, tuple(members), context, summary)
 
 
 def _asset(
@@ -367,6 +374,7 @@ def resolve_team(spec: TeamSpec, assets: AssetCatalog) -> TeamView:
         spec.name,
         _asset(assets, "posses", spec.posse_id),
         members,
+        spec.context,
         spec.summary,
     )
 

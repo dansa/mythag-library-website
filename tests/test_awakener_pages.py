@@ -482,7 +482,7 @@ class AwakenerPreparationTests(unittest.TestCase):
             generated = tomllib.loads(
                 (root / ".zensical.generated.toml").read_text(encoding="utf-8")
             )
-            covenant = generated["project"]["extra"]["awakener_assets"][
+            covenant = generated["project"]["extra"]["content_assets"][
                 "covenants"
             ]["burial-grounds-sighs"]
             self.assertEqual(covenant["label"], "Burial Ground's Sighs")

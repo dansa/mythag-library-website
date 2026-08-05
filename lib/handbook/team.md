@@ -308,120 +308,36 @@ Stall teams have to be wary of [Gaze](/handbook/storylines#light-cone-of-fate) i
 
 ### Poison
 
-<div class="grid-mobile-1 grid-desktop-1/1" markdown style="align-items: center;">
-<div class="text-center" markdown style="margin: 1em 0;">
-Example Team
-{.caption}
-
-Xu Poison
-{.heading style="margin: 0;"}
-
-(Astral Reign - Story)
-{.heading style="margin: 0;"}
-
-A team that applies poison and triggers it to deal damage
-{.caption}
-</div>
-
-<figure markdown="span">
-  ![Plague of Illusions](/images/posses/plague-of-illusions.png "Plague of Illusions"){width="96" loading=lazy} <figcaption>Plague of Illusions</figcaption>
-</figure>
-</div>
-
-<div class="hagrid grid-mobile-1 grid-desktop-1/1" markdown>
-<div class="grid-1/1/1/1 dps" markdown>
-<div class="text-center" markdown>
-DPS
-{.heading style="margin: 0;"}
-
-<figure markdown="span">
-  [![Xu](/images/awakeners/caro/xu.png "Xu"){loading=lazy}](/handbook/awakeners#xu)<figcaption>Xu</figcaption>
-</figure>
-</div>
-<div class="text-center" markdown style="font-size: 0.9em;">
-  <figure markdown="span">
-    [![Steppenwolf](/images/covenants/steppenwolf--icon.png "Steppenwolf"){loading=lazy}](#steppenwolf)
-  </figure>
-  
-  Applies and triggers poison
-</div>
-<figure markdown="span">
-  ![Gift of Decay](/images/wheels/gift-of-decay.png "Gift of Decay"){loading=lazy} <figcaption>Gift of Decay</figcaption>
-</figure>
-<figure markdown="span">
-  ![Cursed Binding](/images/wheels/cursed-binding.png "Cursed Binding"){loading=lazy} <figcaption>Cursed Binding</figcaption>
-</figure>
-</div>
-<div class="grid-1/1/1/1 support" markdown>
-<div class="text-center" markdown>
-Support
-{.heading style="margin: 0;"}
-
-<figure markdown="span">
-  [![Nymphaea](/images/awakeners/chaos/nymphaea.png "Nymphaea"){loading=lazy}](/handbook/awakeners#nymphaea)<figcaption>Nymphaea</figcaption>
-</figure>
-</div>
-<div class="text-center" markdown style="font-size: 0.9em;">
-  <figure markdown="span">
-    [![Life Drain](/images/covenants/life-drain--icon.png "Life Drain"){loading=lazy}](#life-drain)
-  </figure>
-  
-  Keyflare, triggers poison
-</div>
-<figure markdown="span">
-  ![Merciful Nurturing](/images/wheels/merciful-nurturing.png "Merciful Nurturing"){loading=lazy} <figcaption>Merciful Nurturing</figcaption>
-</figure>
-<figure markdown="span">
-  ![Moment of Reunion](/images/wheels/moment-of-reunion.png "Moment of Reunion"){loading=lazy} <figcaption>Moment of Reunion</figcaption>
-</figure>
-</div>
-<div class="grid-1/1/1/1 support" markdown>
-<div class="text-center" markdown>
-Support
-{.heading style="margin: 0;"}
-
-<figure markdown="span">
-  [![GDoll](/images/awakeners/chaos/gdoll.png "GDoll"){loading=lazy}](/handbook/awakeners#gdoll)<figcaption>GDoll</figcaption>
-</figure>
-</div>
-<div class="text-center" markdown style="font-size: 0.9em;">
-  <figure markdown="span">
-    [![Dream of Medicine](/images/covenants/dream-of-medicine--icon.png "Dream of Medicine"){loading=lazy}](#dream-of-medicine)
-  </figure>
-  
-  Aliemus, applies poison
-</div>
-<figure markdown="span">
-  ![Manikin of Oblivion](/images/wheels/manikin-of-oblivion.png "Manikin of Oblivion"){loading=lazy} <figcaption>Manikin of Oblivion</figcaption>
-</figure>
-<figure markdown="span">
-  ![Elevated Focus](/images/wheels/elevated-focus.png "Elevated Focus"){loading=lazy} <figcaption>Elevated Focus</figcaption>
-</figure>
-</div>
-<div class="grid-1/1/1/1 tank" markdown>
-<div class="text-center" markdown>
-Tank
-{.heading style="margin: 0;"}
-
-<figure markdown="span">
-  [![Faint](/images/awakeners/caro/faint.png "Faint"){loading=lazy}](/handbook/awakeners#faint)<figcaption>Faint</figcaption>
-</figure>
-</div>
-<div class="text-center" markdown style="font-size: 0.9em;">
-  <figure markdown="span">
-    [![Burial Ground's Sighs](/images/covenants/burial-grounds-sighs--icon.png "Burial Ground's Sighs"){loading=lazy}](#burial-grounds-sighs)
-  </figure>
-  
-  Death resistance, weakness
-</div>
-<figure markdown="span">
-  ![Dusk and Dawn](/images/wheels/dusk-and-dawn.png "Dusk and Dawn"){loading=lazy} <figcaption>Dusk and Dawn</figcaption>
-</figure>
-<figure markdown="span">
-  ![Cloaked in the Night](/images/wheels/cloaked-in-the-night.png "Cloaked in the Night"){loading=lazy} <figcaption>Cloaked in the Night</figcaption>
-</figure>
-</div>
-</div>
+```team
+name: Xu Poison
+summary: A team that applies poison and triggers it to deal damage.
+posse: plague-of-illusions
+members:
+  - awakener: xu
+    archetype: dps
+    role: Poison / DPS
+    note: Applies and triggers poison
+    covenant: steppenwolf
+    wheels: [gift-of-decay, cursed-binding]
+  - awakener: nymphaea
+    archetype: support
+    role: Poison / Support
+    note: Keyflare, triggers poison
+    covenant: life-drain
+    wheels: [merciful-nurturing, moment-of-reunion]
+  - awakener: gdoll
+    archetype: support
+    role: Poison / Support
+    note: Aliemus, applies poison
+    covenant: dream-of-medicine
+    wheels: [manikin-of-oblivion, elevated-focus]
+  - awakener: faint
+    archetype: tank
+    role: Tank
+    note: Death resistance, weakness
+    covenant: burial-grounds-sighs
+    wheels: [dusk-and-dawn, cloaked-in-the-night]
+```
 
 **An alternative strategy that ramps up over time.**
 

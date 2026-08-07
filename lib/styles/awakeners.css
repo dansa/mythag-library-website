@@ -184,7 +184,8 @@
 .awakener-stopping-card h2,
 .awakener-build h2,
 .awakener-build h3,
-.awakener-recommendations h2 {
+.awakener-recommendations h2,
+.awakener-teams h2 {
   margin: 0;
   font-family: var(--md-text-font-family);
   font-size: 0.68rem;
@@ -316,14 +317,8 @@
   text-align: left;
 }
 
+.awakener-recommendations h2,
 .awakener-teams > h2 {
-  margin-bottom: 1rem;
-  color: var(--md-default-fg-color);
-  font-size: 0.74rem;
-  text-align: left;
-}
-
-.awakener-recommendations h2 {
   margin-bottom: 1rem;
   color: var(--md-default-fg-color--light);
   font-size: 0.72rem;

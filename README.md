@@ -62,6 +62,13 @@ The shared Awakener layout is defined in
 `lib/styles/awakeners.css`. Editing those files updates every standalone
 Awakener guide.
 
+To add example teams to an Awakener guide, place one or more top-level
+`team` fences in the guide source. The guide template automatically moves
+those teams into an optional **Example Teams** section after the build and
+recommendation sections; no extra YAML switch is needed.
+The section is omitted when the guide has no team fence. The fences still use
+the shared team schema described below.
+
 ## Adding a team to a guide
 
 Place a `team` block as a standalone top-level Markdown block with its opener
@@ -104,6 +111,13 @@ source line and suggests the closest known ID when it finds a typo.
 
 The shared team fragment is defined in `overrides/teams/team.html`, and its
 presentation is defined in `lib/styles/teams.css`.
+
+## Reference examples and templates
+
+The repository keeps complete, copyable source examples separately from the
+published `lib/` tree. See [`examples/README.md`](examples/README.md) for a
+filled Awakener guide, a full team fence, and links to both scaffolds. These
+reference files are not website pages.
 
 # How to
 

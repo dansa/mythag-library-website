@@ -59,6 +59,7 @@ ALLOWED_AWAKENER_FIELDS = {
     "works_well_with",
     "works_well_with_note",
 }
+EXTENSION_OWNED_METADATA_FIELDS = {"mythag_teams"}
 TIER_STYLE_NAMES = {
     "S": "s",
     "A": "a",
@@ -378,7 +379,12 @@ def _validate_builds(
     return builds
 
 
-def _parse_guide(path: Path, issues: list[ValidationIssue]) -> Guide | None:
+def _parse_guide(
+    path: Path,
+    issues: list[ValidationIssue],
+    *,
+    validate_location: bool = True,
+) -> Guide | None:
     relative = path.relative_to(ROOT)
     text = path.read_text(encoding="utf-8")
     match = FRONT_MATTER.match(text)
@@ -397,6 +403,13 @@ def _parse_guide(path: Path, issues: list[ValidationIssue]) -> Guide | None:
     if not isinstance(meta, dict):
         _issue(issues, relative, "front matter", "expected a mapping")
         return None
+    for field in sorted(EXTENSION_OWNED_METADATA_FIELDS.intersection(meta)):
+        _issue(
+            issues,
+            relative,
+            field,
+            "reserved extension-owned metadata field",
+        )
 
     body = text[match.end() :]
     if LAYOUT_MARKUP.search(body):
@@ -488,13 +501,14 @@ def _parse_guide(path: Path, issues: list[ValidationIssue]) -> Guide | None:
             "awakener.works_well_with_note",
         )
 
-    realm = path.parent.name
-    if realm not in KNOWN_REALMS:
-        _issue(issues, relative, "", f"unknown realm directory {realm!r}")
+    if validate_location:
+        realm = path.parent.name
+        if realm not in KNOWN_REALMS:
+            _issue(issues, relative, "", f"unknown realm directory {realm!r}")
     if title is None:
         return None
     slug = path.stem
-    if CONTENT_ID.fullmatch(slug) is None:
+    if validate_location and CONTENT_ID.fullmatch(slug) is None:
         _issue(
             issues,
             relative,
@@ -614,28 +628,13 @@ def _site_url(path: Path) -> str:
     return "/" + path.relative_to(ROOT / "lib").as_posix()
 
 
-def validate_guide_catalog(
+def _validate_guide_references(
     guides: list[Guide],
     content_catalog: dict[str, dict[str, str]],
     issues: list[ValidationIssue],
+    *,
+    guide_ids: set[str],
 ) -> None:
-    guide_ids = {guide.slug for guide in guides}
-    for guide in guides:
-        label = _catalog_label(
-            content_catalog, "awakeners", guide.slug, issues, guide.path, "title"
-        )
-        if label is not None and guide.title != label:
-            _issue(issues, guide.path, "title", f"expected catalog label {label!r}")
-
-    catalog_path = (CONTENT_ROOT / "awakeners.yaml").relative_to(ROOT)
-    for content_id in sorted(set(content_catalog["awakeners"]) - guide_ids):
-        _issue(
-            issues,
-            catalog_path,
-            content_id,
-            "does not have a standalone guide",
-        )
-
     for guide in guides:
         for content_id in guide.awakener.works_well_with:
             field = "awakener.works_well_with"
@@ -687,6 +686,36 @@ def validate_guide_catalog(
                 guide.path,
                 f"awakener.suggested_posses[{posse_index}].id",
             )
+
+
+def validate_guide_catalog(
+    guides: list[Guide],
+    content_catalog: dict[str, dict[str, str]],
+    issues: list[ValidationIssue],
+) -> None:
+    guide_ids = {guide.slug for guide in guides}
+    for guide in guides:
+        label = _catalog_label(
+            content_catalog, "awakeners", guide.slug, issues, guide.path, "title"
+        )
+        if label is not None and guide.title != label:
+            _issue(issues, guide.path, "title", f"expected catalog label {label!r}")
+
+    catalog_path = (CONTENT_ROOT / "awakeners.yaml").relative_to(ROOT)
+    for content_id in sorted(set(content_catalog["awakeners"]) - guide_ids):
+        _issue(
+            issues,
+            catalog_path,
+            content_id,
+            "does not have a standalone guide",
+        )
+
+    _validate_guide_references(
+        guides,
+        content_catalog,
+        issues,
+        guide_ids=guide_ids,
+    )
 
 
 def build_asset_catalog(
@@ -884,6 +913,47 @@ def collect_and_validate_awakeners() -> tuple[list[Guide], AssetCatalog]:
     return guides, catalog
 
 
+def _content_labels_from_assets(
+    catalog: AssetCatalog,
+) -> dict[str, dict[str, str]]:
+    return {
+        category: {
+            content_id: values["label"]
+            for content_id, values in catalog[category].items()
+        }
+        for category in CONTENT_CATEGORIES
+    }
+
+
+def validate_reference_examples(
+    catalog: AssetCatalog,
+    guide_ids: set[str],
+) -> list[ValidationIssue]:
+    """Validate repository-only examples without publishing them as guides."""
+    examples_root = ROOT / "examples"
+    if not examples_root.is_dir():
+        return []
+
+    issues: list[ValidationIssue] = []
+    guide_path = examples_root / "awakener-guide.md"
+    if not guide_path.is_file():
+        _issue(issues, guide_path.relative_to(ROOT), "", "missing reference example")
+    else:
+        example = _parse_guide(guide_path, issues, validate_location=False)
+        if example is not None:
+            _validate_guide_references(
+                [example],
+                _content_labels_from_assets(catalog),
+                issues,
+                guide_ids=guide_ids,
+            )
+
+    team_path = examples_root / "team-fence.md"
+    if not team_path.is_file():
+        _issue(issues, team_path.relative_to(ROOT), "", "missing reference example")
+    return issues
+
+
 def render_generated_config(guides: list[Guide], catalog: AssetCatalog) -> str:
     source = SOURCE_CONFIG.read_text(encoding="utf-8")
     marker = re.compile(
@@ -931,13 +1001,19 @@ def check_main() -> None:
         guides, catalog = collect_and_validate_awakeners()
         render_generated_config(guides, catalog)
         from mythag_site.team_extension import validate_team_document  # noqa: PLC0415
+        markdown_roots = (ROOT / "lib", ROOT / "examples")
         team_issues = [
             issue
-            for path in sorted((ROOT / "lib").rglob("*.md"))
+            for root in markdown_roots
+            for path in sorted(root.rglob("*.md"))
             for issue in validate_team_document(path, catalog)
         ]
-        if team_issues:
-            raise TeamValidationError(team_issues)
+        reference_issues = validate_reference_examples(
+            catalog,
+            {guide.slug for guide in guides},
+        )
+        if team_issues or reference_issues:
+            raise TeamValidationError([*team_issues, *reference_issues])
     except AwakenerValidationError as error:
         raise SystemExit(str(error)) from error
     except TeamValidationError as error:

@@ -182,6 +182,10 @@
   text-align: start;
 }
 
+.mythag-team__covenant {
+  grid-column: 2;
+}
+
 .mythag-team__covenant,
 .mythag-team__covenant a {
   display: grid;

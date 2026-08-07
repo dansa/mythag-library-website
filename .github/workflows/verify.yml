@@ -40,5 +40,8 @@ jobs:
       - name: Run tests
         run: uv run python -m unittest discover -s tests -v
 
+      - name: Validate content and reference examples
+        run: uv run mythag-check
+
       - name: Build production site
         run: uv run mythag-build

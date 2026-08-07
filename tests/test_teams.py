@@ -3,6 +3,7 @@ from __future__ import annotations
 import unittest
 from tempfile import TemporaryDirectory
 from pathlib import Path
+from types import SimpleNamespace
 from unittest.mock import patch
 
 from mythag_site import team_extension
@@ -294,6 +295,107 @@ class TeamTests(unittest.TestCase):
 
         self.assertLess(rendered.index("Before."), rendered.index("mythag-team"))
         self.assertLess(rendered.index("mythag-team"), rendered.index("After."))
+
+    def test_zensical_extracts_awakener_teams_for_the_guide_template(self) -> None:
+        with TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            source = root / "lib" / "handbook" / "awakeners" / "chaos" / "example.md"
+            source.parent.mkdir(parents=True)
+            document = (
+                "---\ntitle: Example\n"
+                "template: awakeners/awakener.html\n---\n\n"
+                f"Before.\n\n```team\n{VALID_TEAM}```\n\nAfter.\n"
+            )
+            source.write_text(document, encoding="utf-8")
+
+            import zensical.config as zensical_config
+            from zensical.markdown.render import render
+
+            previous_config = zensical_config._CONFIG
+            try:
+                prepare_awakeners()
+                zensical_config.parse_zensical_config(str(GENERATED_CONFIG))
+                with patch.object(team_extension, "ROOT", root):
+                    rendered = render(
+                        document,
+                        "handbook/awakeners/chaos/example.md",
+                        "/handbook/awakeners/chaos/example/",
+                    )
+            finally:
+                zensical_config._CONFIG = previous_config
+
+        self.assertNotIn("mythag-team", rendered["content"])
+        self.assertEqual(len(rendered["meta"]["mythag_teams"]), 1)
+        self.assertIn("mythag-team", rendered["meta"]["mythag_teams"][0])
+        self.assertLess(
+            rendered["content"].index("Before."),
+            rendered["content"].index("After."),
+        )
+
+    def test_awakener_template_places_example_teams_after_recommendations(self) -> None:
+        from jinja2 import ChoiceLoader, DictLoader, Environment, FileSystemLoader
+
+        root = Path(__file__).resolve().parents[1]
+        partials = {
+            f"partials/{name}.html": ""
+            for name in ("actions", "tags", "source-file", "feedback", "comments")
+        }
+        environment = Environment(
+            loader=ChoiceLoader(
+                [
+                    DictLoader(
+                        {"main.html": "{% block content %}{% endblock %}", **partials}
+                    ),
+                    FileSystemLoader(root / "overrides"),
+                ]
+            ),
+            autoescape=False,
+        )
+        guide = SimpleNamespace(
+            tagline="",
+            roles=[],
+            ranks=SimpleNamespace(dps=[], support=[]),
+            stopping_points=[],
+            builds=[
+                SimpleNamespace(
+                    name="Example Build",
+                    covenants=[],
+                    covenants_note=None,
+                    wheels=SimpleNamespace(early_game=[], astral_reign=[]),
+                )
+            ],
+            suggested_posses=[],
+            suggested_posses_note="Any",
+            works_well_with=[],
+            works_well_with_note="Anyone",
+        )
+        page = SimpleNamespace(
+            content="",
+            meta=SimpleNamespace(
+                title="Example",
+                awakener=guide,
+                mythag_teams=['<section id="example-team"></section>'],
+            ),
+        )
+        assets = SimpleNamespace(
+            portraits={"Example": SimpleNamespace(image="/portrait.png")},
+            covenants={},
+            wheels={},
+            posses={},
+            awakeners={},
+        )
+        rendered = environment.get_template("awakeners/awakener.html").render(
+            page=page,
+            config=SimpleNamespace(extra=SimpleNamespace(content_assets=assets)),
+        )
+
+        self.assertLess(
+            rendered.index('id="build-1"'), rendered.index('id="recommendations"')
+        )
+        self.assertLess(
+            rendered.index('id="recommendations"'),
+            rendered.index('id="example-team"'),
+        )
 
 
 if __name__ == "__main__":

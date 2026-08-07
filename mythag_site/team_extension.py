@@ -28,6 +28,7 @@ TEAM_CONTAINER = re.compile(
     r"(?:(?:[-+*]|\d+[.)])[ \t]+)+)`{3,}team[ \t]*$"
 )
 TEAM_TABLE = re.compile(r"^\s*\|(?:[^|]*\|)*\s*`{3,}team[ \t]*(?:\|.*)?$")
+AWAKENER_TEMPLATE_NAME = "awakeners/awakener.html"
 FENCE_OPEN = re.compile(
     rf"^{FENCE_INDENT}(?P<fence>`{{3,}}|~{{3,}})(?:[^`~].*)?$"
 )
@@ -219,13 +220,24 @@ class TeamPreprocessor(Preprocessor):
         context = _context_or_error(self.md)
         path, start_line = _source_context(self.md, lines)
         assets = context.config["extra"]["content_assets"]
+        is_awakener_guide = (
+            context.page.meta.get("template") == AWAKENER_TEMPLATE_NAME
+        )
+        awakener_teams: list[str] = []
         output: list[str] = []
         for segment in scan_team_fences(lines, path, line_offset=start_line - 1):
             if isinstance(segment, str):
                 output.append(segment)
                 continue
             team = resolve_team(parse_team(segment, path, assets), assets)
-            output.append(render_team(team).replace("\n", ""))
+            rendered = render_team(team).replace("\n", "")
+            if is_awakener_guide:
+                awakener_teams.append(rendered)
+                output.append("")
+            else:
+                output.append(rendered)
+        if is_awakener_guide:
+            context.page.meta["mythag_teams"] = awakener_teams
         return output
 
 

@@ -9,7 +9,7 @@
         <figure>
           <img src="{{ wheel_asset.image }}" alt="" loading="lazy">
           <figcaption>
-            {{ wheel_asset.label }}{% if wheel.note %}<br><em>{{ wheel.note }}</em>{% endif %}
+            {{ wheel_asset.label }}{% if wheel.note %}<em class="awakener-flex-note">{{ wheel.note }}</em>{% endif %}
           </figcaption>
         </figure>
       {% endfor %}
@@ -21,6 +21,7 @@
   {% set guide = page.meta.awakener %}
   {% set assets = config.extra.content_assets %}
   {% set portrait = assets.portraits[page.meta.title] %}
+  {% set guide_teams = page.meta.mythag_teams | default([]) %}
 
   {% include "partials/actions.html" %}
 
@@ -33,6 +34,23 @@
           <li class="awakener-role" data-role="{{ role }}">{{ role }}</li>
         {% endfor %}
       </ul>
+      {% set has_recommendations = guide.suggested_posses or guide.suggested_posses_note
+        or guide.works_well_with or guide.works_well_with_note %}
+      {% set section_count = guide.builds|length + (1 if has_recommendations else 0)
+        + (1 if guide_teams else 0) %}
+      {% if section_count > 1 %}
+        <nav class="awakener-jump" aria-label="Guide sections">
+          {% for build in guide.builds %}
+            <a href="#build-{{ loop.index }}">{{ build.name }}</a>
+          {% endfor %}
+          {% if has_recommendations %}
+            <a href="#recommendations">Recommendations</a>
+          {% endif %}
+          {% if guide_teams %}
+            <a href="#example-teams">Example Teams</a>
+          {% endif %}
+        </nav>
+      {% endif %}
     </header>
 
     <div class="awakener-summary" id="overview">
@@ -47,7 +65,7 @@
               <h2>DPS Rank</h2>
               {% for rank in guide.ranks.dps %}
                 <p class="awakener-rank" data-tier="{{ rank.tier }}">
-                  {{ rank.tier }}{% if rank.note %} <em>({{ rank.note }})</em>{% endif %}
+                  {{ rank.tier }}{% if rank.note %} <em>{{ rank.note }}</em>{% endif %}
                 </p>
               {% endfor %}
             </section>
@@ -58,7 +76,7 @@
               <h2>Support Rank</h2>
               {% for rank in guide.ranks.support %}
                 <p class="awakener-rank" data-tier="{{ rank.tier }}">
-                  {{ rank.tier }}{% if rank.note %} <em>({{ rank.note }})</em>{% endif %}
+                  {{ rank.tier }}{% if rank.note %} <em>{{ rank.note }}</em>{% endif %}
                 </p>
               {% endfor %}
             </section>
@@ -81,7 +99,7 @@
     </div>
 
     {% for build in guide.builds %}
-      <section class="awakener-section awakener-build">
+      <section class="awakener-section awakener-build" id="build-{{ loop.index }}">
         <h2>{{ build.name }}</h2>
         <div class="awakener-build-grid">
           <div class="awakener-covenant-column">
@@ -127,7 +145,7 @@
                   <figure>
                     <img src="{{ posse_asset.image }}" alt="" loading="lazy">
                     <figcaption>
-                      {{ posse_asset.label }}{% if posse.note %}<br><em>{{ posse.note }}</em>{% endif %}
+                      {{ posse_asset.label }}{% if posse.note %}<em class="awakener-flex-note">{{ posse.note }}</em>{% endif %}
                     </figcaption>
                   </figure>
                 {% endfor %}
@@ -159,6 +177,15 @@
             {% endif %}
           </div>
         {% endif %}
+      </section>
+    {% endif %}
+
+    {% if guide_teams %}
+      <section class="awakener-section awakener-teams" id="example-teams">
+        <h2>Example Teams</h2>
+        {% for team in guide_teams %}
+          {{ team | safe }}
+        {% endfor %}
       </section>
     {% endif %}
   </div>

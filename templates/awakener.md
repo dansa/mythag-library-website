@@ -38,3 +38,7 @@ awakener:
 ---
 
 Write the guide as ordinary Markdown here.
+
+Optional example teams can be added as standalone top-level `team` fences
+below the prose. Awakener guides render them in a separate Example Teams
+section; see the README for the shared team schema.

@@ -304,6 +304,30 @@ class AwakenerPreparationTests(unittest.TestCase):
             self.assertIn("awakener.1: expected a string field name", rendered)
             self.assertIn("awakener.surprise: unknown field", rendered)
 
+    def test_rejects_extension_owned_team_metadata(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root, config = self.project(temporary)
+            guide = (
+                root / "lib" / "handbook" / "awakeners" / "chaos" / "example.md"
+            )
+            guide.write_text(
+                guide.read_text(encoding="utf-8").replace(
+                    "template: awakeners/awakener.html",
+                    "template: awakeners/awakener.html\n"
+                    "mythag_teams: ['<script>evil</script>']",
+                    1,
+                ),
+                encoding="utf-8",
+            )
+
+            with self.patches(root, config):
+                _, issues = awakeners.load_guides()
+
+            self.assertIn(
+                "mythag_teams: reserved extension-owned metadata field",
+                "\n".join(str(issue) for issue in issues),
+            )
+
     def test_reports_duplicate_filename_as_slug_issue(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             root, config = self.project(temporary)

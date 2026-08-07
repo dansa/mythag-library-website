@@ -59,6 +59,7 @@ ALLOWED_AWAKENER_FIELDS = {
     "works_well_with",
     "works_well_with_note",
 }
+EXTENSION_OWNED_METADATA_FIELDS = {"mythag_teams"}
 TIER_STYLE_NAMES = {
     "S": "s",
     "A": "a",
@@ -402,6 +403,13 @@ def _parse_guide(
     if not isinstance(meta, dict):
         _issue(issues, relative, "front matter", "expected a mapping")
         return None
+    for field in sorted(EXTENSION_OWNED_METADATA_FIELDS.intersection(meta)):
+        _issue(
+            issues,
+            relative,
+            field,
+            "reserved extension-owned metadata field",
+        )
 
     body = text[match.end() :]
     if LAYOUT_MARKUP.search(body):

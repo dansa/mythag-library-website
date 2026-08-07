@@ -112,6 +112,13 @@ source line and suggests the closest known ID when it finds a typo.
 The shared team fragment is defined in `overrides/teams/team.html`, and its
 presentation is defined in `lib/styles/teams.css`.
 
+## Reference examples and templates
+
+The repository keeps complete, copyable source examples separately from the
+published `lib/` tree. See [`examples/README.md`](examples/README.md) for a
+filled Awakener guide, a full team fence, and links to both scaffolds. These
+reference files are not website pages.
+
 # How to
 
 1. [Create a GitHub account](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github)

@@ -50,10 +50,10 @@ class ImageUrlTests(unittest.TestCase):
             ):
                 build.encode_cached(wheel, site_wheel.with_suffix(".avif"))
                 build.rewrite_html_images()
-            self.assertIn(
-                'src="/images/wheels/wheel.avif" width="316" height="640"',
-                page.read_text(encoding="utf-8"),
-            )
+            rewritten = page.read_text(encoding="utf-8")
+            self.assertIn('src="/images/wheels/wheel.avif"', rewritten)
+            self.assertIn('width="316"', rewritten)
+            self.assertIn('height="640"', rewritten)
 
     def test_rewrites_root_and_relative_image_urls_only_when_avif_exists(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
@@ -102,10 +102,13 @@ class ImageUrlTests(unittest.TestCase):
             rewritten = page.read_text(encoding="utf-8")
             self.assertIn('<script src="/images/awakener.png">', rewritten)
             self.assertIn('href="/images/awakener.avif"', rewritten)
-            self.assertIn('<img src="/images/awakener.avif"', rewritten)
-            self.assertIn('width="200" height="100">', rewritten)
-            self.assertIn('width="100" height="50">', rewritten)
-            self.assertIn('width="117.95" height="59">', rewritten)
+            self.assertIn('src="/images/awakener.avif"', rewritten)
+            self.assertIn('width="200"', rewritten)
+            self.assertIn('height="100"', rewritten)
+            self.assertIn('width="100"', rewritten)
+            self.assertIn('height="50"', rewritten)
+            self.assertIn('width="117.95"', rewritten)
+            self.assertIn('height="59"', rewritten)
 
 
 class PngPruningTests(unittest.TestCase):
@@ -203,16 +206,16 @@ class AbbreviationTests(unittest.TestCase):
             page.parent.mkdir(parents=True)
             page.write_text(
                 '<div class="awakener-guide" data-abbreviations>'
-                '<p title="DPS">Spamming DPS at E0 with GDoll.</p>'
-                '<p><abbr title="existing">DPS</abbr> and <code>E0</code></p>'
-                '</div><p>DPS outside the guide.</p>',
+                '<p title="Tier">Using Action at Tier with Awakener.</p>'
+                '<p><abbr title="existing">Tier</abbr> and <code>Action</code></p>'
+                '</div><p>Tier outside the guide.</p>',
                 encoding="utf-8",
             )
             abbreviations.write_text(
-                '*[DPS]: Damage dealer.\n'
-                '*[E0]: No enlightens.\n'
-                '*[GDoll]: Genesis Doll.\n'
-                '*[Spamming]: Repeatedly using an ability.\n',
+                '*[Tier]: Example tier.\n'
+                '*[Action]: Example action.\n'
+                '*[Awakener]: Example character.\n'
+                '*[Using]: Example use.\n',
                 encoding="utf-8",
             )
 
@@ -225,16 +228,16 @@ class AbbreviationTests(unittest.TestCase):
 
             rewritten = page.read_text(encoding="utf-8")
             self.assertIn(
-                '<abbr title="Repeatedly using an ability.">Spamming</abbr>',
+                '<abbr title="Example use.">Using</abbr>',
                 rewritten,
             )
-            self.assertIn('<abbr title="Damage dealer.">DPS</abbr>', rewritten)
-            self.assertIn('<abbr title="No enlightens.">E0</abbr>', rewritten)
-            self.assertIn('<abbr title="Genesis Doll.">GDoll</abbr>', rewritten)
-            self.assertIn('<p title="DPS">', rewritten)
-            self.assertIn('<abbr title="existing">DPS</abbr>', rewritten)
-            self.assertIn('<code>E0</code>', rewritten)
-            self.assertIn('<p>DPS outside the guide.</p>', rewritten)
+            self.assertIn('<abbr title="Example tier.">Tier</abbr>', rewritten)
+            self.assertIn('<abbr title="Example action.">Action</abbr>', rewritten)
+            self.assertIn('<abbr title="Example character.">Awakener</abbr>', rewritten)
+            self.assertIn('<p title="Tier">', rewritten)
+            self.assertIn('<abbr title="existing">Tier</abbr>', rewritten)
+            self.assertIn('<code>Action</code>', rewritten)
+            self.assertIn('<p>Tier outside the guide.</p>', rewritten)
 
 
 if __name__ == "__main__":

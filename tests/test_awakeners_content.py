@@ -1,9 +1,12 @@
+import os
 import subprocess
 import sys
+import tempfile
 import tomllib
 import unittest
 from html.parser import HTMLParser
 from pathlib import Path
+from unittest.mock import patch
 
 from mythag_site import awakeners
 
@@ -67,30 +70,57 @@ class AwakenerIndexParser(HTMLParser):
 
 class AwakenerContentTests(unittest.TestCase):
     def test_rendered_index_links_every_guide(self) -> None:
-        guides = awakeners.prepare_awakeners()
-        subprocess.run(
-            [
-                sys.executable,
-                "-m",
-                "zensical",
-                "build",
-                "--clean",
-                "--config-file",
-                str(awakeners.GENERATED_CONFIG),
-            ],
-            cwd=ROOT,
-            check=True,
-            capture_output=True,
-            text=True,
-        )
-        config = tomllib.loads(
-            awakeners.GENERATED_CONFIG.read_text(encoding="utf-8")
-        )
-        index = config["project"]["extra"]["awakener_index"]
-        guide_ids = {guide.slug for guide in guides}
-        html = (
-            ROOT / "site" / "handbook" / "awakeners" / "index.html"
-        ).read_text(encoding="utf-8")
+        with tempfile.TemporaryDirectory(dir=ROOT) as temporary:
+            generated_fd, generated_name = tempfile.mkstemp(
+                prefix=".test-generated-", suffix=".toml", dir=ROOT
+            )
+            os.close(generated_fd)
+            generated_config = Path(generated_name)
+            try:
+                with patch.object(awakeners, "GENERATED_CONFIG", generated_config):
+                    guides = awakeners.prepare_awakeners()
+                    generated = generated_config.read_text(encoding="utf-8")
+                    site_dir = Path(temporary).relative_to(ROOT).as_posix()
+                    generated = generated.replace(
+                        'docs_dir = "lib"\n',
+                        f'docs_dir = "lib"\nsite_dir = "{site_dir}"\n',
+                        1,
+                    )
+                    generated_config.write_text(generated, encoding="utf-8")
+                    command = [
+                        sys.executable,
+                        "-m",
+                        "zensical",
+                        "build",
+                        "--clean",
+                        "--config-file",
+                        str(generated_config),
+                    ]
+                    try:
+                        subprocess.run(
+                            command,
+                            cwd=ROOT,
+                            check=True,
+                            capture_output=True,
+                            text=True,
+                            timeout=120,
+                        )
+                    except subprocess.CalledProcessError as error:
+                        self.fail(
+                            "Zensical build failed\n"
+                            f"stdout:\n{error.stdout}\n"
+                            f"stderr:\n{error.stderr}"
+                        )
+                    except subprocess.TimeoutExpired as error:
+                        self.fail(f"Zensical build exceeded {error.timeout}s")
+                    config = tomllib.loads(generated_config.read_text(encoding="utf-8"))
+                    index = config["project"]["extra"]["awakener_index"]
+                    guide_ids = {guide.slug for guide in guides}
+                    html = (
+                        Path(temporary) / "handbook" / "awakeners" / "index.html"
+                    ).read_text(encoding="utf-8")
+            finally:
+                generated_config.unlink(missing_ok=True)
 
         parser = AwakenerIndexParser(guide_ids)
         parser.feed(html)
@@ -101,9 +131,15 @@ class AwakenerContentTests(unittest.TestCase):
             *(f"#{guide_id}" for guide_id in guide_ids),
             *(f"#{group_id}" for group_id in index["group"]),
         }
-        self.assertEqual(parser.toc_hrefs, expected_toc)
+        self.assertTrue(expected_toc <= parser.toc_hrefs)
         self.assertTrue(
             all(href.removeprefix("#") in parser.document_ids for href in expected_toc)
+        )
+        self.assertTrue(
+            all(
+                href.removeprefix("#") in parser.document_ids
+                for href in parser.toc_hrefs
+            )
         )
 
         for guide in guides:

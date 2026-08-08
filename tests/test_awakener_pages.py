@@ -82,23 +82,23 @@ class AwakenerPreparationTests(unittest.TestCase):
                 f"        - {covenant_id}\n"
                 "      wheels:\n"
                 "        early_game:\n"
-                "          - id: wheel-unseen\n"
+                "          - id: wheel-example\n"
                 "        astral_reign:\n"
-                "          - id: wheel-unseen",
+                "          - id: wheel-example",
             ),
             encoding="utf-8",
         )
         (root / "content" / "covenants.yaml").write_text(
-            "burial-grounds-sighs: Burial Ground's Sighs\n",
+            f"{covenant_id}: Covenant Example\n",
             encoding="utf-8",
         )
         (root / "content" / "wheels.yaml").write_text(
-            "wheel-unseen: Wheel Unseen\n",
+            "wheel-example: Wheel Example\n",
             encoding="utf-8",
         )
         wheels = root / "lib" / "images" / "wheels"
         wheels.mkdir()
-        (wheels / "wheel-unseen.png").write_bytes(b"png")
+        (wheels / "wheel-example.png").write_bytes(b"png")
 
     @contextmanager
     def patches(self, root: Path, config: Path):
@@ -415,25 +415,30 @@ class AwakenerPreparationTests(unittest.TestCase):
             root, config = self.project(temporary)
             chaos = root / "lib" / "handbook" / "awakeners" / "chaos"
             guide = chaos / "example.md"
-            guide.replace(chaos / "gdoll.md")
-            renamed = chaos / "gdoll.md"
+            guide.replace(chaos / "renamed-guide.md")
+            renamed = chaos / "renamed-guide.md"
             renamed.write_text(
                 renamed.read_text(encoding="utf-8").replace(
-                    "title: Example", "title: G-Doll", 1
+                    "title: Example", "title: Renamed Guide", 1
                 ),
                 encoding="utf-8",
             )
             portraits = root / "lib" / "images" / "awakeners" / "chaos"
-            (portraits / "example.png").replace(portraits / "gdoll.png")
-            (portraits / "example--mini.png").replace(portraits / "gdoll--mini.png")
+            (portraits / "example.png").replace(portraits / "renamed-guide.png")
+            (portraits / "example--mini.png").replace(
+                portraits / "renamed-guide--mini.png"
+            )
             (root / "content" / "awakeners.yaml").write_text(
-                "gdoll: G-Doll\n", encoding="utf-8"
+                "renamed-guide: Renamed Guide\n", encoding="utf-8"
             )
 
             with self.patches(root, config):
                 guides = awakeners.prepare_awakeners()
 
-            self.assertEqual((guides[0].slug, guides[0].title), ("gdoll", "G-Doll"))
+            self.assertEqual(
+                (guides[0].slug, guides[0].title),
+                ("renamed-guide", "Renamed Guide"),
+            )
 
     def test_rejects_layout_markup_in_guide_prose(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
@@ -480,25 +485,32 @@ class AwakenerPreparationTests(unittest.TestCase):
     def test_rejects_unknown_content_id(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             root, config = self.project(temporary)
-            self.add_catalog_references(root, "burial-ground-sighs")
+            self.add_catalog_references(root, "covenant-example")
+            guide = root / "lib" / "handbook" / "awakeners" / "chaos" / "example.md"
+            guide.write_text(
+                guide.read_text(encoding="utf-8").replace(
+                    "covenant-example", "covenant-missing", 1
+                ),
+                encoding="utf-8",
+            )
 
             with self.patches(root, config):
                 with self.assertRaises(awakeners.AwakenerValidationError) as context:
                     awakeners.prepare_awakeners()
 
             self.assertIn(
-                "unknown covenant ID 'burial-ground-sighs'",
+                "unknown covenant ID 'covenant-missing'",
                 str(context.exception),
             )
 
     def test_resolves_content_id_to_catalog_label_and_assets(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             root, config = self.project(temporary)
-            self.add_catalog_references(root, "burial-grounds-sighs")
+            self.add_catalog_references(root, "covenant-example")
             covenants = root / "lib" / "images" / "covenants"
             covenants.mkdir()
-            (covenants / "burial-grounds-sighs.png").write_bytes(b"png")
-            (covenants / "burial-grounds-sighs--icon.png").write_bytes(b"png")
+            (covenants / "covenant-example.png").write_bytes(b"png")
+            (covenants / "covenant-example--icon.png").write_bytes(b"png")
 
             with self.patches(root, config):
                 awakeners.prepare_awakeners()
@@ -508,17 +520,21 @@ class AwakenerPreparationTests(unittest.TestCase):
             )
             covenant = generated["project"]["extra"]["content_assets"][
                 "covenants"
-            ]["burial-grounds-sighs"]
-            self.assertEqual(covenant["label"], "Burial Ground's Sighs")
+            ]["covenant-example"]
+            self.assertEqual(covenant["label"], "Covenant Example")
             self.assertEqual(
                 covenant["image"],
-                "/images/covenants/burial-grounds-sighs.png",
+                "/images/covenants/covenant-example.png",
+            )
+            self.assertEqual(
+                covenant["icon"],
+                "/images/covenants/covenant-example--icon.png",
             )
 
     def test_accepts_optional_build_covenant_guidance(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             root, config = self.project(temporary)
-            self.add_catalog_references(root, "burial-grounds-sighs")
+            self.add_catalog_references(root, "covenant-example")
             guide = root / "lib" / "handbook" / "awakeners" / "chaos" / "example.md"
             guide.write_text(
                 guide.read_text(encoding="utf-8").replace(
